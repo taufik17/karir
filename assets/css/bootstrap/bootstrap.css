@@ -3496,7 +3496,7 @@ tbody.collapse.show {
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem;
+  border-radius: 0rem;
 }
 
 .nav-pills .nav-link.active,

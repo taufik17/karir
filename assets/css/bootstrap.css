@@ -1829,6 +1829,9 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .form-group {
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
 }
 
 .form-text {
@@ -3531,7 +3534,10 @@ tbody.collapse.show {
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem;
+ position: relative;
+   display: block;
+   padding: 10px 15px;
+
 }
 
 .nav-pills .nav-link.active,
@@ -3543,6 +3549,9 @@ tbody.collapse.show {
 .nav-fill .nav-item {
   flex: 1 1 auto;
   text-align: center;
+  position: relative;
+    display: block;
+    padding: 10px 15px;
 }
 
 .nav-justified .nav-item {
@@ -4944,9 +4953,9 @@ button.close {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
+  background: linear-gradient(to right, #7B63F3 , #BEA9F8);
 }
 
 .modal-header .close {
@@ -4962,7 +4971,10 @@ button.close {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 1rem;
 }
 
 .modal-footer {
