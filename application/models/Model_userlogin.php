@@ -5,7 +5,7 @@ class Model_userlogin extends CI_model {
 
 	public function getlogin($u,$p)
 	{
-		$pwd = sha1($p);
+		$pwd = hash('sha512', $p . config_item('encryption_key'));
 		$this->db->where('Email_jobseeker',$u);
 		$this->db->where('Password_jobseeker',$pwd);
 		$query = $this->db->get('jobseeker');
@@ -28,7 +28,7 @@ class Model_userlogin extends CI_model {
 
 	public function getlogin2($u,$p)
 	{
-		$pwd = sha1($p);
+		$pwd = hash('sha512', $p . config_item('encryption_key'));
 		$this->db->where('Email_perusahaan',$u);
 		$this->db->where('Password_perusahaan',$pwd);
 		$query = $this->db->get('perusahaan');
@@ -48,5 +48,10 @@ class Model_userlogin extends CI_model {
 			}
 			echo json_encode($output);
 	}
+
+	public function hash($string)
+    {
+        return hash('sha512', $string . config_item('encryption_key'));
+    }
 
 }
