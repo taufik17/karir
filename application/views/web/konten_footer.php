@@ -68,10 +68,10 @@
 				<div class="tab-content" id="tabloginContent">
 					<div class="tab-pane fade show active" id="jobseeker" role="tabpanel" aria-labelledby="jobseeker-tab">
 				<form id="logForm">
-							<div class="form-group">
+							<div class="form-group-login">
 								<input id="username" name="emailjobseeker" type="email" placeholder="Email jobseeker" class="form-control" required>
 							</div>
-							<div class="form-group">
+							<div class="form-group-login">
 								<input id="password" name="passwordjobseeker" type="password" placeholder="Password" class="form-control" required>
 							</div>
 					<p class="text-center">
@@ -92,10 +92,10 @@
 							</div>
 							<div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
 						<form id="logForm2">
-									<div class="form-group">
+									<div class="form-group-login">
 										<input id="username" name="emailcompany" type="email" placeholder="Email company" class="form-control" required>
 									</div>
-									<div class="form-group">
+									<div class="form-group-login">
 										<input id="password" name="passwordcompany" type="password" placeholder="Password" class="form-control" required>
 									</div>
 							<p class="text-center">

@@ -22,7 +22,7 @@
 
 <body>
 	<div class="loader"></div>
-	<header id="header" id="home">
+	<header id="header">
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
@@ -36,7 +36,13 @@
 						<li><a href="#">JOBSEEKER & STUDENT</a></li>
 						<li><a href="#">EVENT</a></li>
 						<li><a href="#">FAQ</a></li>
-						<li><a class="ticker-btn" href="<?php echo base_url() ?>register">Signup</a></li>
+
+						<li class="menu-has-children"><a class="ticker-btn" style="color:white">Signup&nbsp&nbsp</a>
+				            <ul style="display: none;">
+								<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
+								<li><a href="search.html">COMPANY</a></li>
+				            </ul>
+				          </li>
 						<li>
 							<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
 						</li>

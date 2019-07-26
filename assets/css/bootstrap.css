@@ -70,6 +70,19 @@
   }
 }
 
+.footer_daftar{
+  margin: 0 160px;
+    padding: 20px 20px 25px;
+    text-align: center;
+}
+
+
+
+.spasi{
+  margin: 5px;
+  background-color: #EBEBEB;
+  border-radius: 2px;
+}
 *,
 *::before,
 *::after {
@@ -112,6 +125,7 @@ hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
+  margin: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1827,10 +1841,17 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   height: calc(2.875rem + 2px);
 }
 
-.form-group {
+.form-group-login {
   margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+}
+
+.form-group-daftar {
+  margin-bottom: 1rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
   padding-top: 1rem;
 }
 
@@ -3492,6 +3513,10 @@ tbody.collapse.show {
   text-decoration: none;
 }
 
+.hoverdaftar{
+  border-bottom: 5px solid #47447d;
+}
+
 .nav-link.disabled {
   color: #6c757d;
 }
@@ -3512,6 +3537,7 @@ tbody.collapse.show {
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
+
 }
 
 .nav-tabs .nav-link.disabled {
@@ -3544,6 +3570,11 @@ tbody.collapse.show {
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #007bff;
+  border-bottom: 5px solid #036bda; //active link tab pills
+}
+
+.pilbg{
+  background-color: #d3e3f5;
 }
 
 .nav-fill .nav-item {

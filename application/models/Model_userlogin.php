@@ -8,7 +8,7 @@ class Model_userlogin extends CI_model {
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
 		$this->db->where('Email_jobseeker',$u);
 		$this->db->where('Password_jobseeker',$pwd);
-		$query = $this->db->get('jobseeker');
+		$query = $this->db->get('jobseeker_alumni');
 		if($query->num_rows()>0)
 		{
 			foreach ($query->result() as $row)
@@ -31,7 +31,7 @@ class Model_userlogin extends CI_model {
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
 		$this->db->where('Email_perusahaan',$u);
 		$this->db->where('Password_perusahaan',$pwd);
-		$query = $this->db->get('perusahaan');
+		$query = $this->db->get('company');
 		if($query->num_rows()>0)
 		{
 			foreach ($query->result() as $row)

@@ -8,7 +8,6 @@
 					<h1 class="text-white">
 						Start Your Career
 					</h1>
-					<a href="https://google.com" target="_top">testing</a>
 					<form action="search.html" class="serach-form-area">
 						<div class="row justify-content-center form-wrap">
 							<div class="col-lg-4 form-cols">
@@ -56,7 +55,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div class="single-feature">
-						<h4>Lowongan</h4>
+						<h4 align="center">Lowongan</h4>
 
 						<ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
 							<li class="nav-item">
@@ -75,7 +74,7 @@
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="single-feature">
-						<h4>Career News</h4>
+						<h4 align="center">Career News</h4>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing.
 						</p>
@@ -83,7 +82,7 @@
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="single-feature">
-						<h4>Kalender Event</h4>
+						<h4 align="center">Kalender Event</h4>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing.
 						</p>
