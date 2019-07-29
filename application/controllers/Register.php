@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Register extends CI_Controller {
 	public function index(){ // halaman utama register jobseeker
 		$isi['title'] = "ICC | Register";
-		$this->load->view('web/tampilan_register',$isi);
+		$this->load->view('web/daftar/jobseeker/tampilan_register',$isi);
 	}
 
 	public function alumniitera(){ // halaman register alumni itera

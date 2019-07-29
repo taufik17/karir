@@ -40,7 +40,7 @@
 						<li class="menu-has-children"><a class="ticker-btn" style="color:white">Signup&nbsp&nbsp</a>
 				            <ul style="display: none;">
 								<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
-								<li><a href="search.html">COMPANY</a></li>
+								<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
 				            </ul>
 				          </li>
 						<li>
