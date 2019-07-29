@@ -2560,6 +2560,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .single-feature p {
   margin-bottom: 0;
+  padding-left: 12px;
 }
 
 .single-feature h4 {
@@ -2572,7 +2573,21 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   font-weight: 800;
   text-transform: uppercase;
+}
 
+.single-feature .container-fluid  {
+  width: 100%;
+  padding-right: 150px;
+  padding-left: 150px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.single-feature .step2{
+  width: 50%;
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (max-width: 960px) {
