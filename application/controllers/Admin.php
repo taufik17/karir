@@ -16,6 +16,7 @@ class Admin extends CI_Controller {
 	}
 
 	function dashboard(){
-		echo "ini dashboard";
+		$isi['title'] = "ICC | Admin Dashboard";
+		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 }
