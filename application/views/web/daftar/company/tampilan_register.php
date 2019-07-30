@@ -123,8 +123,8 @@
 					<hr>
 					<div style="text-align: center;">
 						<button class="btn btn-primary" type="submit">
-							<i class="fa fa-user"></i>
-							Register
+							Selanjutnya
+							<i class="fa fa-arrow-right"></i>
 						</button>
 					</div>
 				</form>

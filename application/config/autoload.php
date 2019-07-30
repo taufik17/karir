@@ -6,4 +6,4 @@ $autoload['drivers'] = array();
 $autoload['helper'] = array('url','form','email','captcha');
 $autoload['config'] = array();
 $autoload['language'] = array();
-$autoload['model'] = array();
+$autoload['model'] = array('model_daftar');

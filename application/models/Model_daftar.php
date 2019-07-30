@@ -32,6 +32,10 @@ class Model_daftar extends CI_model {
     $this->db->insert('company', $data);
   }
 
+  public function getinsertstep2($password, $email) {
+    $this->db->query("UPDATE `company` SET `Password_perusahaan` = '$password' WHERE `company`.`Email_officer` = '$email'");
+  }
+
   public function checkEmail($key) {
     if(!filter_var($key, FILTER_VALIDATE_EMAIL))
     {

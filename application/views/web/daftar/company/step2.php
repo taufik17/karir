@@ -24,11 +24,11 @@
 							<div class="col-sm-12">
 								<p align="center">Informasi berikut ini di gunakan untuk membuat Akun Login perusahaan Anda </p>
 								<hr>
-								<form method="POST" action="<?php echo base_url();?>Register_company/sregcompany">
+								<form method="POST" action="<?php echo base_url();?>Register_company/sregstep2">
 
 									<div class="form-group-company">
 										<label for="exampleFormControlInput1">Email<span class="required">&nbsp*</span>&nbsp:</label>
-										<input type="email" class="form-control" id="Email_officer" name="Email_officer" value="<?php echo $email; ?>" required>
+										<input type="email" class="form-control" id="Email_officer" name="Email_officer" value="<?php echo $email; ?>" readonly required>
 									</div>
 
 									<div class="form-group-company">

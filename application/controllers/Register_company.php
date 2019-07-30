@@ -45,4 +45,16 @@ class Register_company extends CI_Controller {
 		$this->model_daftar->getinsertcompany($data);
 		$this->load->view('web/daftar/company/step2',$isi);
 	}
+
+	function sregstep2(){
+		$pswd = $this->input->post('Password');
+		$password = hash('sha512',$pswd . config_item('encryption_key'));
+		$email = $this->input->post('Email_officer');
+		$this->model_daftar->getinsertstep2($password, $email);
+	}
+
+	function hash($string)
+	{
+		return hash('sha512', $string . config_item('encryption_key'));
+	}
 }
