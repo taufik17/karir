@@ -5,8 +5,7 @@ class Register_company extends CI_Controller {
 	public function index()
 	{
 		$isi['title'] = "ITERA | Register Company";
-		$isi['jenis_industri'] = $this->db->query("SELECT id, jenis_industri FROM industri");
-		$isi['negara'] = $this->db->query("SELECT id, nama_negara FROM negara");
+		$isi['jenis_industri'] = $this->db->query("SELECT id_industri, jenis_industri FROM industri");
 		$isi['provinsi'] = $this->db->query("SELECT id, nama FROM provinsi");
 		$this->load->view('web/daftar/company/tampilan_register',$isi);
 	}
@@ -26,20 +25,24 @@ class Register_company extends CI_Controller {
 
 	function sregcompany(){
 		$isi['title'] = "ITERA | Register Company";
-		$this->load->view('web/daftar/company/step2',$isi);
-		$key = $this->input->post('Email_jobseeker');
-		$pswd = $this->input->post('password_jobseeker');
+		$isi['email'] = $this->input->post('Email_officer');
 		$data['Nama_perusahaan']	= $this->input->post('Nama_perusahaan');
-		$data['Jenis_industri'] = $this->input->post('Jenis_industri');
+		$data['id_industri'] = $this->input->post('Jenis_industri');
 		$data['Email_perusahaan']	= $this->input->post('Email_perusahaan');
-		$data['website'] = $this->input->post('website');
+		$data['Website'] = $this->input->post('website');
 		$data['telp_perusahaan'] = $this->input->post('telp_perusahaan');
-		$data['provinsi'] = $this->input->post('provinsi');
-		$data['kabupaten'] = $this->input->post('kabupaten');
+		$data['id_provinsi'] = $this->input->post('provinsi');
+		$data['id_kabupaten_kota'] = $this->input->post('kabupaten');
 		$data['alamat'] = $this->input->post('alamat');
 		$data['kode_pos'] = $this->input->post('kode_pos');
-	
+
+		$data['Nama_officer'] = $this->input->post('Nama_officer');
+		$data['Email_officer'] = $this->input->post('Email_officer');
+		$data['Telp_officer'] = $this->input->post('Telp_officer');
+		$data['Hp_officer'] = $this->input->post('Hp_officer');
+
 		$this->load->model('model_daftar');
-		$this->model_daftar->getinsert($data);
+		$this->model_daftar->getinsertcompany($data);
+		$this->load->view('web/daftar/company/step2',$isi);
 	}
 }

@@ -27,6 +27,11 @@ class Model_daftar extends CI_model {
     $this->db->insert('jobseeker_mahasiswa',$data);
   }
 
+  public function getinsertcompany($data) {
+    $this->db->where('Email_officer');
+    $this->db->insert('company', $data);
+  }
+
   public function checkEmail($key) {
     if(!filter_var($key, FILTER_VALIDATE_EMAIL))
     {

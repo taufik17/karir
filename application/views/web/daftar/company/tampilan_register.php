@@ -42,7 +42,7 @@
 											<?php
 											foreach ($jenis_industri->result() as $row ) {
 											?>
-											<option value="<?php echo $row->id; ?>" ><?php echo $row->jenis_industri; ?></option>
+											<option value="<?php echo $row->id_industri; ?>" ><?php echo $row->jenis_industri; ?></option>
 											<?php } ?>
 										</select>
 									</div>

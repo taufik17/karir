@@ -28,7 +28,7 @@
 
 									<div class="form-group-company">
 										<label for="exampleFormControlInput1">Email<span class="required">&nbsp*</span>&nbsp:</label>
-										<input type="email" class="form-control" id="Email_officer" name="Email_officer" required>
+										<input type="email" class="form-control" id="Email_officer" name="Email_officer" value="<?php echo $email; ?>" required>
 									</div>
 
 									<div class="form-group-company">

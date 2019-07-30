@@ -29,14 +29,14 @@ class Model_userlogin extends CI_model {
 	public function getlogin2($u,$p)
 	{
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_perusahaan',$u);
+		$this->db->where('Email_officer',$u);
 		$this->db->where('Password_perusahaan',$pwd);
 		$query = $this->db->get('company');
 		if($query->num_rows()>0)
 		{
 			foreach ($query->result() as $row)
 			{
-				$sess = array('Email_perusahaan'	=> $row->Email_perusahaan,
+				$sess = array('Email_officer'	=> $row->Email_officer,
 							  'Password_perusahaan'	=> $row->Password_perusahaan);
 				$this->session->set_userdata($sess);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
