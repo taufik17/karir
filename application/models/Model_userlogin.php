@@ -59,9 +59,9 @@ class Model_userlogin extends CI_model {
 		{
 			foreach ($query->result() as $row)
 			{
-				$sess_admin = array('Email_admin'	=> $row->Email_admin,
+				$session_admin = array('Email_admin'	=> $row->Email_admin,
 							  'password'	=> $row->password);
-				$this->session->set_userdata($sess_admin);
+				$this->session->set_userdata($session_admin);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
 			}
 		}

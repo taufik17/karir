@@ -2109,7 +2109,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu ul li:hover > a {
-  color: #49e4fa;
+  color: #8c1515;
 }
 
 .nav-menu ul ul {
@@ -2238,6 +2238,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .section-gap {
   padding: 120px 0;
+}
+
+.section-header-company {
+  padding-bottom: 120px;
+  padding-top: 55px;
 }
 
 .section-title {
@@ -2550,6 +2555,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-top: -65px;
 }
 
+.header-company {
+  margin-top: -2px;
+}
+
 .single-feature {
 
   border-radius: 5px;
@@ -2651,7 +2660,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .post-list .cat-list li:hover {
-  background-color: #49e4fa;
+  background-color: #8C1515;
 }
 
 .post-list .cat-list li:hover a {
@@ -2928,7 +2937,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 10px;
   text-transform: capitalize;
   border-radius: 0;
-  background-color: #49e4fa;
+  background-color: #8C1515;
   color: #fff;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -2937,7 +2946,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .callto-action-area .primary-btn:hover {
-  background-color: #ad9aff;
+  background-color: #6e0808;
   color: #fff;
   border-color: transparent;
 }

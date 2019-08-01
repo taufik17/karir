@@ -121,7 +121,7 @@
 						</div>
 					</div>
 					<hr>
-					<div style="text-align: center;">
+						<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
 						<button class="btn btn-primary" type="submit">
 							Selanjutnya
 							<i class="fa fa-arrow-right"></i>

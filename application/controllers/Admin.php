@@ -4,8 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 	public function index()
 	{
+		$session_admin = $this->session->userdata('Email_admin');
 		$isi['title'] = "ICC | Admin Login";
-		$this->load->view('admin/tampilan_login',$isi);
+		if(!empty($session_admin))
+		{
+			redirect('admin/dashboard');
+		}else {
+			$this->load->view('admin/tampilan_login',$isi);
+		}
 	}
 
 	function login(){

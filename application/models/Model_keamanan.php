@@ -5,10 +5,10 @@ class Model_keamanan extends CI_model {
 
 	public function getkeamananadmin()
 	{
-		$Email = $this->session->userdata('Email_admin');
-		if(empty($Email))
+		$session_admin = $this->session->userdata('Email_admin');
+		if(empty($session_admin))
 		{
-			$this->session->sess_destroy($sess_admin);
+			$this->session->sess_destroy($session_admin);
 			redirect('Admin');
 		}
 	}

@@ -186,7 +186,7 @@
 								$('#responseDiv2').removeClass('alert-danger').addClass('alert-success').show();
 								$('#logForm2')[0].reset();
 								setTimeout(function(){
-									location.href = "login/inicompany";
+									location.href = "Company";
 								}, 1000);
 							}
 						}
