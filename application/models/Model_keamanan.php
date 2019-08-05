@@ -12,4 +12,15 @@ class Model_keamanan extends CI_model {
 			redirect('Admin');
 		}
 	}
+
+	public function getkeamanancompany()
+	{
+		$sess_company = $this->session->userdata('Email_officer');
+		if(empty($sess_company))
+		{
+			$this->session->sess_destroy($sess_company);
+			redirect('Company');
+		}
+	}
+
 }

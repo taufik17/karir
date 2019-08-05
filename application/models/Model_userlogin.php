@@ -36,9 +36,10 @@ class Model_userlogin extends CI_model {
 		{
 			foreach ($query->result() as $row)
 			{
-				$sess = array('Email_officer'	=> $row->Email_officer,
-							  'Password_perusahaan'	=> $row->Password_perusahaan);
-				$this->session->set_userdata($sess);
+				$sess_company = array('Email_officer'	=> $row->Email_officer,
+							  'Password_perusahaan'	=> $row->Password_perusahaan,
+								'Id_perusahaan' => $row->Id_perusahaan);
+				$this->session->set_userdata($sess_company);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
 			}
 		}

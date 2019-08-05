@@ -5,8 +5,8 @@ class Register_company extends CI_Controller {
 	public function index()
 	{
 		$isi['title'] = "ITERA | Register Company";
-		$isi['jenis_industri'] = $this->db->query("SELECT id_industri, jenis_industri FROM industri");
-		$isi['provinsi'] = $this->db->query("SELECT id, nama FROM provinsi");
+		$isi['jenis_industri'] = $this->model_data->jenis_industri();
+		$isi['provinsi'] = $this->model_data->provinsi();
 		$this->load->view('web/daftar/company/tampilan_register',$isi);
 	}
 

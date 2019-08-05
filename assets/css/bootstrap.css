@@ -3567,14 +3567,15 @@ tbody.collapse.show {
  position: relative;
    display: block;
    padding: 10px 15px;
+   margin: 8px;
 
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
-  border-bottom: 5px solid #036bda; //active link tab pills
+  background-color: #a62525;
+  border-bottom: 5px solid #8C1515; //active link tab pills
 }
 
 .pilbg{

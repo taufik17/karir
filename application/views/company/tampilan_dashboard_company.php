@@ -5,212 +5,9 @@
 		<div class="row">
 			<?php foreach ($profil_company->result() as $nama ) {
 				?>
-			<div class="col-md-3">
 			<?php } ?>
-
-<div class="list-group">
-  <a class="list-group-item aktif" href="http://siakad.itera.ac.id/mahasiswa"><i class="fa fa-home tab10" aria-hidden="true"></i> Beranda</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/krsbaru"><i class="fa fa-plus-circle tab10" aria-hidden="true"></i> Tambah List Job</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/transkrip"><i class="fa fa-list-alt tab10" aria-hidden="true"></i> List Job</a>
-</div>
-
-<div class="list-group">
-  <a class="list-group-item list-group-item-header" href="#">Mahasiswa</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/jadwal"><i class="fa fa-clock-o tab10" aria-hidden="true"></i> Jadwal Kuliah</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/kuesioner"><i class="fa fa-question-circle tab10" aria-hidden="true"></i> Kuesioner</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/pembayaran"><i class="fa fa-calendar-check-o tab10" aria-hidden="true"></i> Pembayaran UKT</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/status"><i class="fa fa-list-ul tab10" aria-hidden="true"></i> Status Per Semester</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/kkn"><i class="fa fa-check-square tab10" aria-hidden="true"></i> Pendaftaran KKN</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/kkn/laporan"><i class="fa fa-file-text-o tab10" aria-hidden="true"></i> Laporan KKN</a>
-</div>
-
-<div class="list-group">
-  <a class="list-group-item list-group-item-header" href="#">Informasi</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/kelas"><i class="fa fa-book tab10" aria-hidden="true"></i> Kelas</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/kalender"><i class="fa fa-calendar tab10" aria-hidden="true"></i> Kalender Akademik</a>
-  <a class="list-group-item " href="http://siakad.itera.ac.id/mahasiswa/berita"><i class="fa fa-rss tab10" aria-hidden="true"></i> Berita Itera</a>
-</div>
-
-			</div>
-
-			<div class="col-md-9">
-				<div class="nav-tabs-custom">
-					<ul class="nav nav-tabs">
-						<li><a aria-expanded="false" href="#settings" data-toggle="tab">Ubah Data</a></li>
-						<li><a aria-expanded="false" href="#DataMahasiswa" data-toggle="tab">Data Mahasiswa</a></li>
-						<li class="active"><a aria-expanded="true" href="#UbahPassword" data-toggle="tab">Ubah Kata Sandi</a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane" id="DataMahasiswa">
-							<table width="100%" class="table table-striped table-bordered table-hover dataTable" id="dataTables-example">
-								<tbody>
-									<tr>
-										<td width="26%" align="left"><b>NIM</b></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td align="left"><b>Nama Lengkap</b></td>
-										<td>sunarno</td>
-									</tr>
-									<tr><td align="left"><b>Jurusan</b></td>
-										<td>Teknik Geofisika</td>
-									</tr>
-									<tr>
-										<td align="left"><b>Jenis Kelamin</b></td>
-										<td>--</td>
-									</tr>
-									<tr>
-										<td align="left"><b>Email</b></td>
-										<td>sunarno@student.itera.ac.id</td>
-									</tr>
-									<tr>
-										<td align="left"><b>Nomor Telepon</b></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td align="left"><b>Alamat</b></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td align="left"><b>Semester</b></td>
-										<td>0</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-						<div class="tab-pane active" id="UbahPassword">
-							<form class="form-horizontal" action="http://localhost/mtageo/ProfilMhs/updatesandi" enctype="multipart/form-data" method="post">
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputPassword">Sandi Sekarang</label>
-									<div class="col-sm-10">
-										<input name="OldPassword" class="form-control" id="inputOldPassword" required="" type="password" placeholder="Kata Sandi Saat Ini">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputPassword">Sandi baru</label>
-									<div class="col-sm-10">
-										<input name="NewPassword" class="form-control" id="inputNewPassword" required="" type="password" placeholder="Kata Sandi Baru" minlength="8">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputPassword">Ketik ulang sandi baru</label>
-									<div class="col-sm-10">
-										<input name="AgainNewPassword" class="form-control" id="inputAgainNewPassword" required="" type="password" placeholder="Ulangi kata sandi baru" minlength="8">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> Data yang saya input Sudah Benar
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<button class="btn btn-primary" type="submit"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
-									</div>
-								</div>
-							</form>
-						</div>
-
-						<div class="tab-pane" id="settings">
-							<form class="form-horizontal" action="http://localhost/mtageo/ProfilMhs/updatedata" enctype="multipart/form-data" method="post">
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputEmail">NIM</label>
-									<div class="col-sm-10">
-										<input name="NIM" class="form-control" id="inputNIM" required="" type="text" placeholder="NIM" value="">
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputName">Nama Lengkap</label>
-									<div class="col-sm-10">
-										<input name="Nama_mhs" class="form-control" id="inputName" required="" type="text" placeholder="Nama Lengkap" value="sunarno">
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputJurusan">Jurusan</label>
-									<div class="col-sm-10">
-										<input name="Jurusan" disabled="" class="form-control" id="inputJurusan" type="email" placeholder="Teknik Geofisika">
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputEmail">Jenis Kelamin</label>
-									<div class="col-sm-10">
-										<select name="JK" tabindex="-1" class="form-control select2 select2-hidden-accessible" aria-hidden="true" style="width: 100%;" required="">
-											<option selected="selected">--</option>
-											<option value="Laki - Laki">Laki Laki</option>
-											<option value="Perempuan">Perempuan</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputEmail">Email</label>
-
-									<div class="col-sm-10">
-										<input disabled="" class="form-control" id="inputEmail" type="email" placeholder="sunarno@student.itera.ac.id">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputName">No HP / Telepon</label>
-
-									<div class="col-sm-10">
-										<input name="telp" class="form-control" id="inputPhone" type="text" placeholder="No HP / Telepon" value="">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputAddress">Alamat</label>
-
-									<div class="col-sm-10">
-										<textarea name="Alamat" class="form-control" id="inputAddress" placeholder="Alamat Lengkap"></textarea>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="inputMasuk">Semester</label>
-
-									<div class="col-sm-10">
-										<input name="semester" class="form-control" id="inputMasuk" required="" type="number" placeholder="Semester" value="0">
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="exampleInputFile">Foto Profil</label>
-									<div class="col-sm-10">
-										<div class="dropify-wrapper" style="height: 264px;"><div class="dropify-message"><span class="file-icon"></span> <p>Drag atau drop untuk memilih file</p><p class="dropify-error">error</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input name="filefoto" class="dropify" type="file" data-height="250"><button class="dropify-clear" type="button">Hapus</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Ganti</p></div></div></div></div>
-										<input name="oldfile" type="text" value="avatar5.png" hidden="">
-										<p class="help-block">File Max 2 Mb</p>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> Data yang saya input Sudah Benar
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<button class="btn btn-primary" type="submit"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
-									</div>
-								</div>
-							</form>
-						</div>
-						<!-- /.tab-pane -->
-					</div>
-					<!-- /.tab-content -->
-				</div>
-				<!-- /.nav-tabs-custom -->
-			</div>
+			<?php $this->load->view($menu); ?>
+			<?php $this->load->view($konten); ?>
 		</div>
 
 	</div>
@@ -221,8 +18,68 @@
 &nbsp
 <br>
 
-<?php $this->load->view('web/konten_footer') ?>
+<!-- modal -->
 
+<div class="modal fade" id="modal_tambah" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+					<h4 class="modal-title">Tambah Pekerjaan</h4>
+				</div>
+				<form class="form-horizontal">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-2">
+								<label for="inputTipe" class="control-label">Nama Pekerjaan</label>
+							</div>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="namatipe" id="nama_tipe" placeholder="Nama Pekerjaan">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-2">
+								<label for="inputTipe" class="control-label">Deadline</label>
+							</div>
+							<div class="col-sm-8">
+
+								<input type="text" class="form-control" name="namatipe" id="nama_tipe" placeholder="Deadline">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label>Date range:</label>
+
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input type="text" class="form-control pull-right" id="reservation">
+							</div>
+							<!-- /.input group -->
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+						<button class="btn btn-success" id="btn_tambah"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah</button>
+					</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+<!-- end modal -->
+
+<?php $this->load->view('company/konten_footer') ?>
+
+
+<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -231,6 +88,134 @@
 <script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
 <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        tampil_joblist();   //pemanggilan fungsi tampil tipe.
+
+        $('#joblist').dataTable();
+
+        //fungsi tampil tipe
+        function tampil_joblist(){
+            $.ajax({
+                type  : 'ajax',
+                url   : '<?php echo base_url()?>company/data_pekerjaan',
+                async : false,
+                dataType : 'json',
+                success : function(data){
+                    var html = '';
+                    var i;
+                    var no=1;
+                    for(i=0; i<data.length; i++){
+                        html += '<tr>'+
+                                '<td>'+no+'</td>'+
+                                '<td>'+data[i].Nama_joblist+'</td>'+
+																'<td>'+data[i].deadline+'</td>'+
+                                '<td style="text-align:center;">'+
+                                  '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].Id_perusahaan+'"><i class="fa fa-edit"></i>&nbsp&nbspEdit</a>'+' '+
+                                  '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].Id_perusahaan+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+                                '</td>'+
+                                '</tr>';
+                                no++;
+                    }
+                    $('#show_joblist').html(html);
+                }
+
+            });
+        }
+
+        //GET UPDATE
+        $('#show_joblist').on('click','.item_edit',function(){
+            var id=$(this).attr('data');
+            $.ajax({
+                type : "GET",
+                url  : '<?php echo base_url()?>edit/gettipekode',
+                dataType : 'json',
+                data : {id:id},
+                success: function(data){
+                    $.each(data,function(id_tipe, nama_tipe){
+                        $('#modal_edit').modal('show');
+                        $('[name="namatipebaru"]').val(data.nama_tipe);
+                        $('[name="idtipe"]').val(data.id_tipe);
+                    });
+                }
+            });
+            return false;
+        });
+
+        //GET HAPUS
+        $('#show_joblist').on('click','.item_hapus',function(){
+            var id=$(this).attr('data');
+            $('#modal_hapus').modal('show');
+            $('[name="kode"]').val(id);
+        });
+
+        //Tambah tipe
+        $('#btn_tambah').on('click',function(){
+            var namatipe=$('#nama_tipe').val();
+            $.ajax({
+                type : "POST",
+                url  : "<?php echo base_url('edit/tambah_tipe')?>",
+                dataType : "JSON",
+                data : {namatipe: namatipe},
+                success: function(data){
+                    $('[name="namatipe"]').val("");
+                    $('#modal_tambah').modal('hide');
+                    tampil_joblist();
+                }
+            });
+            return false;
+        });
+
+        //Update Barang
+        $('#btn_simpan').on('click',function(){
+          var namatipebaru=$('#nama_tipe_baru').val();
+          var idtipe=$('#textid').val();
+          $.ajax({
+            type : "POST",
+            url  : "<?php echo base_url('edit/update_tipe')?>",
+            dataType : "JSON",
+            data : {namatipebaru: namatipebaru, idtipe: idtipe},
+            success: function(data){
+              $('[name="namatipebaru"]').val("");
+              $('[name="tipebrg"]').val("");
+              $('#modal_edit').modal('hide');
+              tampil_joblist();
+            }
+          });
+             return false;
+        });
+
+        //Hapus Barang
+        $('#btn_hapus').on('click',function(){
+            var kode=$('#textkode').val();
+            $.ajax({
+            type : "POST",
+            url  : "<?php echo base_url('edit/delete_tipe')?>",
+            dataType : "JSON",
+            data : {kode: kode},
+            success: function(data){
+                $('#modal_hapus').modal('hide');
+                    tampil_joblist();
+                  }
+            });
+                return false;
+            });
+    });
+</script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 
 </body>
 </html>

@@ -1842,12 +1842,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .default-select .nice-select .list .option.selected {
-  color: #49e4fa;
+  color: #8C1515;
   background: transparent;
 }
 
 .default-select .nice-select .list .option:hover {
-  color: #49e4fa;
+  color: #8C1515;
   background: transparent;
 }
 
@@ -2399,7 +2399,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-content p span {
-  color: #49e4fa;
+  color: #cf3434;
 }
 
 @media (max-width: 1280px) {

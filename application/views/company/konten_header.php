@@ -8,12 +8,13 @@
 	<link href="<?php echo base_url(); ?>assets/css/customfont.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/linearicons.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
+
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/magnific-popup.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/nice-select.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
@@ -23,6 +24,31 @@
 
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
+
+	<style>
+    .datepicker {
+      z-index: 9999 !important; /* has to be larger than 1050 */
+    }
+</style>
+
+	<style type="text/css">
+	.row {
+	margin-right: -15px;
+	margin-left: -15px;
+	}
+
+	.align-items-center {
+	align-items: center !important;
+	}
+
+	.justify-content-between {
+	justify-content: space-between !important;
+	}
+
+	.d-flex {
+	display: flex !important;
+	}
+	</style>
 
 </head>
 
@@ -42,16 +68,9 @@
 						<li><a href="#">JOBSEEKER & STUDENT</a></li>
 						<li><a href="#">EVENT</a></li>
 						<li><a href="#">FAQ</a></li>
-
-						<li class="menu-has-children"><a class="ticker-btn" style="color:white">Signup&nbsp&nbsp</a>
-				            <ul style="display: none;">
-								<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
-								<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
-				            </ul>
-				          </li>
-						<li>
-							<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
-						</li>
+		        <li>
+		         <a href="<?php echo base_url() ?>BerandaMhs/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
+		        </li>
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>

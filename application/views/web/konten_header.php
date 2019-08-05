@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
 
+
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
 

@@ -34,4 +34,25 @@ class Model_data extends CI_model {
 		return $data;
 	}
 
+	function provinsi(){
+		$data = $this->db->query("SELECT id, nama FROM provinsi");
+		return $data;
+	}
+
+	function jenis_industri(){
+		$data = $this->db->query("SELECT id_industri, jenis_industri FROM industri");
+		return $data;
+	}
+
+	function data_company(){
+		$hasil = $this->db->get('company');
+    return $hasil->result();
+	}
+
+	function data_pekerjaan(){
+		$id_perusahaan = $this->session->userdata('Id_perusahaan');
+		$hasil = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $id_perusahaan");
+		return $hasil->result();
+	}
+
 }

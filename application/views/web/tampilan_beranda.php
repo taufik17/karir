@@ -16,22 +16,24 @@
 							<div class="col-lg-3 form-cols">
 								<div class="default-select" id="default-selects">
 									<select>
-										<option value="1">Select area</option>
-										<option value="2">Dhaka</option>
-										<option value="3">Rajshahi</option>
-										<option value="4">Barishal</option>
-										<option value="5">Noakhali</option>
+										<option selected="selected">select area</option>
+										<?php
+										foreach ($provinsi->result() as $row ) {
+										?>
+										<option value="<?php echo $row->id; ?>" ><?php echo $row->nama; ?></option>
+										<?php } ?>
 									</select>
 								</div>
 							</div>
 							<div class="col-lg-3 form-cols">
 								<div class="default-select" id="default-selects2">
 									<select>
-										<option value="1">All Category</option>
-										<option value="2">Medical</option>
-										<option value="3">Technology</option>
-										<option value="4">Goverment</option>
-										<option value="5">Development</option>
+										<option selected="selected">All Category</option>
+										<?php
+										foreach ($jenis_industri->result() as $row ) {
+										?>
+										<option value="<?php echo $row->id_industri; ?>" ><?php echo $row->jenis_industri; ?></option>
+										<?php } ?>
 									</select>
 								</div>
 							</div>
@@ -479,8 +481,8 @@
 								<div class="title text-center">
 									<h1 class="mb-10 text-white">Join us today without any hesitation</h1>
 									<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-									<a class="primary-btn" href="#">I am a Jobseeker</a>
-									<a class="primary-btn" href="#">Company</a>
+									<a class="primary-btn" href="<?= base_url() ?>register" target="_blank">I am a Jobseeker</a>
+									<a class="primary-btn" href="<?= base_url() ?>register_company" target="_blank">Company</a>
 								</div>
 							</div>
 						</div>
