@@ -18,7 +18,7 @@
 						<p>Jumlah Alumni</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-bag"></i>
+						<i class="ion ion-university"></i>
 					</div>
 					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
@@ -30,7 +30,7 @@
 						<p>Jumlah Non Alumni</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-stats-bars"></i>
+						<i class="ion ion-university"></i>
 					</div>
 					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
@@ -42,7 +42,7 @@
 						<p>Mahasiswa ( ITERA & non ITERA)</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-person-add"></i>
+						<i class="ion ion-university"></i>
 					</div>
 					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
@@ -54,7 +54,7 @@
 						<p>Jumlah Company</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-pie-graph"></i>
+						<i class="ion-ios-briefcase"></i>
 					</div>
 					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
@@ -72,50 +72,20 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
-				<table id="example1" class="table table-bordered table-striped">
+				<table class="table table-bordered table-hover datatable" id="example1">
 					<thead>
-					<tr>
-						<th>Rendering engine</th>
-						<th>Browser</th>
-						<th>Platform(s)</th>
-						<th>Engine version</th>
-						<th>CSS grade</th>
-					</tr>
+						<tr>
+							<th>No</th>
+							<th>Nama Pekerjaan</th>
+							<th>Perusahaan</th>
+							<th>Deadline</th>
+							<th>Edit</th>
+						</tr>
 					</thead>
-					<tbody>
-					<tr>
-						<td>Misc</td>
-						<td>Lynx</td>
-						<td>Text only</td>
-						<td>-</td>
-						<td>X</td>
-					</tr>
-					<tr>
-						<td>Misc</td>
-						<td>IE Mobile</td>
-						<td>Windows Mobile 6</td>
-						<td>-</td>
-						<td>C</td>
-					</tr>
-					<tr>
-						<td>Misc</td>
-						<td>PSP browser</td>
-						<td>PSP</td>
-						<td>-</td>
-						<td>C</td>
-					</tr>
-					<tr>
-						<td>Other browsers</td>
-						<td>All others</td>
-						<td>-</td>
-						<td>-</td>
-						<td>U</td>
-					</tr>
+					<tbody id="show_list_permohonan">
 					</tbody>
 				</table>
 			</div>
 		</div>
-
 	</section>
-
 </div>

@@ -75,6 +75,56 @@
     <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> by <a href="https://tik.itera.ac.id/id/" target="_blank">UPT TIK.</a></strong> All rights reserved.
   </footer>
 
+  <!-- modal hapus -->
+  <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+          <h4 class="modal-title" id="myModalLabel">Hapus List Job</h4>
+        </div>
+        <form class="form-horizontal">
+          <div class="modal-body">
+
+            <input type="hidden" name="kode" id="textkode" value="">
+            <div class="alert alert-warning"><p>Apakah Anda yakin mau memhapus JobList ini?</p></div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button class="btn_hapus btn btn-danger" id="btn_hapus">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- endmodal -->
+
+  <!-- modal validasi -->
+  <div class="modal fade" id="ModalValidasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+          <h4 class="modal-title" id="myModalLabel">Validasi</h4>
+        </div>
+        <form class="form-horizontal">
+          <div class="modal-body">
+
+            <input type="hidden" name="kode" id="textkode" value="">
+            <div class="alert alert-warning"><p>Validasi JobList ini?</p></div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button class="btn_hapus btn btn-danger" id="btn_validasi">Validasi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- endmodal -->
+
   <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -83,6 +133,93 @@
   <script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+          tampil_joblist();   //pemanggilan fungsi tampil tipe.
+
+          $('#joblist').dataTable();
+
+          //fungsi tampil tipe
+          function tampil_joblist(){
+              $.ajax({
+                  type  : 'ajax',
+                  url   : '<?php echo base_url()?>admin/list_permohonan',
+                  async : false,
+                  dataType : 'json',
+                  success : function(data){
+                      var html = '';
+                      var i;
+                      var no=1;
+                      for(i=0; i<data.length; i++){
+                          html += '<tr>'+
+                                  '<td>'+no+'</td>'+
+                                  '<td>'+data[i].Nama_joblist+'</td>'+
+                                  '<td>'+data[i].Nama_perusahaan+'</td>'+
+                                  '<td>'+data[i].deadline+'</td>'+
+                                  '<td style="text-align:center;">'+
+                                    '<a href="javascript:;" class="btn btn-success btn-xs item_validasi" data="'+data[i].id_joblist+'"><i class="fa fa-check"></i>&nbsp&nbspValidasi</a>'+' '+
+                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id_joblist+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+                                  '</td>'+
+                                  '</tr>';
+                                  no++;
+                      }
+                      $('#show_list_permohonan').html(html);
+                  }
+
+              });
+          }
+
+          //GET HAPUS
+        $('#show_list_permohonan').on('click','.item_hapus',function(){
+            var id=$(this).attr('data');
+            $('#ModalHapus').modal('show');
+            $('[name="kode"]').val(id);
+        });
+
+        //GET VALIDASI
+      $('#show_list_permohonan').on('click','.item_validasi',function(){
+          var id=$(this).attr('data');
+          $('#ModalValidasi').modal('show');
+          $('[name="kode"]').val(id);
+      });
+
+        //Hapus joblist
+        $('#btn_hapus').on('click',function(){
+            var kode=$('#textkode').val();
+            $.ajax({
+            type : "POST",
+            url  : "<?php echo base_url('admin/hapusjoblist')?>",
+            dataType : "JSON",
+                    data : {kode: kode},
+                    success: function(data){
+                            $('#ModalHapus').modal('hide');
+                            tampil_joblist();
+                    }
+                });
+                return false;
+            });
+
+            //validasi joblist
+            $('#btn_validasi').on('click',function(){
+                var kode=$('#textkode').val();
+                $.ajax({
+                type : "POST",
+                url  : "<?php echo base_url('admin/validasi')?>",
+                dataType : "JSON",
+                        data : {kode: kode},
+                        success: function(data){
+                                $('#ModalValidasi').modal('hide');
+                                tampil_joblist();
+                        }
+                    });
+                    return false;
+                });
+
+
+      });
+  </script>
+
   <script>
     $(function () {
       $('#example1').DataTable()

@@ -55,4 +55,25 @@ class Model_data extends CI_model {
 		return $hasil->result();
 	}
 
+	function insert_job($nama_joblist, $deadline){
+		$id_perusahaan = $this->session->userdata('Id_perusahaan');
+    $hasil = $this->db->query("INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`) VALUES (NULL, '$nama_joblist', '$id_perusahaan', '$deadline')");
+    return $hasil;
+  }
+
+	function list_pekerjaan(){
+		$hasil = $this->db->query("SELECT * FROM `joblist` NATURAL JOIN company WHERE `status` = '<span class=\"label label-warning\">Pending</span>'");
+		return $hasil->result();
+	}
+
+	function hapus_joblist($idjoblist){
+		$hasil=$this->db->query("DELETE FROM joblist WHERE id_joblist='$idjoblist'");
+    return $hasil;
+	}
+
+	function validasi_joblist($idjoblist){
+		$hasil = $this->db->query("UPDATE `joblist` SET `status` = '<span class=\"label label-success\">Telah tayang</span>' WHERE `joblist`.`id_joblist` = $idjoblist");
+		return $hasil;
+	}
+
 }

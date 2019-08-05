@@ -34,6 +34,23 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	function list_permohonan(){
+		$data = $this->model_data->list_pekerjaan();
+    echo json_encode($data);
+	}
+
+	function hapusjoblist(){
+		$idjoblist=$this->input->post('kode');
+    $data=$this->model_data->hapus_joblist($idjoblist);
+    echo json_encode($data);
+	}
+
+	function validasi(){
+		$idjoblist=$this->input->post('kode');
+    $data=$this->model_data->validasi_joblist($idjoblist);
+    echo json_encode($data);
+	}
+
 	function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_admin);

@@ -36,6 +36,13 @@ class Company extends CI_Controller {
     echo json_encode($data);
   }
 
+	public function tambah_joblist(){
+		$nama_joblist = $this->input->post('job');
+		$deadline = $this->input->post('waktu');
+    $data = $this->model_data->insert_job($nama_joblist, $deadline);
+    echo json_encode($data);
+	}
+
 	function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_company);
