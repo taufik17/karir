@@ -9,7 +9,6 @@
 			<?php $this->load->view($menu); ?>
 			<?php $this->load->view($konten); ?>
 		</div>
-
 	</div>
 </section>
 
@@ -17,7 +16,6 @@
 <br>
 &nbsp
 <br>
-
 <!-- modal -->
 
 <div class="modal fade" id="modal_tambah" style="display: none;">

@@ -24,13 +24,22 @@ class Admin extends CI_Controller {
 	function dashboard(){
 		$this->model_keamanan->getkeamananadmin();
 		$isi['title'] = "ICC | Admin Dashboard";
-		$isi['menu'] = "admin/menu/menu_dashboard";
+		$isi['menu'] = "admin/menu/menu";
 		$isi['konten'] = "admin/konten/konten_beranda";
 		$isi['data']		= $this->model_data->dataadmin();
 		$isi['jmlh_almni_itera'] = $this->model_data->jmlh_almni_itera();
 		$isi['jmlh_almni_non_itera'] = $this->model_data->jmlh_almni_non_itera();
 		$isi['jmlh_mhs'] = $this->model_data->jmlh_mhs();
 		$isi['jmlh_company'] = $this->model_data->jmlh_company();
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
+	function industri(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['title'] = "ICC | Admin Dashboard";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_industri";
+		$isi['data']		= $this->model_data->dataadmin();
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
