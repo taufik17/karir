@@ -76,4 +76,14 @@ class Model_data extends CI_model {
 		return $hasil;
 	}
 
+	function fetch_data($limit, $start)
+	{
+		$this->db->select("*");
+		$this->db->from("joblist");
+		$this->db->order_by("id_joblist", "DESC");
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+		return $query;
+	}
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Jul 2019 pada 11.54
+-- Waktu pembuatan: 06 Agu 2019 pada 09.25
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -30,17 +30,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id_admin` int(8) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `Nama` varchar(100) NOT NULL,
+  `Email_admin` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `ref` int(11) NOT NULL
+  `foto` varchar(100) NOT NULL DEFAULT 'avatar.svg',
+  `ref` int(11) NOT NULL,
+  `time_reg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `username`, `password`, `ref`) VALUES
-(1, 'admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', 0);
+INSERT INTO `admin` (`id_admin`, `Nama`, `Email_admin`, `password`, `foto`, `ref`, `time_reg`) VALUES
+(1, 'Taufik Agung Santoso', 'admin@admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', 'avatar.svg', 0, '2019-08-05 03:30:56');
 
 -- --------------------------------------------------------
 
@@ -58,7 +61,7 @@ CREATE TABLE `company` (
   `id_provinsi` varchar(2) NOT NULL,
   `id_kabupaten_kota` varchar(4) NOT NULL,
   `Password_perusahaan` varchar(255) NOT NULL,
-  `Logo_perusahaan` varchar(100) NOT NULL,
+  `Logo_perusahaan` varchar(100) NOT NULL DEFAULT 'default.png',
   `Website` varchar(200) NOT NULL,
   `telp_perusahaan` varchar(20) NOT NULL,
   `telp_officer` varchar(15) NOT NULL,
@@ -73,7 +76,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`Id_perusahaan`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Password_perusahaan`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
-(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 1, '18', '1803', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', '', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-07-30 03:22:09');
+(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 1, '18', '1803', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-01 07:33:36');
 
 -- --------------------------------------------------------
 
@@ -92,6 +95,30 @@ CREATE TABLE `industri` (
 
 INSERT INTO `industri` (`id_industri`, `jenis_industri`) VALUES
 (1, 'Arsitektur');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `joblist`
+--
+
+CREATE TABLE `joblist` (
+  `id_joblist` int(100) NOT NULL,
+  `Nama_joblist` varchar(150) NOT NULL,
+  `perusahaan` int(8) NOT NULL,
+  `deadline` date NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '<span class="label label-warning">Pending</span>'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `joblist`
+--
+
+INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`, `status`) VALUES
+(8, 'bismillah', 4, '2019-08-31', '<span class=\"label label-success\">Telah tayang</span>'),
+(9, 'alhamdulillah', 4, '2019-10-12', '<span class=\"label label-warning\">Pending</span>'),
+(10, 'tes lagi', 4, '2019-08-07', '<span class=\"label label-warning\">Pending</span>'),
+(11, 'tes again', 4, '2019-08-09', '<span class=\"label label-warning\">Pending</span>');
 
 -- --------------------------------------------------------
 
@@ -680,6 +707,27 @@ INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `lamaran`
+--
+
+CREATE TABLE `lamaran` (
+  `id_lamaran` int(8) NOT NULL,
+  `pekerjaan` int(100) DEFAULT NULL,
+  `alumni` int(8) DEFAULT NULL,
+  `nonalumni` int(8) DEFAULT NULL,
+  `mahasiswa` int(8) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `lamaran`
+--
+
+INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `alumni`, `nonalumni`, `mahasiswa`) VALUES
+(4, 8, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `provinsi`
 --
 
@@ -754,6 +802,13 @@ ALTER TABLE `industri`
   ADD PRIMARY KEY (`id_industri`);
 
 --
+-- Indeks untuk tabel `joblist`
+--
+ALTER TABLE `joblist`
+  ADD PRIMARY KEY (`id_joblist`),
+  ADD KEY `perusahaan` (`perusahaan`);
+
+--
 -- Indeks untuk tabel `jobseeker_alumni`
 --
 ALTER TABLE `jobseeker_alumni`
@@ -776,6 +831,16 @@ ALTER TABLE `jobseeker_nonalumni`
 --
 ALTER TABLE `kabupaten`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `lamaran`
+--
+ALTER TABLE `lamaran`
+  ADD PRIMARY KEY (`id_lamaran`),
+  ADD KEY `lamaran_ibfk_1` (`alumni`),
+  ADD KEY `lamaran_ibfk_2` (`mahasiswa`),
+  ADD KEY `lamaran_ibfk_3` (`nonalumni`),
+  ADD KEY `lamaran_ibfk_4` (`pekerjaan`);
 
 --
 -- Indeks untuk tabel `provinsi`
@@ -806,6 +871,12 @@ ALTER TABLE `industri`
   MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `joblist`
+--
+ALTER TABLE `joblist`
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT untuk tabel `jobseeker_alumni`
 --
 ALTER TABLE `jobseeker_alumni`
@@ -824,6 +895,12 @@ ALTER TABLE `jobseeker_nonalumni`
   MODIFY `id_jobseeker_nonalumni` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `lamaran`
+--
+ALTER TABLE `lamaran`
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
@@ -834,6 +911,21 @@ ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`id_industri`) REFERENCES `industri` (`id_industri`) ON UPDATE CASCADE,
   ADD CONSTRAINT `company_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `company_ibfk_3` FOREIGN KEY (`id_kabupaten_kota`) REFERENCES `kabupaten` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `joblist`
+--
+ALTER TABLE `joblist`
+  ADD CONSTRAINT `joblist_ibfk_1` FOREIGN KEY (`perusahaan`) REFERENCES `company` (`Id_perusahaan`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `lamaran`
+--
+ALTER TABLE `lamaran`
+  ADD CONSTRAINT `lamaran_ibfk_1` FOREIGN KEY (`alumni`) REFERENCES `jobseeker_alumni` (`id_jobseeker_alumni`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `lamaran_ibfk_2` FOREIGN KEY (`mahasiswa`) REFERENCES `jobseeker_mahasiswa` (`id_jobseeker_mhs`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `lamaran_ibfk_3` FOREIGN KEY (`nonalumni`) REFERENCES `jobseeker_nonalumni` (`id_jobseeker_nonalumni`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

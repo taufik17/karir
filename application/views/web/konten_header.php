@@ -19,6 +19,81 @@
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
 
+	<!-- untuk terbaru dan terpopuler -->
+	<style>
+
+	#boxscroll{
+		width:100%;
+		height:350px;
+		overflow:auto; overflow-x:none;
+	}
+
+	#container1{
+    height: 100%;
+    width: 100%;
+    border: 1px solid green;
+    overflow: hidden;
+}
+
+#container2{
+    width: 100%;
+    height: 99%;
+    border: 1px solid blue;
+    overflow: auto;
+    padding-right: 15px;
+}
+
+	@-webkit-keyframes placeHolderShimmer {
+		0% {
+			background-position: -468px 0;
+		}
+		100% {
+			background-position: 468px 0;
+		}
+	}
+
+	@keyframes placeHolderShimmer {
+		0% {
+			background-position: -468px 0;
+		}
+		100% {
+			background-position: 468px 0;
+		}
+	}
+
+	.content-placeholder {
+		display: inline-block;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-name: placeHolderShimmer;
+		animation-name: placeHolderShimmer;
+		-webkit-animation-timing-function: linear;
+		animation-timing-function: linear;
+		background: #f6f7f8;
+		background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+		background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		-webkit-background-size: 800px 104px;
+		background-size: 800px 104px;
+		height: inherit;
+		position: relative;
+	}
+
+	.post_data
+	{
+		padding:24px;
+		border:1px solid #f9f9f9;
+		border-radius: 5px;
+		margin-bottom: 24px;
+		box-shadow: 10px 10px 5px #eeeeee;
+	}
+	</style>
+	<!-- end terbaru dan terpopuler -->
+
 </head>
 
 <body>
