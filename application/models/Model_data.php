@@ -92,9 +92,10 @@ class Model_data extends CI_model {
     return $hasil;
 	}
 
-	function get_tipe_by_kode($id_kategori){
+	function get_tipe_by_kode($id){
 		$this->db->where('id_industri', $id);
     $hsl = $this->db->get('industri', $id);
+		$hasil = array();
     if($hsl->num_rows()>0){
             foreach ($hsl->result() as $data) {
                 $hasil=array(
@@ -106,8 +107,8 @@ class Model_data extends CI_model {
     return $hasil;
 	}
 
-	function update_kategori($namakategoribaru, $id){
-		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$namakategoribaru' WHERE id_tipe=$id");
+	function update_kategori($id, $jenis){
+		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$jenis' WHERE id_industri=$id");
 	}
 
 	function fetch_data($limit, $start)

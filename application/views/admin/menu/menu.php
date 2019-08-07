@@ -22,3 +22,11 @@
 		</a>
 	</li>
 </ul>
+
+<ul class="sidebar-menu" data-widget="tree">
+	<li <?=$this->uri->segment(2) == 'kalender_event' ? 'class="active"' : 'class=""'?> >
+		<a href="<?= base_url() ?>admin/kalender_event">
+			<i class="fa fa-calendar"></i> <span>Kalender Event</span>
+		</a>
+	</li>
+</ul>
