@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Agu 2019 pada 09.25
+-- Waktu pembuatan: 07 Agu 2019 pada 10.33
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -44,6 +44,32 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_admin`, `Nama`, `Email_admin`, `password`, `foto`, `ref`, `time_reg`) VALUES
 (1, 'Taufik Agung Santoso', 'admin@admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', 'avatar.svg', 0, '2019-08-05 03:30:56');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL,
+  `title` varchar(126) DEFAULT NULL,
+  `description` text,
+  `color` varchar(24) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `create_at` datetime DEFAULT NULL,
+  `create_by` varchar(64) DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  `modified_by` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
+(14, 'bismillah', 'semoaga', '#FF8C00', '2019-08-28', '2019-08-31', '2019-08-07 14:33:42', NULL, '2019-08-07 09:54:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +120,10 @@ CREATE TABLE `industri` (
 --
 
 INSERT INTO `industri` (`id_industri`, `jenis_industri`) VALUES
-(1, 'Arsitektur');
+(1, 'bismillah'),
+(29, 'alhamdulillah'),
+(31, 'arsitektur'),
+(32, 'geofisika');
 
 -- --------------------------------------------------------
 
@@ -116,9 +145,14 @@ CREATE TABLE `joblist` (
 
 INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`, `status`) VALUES
 (8, 'bismillah', 4, '2019-08-31', '<span class=\"label label-success\">Telah tayang</span>'),
-(9, 'alhamdulillah', 4, '2019-10-12', '<span class=\"label label-warning\">Pending</span>'),
+(9, 'alhamdulillah', 4, '2019-10-12', '<span class=\"label label-success\">Telah tayang</span>'),
 (10, 'tes lagi', 4, '2019-08-07', '<span class=\"label label-warning\">Pending</span>'),
-(11, 'tes again', 4, '2019-08-09', '<span class=\"label label-warning\">Pending</span>');
+(11, 'tes again', 4, '2019-08-09', '<span class=\"label label-warning\">Pending</span>'),
+(13, 'adfas', 4, '2019-08-22', '<span class=\"label label-warning\">Pending</span>'),
+(14, 'dfa', 4, '2019-08-22', '<span class=\"label label-warning\">Pending</span>'),
+(15, 'dfa', 4, '2019-08-29', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;'),
+(16, 'dfd', 4, '2019-08-27', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;'),
+(17, 'dfa', 4, '2019-08-23', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;');
 
 -- --------------------------------------------------------
 
@@ -787,6 +821,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indeks untuk tabel `calendar`
+--
+ALTER TABLE `calendar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `company`
 --
 ALTER TABLE `company`
@@ -859,6 +899,12 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `calendar`
+--
+ALTER TABLE `calendar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
@@ -868,13 +914,13 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT untuk tabel `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker_alumni`
