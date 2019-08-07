@@ -66,14 +66,48 @@ class Model_data extends CI_model {
 		return $hasil->result();
 	}
 
+	function list_kategori_industri(){
+		$hasil = $this->db->query("SELECT * FROM `industri`");
+		return $hasil->result();
+	}
+
 	function hapus_joblist($idjoblist){
 		$hasil=$this->db->query("DELETE FROM joblist WHERE id_joblist='$idjoblist'");
     return $hasil;
 	}
 
+	function hapus_kategori($id_industri){
+		$hasil = $this->db->query("DELETE FROM industri WHERE id_industri='$id_industri'");
+		return $hasil;
+	}
+
 	function validasi_joblist($idjoblist){
 		$hasil = $this->db->query("UPDATE `joblist` SET `status` = '<span class=\"label label-success\">Telah tayang</span>' WHERE `joblist`.`id_joblist` = $idjoblist");
 		return $hasil;
+	}
+
+	function insert_kategori($namakategori){
+		$data = array('jenis_industri' => $namakategori );
+    $hasil = $this->db->insert('industri', $data);
+    return $hasil;
+	}
+
+	function get_tipe_by_kode($id_kategori){
+		$this->db->where('id_industri', $id);
+    $hsl = $this->db->get('industri', $id);
+    if($hsl->num_rows()>0){
+            foreach ($hsl->result() as $data) {
+                $hasil=array(
+                    'id_industri' => $data->id_industri,
+                    'jenis_industri' => $data->jenis_industri,
+                    );
+            }
+        }
+    return $hasil;
+	}
+
+	function update_kategori($namakategoribaru, $id){
+		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$namakategoribaru' WHERE id_tipe=$id");
 	}
 
 	function fetch_data($limit, $start)

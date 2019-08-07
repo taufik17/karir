@@ -100,6 +100,31 @@
   </div>
   <!-- endmodal -->
 
+  <!-- modal hapus kategori -->
+  <div class="modal fade" id="ModalHapusKategori" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+          <h4 class="modal-title" id="myModalLabel">Hapus Kategori</h4>
+        </div>
+        <form class="form-horizontal">
+          <div class="modal-body">
+
+            <input type="hidden" name="kode_kategori" id="textkodekategori" value="">
+            <div class="alert alert-warning"><p>Apakah Anda yakin mau memhapus Kategori ini?</p></div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button class="btn_hapus btn btn-danger" id="btn_hapus_kategori">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
+
   <!-- modal validasi -->
   <div class="modal fade" id="ModalValidasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -125,6 +150,72 @@
   </div>
   <!-- endmodal -->
 
+  <!-- modal edit kategori -->
+  <div class="modal fade" id="Modal_Edit_Kategori" style="display: none;">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">×</span></button>
+     <h4 class="modal-title">Edit Kategori</h4>
+    </div>
+    <form class="form-horizontal">
+    <div class="modal-body">
+       <div class="row">
+         <div class="col-sm-2">
+         <label for="inputTipe" class="control-label">Nama Kategori Baru</label>
+       </div>
+         <div class="col-sm-9">
+           <input type="text" name="id_kategori_edit" id="idkategoriedit" value="">
+           <input type="text" class="form-control" name="jenis_industri_edit" id="namakategoriedit" placeholder="Nama Tipe Baru">
+         </div>
+       </div>
+    </div>
+    <div class="modal-footer">
+     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+     <button class="btn btn-success" id="btn_simpan_kategori"><i class="fa fa-save"></i>&nbsp&nbspSimpan</button>
+    </div>
+  </form>
+   </div>
+   <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+ </div>
+  <!-- end modal edit kategori -->
+
+  <!-- modal tambah kategori -->
+  <div class="modal fade" id="modal_tambah_kategori" style="display: none;">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">×</span></button>
+     <h4 class="modal-title">Tambah Kategori Industri</h4>
+   </div>
+   <form class="form-horizontal">
+    <div class="modal-body">
+       <div class="row">
+         <div class="col-sm-2">
+         <label for="inputTipe" class="control-label">Nama Kategori</label>
+       </div>
+         <div class="col-sm-8">
+         <input type="text" class="form-control" name="namakategori" id="nama_kategori" placeholder="Nama Kategori" required>
+       </div>
+     </div>
+   </div>
+    <div class="modal-footer">
+     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+     <button class="btn btn-success" id="btn_tambah_kategori"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah</button>
+    </div>
+  </form>
+   </div>
+   <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+ </div>
+
+ <!-- end modal -->
+
   <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -134,12 +225,11 @@
   <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+  <!-- script list permohonan -->
   <script type="text/javascript">
       $(document).ready(function(){
           tampil_joblist();   //pemanggilan fungsi tampil tipe.
-
           $('#joblist').dataTable();
-
           //fungsi tampil tipe
           function tampil_joblist(){
               $.ajax({
@@ -169,21 +259,18 @@
 
               });
           }
-
           //GET HAPUS
         $('#show_list_permohonan').on('click','.item_hapus',function(){
             var id=$(this).attr('data');
             $('#ModalHapus').modal('show');
             $('[name="kode"]').val(id);
         });
-
         //GET VALIDASI
       $('#show_list_permohonan').on('click','.item_validasi',function(){
           var id=$(this).attr('data');
           $('#ModalValidasi').modal('show');
           $('[name="kode"]').val(id);
       });
-
         //Hapus joblist
         $('#btn_hapus').on('click',function(){
             var kode=$('#textkode').val();
@@ -199,7 +286,6 @@
                 });
                 return false;
             });
-
             //validasi joblist
             $('#btn_validasi').on('click',function(){
                 var kode=$('#textkode').val();
@@ -215,10 +301,106 @@
                     });
                     return false;
                 });
+      });
+  </script>
+  <!-- end script list permohonan -->
+
+
+<!-- script list kategori industri -->
+  <script type="text/javascript">
+      $(document).ready(function(){
+          tampil_listkategori();   //pemanggilan fungsi tampil tipe.
+          $('#joblist').dataTable();
+          //fungsi tampil tipe
+          function tampil_listkategori(){
+              $.ajax({
+                  type  : 'ajax',
+                  url   : '<?php echo base_url()?>admin/list_kategori_industri',
+                  async : false,
+                  dataType : 'json',
+                  success : function(data){
+                      var html = '';
+                      var i;
+                      var no=1;
+                      for(i=0; i<data.length; i++){
+                          html += '<tr>'+
+                                  '<td>'+no+'</td>'+
+                                  '<td>'+data[i].jenis_industri+'</td>'+
+                                  '<td style="text-align:center;">'+
+                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit_kategori" data="'+data[i].id_industri+'"><i class="fa fa-edit"></i>&nbsp&nbspEdit</a>'+' '+
+                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus_kategori" data="'+data[i].id_industri+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+                                  '</td>'+
+                                  '</tr>';
+                                  no++;
+                      }
+                      $('#show_list_kategori_industri').html(html);
+                  }
+
+              });
+          }
+          //Tambah kategori
+          $('#btn_tambah_kategori').on('click',function(){
+              var namakategori=$('#nama_kategori').val();
+              $.ajax({
+                  type : "POST",
+                  url  : "<?php echo base_url('admin/tambah_kategori')?>",
+                  dataType : "JSON",
+                  data : {namakategori: namakategori},
+                  success: function(data){
+                      $('[name="namakategori"]').val("");
+                      $('#modal_tambah_kategori').modal('hide');
+                      tampil_listkategori();
+                  }
+              });
+              return false;
+          });
+          //GET HAPUS
+        $('#show_list_kategori_industri').on('click','.item_hapus_kategori',function(){
+            var id=$(this).attr('data');
+            $('#ModalHapusKategori').modal('show');
+            $('[name="kode_kategori"]').val(id);
+        });
+        //Hapus kategori
+        $('#btn_hapus_kategori').on('click',function(){
+            var kode_kategori=$('#textkodekategori').val();
+            $.ajax({
+            type : "POST",
+            url  : "<?php echo base_url('admin/hapuskategori')?>",
+            dataType : "JSON",
+                    data : {kode_kategori: kode_kategori},
+                    success: function(data){
+                            $('#ModalHapusKategori').modal('hide');
+                            tampil_listkategori();
+                    }
+                });
+                return false;
+            });
+
+
+            //GET UPDATE
+        $('#show_list_kategori_industri').on('click','.item_edit_kategori',function(){
+            var id=$(this).attr('data');
+            $.ajax({
+                type : "GET",
+                url  : "<?php echo base_url()?>admin/getidkategori",
+                dataType : "JSON",
+                data : {id:id},
+                success: function(data){
+                    $.each(data,function(id_industri, jenis_industri){
+                        $('#Modal_Edit_Kategori').modal('show');
+                        $('[name="id_kategori_edit"]').val(data.id_industri);
+                        $('[name="jenis_industri_edit"]').val(data.jenis_industri);
+                    });
+                }
+            });
+            return false;
+        });
 
 
       });
   </script>
+  <!-- end script list kategori industri -->
+
 
   <script>
     $(function () {

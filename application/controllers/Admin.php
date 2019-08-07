@@ -48,9 +48,39 @@ class Admin extends CI_Controller {
     echo json_encode($data);
 	}
 
+	function list_kategori_industri(){
+		$data = $this->model_data->list_kategori_industri();
+    echo json_encode($data);
+	}
+
+	function tambah_kategori(){
+		$namakategori=$this->input->post('namakategori');
+    $data=$this->model_data->insert_kategori($namakategori);
+    echo json_encode($data);
+	}
+
 	function hapusjoblist(){
 		$idjoblist=$this->input->post('kode');
     $data=$this->model_data->hapus_joblist($idjoblist);
+    echo json_encode($data);
+	}
+
+	function hapuskategori(){
+		$id_industri=$this->input->post('kode_kategori');
+    $data=$this->model_data->hapus_kategori($id_industri);
+    echo json_encode($data);
+	}
+
+	function getidkategori(){
+		$id_kategori = $this->input->get('id_kategori');
+    $data = $this->model_data->get_tipe_by_kode($id_kategori);
+    echo json_encode($data);
+	}
+
+	function update_kategori(){
+		$id=$this->input->post('idkategori');
+    $kategorianyar=$this->input->post('namakategoribaru');
+    $data=$this->model_data->update_kategori($kategorianyar, $id);
     echo json_encode($data);
 	}
 

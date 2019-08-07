@@ -1,6 +1,6 @@
 <ul class="sidebar-menu" data-widget="tree">
 	<li class="header">MAIN NAVIGATION</li>
-	<li class="active">
+	<li <?=$this->uri->segment(2) == 'dashboard' || $this->uri->segment(2) == '' ? 'class="active"' : 'class=""'?> >
 		<a href="<?= base_url() ?>admin">
 			<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 		</a>
@@ -8,7 +8,7 @@
 </ul>
 
 <ul class="sidebar-menu" data-widget="tree">
-	<li>
+	<li <?=$this->uri->segment(2) == 'industri' ? 'class="active"' : 'class=""'?>>
 		<a href="<?= base_url() ?>admin/industri">
 			<i class="fa fa-industry"></i> <span>Industri</span>
 		</a>
@@ -16,7 +16,7 @@
 </ul>
 
 <ul class="sidebar-menu" data-widget="tree">
-	<li>
+	<li <?=$this->uri->segment(2) == 'news' ? 'class="active"' : 'class=""'?> >
 		<a href="#">
 			<i class="fa fa-newspaper-o"></i> <span>News</span>
 		</a>
