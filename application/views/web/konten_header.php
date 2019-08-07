@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/scroll/simplebar.min.css" />
 
 
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -22,10 +23,11 @@
 	<!-- untuk terbaru dan terpopuler -->
 	<style>
 
-	#boxscroll{
+	.demo1 {
 		width:100%;
 		height:350px;
-		overflow:auto; overflow-x:none;
+	  max-width: 100%;
+	  font-size: 12px;
 	}
 
 	#container1{

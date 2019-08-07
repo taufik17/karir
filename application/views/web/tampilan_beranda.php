@@ -69,8 +69,8 @@
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 								<div class="container">
-									<div id="boxscroll" >
-										<div id="content" >
+									<div class="demo1" data-simplebar>
+										<div id="content">
 											<div id="load_data"></div>
 										</div>
 									</div>

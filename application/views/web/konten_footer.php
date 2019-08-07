@@ -201,6 +201,7 @@
 		});
 		</script>
 
+		<script src="<?php echo base_url() ?>assets/scroll/simplebar.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
