@@ -290,3 +290,72 @@
 
 		  });
 		</script>
+
+		<!-- scroll category -->
+		<script>
+		  $(document).ready(function(){
+
+		    var limit_category = 7;
+		    var start_category = 0;
+		    var action = 'inactive';
+
+		    function lazzy_loader(limit_category)
+		    {
+		      var output = '';
+		      for(var count=0; count<limit_category; count++)
+		      {
+		        output += '<div class="post_data">';
+		        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+		        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+		        output += '</div>';
+		      }
+		      $('#load_data_message_category').html(output);
+		    }
+
+		    lazzy_loader(limit_category);
+
+		    function load_data_category(limit_category, start_category)
+		    {
+		      $.ajax({
+		        url:"<?php echo base_url(); ?>beranda/fetchcategory",
+		        method:"POST",
+		        data:{limit_category:limit_category, start_category:start_category},
+		        cache: false,
+		        success:function(data)
+		        {
+		          if(data == '')
+		          {
+		            $('#load_data_message_category').html('<h3>No More Result Found</h3>');
+		            action = 'active';
+		          }
+		          else
+		          {
+		            $('#load_data_category').append(data);
+		            $('#load_data_message_category').html("");
+		            action = 'inactive';
+		          }
+		        }
+		      })
+		    }
+
+		    if(action == 'inactive')
+		    {
+		      action = 'active';
+		      load_data_category(limit_category, start_category);
+		    }
+
+		    $(window).scroll(function(){
+		      if($(window).scrollTop() + $(window).height() > $("#load_data_category").height() && action == 'inactive')
+		      {
+		        lazzy_loader(limit);
+		        action = 'active';
+		        start_category = start_category + limit_category;
+		        setTimeout(function(){
+		          load_data(limit_category, start_category);
+		        }, 1000);
+		      }
+		    });
+
+		  });
+		</script>
+		<!-- end scroll category -->

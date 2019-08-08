@@ -30,6 +30,13 @@
 	  font-size: 12px;
 	}
 
+	.demo2 {
+		width:20%;
+		height:350px;
+	  max-width: 100%;
+	  font-size: 12px;
+	}
+
 	#container1{
     height: 100%;
     width: 100%;

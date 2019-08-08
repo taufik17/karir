@@ -77,7 +77,6 @@
 }
 
 
-
 .spasi{
   margin: 5px;
   background-color: #EBEBEB;
@@ -231,6 +230,20 @@ a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
 
 a:not([href]):not([tabindex]):focus {
   outline: 0;
+}
+
+.btn-more {
+  background: #fff;
+  border: 1px solid transparent;
+  color: #222;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.btn-more:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
 }
 
 pre,

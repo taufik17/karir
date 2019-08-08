@@ -30,4 +30,26 @@ class Beranda extends CI_Controller {
 		echo $output;
 	}
 
+	function fetchcategory()
+	{
+		$output = '';
+		$this->load->model('model_data');
+		$data = $this->model_data->fetch_data_category($this->input->post('limit_category'), $this->input->post('start_category'));
+		if($data->num_rows() > 0)
+		{
+			foreach($data->result() as $row)
+			{
+				$output .= '
+					<li><a class="justify-content-between d-flex" href="beranda/category/'.$row->jenis_industri.'"><p>'.$row->jenis_industri.'</p><span>'.$row->jumlah.'</span></a></li>
+				';
+			}
+		}
+		echo $output;
+	}
+
+	function category(){
+		$key = $this->uri->segment(3);
+		echo "ini adalah konten $key";
+	}
+
 }
