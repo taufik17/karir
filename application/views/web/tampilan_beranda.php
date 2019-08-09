@@ -95,9 +95,16 @@
 			<div class="col-lg-3 col-md-6">
 				<div class="single-feature">
 					<h4 align="center">Kalender Event</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing.
-					</p>
+					<div class="info-box">
+            <span class="info-box-icon bg-aqua">
+            	09
+            </span>
+
+            <div class="info-box-content" text-align="center">
+              <h3 align="center">Aug 2019</h3>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
 				</div>
 			</div>
 		</div>
@@ -138,7 +145,7 @@
 										<h1>5</h1>
 										<span>Lowongan</span>
 											<h5 class="mb-0">
-												<a data-toggle="collapse" class="genric-btn danger circle arrow" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+												<a data-toggle="collapse" class="genric-btn danger circle arrow tiny" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
 												</a>
 											</h5>
 									</div>
@@ -172,7 +179,7 @@
 										<h1>5</h1>
 										<span>Lowongan</span>
 										<h5 class="mb-0">
-											<a class="collapsed genric-btn danger circle arrow" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+											<a class="collapsed genric-btn danger circle arrow tiny" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
 											</a>
 										</h5>
 									</div>
@@ -206,7 +213,7 @@
 										<h1>5</h1>
 										<span>Lowongan</span>
 										<h5 class="mb-0">
-											<a class="collapsed genric-btn danger circle arrow" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+											<a class="collapsed genric-btn danger circle arrow tiny" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
 											</a>
 										</h5>
 									</div>

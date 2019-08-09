@@ -882,7 +882,7 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn {
   display: inline-block;
   outline: none;
-  line-height: 10px;
+  line-height: 40px;
   padding: 0 30px;
   font-size: .8em;
   text-align: center;
@@ -914,6 +914,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.small {
   line-height: 25px;
+}
+
+.genric-btn.tiny {
+  line-height: 10px;
 }
 
 .genric-btn.radius {
@@ -2089,6 +2093,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 10px;
 }
 
+.menu-active{
+  background: #3E3E3E;
+  border-radius: 3px;
+}
+
 .nav-menu ul {
   margin: 14px 0 0 0;
   padding: 10px;
@@ -2232,6 +2241,7 @@ body.mobile-nav-active {
 body.mobile-nav-active #mobile-nav {
   left: 0;
 }
+
 
 body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;

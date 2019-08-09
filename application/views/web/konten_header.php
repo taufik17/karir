@@ -15,6 +15,10 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/scroll/simplebar.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
 
 
 
@@ -43,14 +47,6 @@
 	}
 	.mb-0 > a[aria-expanded="true"]:after {
 	  content: "\f077"; /* fa-chevron-up */
-	}
-
-
-	.fa {
-	  transition: .3s transform ease-in-out;
-	}
-	.collapsed .fa {
-	  transform: rotate(180deg);
 	}
 
 

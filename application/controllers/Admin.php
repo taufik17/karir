@@ -87,7 +87,8 @@ class Admin extends CI_Controller {
 
 			if($calendar_id == 0)
 			{
-				$param['create_at']   	= date('Y-m-d H:i:s');
+				date_default_timezone_set('Asia/Jakarta');
+				$param['create_at']   	= date('Y-m-d H:i:sa');
 				$insert = $this->modeldb->insert($this->table, $param);
 
 				if ($insert > 0)
@@ -96,14 +97,10 @@ class Admin extends CI_Controller {
 					$response['notif']	= 'Success add calendar';
 					$response['id']		= $insert;
 				}
-				else
-				{
-					$response['status'] = FALSE;
-					$response['notif']	= 'Server wrong, please save again';
-				}
 			}
 			else
 			{
+				date_default_timezone_set('Asia/Jakarta');
 				$where 		= [ 'id'  => $calendar_id];
 				$param['modified_at']   	= date('Y-m-d H:i:s');
 				$update = $this->modeldb->update($this->table, $param, $where);

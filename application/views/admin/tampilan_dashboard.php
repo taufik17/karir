@@ -386,6 +386,7 @@
                                 $('#create_modal').modal('hide');
                                 element[0].reset();
                                 $('.notification').removeClass('alert-danger').addClass('alert-primary').find('p').html(data.notif);
+                                location.href = "<?= base_url() ?>admin/kalender_event";
                             }
                             else
                             {
@@ -411,7 +412,7 @@
             $('#create_modal input[name=start_date]').val(moment(event.start).format('YYYY-MM-DD'));
             $('#create_modal input[name=end_date]').val(moment(event.end).format('YYYY-MM-DD'));
             $('#create_modal input[name=title]').val(event.title);
-            $('#create_modal input[name=description]').val(event.description);
+            $('#create_modal textarea[name=description]').val(event.description);
             $('#create_modal select[name=color]').val(event.color);
             $('#create_modal .delete_calendar').show();
             $('#create_modal').modal('show');
@@ -446,6 +447,7 @@
                             element[0].reset();
                             $('#create_modal input[name=calendar_id]').val(0)
                             $('.notification').removeClass('alert-danger').addClass('alert-primary').find('p').html(data.notif);
+                            location.href = "<?= base_url() ?>admin/kalender_event";
                         }
                         else
                         {
@@ -485,6 +487,7 @@
                             $('#form_create')[0].reset();
                             $('#create_modal input[name=calendar_id]').val(0)
                             $('.notification').removeClass('alert-danger').addClass('alert-primary').find('p').html(data.notif);
+                            location.href = "<?= base_url() ?>admin/kalender_event";
                         }
                         else
                         {
