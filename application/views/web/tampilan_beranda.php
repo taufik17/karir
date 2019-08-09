@@ -92,8 +92,6 @@
 				</div>
 			</div>
 
-
-
 			<div class="col-lg-3 col-md-6">
 				<div class="single-feature">
 					<h4 align="center">Kalender Event</h4>
@@ -117,178 +115,116 @@
 					<li><a href="#">Intern</a></li>
 					<li><a href="#">part Time</a></li>
 				</ul>
-				<div class="single-post d-flex flex-row">
-					<div class="thumb">
-						<img src="<?php echo base_url() ?>assets/img/post.png" alt="">
-						<ul class="tags">
-							<li>
-								<a href="#">Art</a>
-							</li>
-							<li>
-								<a href="#">Media</a>
-							</li>
-							<li>
-								<a href="#">Design</a>
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<div class="title d-flex flex-row justify-content-between">
-							<div class="titles">
-								<a href="single.html"><h4>Creative Art Designer</h4></a>
-								<h6>Premium Labels Limited</h6>
+
+
+				<div id="accordion">
+
+					<div class="card">
+						<div class="card-header" id="heading-1">
+							<div class="single-post row">
+								<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+									<a class="comp-logo col-md-2 pl-0 pr-3" href="/member/company/view/322">
+										<img class="box-shadow p-1" src="https://ecc.co.id/public/employer_logo/33515/small_1549506885L O G O QUICK2.png" alt="CV Karya Hidup Sentosa (Quick)468">
+									</a>
+									<div>
+										<h5 class="m-0"><a href="/member/company/view/322" class="txt-dark-blue"><strong>CV Karya Hidup Sentosa (Quick)</strong></a></h5>
+										<span class="d-block txt-dark-blue">Yogyakarta, Indonesia</span>
+										<p class="mb-1 mt-1">CV KARYA HIDUP SENTOSA adalah pabrik alat / mesin pertanian yang didirikan pada tahun 1953, di Yogyakarta oleh Bapak dan Ibu Kirjo Hadi Suseno. Pada tahun 1972 CV KHS mendapatkan p ...</p>
+										<span class="txt-gray">Tayang sejak: Hari ini</span>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+									<div class="w-100">
+										<h1>5</h1>
+										<span>Lowongan</span>
+											<h5 class="mb-0">
+												<a data-toggle="collapse" class="genric-btn danger circle arrow" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+												</a>
+											</h5>
+									</div>
+								</div>
 							</div>
-							<ul class="btns">
-								<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-								<li><a href="#">Apply</a></li>
-							</ul>
 						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-						</p>
-						<h5>Job Nature: Full time</h5>
-						<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-						<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
-					</div>
-				</div>
-				<div class="single-post d-flex flex-row">
-					<div class="thumb">
-						<img src="<?php echo base_url() ?>assets/img/post.png" alt="">
-						<ul class="tags">
-							<li>
-								<a href="#">Art</a>
-							</li>
-							<li>
-								<a href="#">Media</a>
-							</li>
-							<li>
-								<a href="#">Design</a>
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<div class="title d-flex flex-row justify-content-between">
-							<div class="titles">
-								<a href="single.html"><h4>Creative Art Designer</h4></a>
-								<h6>Premium Labels Limited</h6>
+						<div id="collapse-1" class="collapse show" data-parent="#accordion" aria-labelledby="heading-1">
+							<div class="card-body">
+								text 1
 							</div>
-							<ul class="btns">
-								<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-								<li><a href="#">Apply</a></li>
-							</ul>
 						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-						</p>
-						<h5>Job Nature: Full time</h5>
-						<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-						<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
 					</div>
-				</div>
-				<div class="single-post d-flex flex-row">
-					<div class="thumb">
-						<img src="<?php echo base_url() ?>assets/img/post.png" alt="">
-						<ul class="tags">
-							<li>
-								<a href="#">Art</a>
-							</li>
-							<li>
-								<a href="#">Media</a>
-							</li>
-							<li>
-								<a href="#">Design</a>
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<div class="title d-flex flex-row justify-content-between">
-							<div class="titles">
-								<a href="single.html"><h4>Creative Art Designer</h4></a>
-								<h6>Premium Labels Limited</h6>
+					<br>
+
+					<div class="card">
+						<div class="card-header" id="heading-2">
+							<div class="single-post row">
+								<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+									<a class="comp-logo col-md-2 pl-0 pr-3" href="/member/company/view/322">
+										<img class="box-shadow p-1" src="https://ecc.co.id/public/employer_logo/33515/small_1549506885L O G O QUICK2.png" alt="CV Karya Hidup Sentosa (Quick)468">
+									</a>
+									<div>
+										<h5 class="m-0"><a href="/member/company/view/322" class="txt-dark-blue"><strong>CV Karya Hidup Sentosa (Quick)</strong></a></h5>
+										<span class="d-block txt-dark-blue">Yogyakarta, Indonesia</span>
+										<p class="mb-1 mt-1">CV KARYA HIDUP SENTOSA adalah pabrik alat / mesin pertanian yang didirikan pada tahun 1953, di Yogyakarta oleh Bapak dan Ibu Kirjo Hadi Suseno. Pada tahun 1972 CV KHS mendapatkan p ...</p>
+										<span class="txt-gray">Tayang sejak: Hari ini</span>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+									<div class="w-100">
+										<h1>5</h1>
+										<span>Lowongan</span>
+										<h5 class="mb-0">
+											<a class="collapsed genric-btn danger circle arrow" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+											</a>
+										</h5>
+									</div>
+								</div>
 							</div>
-							<ul class="btns">
-								<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-								<li><a href="#">Apply</a></li>
-							</ul>
 						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-						</p>
-						<h5>Job Nature: Full time</h5>
-						<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-						<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
-					</div>
-				</div>
-				<div class="single-post d-flex flex-row">
-					<div class="thumb">
-						<img src="<?php echo base_url() ?>assets/img/post.png" alt="">
-						<ul class="tags">
-							<li>
-								<a href="#">Art</a>
-							</li>
-							<li>
-								<a href="#">Media</a>
-							</li>
-							<li>
-								<a href="#">Design</a>
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<div class="title d-flex flex-row justify-content-between">
-							<div class="titles">
-								<a href="single.html"><h4>Creative Art Designer</h4></a>
-								<h6>Premium Labels Limited</h6>
+						<div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
+							<div class="card-body">
+								Text 2
 							</div>
-							<ul class="btns">
-								<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-								<li><a href="#">Apply</a></li>
-							</ul>
 						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-						</p>
-						<h5>Job Nature: Full time</h5>
-						<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-						<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
 					</div>
-				</div>
-				<div class="single-post d-flex flex-row">
-					<div class="thumb">
-						<img src="<?php echo base_url() ?>assets/img/post.png" alt="">
-						<ul class="tags">
-							<li>
-								<a href="#">Art</a>
-							</li>
-							<li>
-								<a href="#">Media</a>
-							</li>
-							<li>
-								<a href="#">Design</a>
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<div class="title d-flex flex-row justify-content-between">
-							<div class="titles">
-								<a href="single.html"><h4>Creative Art Designer</h4></a>
-								<h6>Premium Labels Limited</h6>
+					<br>
+
+					<div class="card">
+						<div class="card-header" id="heading-3">
+							<div class="single-post row">
+								<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+									<a class="comp-logo col-md-2 pl-0 pr-3" href="/member/company/view/322">
+										<img class="box-shadow p-1" src="https://ecc.co.id/public/employer_logo/33515/small_1549506885L O G O QUICK2.png" alt="CV Karya Hidup Sentosa (Quick)468">
+									</a>
+									<div>
+										<h5 class="m-0"><a href="/member/company/view/322" class="txt-dark-blue"><strong>CV Karya Hidup Sentosa (Quick)</strong></a></h5>
+										<span class="d-block txt-dark-blue">Yogyakarta, Indonesia</span>
+										<p class="mb-1 mt-1">CV KARYA HIDUP SENTOSA adalah pabrik alat / mesin pertanian yang didirikan pada tahun 1953, di Yogyakarta oleh Bapak dan Ibu Kirjo Hadi Suseno. Pada tahun 1972 CV KHS mendapatkan p ...</p>
+										<span class="txt-gray">Tayang sejak: Hari ini</span>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+									<div class="w-100">
+										<h1>5</h1>
+										<span>Lowongan</span>
+										<h5 class="mb-0">
+											<a class="collapsed genric-btn danger circle arrow" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+											</a>
+										</h5>
+									</div>
+								</div>
 							</div>
-							<ul class="btns">
-								<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-								<li><a href="#">Apply</a></li>
-							</ul>
 						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-						</p>
-						<h5>Job Nature: Full time</h5>
-						<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-						<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+						<div id="collapse-3" class="collapse" data-parent="#accordion" aria-labelledby="heading-3">
+							<div class="card-body">
+								Text 3
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<a class="text-uppercase loadmore-btn mx-auto d-block" href="category.html">Load More job Posts</a>
+
+				<!-- disini pagination -->
+				<h5>pagination</h5>
+				<!-- end pagination -->
 
 			</div>
 			<div class="col-lg-4 sidebar">

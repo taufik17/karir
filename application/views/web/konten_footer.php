@@ -223,6 +223,12 @@
 		});
 		</script>
 
+		<!-- <script>
+jQuery(function(){
+   jQuery('#show').click();
+});
+</script> -->
+
 
 		<script>
 		  $(document).ready(function(){

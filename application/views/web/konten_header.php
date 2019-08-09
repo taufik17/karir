@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/scroll/simplebar.min.css" />
 
 
+
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
 
@@ -29,6 +30,29 @@
 	  max-width: 100%;
 	  font-size: 12px;
 	}
+
+	.mb-0 > a {
+	  display: block;
+	  position: relative;
+	}
+	.mb-0 > a:after {
+	  content: "\f078"; /* fa-chevron-down */
+	  font-family: 'FontAwesome';
+	  position: relative;
+	  right: 0;
+	}
+	.mb-0 > a[aria-expanded="true"]:after {
+	  content: "\f077"; /* fa-chevron-up */
+	}
+
+
+	.fa {
+	  transition: .3s transform ease-in-out;
+	}
+	.collapsed .fa {
+	  transform: rotate(180deg);
+	}
+
 
 	.demo2 {
 		width:20%;

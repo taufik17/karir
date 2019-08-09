@@ -9,12 +9,12 @@
 
 ::-moz-selection {
   /* Code for Firefox */
-  background-color: #49e4fa;
+  background-color: #333333;
   color: #fff;
 }
 
 ::selection {
-  background-color: #49e4fa;
+  background-color: #333333;
   color: #fff;
 }
 
@@ -882,7 +882,7 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn {
   display: inline-block;
   outline: none;
-  line-height: 40px;
+  line-height: 10px;
   padding: 0 30px;
   font-size: .8em;
   text-align: center;
@@ -2562,9 +2562,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .single-feature {
 
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   padding: 0px 0px 15px 0px;
 }
 
@@ -2679,9 +2679,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .post-list .single-post {
-  padding: 30px;
+  /* padding: 30px; */
   background-color: #f9f9ff;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .post-list .single-post h6 {
@@ -2689,7 +2689,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #222;
   font-size: 14px;
   font-weight: 300;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 @media (max-width: 414px) {
@@ -2738,6 +2738,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   .post-list .single-post .btns li {
     margin-bottom: 5px;
   }
+}
+
+.post-list .single-post .thumb {
+  margin-top: 30px;
+  padding-right: 10px;
 }
 
 .post-list .single-post .thumb .tags {
@@ -3898,7 +3903,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .single-post {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .single-post .tags {
