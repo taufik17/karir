@@ -45,6 +45,11 @@
 	text-align: center;
 }
 
+.batas_garis{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #777777;

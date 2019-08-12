@@ -8,7 +8,7 @@
 	<link href="<?php echo base_url(); ?>assets/css/customfont.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/linearicons.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
-
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/dropify/dropify.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/magnific-popup.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/nice-select.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.min.css">
@@ -30,6 +30,7 @@
       z-index: 9999 !important; /* has to be larger than 1050 */
     }
 </style>
+
 
 	<style type="text/css">
 	.row {
@@ -68,9 +69,6 @@
 						<li><a href="#">JOBSEEKER & STUDENT</a></li>
 						<li><a href="#">EVENT</a></li>
 						<li><a href="#">FAQ</a></li>
-		        <li>
-		         <a href="<?php echo base_url() ?>BerandaMhs/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
-		        </li>
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>

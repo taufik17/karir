@@ -132,4 +132,8 @@ class Model_data extends CI_model {
 		return $query;
 	}
 
+	function getinsert_career_day($data){
+		$this->db->insert('peserta_careerday', $data);
+	}
+
 }

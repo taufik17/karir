@@ -217,10 +217,42 @@
 		<script src="<?php echo base_url() ?>assets/js/parallax.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/mail-script.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/main.js"></script>
+		<!-- bootstrap datepicker -->
+		<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
+		<script src="<?php echo base_url() ?>assets/dropify/dropify.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.dropify').dropify({
+					messages: {
+		                default: 'Drag atau drop untuk memilih file',
+		                replace: 'Ganti',
+		                remove:  'Hapus',
+		                error:   'error'
+		            }
+				});
+			});
+		</script>
+
 		<script type="text/javascript">
 		$(window).load(function() {
 			$(".loader").fadeOut("slow");
 		});
+		</script>
+
+		<script>
+		$('#datepicker').datepicker({
+		 format: "yyyy-mm-dd",
+		 autoclose: true
+		})
+		</script>
+
+		<script>
+		$("#yearpicker").datepicker({
+    format: "yyyy",
+    viewMode: "years",
+    minViewMode: "years"
+	});
 		</script>
 
 		<!-- <script>

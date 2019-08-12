@@ -22,29 +22,26 @@
 					<ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
 
 						<li class="nav-item">
-							<a class="nav-link pilbg" id="alumniitera-tab" data-toggle="tab" href="#alumniitera" role="tab" aria-controls="alumniitera" aria-selected="false">Alumni ITERA</a>
+							<a class="nav-link pilbg" id="alumniitera-tab" data-toggle="tab" href="#alumniitera" role="tab" aria-controls="alumniitera" aria-selected="false">2018</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active pilbg" id="alumniselainitera-tab" data-toggle="tab" href="#alumniselainitera" role="tab" aria-controls="alumniselainitera" aria-selected="false">Alumni Selain ITERA</a>
+							<a class="nav-link active pilbg" id="alumniselainitera-tab" data-toggle="tab" href="#alumniselainitera" role="tab" aria-controls="alumniselainitera" aria-selected="false">2019</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link pilbg" id="mhs-tab" data-toggle="tab" href="#mhs" role="tab" aria-controls="mhs" aria-selected="false">Mahasiswa</a>
+							<a class="nav-link pilbg" id="mhs-tab" data-toggle="tab" href="#mhs" role="tab" aria-controls="mhs" aria-selected="false">2020</a>
 						</li>
 					</ul>
 
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade" id="alumniitera" role="tabpanel" aria-labelledby="alumniitera-tab">
-							<p class="intro">Kenali program seru kami untuk para member jobseeker ICC</p>
 							<br>
 							<?php $this->load->view('web/daftar/jobseeker/konten_daftar_alumni') ?>
 						</div>
 						<div class="tab-pane fade show active" id="alumniselainitera" role="tabpanel" aria-labelledby="alumniselainitera-tab">
-							<p class="intro">Kenali program seru kami untuk para member jobseeker ICC</p>
 							<br>
 							<?php $this->load->view('web/daftar/jobseeker/konten_daftar_alumni_selainitera') ?>
 						</div>
 						<div class="tab-pane fade" id="mhs" role="tabpanel" aria-labelledby="mhs-tab">
-							<p class="intro">Kenali program seru kami untuk para member mahasiswa ICC</p>
 							<br>
 							<?php $this->load->view('web/daftar/jobseeker/konten_daftar_mhs') ?>
 						</div>
