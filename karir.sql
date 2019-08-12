@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Agu 2019 pada 10.33
+-- Waktu pembuatan: 12 Agu 2019 pada 10.33
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -69,7 +69,13 @@ CREATE TABLE `calendar` (
 --
 
 INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
-(14, 'bismillah', 'semoaga', '#FF8C00', '2019-08-28', '2019-08-31', '2019-08-07 14:33:42', NULL, '2019-08-07 09:54:48', NULL);
+(76, 'well hello people', 'apa saja dah', '', '2019-08-11', '2019-08-17', '2019-08-09 08:16:35', NULL, NULL, NULL),
+(78, 'coba aja dari tombol', 'entah bisa engga', '#FF0000', '2019-08-10', '2019-08-16', '2019-08-09 08:17:27', NULL, NULL, NULL),
+(81, 'yakin....', 'masa iya kacau', '#FFD700', '2019-08-19', '2019-08-26', '2019-08-09 08:18:49', NULL, NULL, NULL),
+(83, 'bismillah', 'semoga bisa', '#008000', '2019-08-26', '2019-08-31', '2019-08-09 08:27:02', NULL, NULL, NULL),
+(84, 'yakin dong', 'ok', '#FF0000', '2019-08-12', '2019-08-15', '2019-08-09 08:27:35', NULL, NULL, NULL),
+(85, 'tes waktu', 'harusnya sudah bener', '#0071c5', '2019-08-01', '2019-08-10', '2019-08-09 14:10:06', NULL, NULL, NULL),
+(86, 'career day', 'career day adalah ...', '#FF8C00', '2019-08-12', '2019-08-31', '2019-08-12 14:10:12', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -102,7 +108,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`Id_perusahaan`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Password_perusahaan`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
-(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 1, '18', '1803', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-01 07:33:36');
+(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 33, '18', '1803', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-08 03:02:35');
 
 -- --------------------------------------------------------
 
@@ -120,10 +126,10 @@ CREATE TABLE `industri` (
 --
 
 INSERT INTO `industri` (`id_industri`, `jenis_industri`) VALUES
-(1, 'bismillah'),
-(29, 'alhamdulillah'),
-(31, 'arsitektur'),
-(32, 'geofisika');
+(32, 'geofisika'),
+(33, 'perkantoran'),
+(34, 'perikanan'),
+(35, 'developer');
 
 -- --------------------------------------------------------
 
@@ -149,10 +155,8 @@ INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`, `
 (10, 'tes lagi', 4, '2019-08-07', '<span class=\"label label-warning\">Pending</span>'),
 (11, 'tes again', 4, '2019-08-09', '<span class=\"label label-warning\">Pending</span>'),
 (13, 'adfas', 4, '2019-08-22', '<span class=\"label label-warning\">Pending</span>'),
-(14, 'dfa', 4, '2019-08-22', '<span class=\"label label-warning\">Pending</span>'),
-(15, 'dfa', 4, '2019-08-29', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;'),
-(16, 'dfd', 4, '2019-08-27', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;'),
-(17, 'dfa', 4, '2019-08-23', '&lt;span class=\"label label-warning\"&gt;Pending&lt;/span&gt;');
+(14, 'dfa', 4, '2019-08-22', '<span class=\"label label-success\">Telah tayang</span>'),
+(18, 'galon', 4, '2019-05-06', '<span class=\"label label-warning\">Pending</span>');
 
 -- --------------------------------------------------------
 
@@ -762,6 +766,39 @@ INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `alumni`, `nonalumni`, `mahasi
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `peserta_careerday`
+--
+
+CREATE TABLE `peserta_careerday` (
+  `id_pendaftar` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL,
+  `nama` varchar(150) NOT NULL,
+  `jk` enum('Laki - Laki','Perempuan','','') NOT NULL,
+  `asal_sekolah_pt` varchar(150) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `nohp` varchar(15) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `tahun_lulus_terakhir` year(4) NOT NULL,
+  `foto` varchar(150) NOT NULL,
+  `alasan_ikut` text NOT NULL,
+  `tanggal_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `peserta_careerday`
+--
+
+INSERT INTO `peserta_careerday` (`id_pendaftar`, `id_event`, `nama`, `jk`, `asal_sekolah_pt`, `tgl_lahir`, `alamat`, `nohp`, `email`, `tahun_lulus_terakhir`, `foto`, `alasan_ikut`, `tanggal_daftar`) VALUES
+(3, 86, '0', 'Laki - Laki', 'lampung selatan', '2019-08-12', 'way hui', '085357037093', 'taufikagungsantoso17@gmail.com', 2016, '', 'ikutan aja', '2019-08-12 07:12:04'),
+(4, 86, '0', 'Perempuan', 'itera', '2019-08-01', 'lampung', '085357037093', 'sekar@gmail.com', 2010, '', 'ikut', '2019-08-12 07:15:18'),
+(5, 86, 'sunarno', 'Laki - Laki', 'itera', '2019-08-02', 'jajaran baru', '085357037093', 'sunar@gmail.com', 2018, '', 'ada alasan tersendiri', '2019-08-12 07:17:06'),
+(6, 86, 'bismillah', 'Laki - Laki', 'itera', '2019-08-27', 'jajaran baru', '085357037093', 'bismil@gmail.com', 2014, 'b7e819366aa1095bd652f1251d919d13.jpg', 'bismillah', '2019-08-12 07:23:27'),
+(7, 86, 'purwati', 'Perempuan', 'sdn 2 jajaran baru', '2019-08-01', 'jatinegara', '085357037093', 'purwati@gmail.com', 2010, 'e52d24f829ef7578f9e53dcc80f3453a.jpg', 'karena disini saya ingin mencari kerja', '2019-08-12 08:11:16');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `provinsi`
 --
 
@@ -883,6 +920,13 @@ ALTER TABLE `lamaran`
   ADD KEY `lamaran_ibfk_4` (`pekerjaan`);
 
 --
+-- Indeks untuk tabel `peserta_careerday`
+--
+ALTER TABLE `peserta_careerday`
+  ADD PRIMARY KEY (`id_pendaftar`),
+  ADD KEY `id_event` (`id_event`);
+
+--
 -- Indeks untuk tabel `provinsi`
 --
 ALTER TABLE `provinsi`
@@ -902,7 +946,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `calendar`
 --
 ALTER TABLE `calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT untuk tabel `company`
@@ -914,13 +958,13 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT untuk tabel `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker_alumni`
@@ -945,6 +989,12 @@ ALTER TABLE `jobseeker_nonalumni`
 --
 ALTER TABLE `lamaran`
   MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `peserta_careerday`
+--
+ALTER TABLE `peserta_careerday`
+  MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -972,6 +1022,12 @@ ALTER TABLE `lamaran`
   ADD CONSTRAINT `lamaran_ibfk_2` FOREIGN KEY (`mahasiswa`) REFERENCES `jobseeker_mahasiswa` (`id_jobseeker_mhs`) ON UPDATE CASCADE,
   ADD CONSTRAINT `lamaran_ibfk_3` FOREIGN KEY (`nonalumni`) REFERENCES `jobseeker_nonalumni` (`id_jobseeker_nonalumni`) ON UPDATE CASCADE,
   ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `peserta_careerday`
+--
+ALTER TABLE `peserta_careerday`
+  ADD CONSTRAINT `peserta_careerday_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `calendar` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
