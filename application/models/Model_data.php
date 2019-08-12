@@ -127,4 +127,9 @@ class Model_data extends CI_model {
 		return $query;
 	}
 
+	function event(){
+		$query = $this->db->query("select * from calendar WHERE start_date<=current_date() AND end_date >= current_date()");
+		return $query;
+	}
+
 }

@@ -96,17 +96,36 @@
 				<div class="single-feature">
 					<h4 align="center">Kalender Event</h4>
 					<div class="info-box">
-            <span class="info-box-icon bg-aqua">
-            	09
+            <span class="info-box-icon">
+							<img src="<?= base_url() ?>assets/gambar/calendar-bg.png" alt="">
+							<div class="centered">
+								<?php
+								date_default_timezone_set('Asia/Jakarta');
+								echo date('d');
+								?>
+							</div>
             </span>
 
             <div class="info-box-content" text-align="center">
-              <h3 align="center">Aug 2019</h3>
+              <h3>&nbsp
+								<?php
+								echo date('M Y');
+								 ?>
+							</h3>
+							<p><?= $event ?> events</p>
             </div>
             <!-- /.info-box-content -->
           </div>
+					<div class="button-center">
+						<a href="<?= base_url() ?>event" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>
+					</div>
+
+
+
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 </section>

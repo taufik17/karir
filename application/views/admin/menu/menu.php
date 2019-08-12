@@ -1,6 +1,6 @@
 <ul class="sidebar-menu" data-widget="tree">
 	<li class="header">MAIN NAVIGATION</li>
-	<li <?=$this->uri->segment(2) == 'dashboard' || $this->uri->segment(2) == '' ? 'class="active"' : 'class=""'?> >
+	<li <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == 'dashboard' || $this->uri->segment(2) == '' ? 'class="active"' : 'class=""'?> >
 		<a href="<?= base_url() ?>admin">
 			<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 		</a>

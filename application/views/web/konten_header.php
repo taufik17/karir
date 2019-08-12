@@ -28,6 +28,19 @@
 	<!-- untuk terbaru dan terpopuler -->
 	<style>
 
+/* Centered text */
+.info-box-icon .centered {
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+.button-center{
+	text-align: center;
+	vertical-align: middle;
+}
+
 	.demo1 {
 		width:100%;
 		height:350px;
@@ -134,24 +147,7 @@
 					<a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets/img/logo.png" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class="menu-active"><a href="<?php echo base_url() ?>">Home</a></li>
-						<li><a href="#">CAREER INFORMATION</a></li>
-						<li><a href="#">COMPANY</a></li>
-						<li><a href="#">JOBSEEKER & STUDENT</a></li>
-						<li><a href="#">EVENT</a></li>
-						<li><a href="#">FAQ</a></li>
-
-						<li class="menu-has-children"><a class="ticker-btn" style="color:white">Signup&nbsp&nbsp</a>
-				            <ul style="display: none;">
-								<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
-								<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
-				            </ul>
-				          </li>
-						<li>
-							<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
-						</li>
-					</ul>
+					<?php $this->load->view('web/menu'); ?>
 				</nav><!-- #nav-menu-container -->
 			</div>
 		</div>

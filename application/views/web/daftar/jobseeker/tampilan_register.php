@@ -58,7 +58,7 @@
 &nbsp
 <br>
 
-			<?php $this->load->view('web/konten_footer') ?>
+<?php $this->load->view('web/konten_footer') ?>
 
-				</body>
-				</html>
+</body>
+</html>

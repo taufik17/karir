@@ -7,6 +7,7 @@ class Beranda extends CI_Controller {
 		$isi['title'] = "ITERA | Career Center";
 		$isi['provinsi'] = $this->model_data->provinsi();
 		$isi['jenis_industri'] = $this->model_data->jenis_industri();
+		$isi['event'] = $this->model_data->event()->num_rows();
 		$this->load->view('web/tampilan_beranda',$isi);
 	}
 
