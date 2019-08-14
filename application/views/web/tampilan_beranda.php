@@ -1,5 +1,47 @@
 <?php $this->load->view('web/konten_header') ?>
 
+<div id="modal_warning" class="modal fade" role="dialog">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header modaldaftar">
+				<h5 id="daftar-modalLabel" class="modal-title" style="color:white;">Event Terdekat</h5>
+				<button type="button" data-dismiss="modal" aria-label="Close" class="close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<br>
+			</div>
+
+			<div class="modal-body">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						    <!-- Indicators -->
+						    <ol class="carousel-indicators">
+						      <li data-target="#myCarousel" data-slide-to="0"  class="active"></li>
+						    </ol>
+
+						    <!-- Wrapper for slides -->
+						    <div class="carousel-inner">
+						    	<div class="item active">
+							        <a href="<?= base_url() ?>event/careerday" target="_blank">
+										<img src="http://sso.itera.ac.id/assets/iklan/iklan_penjamu.jpg" style="width: 100%" class="img-responsive">
+									</a>
+						      	</div>
+						    </div>
+
+						    <!-- Left and right controls -->
+						    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						      <span class="glyphicon glyphicon-chevron-left"></span>
+						      <span class="sr-only">Previous</span>
+						    </a>
+						    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+						      <span class="glyphicon glyphicon-chevron-right"></span>
+						      <span class="sr-only">Next</span>
+						    </a>
+						</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <section class="banner-area relative" id="home">
 	<div class="overlay overlay-bg"></div>
 	<div class="container">
@@ -112,9 +154,24 @@
 								echo date('M Y');
 								 ?>
 							</h3>
-							<p><?= $event ?> events</p>
             </div>
             <!-- /.info-box-content -->
+						<br>
+
+						<div class="event-box" data-simplebar>
+							<div id="content">
+								<?php foreach ($event->result() as $judul ) {
+									?>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<a href="<?= base_url();?>event/viewevent/<?= $judul->id; ?>"><?= $judul->title; ?></a>
+								</li>
+							</ul>
+							<?php } ?>
+							</div>
+						</div>
+
+
           </div>
 					<div class="button-center">
 						<a href="<?= base_url() ?>event" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>

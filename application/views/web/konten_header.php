@@ -15,15 +15,17 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/scroll/simplebar.min.css" />
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
-
-
-
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+				$('#modal_warning').modal();
+			});
+</script>
 
 	<!-- untuk terbaru dan terpopuler -->
 	<style>
@@ -44,6 +46,13 @@
 	.demo1 {
 		width:100%;
 		height:350px;
+	  max-width: 100%;
+	  font-size: 12px;
+	}
+
+	.event-box {
+		width:100%;
+		max-height:250px;
 	  max-width: 100%;
 	  font-size: 12px;
 	}

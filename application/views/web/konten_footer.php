@@ -217,6 +217,7 @@
 		<script src="<?php echo base_url() ?>assets/js/parallax.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/mail-script.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/main.js"></script>
+		<script src="<?php echo base_url() ?>assets/admin/dist/js/adminlte.min.js"></script>
 		<!-- bootstrap datepicker -->
 		<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
 		<script src="<?php echo base_url() ?>assets/dropify/dropify.min.js"></script>

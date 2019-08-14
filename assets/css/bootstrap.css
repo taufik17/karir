@@ -5006,9 +5006,7 @@ button.close {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-  background: linear-gradient(to right, #7B63F3 , #BEA9F8);
+  background: linear-gradient(to right, #8B939A , #5B6467);
 }
 
 .modal-header .close {

@@ -11,7 +11,12 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<form method="POST" action="<?php echo base_url();?>Event/daftar" enctype="multipart/form-data">
-
+									<?php foreach ($event->result() as $judul ) {
+										?>
+										<input type="hidden" name="id" value="<?= $id; ?>">
+										<input type="hidden" name="start_date" value="<?= $judul->start_date; ?>">
+										<input type="hidden" name="end_date" value="<?= $judul->end_date; ?>">
+									<?php } ?>
 									<label for="exampleFormControlInput1">Nama<span class="required">&nbsp*</span>&nbsp:</label>
 									<div class="input-group-icon mt-10">
 										<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
