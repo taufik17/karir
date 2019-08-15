@@ -136,4 +136,9 @@ class Model_data extends CI_model {
 		$this->db->insert('peserta_careerday', $data);
 	}
 
+	function data_peserta(){
+		$hasil = $this->db->query("SELECT title,id_event, count(id) as jumlah FROM peserta_careerday NATURAL JOIN calendar where id=86");
+		return $hasil->result();
+	}
+
 }

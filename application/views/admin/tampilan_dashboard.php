@@ -587,6 +587,43 @@
     <!-- end script list permohonan -->
 
 
+    <!-- script data peserta event -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+      tampil_peserta();   //pemanggilan fungsi tampil tipe.
+      $('#joblist').dataTable();
+      //fungsi tampil tipe
+      function tampil_peserta(){
+        $.ajax({
+          type  : 'ajax',
+          url   : '<?php echo base_url()?>admin/data_peserta',
+          async : false,
+          dataType : 'json',
+          success : function(data){
+            var html = '';
+            var i;
+            var no=1;
+            for(i=0; i<data.length; i++){
+              html += '<tr>'+
+              '<td>'+no+'</td>'+
+              '<td>'+data[i].title+'</td>'+
+              '<td>'+data[i].jumlah+'&nbsppeserta</td>'+
+              '<td style="text-align:center;">'+
+              '<a href="<?= base_url() ?>admin/detail_peserta/'+data[i].id_event+'" class="btn btn-info btn-xs "><i class="fa fa-eye"></i>&nbsp&nbspLihat</a>'+' '+
+              '</td>'+
+              '</tr>';
+              no++;
+            }
+            $('#show_peserta').html(html);
+          }
+
+        });
+      }
+    });
+    </script>
+    <!-- end script data peserta event -->
+
+
     <!-- script list kategori industri -->
     <script type="text/javascript">
     $(document).ready(function(){

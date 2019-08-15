@@ -75,6 +75,29 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	public function peserta_event(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['data']		= $this->model_data->dataadmin();
+		$isi['title'] = "ICC | Admin Peserta Event";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_peserta_event";
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
+	public function data_peserta(){
+		$data = $this->model_data->data_peserta();
+    echo json_encode($data);
+	}
+
+	public function detail_peserta(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['data']		= $this->model_data->dataadmin();
+		$isi['title'] = "ICC | Admin Detail Peserta";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_detail_peserta_event";
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
 	public function save()
 	{
 		$response = array();
