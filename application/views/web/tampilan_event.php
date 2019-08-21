@@ -19,7 +19,9 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="single-feature">
-					
+
+					<h1 align="center">Coming Soon</h1>
+
 				</div>
 			</div>
 		</div>

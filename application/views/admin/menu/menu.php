@@ -18,7 +18,7 @@
 		</a>
 	</li>
 
-	<li <?=$this->uri->segment(2) == 'kalender_event' || $this->uri->segment(2) == 'peserta_event' ? 'class="treeview active"' : 'class="treeview"'?>>
+	<li <?=$this->uri->segment(2) == 'kalender_event' || $this->uri->segment(2) == 'peserta_event' || $this->uri->segment(2) == 'detail_peserta' ? 'class="treeview active"' : 'class="treeview"'?>>
 		<a href="#">
 			<i class="fa fa-bullhorn"></i> <span>Event</span>
 			<span class="pull-right-container">
@@ -28,7 +28,7 @@
 		<ul class="treeview-menu">
 			<li <?=$this->uri->segment(2) == 'kalender_event' ? 'class="active"' : 'class=""'?>>
 				<a href="<?= base_url() ?>admin/kalender_event"><i class="fa fa-circle-o"></i> Kalender Event</a></li>
-				<li <?=$this->uri->segment(2) == 'peserta_event' ? 'class="active"' : 'class=""'?>>
+				<li <?=$this->uri->segment(2) == 'peserta_event' || $this->uri->segment(2) == 'detail_peserta' ? 'class="active"' : 'class=""'?>>
 					<a href="<?= base_url() ?>admin/peserta_event"><i class="fa fa-circle-o"></i> Peserta Event</a></li>
 				</ul>
 			</li>

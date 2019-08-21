@@ -3607,6 +3607,7 @@ tbody.collapse.show {
   flex-basis: 0;
   flex-grow: 1;
   text-align: center;
+  
 }
 
 .tab-content > .tab-pane {
@@ -4054,7 +4055,7 @@ tbody.collapse.show {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.25rem;
+  padding-bottom: S: 1.25rem;
 }
 
 .card-title {

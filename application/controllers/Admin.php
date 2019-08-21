@@ -92,6 +92,7 @@ class Admin extends CI_Controller {
 	public function detail_peserta(){
 		$this->model_keamanan->getkeamananadmin();
 		$isi['data']		= $this->model_data->dataadmin();
+		$isi['daftar_peserta'] = $this->model_data->daftar_peserta();
 		$isi['title'] = "ICC | Admin Detail Peserta";
 		$isi['menu'] = "admin/menu/menu";
 		$isi['konten'] = "admin/konten/konten_detail_peserta_event";

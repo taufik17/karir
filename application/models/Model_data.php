@@ -62,7 +62,7 @@ class Model_data extends CI_model {
   }
 
 	function list_pekerjaan(){
-		$hasil = $this->db->query("SELECT * FROM `joblist` NATURAL JOIN company WHERE `status` = '<span class=\"label label-warning\">Pending</span>'");
+		$hasil = $this->db->query("SELECT * FROM `joblist` NATURAL JOIN company WHERE `status` = '<span class=\"label label-warning\">Pending</span>' AND `perusahaan` = Id_perusahaan");
 		return $hasil->result();
 	}
 
@@ -139,6 +139,17 @@ class Model_data extends CI_model {
 	function data_peserta(){
 		$hasil = $this->db->query("SELECT title,id_event, count(id) as jumlah FROM peserta_careerday NATURAL JOIN calendar where id=86");
 		return $hasil->result();
+	}
+
+	function daftar_peserta() {
+		$hasil = $this->db->query("SELECT * FROM peserta_careerday");
+		return $hasil;
+	}
+
+	function data_list() {
+		$hasil = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan
+			FROM company");
+		return $hasil;
 	}
 
 }

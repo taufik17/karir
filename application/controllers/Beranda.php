@@ -8,6 +8,7 @@ class Beranda extends CI_Controller {
 		$isi['provinsi'] = $this->model_data->provinsi();
 		$isi['jenis_industri'] = $this->model_data->jenis_industri();
 		$isi['event'] = $this->model_data->event();
+		$isi['data_list'] = $this->model_data->data_list();
 		$this->load->view('web/tampilan_beranda',$isi);
 	}
 
