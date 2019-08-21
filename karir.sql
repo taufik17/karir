@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Agu 2019 pada 10.33
+-- Waktu pembuatan: 21 Agu 2019 pada 12.06
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -69,13 +69,10 @@ CREATE TABLE `calendar` (
 --
 
 INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
-(76, 'well hello people', 'apa saja dah', '', '2019-08-11', '2019-08-17', '2019-08-09 08:16:35', NULL, NULL, NULL),
-(78, 'coba aja dari tombol', 'entah bisa engga', '#FF0000', '2019-08-10', '2019-08-16', '2019-08-09 08:17:27', NULL, NULL, NULL),
-(81, 'yakin....', 'masa iya kacau', '#FFD700', '2019-08-19', '2019-08-26', '2019-08-09 08:18:49', NULL, NULL, NULL),
-(83, 'bismillah', 'semoga bisa', '#008000', '2019-08-26', '2019-08-31', '2019-08-09 08:27:02', NULL, NULL, NULL),
-(84, 'yakin dong', 'ok', '#FF0000', '2019-08-12', '2019-08-15', '2019-08-09 08:27:35', NULL, NULL, NULL),
-(85, 'tes waktu', 'harusnya sudah bener', '#0071c5', '2019-08-01', '2019-08-10', '2019-08-09 14:10:06', NULL, NULL, NULL),
-(86, 'career day', 'career day adalah ...', '#FF8C00', '2019-08-12', '2019-08-31', '2019-08-12 14:10:12', NULL, NULL, NULL);
+(86, 'career day', 'career day adalah ...', '#FF8C00', '2019-08-12', '2019-08-15', '2019-08-12 14:10:12', NULL, '2019-08-15 09:13:15', NULL),
+(96, 'PEMBAYARAN UKT', '', '', '2019-08-12', '2019-08-21', '2019-08-15 09:43:57', NULL, NULL, NULL),
+(98, 'SELESAI MAGANG', '', '', '2019-09-11', '2019-09-30', '2019-08-15 09:45:07', NULL, NULL, NULL),
+(101, 'Pengumuman Seleksi', 'seleksi masuk perguruan tinggi', '', '2019-08-25', '2019-08-25', '2019-08-16 11:15:39', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,6 +86,7 @@ CREATE TABLE `company` (
   `Nama_officer` varchar(50) NOT NULL,
   `Email_officer` varchar(100) NOT NULL,
   `Email_perusahaan` varchar(100) NOT NULL,
+  `deskripsi_perusahaan` text NOT NULL,
   `id_industri` int(8) NOT NULL,
   `id_provinsi` varchar(2) NOT NULL,
   `id_kabupaten_kota` varchar(4) NOT NULL,
@@ -107,8 +105,9 @@ CREATE TABLE `company` (
 -- Dumping data untuk tabel `company`
 --
 
-INSERT INTO `company` (`Id_perusahaan`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Password_perusahaan`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
-(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 33, '18', '1803', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-08 03:02:35');
+INSERT INTO `company` (`Id_perusahaan`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Password_perusahaan`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
+(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 'ini deskripsi perusahaan ITERA', 33, '18', '1803', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-16 08:02:59'),
+(5, 'warung kopi', 'taufik agung santoso', 'taufikagungsantoso07@gmail.com', 'warungkopi@gmail.com', 'ini deskripsi perusahaan warung kopi', 34, '16', '1605', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', 'quick.png', 'warungkopi.com', '085356764787', '08535735468', '08764675876', 'jajaran baru', '31657', '2019-08-21 02:53:10');
 
 -- --------------------------------------------------------
 
@@ -151,12 +150,7 @@ CREATE TABLE `joblist` (
 
 INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`, `status`) VALUES
 (8, 'bismillah', 4, '2019-08-31', '<span class=\"label label-success\">Telah tayang</span>'),
-(9, 'alhamdulillah', 4, '2019-10-12', '<span class=\"label label-success\">Telah tayang</span>'),
-(10, 'tes lagi', 4, '2019-08-07', '<span class=\"label label-warning\">Pending</span>'),
-(11, 'tes again', 4, '2019-08-09', '<span class=\"label label-warning\">Pending</span>'),
-(13, 'adfas', 4, '2019-08-22', '<span class=\"label label-warning\">Pending</span>'),
-(14, 'dfa', 4, '2019-08-22', '<span class=\"label label-success\">Telah tayang</span>'),
-(18, 'galon', 4, '2019-05-06', '<span class=\"label label-warning\">Pending</span>');
+(20, 'menggosok pakaian', 4, '2019-08-24', '<span class=\"label label-success\">Telah tayang</span>');
 
 -- --------------------------------------------------------
 
@@ -761,7 +755,9 @@ CREATE TABLE `lamaran` (
 --
 
 INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `alumni`, `nonalumni`, `mahasiswa`) VALUES
-(4, 8, 1, NULL, NULL);
+(7, 20, NULL, 1, NULL),
+(8, 8, 3, NULL, NULL),
+(9, 8, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -790,11 +786,9 @@ CREATE TABLE `peserta_careerday` (
 --
 
 INSERT INTO `peserta_careerday` (`id_pendaftar`, `id_event`, `nama`, `jk`, `asal_sekolah_pt`, `tgl_lahir`, `alamat`, `nohp`, `email`, `tahun_lulus_terakhir`, `foto`, `alasan_ikut`, `tanggal_daftar`) VALUES
-(3, 86, '0', 'Laki - Laki', 'lampung selatan', '2019-08-12', 'way hui', '085357037093', 'taufikagungsantoso17@gmail.com', 2016, '', 'ikutan aja', '2019-08-12 07:12:04'),
-(4, 86, '0', 'Perempuan', 'itera', '2019-08-01', 'lampung', '085357037093', 'sekar@gmail.com', 2010, '', 'ikut', '2019-08-12 07:15:18'),
-(5, 86, 'sunarno', 'Laki - Laki', 'itera', '2019-08-02', 'jajaran baru', '085357037093', 'sunar@gmail.com', 2018, '', 'ada alasan tersendiri', '2019-08-12 07:17:06'),
 (6, 86, 'bismillah', 'Laki - Laki', 'itera', '2019-08-27', 'jajaran baru', '085357037093', 'bismil@gmail.com', 2014, 'b7e819366aa1095bd652f1251d919d13.jpg', 'bismillah', '2019-08-12 07:23:27'),
-(7, 86, 'purwati', 'Perempuan', 'sdn 2 jajaran baru', '2019-08-01', 'jatinegara', '085357037093', 'purwati@gmail.com', 2010, 'e52d24f829ef7578f9e53dcc80f3453a.jpg', 'karena disini saya ingin mencari kerja', '2019-08-12 08:11:16');
+(7, 86, 'purwati', 'Perempuan', 'sdn 2 jajaran baru', '2019-08-01', 'jatinegara', '085357037093', 'purwati@gmail.com', 2010, 'e52d24f829ef7578f9e53dcc80f3453a.jpg', 'karena disini saya ingin mencari kerja', '2019-08-12 08:11:16'),
+(8, 86, 'mas dirga', 'Laki - Laki', 'itera', '2019-08-01', 'itera', '085357037093', 'dirga@gmail.com', 2019, '056e8e2c6e85464979bd3e3f146605db.jpg', 'ingin mendapatkan pekerjaan', '2019-08-15 01:44:36');
 
 -- --------------------------------------------------------
 
@@ -946,13 +940,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `calendar`
 --
 ALTER TABLE `calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `industri`
@@ -964,7 +958,7 @@ ALTER TABLE `industri`
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker_alumni`
@@ -988,13 +982,13 @@ ALTER TABLE `jobseeker_nonalumni`
 -- AUTO_INCREMENT untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_careerday`
 --
 ALTER TABLE `peserta_careerday`
-  MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
