@@ -7,6 +7,14 @@
 	<title>404 Not Found</title>
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/asset404/bootstrap.css" />
   <link rel="stylesheet" href="<?php echo base_url();?>assets/asset404/app.v1.css" />
+
+  <style>
+.responsive {
+  width: 180%;
+  height: auto;
+}
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -20,7 +28,7 @@
 
     <div class="row">
       <div class="col-md-4 col-md-offset-3">
-        <img src="<?php echo base_url(); ?>assets/asset404/404.gif" alt="404 not found">
+        <img src="<?php echo base_url(); ?>assets/asset404/404.gif" alt="404 not found" class="responsive">
       </div>
     </div>
 

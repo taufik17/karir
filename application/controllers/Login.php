@@ -4,7 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function index()
 	{
-		//do nothing
+		$isi['title'] = "ICC | Member Login";
+		$this->load->view('web/login/pilihan_login', $isi);
+	}
+
+	public function member(){
+		$isi['title'] = "ICC | Member Login";
+		$this->load->view('web/login/jobseeker/tampilan_member_login', $isi);
+	}
+
+	public function company(){
+		$isi['title'] = "ICC | Company Login";
+		$this->load->view('web/login/company/tampilan_company_login', $isi);
 	}
 
 	public function loginjobseeker(){

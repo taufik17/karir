@@ -2600,6 +2600,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-transform: uppercase;
 }
 
+
+
 .single-feature .container-fluid  {
   width: 100%;
   padding-right: 150px;
@@ -3628,6 +3630,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .single-service:hover h4, .single-service:hover p, .single-service:hover .lnr {
+  color: #fff;
+}
+
+.single-service:hover h3, .single-service:hover p, .single-service:hover .lnr {
   color: #fff;
 }
 

@@ -1,0 +1,52 @@
+<?php $this->load->view('web/konten_header') ?>
+
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					Member Login
+				</h1>
+				<p class="tex-white">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="features-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="single-feature">
+						<div class="footer_daftar">
+							<form action="<?= base_url() ?>login/loginjobseeker" method="post">
+									<div class="form-group-login">
+										<input id="username" name="emailjobseeker" type="email" placeholder="Email jobseeker" class="form-control" required>
+									</div>
+									<div class="form-group-login">
+										<input id="password" name="passwordjobseeker" type="password" placeholder="Password" class="form-control" required>
+									</div>
+							<p class="text-center">
+								<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span>Masuk</span></button>
+							</p>
+							<hr>
+							<p class="text-center text-muted">
+								<a href="<?= base_url() ?>register">
+									<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
+										<strong style="color:red;">Lupa Sandi</strong></a> </p>
+									</form>
+							</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<br>
+&nbsp
+<br>
+
+
+<?php $this->load->view('web/konten_footer') ?>
