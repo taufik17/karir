@@ -6,7 +6,7 @@
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">
-					Member Login
+					Company Login
 				</h1>
 				<p class="tex-white">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 			</div>
@@ -20,19 +20,19 @@
 			<div class="col-lg-12 col-md-12">
 				<div class="single-feature">
 					<div class="footer_daftar">
-						<form action="<?= base_url() ?>login/login_member" method="post">
+						<form action="<?= base_url() ?>login/login_company" method="post">
 							<div class="form-group-login">
-								<input id="username" name="emailjobseeker" type="email" placeholder="Email jobseeker" class="form-control" required>
+								<input id="username" name="emailcompany" type="email" placeholder="Email company" class="form-control" required>
 							</div>
 							<div class="form-group-login">
-								<input id="password" name="passwordjobseeker" type="password" placeholder="Password" class="form-control" required>
+								<input id="password" name="passwordcompany" type="password" placeholder="Password" class="form-control" required>
 							</div>
 							<p class="text-center">
 								<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span>Masuk</span></button>
 							</p>
 							<hr>
 							<p class="text-center text-muted">
-								<a href="<?= base_url() ?>register">
+								<a href="<?= base_url() ?>register_company">
 									<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
 										<strong style="color:red;">Lupa Sandi</strong></a> </p>
 									</form>

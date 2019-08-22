@@ -26,6 +26,20 @@ class Login extends CI_Controller {
 		$this->model_userlogin->getlogin($u, $p);
 	}
 
+	public function login_member(){
+		$u = $this->input->post('emailjobseeker');
+		$p = $this->input->post('passwordjobseeker');
+		$this->load->model('model_userlogin');
+		$this->model_userlogin->login_member($u, $p);
+	}
+
+	public function login_company(){
+		$u = $this->input->post('emailjobseeker');
+		$p = $this->input->post('passwordjobseeker');
+		$this->load->model('model_userlogin');
+		$this->model_userlogin->login_member($u, $p);
+	}
+
 	public function logincompany(){
 		$output = array('error' => false);
 		$u = $this->input->post('emailcompany');
@@ -35,7 +49,7 @@ class Login extends CI_Controller {
 	}
 
 	public function inijobseeker(){
-		echo "ini jobseeker";
+		redirect ('member');
 	}
 
 	public function inicompany(){
