@@ -14,6 +14,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
@@ -34,6 +35,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query2->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
@@ -54,6 +56,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query3->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				$output['message'] = 'Masuk. Silahkan tunggu...';
@@ -82,6 +85,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				redirect('member');
@@ -96,6 +100,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query2->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				redirect('member');
@@ -110,6 +115,7 @@ class Model_userlogin extends CI_model {
 			foreach ($query3->result() as $row)
 			{
 				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
+								'Nama_jobseeker'	=> $row->Nama_jobseeker,
 							  'Password_jobseeker'	=> $row->Password_jobseeker);
 				$this->session->set_userdata($sess);
 				redirect('member');

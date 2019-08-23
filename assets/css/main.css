@@ -1929,7 +1929,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  padding: 14px 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: fixed;
   left: 0;
   top: 0;
@@ -1959,7 +1960,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .foto-profil > .image > img{
   width:100%;
-  max-width:45px;
+  max-width:35px;
   height:auto;
 }
 
@@ -2281,6 +2282,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .section-gap {
   padding: 120px 0;
+}
+
+.section-member {
+  padding-top: 50px;
+  padding-bottom: 120px;
+}
+
+.nav-item.active{
+  border-bottom: 1px solid #8C1515;
 }
 
 .section-header-company {

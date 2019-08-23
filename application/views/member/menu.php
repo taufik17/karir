@@ -1,3 +1,4 @@
+<?php foreach ($data->result() as $row )?>
 <ul class="nav-menu">
 	<li class="menu-active">
 		<a href="<?php echo base_url() ?>">
@@ -18,7 +19,7 @@
 	<li>
 		<div class="foto-profil">
 			<div class="pull-left image">
-				<img class="img-circle" alt="User Image" src="http://localhost/Inventaris-TIK/assets/foto_profil/avatar.png">
+				<img class="img-circle" alt="User Image" src="<?= base_url() ?>assets/gambar/member/profil/<?= $row->foto; ?>">
 			</div>
 		</div>
 	</li>

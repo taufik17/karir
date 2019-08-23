@@ -1371,6 +1371,19 @@ a:hover,a:active,a:focus{
     box-shadow:0 1px 1px rgba(0,0,0,0.1);
     margin-bottom: 100px;
 }
+
+.box-member{
+    position:relative;
+    border-radius:3px;
+    background:#ffffff;
+    height: 300px;
+    border-top:3px solid #d2d6de;
+    margin-bottom:20px;
+    width:100%;
+    box-shadow:0 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 100px;
+}
+
 .box.box-primary{
     border-top-color:#3c8dbc
 }
