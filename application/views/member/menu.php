@@ -1,20 +1,25 @@
 <ul class="nav-menu">
-	<li <?=$this->uri->segment(1) == 'Beranda' || $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == '' ? 'class="menu-active"' : 'class=""'?>>
-		<a href="<?php echo base_url() ?>">Home</a>
+	<li class="menu-active">
+		<a href="<?php echo base_url() ?>">
+			<i class="fa fa-home fa-lg">&nbsp</i>
+			Beranda
+		</a>
 	</li>
 	<li>
-		<a href="#">CAREER INFORMATION</a>
+		<a href="#">
+			<i class="fa fa-search-plus fa-lg">&nbsp</i>
+			Karir</a>
 	</li>
 	<li>
-		<a href="#">COMPANY</a>
+		<a href="#">
+			<i class="fa fa-newspaper-o fa-lg">&nbsp</i>
+			Berita</a>
 	</li>
 	<li>
-		<a href="#">JOBSEEKER & STUDENT</a>
-	</li>
-	<li <?=$this->uri->segment(1) == 'Event' || $this->uri->segment(1) == 'event' ? 'class="menu-active"' : 'class=""'?>>
-		<a href="<?= base_url() ?>event">EVENT</a>
-	</li>
-	<li>
-		<a href="#">FAQ</a>
+		<div class="foto-profil">
+			<div class="pull-left image">
+				<img class="img-circle" alt="User Image" src="http://localhost/Inventaris-TIK/assets/foto_profil/avatar.png">
+			</div>
+		</div>
 	</li>
 </ul>

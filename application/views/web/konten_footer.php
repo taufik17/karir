@@ -147,7 +147,7 @@
 								$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
 								$('#logForm')[0].reset();
 								setTimeout(function(){
-									location.href = "Login/inijobseeker";
+									location.href = "<?= base_url(); ?>Login/inijobseeker";
 								}, 1000);
 							}
 						}

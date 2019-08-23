@@ -147,7 +147,7 @@
 								$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
 								$('#logForm')[0].reset();
 								setTimeout(function(){
-									location.href = "Login/inijobseeker";
+									location.href = "<?= base_url(); ?>Login/inijobseeker";
 								}, 1000);
 							}
 						}
@@ -205,7 +205,6 @@
 		<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/customjava.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/easing.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/hoverIntent.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/superfish.min.js"></script>
@@ -263,72 +262,6 @@ jQuery(function(){
 </script> -->
 
 
-		<script>
-		  $(document).ready(function(){
-
-		    var limit = 3;
-		    var start = 0;
-		    var action = 'inactive';
-
-		    function lazzy_loader(limit)
-		    {
-		      var output = '';
-		      for(var count=0; count<limit; count++)
-		      {
-		        output += '<div class="post_data">';
-		        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
-		        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
-		        output += '</div>';
-		      }
-		      $('#load_data_message').html(output);
-		    }
-
-		    lazzy_loader(limit);
-
-		    function load_data(limit, start)
-		    {
-		      $.ajax({
-		        url:"<?php echo base_url(); ?>beranda/fetch",
-		        method:"POST",
-		        data:{limit:limit, start:start},
-		        cache: false,
-		        success:function(data)
-		        {
-		          if(data == '')
-		          {
-		            $('#load_data_message').html('<h3>No More Result Found</h3>');
-		            action = 'active';
-		          }
-		          else
-		          {
-		            $('#load_data').append(data);
-		            $('#load_data_message').html("");
-		            action = 'inactive';
-		          }
-		        }
-		      })
-		    }
-
-		    if(action == 'inactive')
-		    {
-		      action = 'active';
-		      load_data(limit, start);
-		    }
-
-		    $(window).scroll(function(){
-		      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
-		      {
-		        lazzy_loader(limit);
-		        action = 'active';
-		        start = start + limit;
-		        setTimeout(function(){
-		          load_data(limit, start);
-		        }, 1000);
-		      }
-		    });
-
-		  });
-		</script>
 
 		<!-- scroll category -->
 		<script>

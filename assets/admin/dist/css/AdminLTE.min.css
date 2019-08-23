@@ -138,7 +138,8 @@ a{
 a:hover,a:active,a:focus{
     outline:none;
     text-decoration:none;
-    color:#72afd2
+    color : #d46161;
+    border-bottom: 1px solid #8C1515;
 }
 .page-header{
     margin:10px 0 20px 0;

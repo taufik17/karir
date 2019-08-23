@@ -4,12 +4,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Beranda extends CI_Controller {
 	public function index()
 	{
-		$isi['title'] = "ITERA | Career Center";
-		$isi['provinsi'] = $this->model_data->provinsi();
-		$isi['jenis_industri'] = $this->model_data->jenis_industri();
-		$isi['event'] = $this->model_data->event();
-		$isi['data_list'] = $this->model_data->data_list();
-		$this->load->view('web/tampilan_beranda',$isi);
+		$sess_company = $this->session->userdata('Email_officer');
+		$sess_member = $this->session->userdata('Email_jobseeker');
+		if(!empty($sess_company))
+		{
+			redirect('company');
+		}
+		if(!empty($sess_member))
+		{
+			redirect('member');
+		}
+		else {
+			$isi['title'] = "ITERA | Career Center";
+			$isi['provinsi'] = $this->model_data->provinsi();
+			$isi['jenis_industri'] = $this->model_data->jenis_industri();
+			$isi['event'] = $this->model_data->event();
+			$isi['data_list'] = $this->model_data->data_list();
+			$this->load->view('web/tampilan_beranda',$isi);	
+		}
 	}
 
 	function fetch()
