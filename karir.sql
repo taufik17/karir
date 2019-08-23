@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Agu 2019 pada 12.06
+-- Waktu pembuatan: 23 Agu 2019 pada 12.09
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -164,16 +164,18 @@ CREATE TABLE `jobseeker_alumni` (
   `NIM_jobseeker` int(20) NOT NULL,
   `Email_jobseeker` varchar(50) NOT NULL,
   `nohp_jobseeker` varchar(15) NOT NULL,
-  `Password_jobseeker` varchar(255) NOT NULL
+  `Password_jobseeker` varchar(255) NOT NULL,
+  `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
+  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jobseeker_alumni`
 --
 
-INSERT INTO `jobseeker_alumni` (`id_jobseeker_alumni`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`) VALUES
-(1, 'Taufik Agung Santoso', 0, 'taufik.14116007@student.itera.ac.id', '+6285357037093', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76'),
-(3, 'yohanes eloi pardamean', 14116059, 'yohanes.14116059@student.itera.ac.id', '08535703709', 'de8ad6f029e922ddabfbd982ef4bc2924d8662cf7dd036aadc652b59320ad1d8da099dd09bed2eab80a2ec5d812fb33883a14e67d122bc286fb5ed38e93e009f');
+INSERT INTO `jobseeker_alumni` (`id_jobseeker_alumni`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `foto`, `sampul`) VALUES
+(1, 'Taufik Agung Santoso', 0, 'taufik.14116007@student.itera.ac.id', '+6285357037093', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'profil_default.png', 'sampul_default.png'),
+(3, 'yohanes eloi pardamean', 14116059, 'yohanes.14116059@student.itera.ac.id', '08535703709', 'de8ad6f029e922ddabfbd982ef4bc2924d8662cf7dd036aadc652b59320ad1d8da099dd09bed2eab80a2ec5d812fb33883a14e67d122bc286fb5ed38e93e009f', 'profil_default.png', 'sampul_default.png');
 
 -- --------------------------------------------------------
 
@@ -188,15 +190,17 @@ CREATE TABLE `jobseeker_mahasiswa` (
   `Email_jobseeker` varchar(50) NOT NULL,
   `nohp_jobseeker` varchar(50) NOT NULL,
   `Password_jobseeker` varchar(255) NOT NULL,
-  `status` enum('Mahasiswa ITERA','Mahasiswa Non ITERA','','') NOT NULL
+  `status` enum('Mahasiswa ITERA','Mahasiswa Non ITERA','','') NOT NULL,
+  `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
+  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jobseeker_mahasiswa`
 --
 
-INSERT INTO `jobseeker_mahasiswa` (`id_jobseeker_mhs`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `status`) VALUES
-(1, 'taufik agung santoso', '14116007', 'taufik.14116007@student.itera.ac.id', '085357037093', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'Mahasiswa ITERA');
+INSERT INTO `jobseeker_mahasiswa` (`id_jobseeker_mhs`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `status`, `foto`, `sampul`) VALUES
+(2, 'mahasiswa itera', '14116007', 'mhsitera@gmail.com', '084938493849', 'a992e85d192c8bc4cb7e152ec98a5c42a32243730becaa511bba949ce5fa92d17a49032d999686082ae65469cdd5b3a2c2dac8aa27ab0846cfaf23b4b976c2c4', 'Mahasiswa ITERA', 'profil_default.png', 'sampul_default.png');
 
 -- --------------------------------------------------------
 
@@ -209,15 +213,18 @@ CREATE TABLE `jobseeker_nonalumni` (
   `Nama_jobseeker` varchar(50) NOT NULL,
   `Email_jobseeker` varchar(50) NOT NULL,
   `nohp_jobseeker` varchar(15) NOT NULL,
-  `Password_jobseeker` varchar(255) NOT NULL
+  `Password_jobseeker` varchar(255) NOT NULL,
+  `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
+  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jobseeker_nonalumni`
 --
 
-INSERT INTO `jobseeker_nonalumni` (`id_jobseeker_nonalumni`, `Nama_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`) VALUES
-(1, 'ilman', 'ilman@gmail.com', '085367232946', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db');
+INSERT INTO `jobseeker_nonalumni` (`id_jobseeker_nonalumni`, `Nama_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `foto`, `sampul`) VALUES
+(1, 'ilman', 'ilman@gmail.com', '085367232946', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'profil_default.png', 'sampul_default.png'),
+(2, 'sunarno', 'sunarno@gmail.com', '085356763564', '3203424970496d3a13f55b0c7f7f01261d41d073691a228f448f11e2930e3cca5a5bd89cc3d5b7fb8ede46092bee7b36f6c19ebba67cd8b2de916a261fefd0d5', 'profil_default.png', 'sampul_default.png');
 
 -- --------------------------------------------------------
 
@@ -970,13 +977,13 @@ ALTER TABLE `jobseeker_alumni`
 -- AUTO_INCREMENT untuk tabel `jobseeker_mahasiswa`
 --
 ALTER TABLE `jobseeker_mahasiswa`
-  MODIFY `id_jobseeker_mhs` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jobseeker_mhs` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker_nonalumni`
 --
 ALTER TABLE `jobseeker_nonalumni`
-  MODIFY `id_jobseeker_nonalumni` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jobseeker_nonalumni` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `lamaran`
