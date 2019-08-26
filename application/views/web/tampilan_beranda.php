@@ -27,15 +27,6 @@
 						</div>
 					</div>
 
-					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<span class="sr-only">Next</span>
-					</a>
 				</div>
 			</div>
 		</div>
@@ -237,7 +228,7 @@
 											<img class="box-shadow p-1" src="<?= base_url() ?>assets/logo_perusahaan/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
 										</a>
 										<div>
-											<h5 class="m-0"><a href="<?= base_url(); ?>company/view" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h5>
+											<h4 class="m-0"><a href="<?= base_url(); ?>company/view" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h4>
 											<span class="d-block txt-dark-blue">
 												<?php foreach ($query2->result() as $prov) ?>
 												<?= $prov->nama ?>, Indonesia
