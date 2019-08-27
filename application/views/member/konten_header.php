@@ -20,6 +20,45 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
+
+	<style type="text/css">
+	.mb-0 > a {
+		display: block;
+		position: relative;
+	}
+	.mb-0 > a:after {
+		content: "\f078"; /* fa-chevron-down */
+		font-family: 'FontAwesome';
+		position: relative;
+		right: 0;
+	}
+	.mb-0 > a[aria-expanded="true"]:after {
+		content: "\f077"; /* fa-chevron-up */
+	}
+
+.fixcari {
+	position: fixed;
+	width: 20%;
+}
+
+@media screen and (max-width: 700px) {
+  .fixcari {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .fixcari a {
+    text-align: center;
+    float: none;
+  }
+}
+
+	</style>
 </head>
 
 <body class="bg-redup">

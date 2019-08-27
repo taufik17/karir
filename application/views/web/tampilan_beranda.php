@@ -22,7 +22,7 @@
 					<div class="carousel-inner">
 						<div class="item active">
 							<a href="<?= base_url() ?>event/careerday" target="_blank">
-								<img src="http://sso.itera.ac.id/assets/iklan/iklan_penjamu.jpg" style="width: 100%" class="img-responsive">
+								<img src="<?= base_url() ?>assets/gambar/iklan/careerday.png" style="width: 100%" class="img-responsive">
 							</a>
 						</div>
 					</div>
@@ -209,7 +209,7 @@
 						?>
 
 						<?php
-						$query = $this->db->query("SELECT pekerjaan, COUNT(*) as jumlah, Nama_joblist, deadline, status, perusahaan
+						$query = $this->db->query("SELECT pekerjaan, COUNT(*) as jumlah, Nama_joblist, deadline, status, perusahaan, id_joblist
 							FROM lamaran
 							NATURAL JOIN joblist
 							WHERE pekerjaan = id_joblist
@@ -282,7 +282,7 @@
 																	?>
 																	<tr>
 																		<td><?= $no++ ?></td>
-																		<td><?= $jobbuka->Nama_joblist; ?></td>
+																		<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
 																		<td>
 																			<i class="fa fa-users">&nbsp<?= $jobbuka->jumlah ?> pelamar</i>
 																		</td>

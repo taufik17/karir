@@ -14,19 +14,26 @@ class Add_karir extends CI_Controller {
 			$isi['data'] = $this->db->query("SELECT * FROM jobseeker_alumni WHERE Email_jobseeker = '$email_member'");
 			$isi['title'] = "ICC | profil - $nama_member ";
 			$isi['konten'] = "member/konten_profil";
+			$isi['data_list'] = $this->model_data->data_list();
 			$this->load->view('member/tampilan_add_karir', $isi);
 		}
 		if ($query2 == 1) {
 			$isi['data'] = $this->db->query("SELECT * FROM jobseeker_nonalumni WHERE Email_jobseeker = '$email_member'");
 			$isi['title'] = "ICC | profil - $nama_member ";
 			$isi['konten'] = "member/konten_profil";
+			$isi['data_list'] = $this->model_data->data_list();
 			$this->load->view('member/tampilan_add_karir', $isi);
 		}
 		if ($query3 == 1) {
 			$isi['data'] = $this->db->query("SELECT * FROM jobseeker_mahasiswa WHERE Email_jobseeker = '$email_member'");
 			$isi['title'] = "ICC | profil - $nama_member ";
 			$isi['konten'] = "member/konten_profil";
+			$isi['data_list'] = $this->model_data->data_list();
 			$this->load->view('member/tampilan_add_karir'. $isi);
 		}
+	}
+
+	public function viewjob(){
+		echo "view job";
 	}
 }

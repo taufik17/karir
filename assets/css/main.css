@@ -2284,6 +2284,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 120px 0;
 }
 
+.section-add-job{
+  padding-top: 50px;
+}
+
 .section-member {
   padding-top: 50px;
   /* padding-bottom: 120px; */
