@@ -20,7 +20,8 @@ class Beranda extends CI_Controller {
 			$isi['jenis_industri'] = $this->model_data->jenis_industri();
 			$isi['event'] = $this->model_data->event();
 			$isi['data_list'] = $this->model_data->data_list();
-			$this->load->view('web/tampilan_beranda',$isi);	
+			$isi['data_terbaru'] = $this->model_data->fetch_data();
+			$this->load->view('web/tampilan_beranda',$isi);
 		}
 	}
 
@@ -35,8 +36,30 @@ class Beranda extends CI_Controller {
 			{
 				$output .= '
 				<div class="post_data">
-					<h3 class="text-danger">'.$row->Nama_joblist.'</h3>
-					<p>'.$row->perusahaan.'</p>
+				<div class="single-post row">
+					<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+						<a class="comp-logo col-md-2 pl-0 pr-terbaru" href="http://localhost/karir/company/view/'.$row->perusahaan.'">
+							<img width="95" class="box-shadow p-1" alt="ITERA" src="http://localhost/karir/assets/logo_perusahaan/default.png">
+						</a>
+						<div>
+							<h5 class="m-0"><a class="txt-dark-blue" href="http://localhost/karir/company/view/'.$row->perusahaan.'"><strong>ITERA</strong></a></h5>
+							<span class="d-block txt-dark-blue">
+							ini deskripsi perusahaan ITERA
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+						<div class="w-100">
+						<h1>2</h1>
+							<span>Lowongan</span>
+							<h5>
+								<a class="genric-btn info circle arrow tiny collapsed" href="http://localhost/karir/company/view/'.$row->perusahaan.'">
+								<i class="fa fa-eye"></i>
+								</a>
+							</h5>
+						</div>
+					</div>
+				</div>
 				</div>
 				';
 			}

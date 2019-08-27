@@ -57,6 +57,13 @@
 	  font-size: 12px;
 	}
 
+	.lihat > a {
+		display: block;
+		position: relative;
+		content: "\f06e";  /* fa-eye */
+		font-family: 'FontAwesome';
+	}
+
 	.mb-0 > a {
 	  display: block;
 	  position: relative;
@@ -136,7 +143,10 @@
 
 	.post_data
 	{
-		padding:24px;
+		padding-left:24px;
+		padding-right: 15px;
+		padding-top: 0px;
+		padding-bottom: 0px;
 		border:1px solid #f9f9f9;
 		border-radius: 5px;
 		margin-bottom: 24px;
