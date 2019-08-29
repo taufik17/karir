@@ -111,14 +111,21 @@ class Model_data extends CI_model {
 		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$jenis' WHERE id_industri=$id");
 	}
 
-	function fetch_data()
+	function fetch_data($limit, $start)
 	{
-		// $this->db->select("*");
-		// $this->db->from("joblist");
-		// $this->db->order_by("id_joblist", "DESC");
-		// $this->db->limit($limit, $start);
-		// $query = $this->db->get();
-		$query = $this->db->query("SELECT * FROM joblist WHERE perusahaan = 5 AND status = '<span class=\"label label-success\">Telah tayang</span>'");
+		$query = $this->db->select("Nama_joblist, id_joblist, perusahaan")
+							->from("joblist")
+							->where("status = '<span class=\"label label-success\">Telah tayang</span>'")
+							->order_by("id_joblist", "DESC")
+							->limit($limit, $start)
+							->get();
+
+		//
+		// $query = $this->db->query("SELECT *
+		// FROM joblist
+		// WHERE  status = '<span class=\"label label-success\">Telah tayang</span>'
+		// ORDER BY id_joblist DESC
+		// LIMIT $limit, $start ");
 
 		return $query;
 	}

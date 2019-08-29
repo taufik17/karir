@@ -266,7 +266,7 @@ jQuery(function(){
 		<script>
 		  $(document).ready(function(){
 
-		    var limit = 3;
+		    var limit = 5;
 		    var start = 0;
 		    var action = 'inactive';
 

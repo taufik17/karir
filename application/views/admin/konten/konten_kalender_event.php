@@ -7,6 +7,7 @@
 
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+			<li>Event</li>
 			<li class="active">Kalender Event</li>
 		</ol>
 	</section>

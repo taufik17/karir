@@ -104,38 +104,7 @@
 							<div class="container">
 								<div class="demo1" data-simplebar>
 									<div id="content">
-										<?php foreach ($data_terbaru->result() as $listjob ) {
-											?>
-
-										<div class="post_data">
-										<div class="single-post row">
-											<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
-												<a class="comp-logo col-md-2 pl-0 pr-terbaru" href="http://localhost/karir/company/view/'.$row->perusahaan.'">
-													<img width="95" class="box-shadow p-1" alt="ITERA" src="http://localhost/karir/assets/logo_perusahaan/default.png">
-												</a>
-												<div>
-													<h5 class="m-0"><a class="txt-dark-blue" href="http://localhost/karir/company/view/'.$row->perusahaan.'"><strong>ITERA</strong></a></h5>
-													<span class="d-block txt-dark-blue">
-													ini deskripsi perusahaan ITERA
-													</span>
-												</div>
-											</div>
-											<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
-												<div class="w-100">
-												<h1>2</h1>
-													<span>Lowongan</span>
-													<h5>
-														<a class="genric-btn info circle arrow tiny collapsed" href="http://localhost/karir/company/view/'.$row->perusahaan.'">
-														<i class="fa fa-eye"></i>
-														</a>
-													</h5>
-												</div>
-											</div>
-										</div>
-										</div>
-
-										<?php } ?>
-
+										<div id="load_data"></div>
 									</div>
 								</div>
 							</div>
@@ -169,6 +138,7 @@
 								?>
 							</div>
 						</span>
+
 						<div class="info-box-content" text-align="center">
 							<h3>&nbsp
 								<?php
@@ -178,6 +148,7 @@
 						</div>
 						<!-- /.info-box-content -->
 						<br>
+
 						<div class="event-box" data-simplebar>
 							<div id="content">
 								<?php foreach ($event->result() as $judul ) {
@@ -190,19 +161,26 @@
 								<?php } ?>
 							</div>
 						</div>
+
+
 					</div>
 					<div class="button-center">
 						<a href="<?= base_url() ?>event" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>
 					</div>
+
+
+
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 </section>
 
 
 <!-- Start post Area -->
-<section class="post-area section-add-job">
+<section class="post-area section-gap">
 	<div class="container">
 		<div class="row justify-content-center d-flex">
 			<div class="col-lg-8 post-list">
@@ -231,7 +209,7 @@
 						?>
 
 						<?php
-						$query = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $row->Id_perusahaan AND status = '<span class=\"label label-success\">Telah tayang</span>'");
+						$query = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $row->Id_perusahaan AND status = '<span class=\"label label-success\">Telah tayang</span>';");
 						$query2 = $this->db->query("SELECT nama FROM provinsi
 																				WHERE id = ( SELECT id_provinsi FROM company WHERE Id_perusahaan = $row->Id_perusahaan )");
 							?>
