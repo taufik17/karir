@@ -130,6 +130,15 @@ class Model_data extends CI_model {
 		return $query;
 	}
 
+	function fetch_news($limit_news, $start_news){
+		$query = $this->db->select("*")
+							->from("tbl_berita")
+							->order_by("berita_id", "DESC")
+							->limit($limit_news, $start_news)
+							->get();
+		return $query;
+	}
+
 	function fetch_data_category($limit_category, $start_category)
 	{
 		$query = $this->db->query("SELECT jenis_industri, COUNT(*) AS jumlah FROM company NATURAL JOIN industri ORDER BY jumlah DESC");

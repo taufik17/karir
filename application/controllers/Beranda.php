@@ -65,6 +65,43 @@ class Beranda extends CI_Controller {
 		echo $output;
 	}
 
+	function fetch_news(){
+		$output = '';
+		$this->load->model('model_data');
+
+		// foreach ($query->result() as $nama)
+		$data = $this->model_data->fetch_news($this->input->post('limit_news'), $this->input->post('start_news'));
+		if($data->num_rows() > 0)
+		{
+			foreach($data->result() as $row)
+			{
+				$output .= '
+				<div class="post_data">
+					<div class="single-post row">
+						<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+							<div>
+								<h5 class="m-0"><a href="company/view/'.$row->berita_id.'" class="txt-dark-blue"><strong>'.$row->berita_judul.'</strong></a></h5>
+								<p class="mb-1 mt-1"></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+							<div class="w-100">
+								<h5>
+								<a href="company/view/'.$row->berita_id.'">
+									Lihat
+									</a>
+								</h5>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				';
+			}
+		}
+		echo $output;
+	}
+
 	function fetchcategory()
 	{
 		$output = '';

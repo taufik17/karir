@@ -70,10 +70,9 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-lg-2 form-cols">
+						<div class="col-lg-1 form-cols">
 							<button type="button" class="btn btn-info">
-								<span class="lnr lnr-magnifier"></span> Search
-							</button>
+								<span class="lnr lnr-magnifier"></span></button>
 						</div>
 					</div>
 				</form>
@@ -119,9 +118,13 @@
 			<div class="col-lg-3 col-md-6">
 				<div class="single-feature">
 					<h4 align="center">Career News</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing.
-					</p>
+					<br>
+						<div class="demo1" data-simplebar>
+							<div id="content">
+								<div id="load_data_news"></div>
+							</div>
+						</div>
+
 				</div>
 			</div>
 

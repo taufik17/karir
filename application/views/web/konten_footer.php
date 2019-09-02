@@ -330,6 +330,75 @@ jQuery(function(){
 		  });
 		</script>
 
+		<!-- ini untuk news -->
+		<script>
+		  $(document).ready(function(){
+
+		    var limit_news = 5;
+		    var start_news = 0;
+		    var action = 'inactive';
+
+		    function lazzy_loader(limit_news)
+		    {
+		      var output = '';
+		      for(var count=0; count<limit_news; count++)
+		      {
+		        output += '<div class="post_data">';
+		        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+		        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+		        output += '</div>';
+		      }
+		      $('#load_data_message_news').html(output);
+		    }
+
+		    lazzy_loader(limit_news);
+
+		    function load_data_news(limit_news, start_news)
+		    {
+		      $.ajax({
+		        url:"<?php echo base_url(); ?>beranda/fetch_news",
+		        method:"POST",
+		        data:{limit_news:limit_news, start_news:start_news},
+		        cache: false,
+		        success:function(data)
+		        {
+		          if(data == '')
+		          {
+		            $('#load_data_message_news').html('<h3>No More Result Found</h3>');
+		            action = 'active';
+		          }
+		          else
+		          {
+		            $('#load_data_news').append(data);
+		            $('#load_data_message_news').html("");
+		            action = 'inactive';
+		          }
+		        }
+		      })
+		    }
+
+		    if(action == 'inactive')
+		    {
+		      action = 'active';
+		      load_data_news(limit_news, start_news);
+		    }
+
+		    $(window).scroll(function(){
+		      if($(window).scrollTop() + $(window).height() > $("#load_data_news").height() && action == 'inactive')
+		      {
+		        lazzy_loader(limit_news);
+		        action = 'active';
+		        start_news = start_news + limit_news;
+		        setTimeout(function(){
+		          load_data_news(limit_news, start_news);
+		        }, 1000);
+		      }
+		    });
+
+		  });
+		</script>
+		<!-- end news -->
+
 		<!-- scroll category -->
 		<script>
 		  $(document).ready(function(){
