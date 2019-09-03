@@ -43,6 +43,11 @@ class Company extends CI_Controller {
     echo json_encode($data);
 	}
 
+	public function detailjob(){
+		$key = $this->uri->segment(3);
+		echo "ini adalah data pekerjaan $key";
+	}
+
 	function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_company);

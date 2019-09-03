@@ -120,7 +120,7 @@ class Model_data extends CI_model {
 		// 					->limit($limit, $start)
 		// 					->get();
 
-		// 
+		//
 		// $query = $this->db->query("SELECT *
 		// FROM joblist
 		// NATURAL JOIN industri
@@ -128,11 +128,13 @@ class Model_data extends CI_model {
 		// ORDER BY id_joblist DESC
 		// LIMIT $limit OFFSET $start ");
 
-		$query = $this->db->query("SELECT Nama_joblist, id_joblist, nama_perusahaan, logo_perusahaan
+		$query = $this->db->query("SELECT Nama_joblist, id_joblist, nama_perusahaan, logo_perusahaan, nama
 		FROM joblist
 		NATURAL JOIN company
-        WHERE id_perusahaan = perusahaan
+		NATURAL JOIN provinsi
+    WHERE id_perusahaan = perusahaan
 		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
+		AND id_provinsi = id
 		ORDER BY id_joblist DESC
 		LIMIT $limit OFFSET $start ");
 
@@ -140,11 +142,13 @@ class Model_data extends CI_model {
 	}
 
 	function fetch_news($limit_news, $start_news){
-		$query = $this->db->select("*")
-							->from("tbl_berita")
-							->order_by("berita_id", "DESC")
-							->limit($limit_news, $start_news)
-							->get();
+		// $query = $this->db->select("*")
+		// 					->from("tbl_berita")
+		// 					->order_by("berita_id", "DESC")
+		// 					->limit($limit_news, $start_news)
+		// 					->get();
+
+		$query = $this->db->query("SELECT * FROM tbl_berita ORDER BY berita_id DESC LIMIT $limit_news OFFSET $start_news");
 		return $query;
 	}
 

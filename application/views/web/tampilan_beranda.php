@@ -184,6 +184,7 @@
 
 <!-- Start post Area -->
 <section class="post-area section-gap">
+
 	<div class="container">
 		<div class="row justify-content-center d-flex">
 			<div class="col-lg-8 post-list">
@@ -254,10 +255,10 @@
 								<div class="card-body">
 									<ul class="nav nav-tabs nav-justified" role="tablist">
 										<li class="nav-item">
-											<a class="nav-link active" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>1">Lowongan Buka</a>
+											<a class="nav-link active rounded-0" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>1">Lowongan Buka</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>2">Lowongan Tutup</a>
+											<a class="nav-link rounded-0" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>2">Lowongan Tutup</a>
 										</li>
 									</ul>
 
@@ -281,7 +282,9 @@
 																		<td><?= $no++ ?></td>
 																		<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
 																		<td>
-																			<i class="fa fa-clock-o">&nbsp <?= $diff->days; ?> Hari Lagi</i>
+																			<span style="color: green;">
+																				<i class="fa fa-clock-o">&nbsp <?= $diff->days; ?> Hari Lagi</i>
+																			</span>
 																		</td>
 																	</tr>
 																<?php } ?>

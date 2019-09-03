@@ -33,16 +33,21 @@ class Beranda extends CI_Controller {
 		$data = $this->model_data->fetch_data($this->input->post('limit'), $this->input->post('start'));
 		if($data->num_rows() > 0)
 		{
+			$base_url = base_url();
 			foreach($data->result() as $row)
 			{
 				$output .= '
 				<div class="post_data">
 					<div class="single-post row">
 						<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+						<a class="comp-logo col-md-2 pl-0 pr-terbaru" href="<?= base_url(); ?>company/view">
+							<img class="box-shadow p-1" src="'.$base_url.'assets/logo_perusahaan/'.$row->logo_perusahaan.'" width="95px" alt="'.$row->nama_perusahaan.'" >
+						</a>
 							<div>
-								<h5 class="m-0"><a href="company/view/'.$row->id_joblist.'" class="txt-dark-blue"><strong>'.$row->Nama_joblist.'</strong></a></h5>
+								<p><a href="company/detailjob/'.$row->id_joblist.'" target="_blank" class="txt-dark-blue"><strong>'.$row->Nama_joblist.'</strong></a></p>
 								<span class="d-block txt-dark-blue">
-									'.$row->nama_perusahaan.'
+									<p>'.$row->nama_perusahaan.'</p>
+									<p><i class="fa fa-map-marker"></i>&nbsp'.$row->nama.'</p>
 								</span>
 								<p class="mb-1 mt-1"></p>
 							</div>
@@ -50,7 +55,7 @@ class Beranda extends CI_Controller {
 						<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
 							<div class="w-100">
 								<h5>
-								<a href="company/view/'.$row->id_joblist.'">
+								<a href="company/detailjob/'.$row->id_joblist.'">
 									Lihat
 									</a>
 								</h5>
