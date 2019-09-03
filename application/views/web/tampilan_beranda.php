@@ -119,7 +119,7 @@
 				<div class="single-feature">
 					<h4 align="center">Career News</h4>
 					<br>
-						<div class="demo1" data-simplebar>
+						<div class="news" data-simplebar>
 							<div id="content">
 								<div id="load_data_news"></div>
 							</div>
@@ -329,10 +329,10 @@
 						<h4>Jobs by Category</h4>
 						<ul id="load_data_category" class="cat-list">
 						</ul>
-						<a href="#" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#" class="genric-btn default arrow">Selengkapnya<span class="fa  fa-arrow-right"></span></a>
 					</div>
 
-					<div class="single-slidebar">
+					<!-- <div class="single-slidebar">
 						<h4>Carrer Advice Blog</h4>
 						<div class="blog-list">
 							<div class="single-blog " style="background:#000 url(assets/img/blog1.jpg);">
@@ -381,18 +381,11 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="single-slidebar">
 									<h4>Jobs by Location</h4>
-									<ul class="cat-list">
-										<li><a class="justify-content-between d-flex" href="category.html"><p>New York</p><span>37</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Park Montana</p><span>57</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Atlanta</p><span>33</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Arizona</p><span>36</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Florida</p><span>47</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Rocky Beach</p><span>27</span></a></li>
-										<li><a class="justify-content-between d-flex" href="category.html"><p>Chicago</p><span>17</span></a></li>
+									<ul id="load_data_location" class="cat-list">
 									</ul>
 								</div>
 

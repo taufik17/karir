@@ -42,7 +42,7 @@ class Beranda extends CI_Controller {
 							<div>
 								<h5 class="m-0"><a href="company/view/'.$row->id_joblist.'" class="txt-dark-blue"><strong>'.$row->Nama_joblist.'</strong></a></h5>
 								<span class="d-block txt-dark-blue">
-									'.$row->perusahaan.'
+									'.$row->nama_perusahaan.'
 								</span>
 								<p class="mb-1 mt-1"></p>
 							</div>
@@ -58,7 +58,6 @@ class Beranda extends CI_Controller {
 						</div>
 					</div>
 					</div>
-				</div>
 				';
 			}
 		}
@@ -73,29 +72,35 @@ class Beranda extends CI_Controller {
 		$data = $this->model_data->fetch_news($this->input->post('limit_news'), $this->input->post('start_news'));
 		if($data->num_rows() > 0)
 		{
+			$base_url = base_url();
 			foreach($data->result() as $row)
 			{
 				$output .= '
 				<div class="post_data">
-					<div class="single-post row">
-						<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
-							<div>
-								<h5 class="m-0"><a href="company/view/'.$row->berita_id.'" class="txt-dark-blue"><strong>'.$row->berita_judul.'</strong></a></h5>
-								<p class="mb-1 mt-1"></p>
+				<div class="recent-posts-widget">
+
+				<div>
+					<a href="news/view/'.$row->berita_id.'" target="_blank">
+					<img width="100%" height="120px" src="'.$base_url.'assets/gambar/news/'.$row->berita_image.'">
+					</a>
+					<br>
+					</div>
+						<div>
+							<div class="post-header">
+ 							<h5>
+ 							<a href="news/view/'.$row->berita_id.'" target="_blank">
+								'.$row->berita_judul.'
+							</a>
+							</h5>
+ 							<div>
+								<time class="post-meta-date" datetime="2019-04-29T17:03:15+00:00">
+								'.$row->berita_tanggal.'
+								</time>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
-							<div class="w-100">
-								<h5>
-								<a href="company/view/'.$row->berita_id.'">
-									Lihat
-									</a>
-								</h5>
 							</div>
-						</div>
-					</div>
-					</div>
-				</div>
+							</div>
 				';
 			}
 		}
@@ -117,6 +122,29 @@ class Beranda extends CI_Controller {
 			}
 		}
 		echo $output;
+	}
+
+	function fetchlocation()
+	{
+		$output = '';
+		$this->load->model('model_data');
+		$data = $this->model_data->fetch_data_location($this->input->post('limit_location'), $this->input->post('start_location'));
+		if($data->num_rows() > 0)
+		{
+			foreach($data->result() as $row)
+			{
+				$output .= '
+					<li><a class="justify-content-between d-flex" href="beranda/location/'.$row->id_provinsi.'"><p>'.$row->nama.'</p><span>'.$row->jumlah.'</span></a></li>
+				';
+			}
+		}
+		echo $output;
+	}
+
+	function location()
+	{
+		$key = $this->uri->segment(3);
+		echo "ini adalah konten $key";
 	}
 
 	function category(){

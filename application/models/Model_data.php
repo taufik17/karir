@@ -113,19 +113,28 @@ class Model_data extends CI_model {
 
 	function fetch_data($limit, $start)
 	{
-		$query = $this->db->select("Nama_joblist, id_joblist, perusahaan")
-							->from("joblist")
-							->where("status = '<span class=\"label label-success\">Telah tayang</span>'")
-							->order_by("id_joblist", "DESC")
-							->limit($limit, $start)
-							->get();
+		// $query = $this->db->select("Nama_joblist, id_joblist, perusahaan")
+		// 					->from("joblist")
+		// 					->where("status = '<span class=\"label label-success\">Telah tayang</span>'")
+		// 					->order_by("id_joblist", "DESC")
+		// 					->limit($limit, $start)
+		// 					->get();
 
-		//
+		// 
 		// $query = $this->db->query("SELECT *
 		// FROM joblist
+		// NATURAL JOIN industri
 		// WHERE  status = '<span class=\"label label-success\">Telah tayang</span>'
 		// ORDER BY id_joblist DESC
-		// LIMIT $limit, $start ");
+		// LIMIT $limit OFFSET $start ");
+
+		$query = $this->db->query("SELECT Nama_joblist, id_joblist, nama_perusahaan, logo_perusahaan
+		FROM joblist
+		NATURAL JOIN company
+        WHERE id_perusahaan = perusahaan
+		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
+		ORDER BY id_joblist DESC
+		LIMIT $limit OFFSET $start ");
 
 		return $query;
 	}
@@ -142,6 +151,12 @@ class Model_data extends CI_model {
 	function fetch_data_category($limit_category, $start_category)
 	{
 		$query = $this->db->query("SELECT jenis_industri, COUNT(*) AS jumlah FROM company NATURAL JOIN industri ORDER BY jumlah DESC");
+		return $query;
+	}
+
+	function fetch_data_location($limit_location, $start_location)
+	{
+		$query = $this->db->query("SELECT id_provinsi, nama, COUNT(nama) AS jumlah FROM provinsi NATURAL JOIN company WHERE id = id_provinsi GROUP BY nama ORDER BY nama");
 		return $query;
 	}
 

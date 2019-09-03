@@ -50,6 +50,13 @@
 	  font-size: 12px;
 	}
 
+	.news {
+		width:100%;
+		height:394px;
+	  max-width: 100%;
+	  font-size: 12px;
+	}
+
 	.event-box {
 		width:100%;
 		max-height:250px;

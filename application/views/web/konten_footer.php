@@ -467,3 +467,73 @@ jQuery(function(){
 		  });
 		</script>
 		<!-- end scroll category -->
+
+
+		<!-- scroll location -->
+		<script>
+			$(document).ready(function(){
+
+				var limit_location = 7;
+				var start_location = 0;
+				var action = 'inactive';
+
+				function lazzy_loader(limit_location)
+				{
+					var output = '';
+					for(var count=0; count<limit_location; count++)
+					{
+						output += '<div class="post_data">';
+						output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+						output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+						output += '</div>';
+					}
+					$('#load_data_message_location').html(output);
+				}
+
+				lazzy_loader(limit_location);
+
+				function load_data_location(limit_location, start_location)
+				{
+					$.ajax({
+						url:"<?php echo base_url(); ?>beranda/fetchlocation",
+						method:"POST",
+						data:{limit_location:limit_location, start_location:start_location},
+						cache: false,
+						success:function(data)
+						{
+							if(data == '')
+							{
+								$('#load_data_message_location').html('<h3>No More Result Found</h3>');
+								action = 'active';
+							}
+							else
+							{
+								$('#load_data_location').append(data);
+								$('#load_data_message_location').html("");
+								action = 'inactive';
+							}
+						}
+					})
+				}
+
+				if(action == 'inactive')
+				{
+					action = 'active';
+					load_data_location(limit_location, start_location);
+				}
+
+				$(window).scroll(function(){
+					if($(window).scrollTop() + $(window).height() > $("#load_data_location").height() && action == 'inactive')
+					{
+						lazzy_loader(limit);
+						action = 'active';
+						start_location = start_location + limit_location;
+						setTimeout(function(){
+							load_data(limit_location, start_location);
+						}, 1000);
+					}
+				});
+
+			});
+		</script>
+		<!-- end scroll location -->
