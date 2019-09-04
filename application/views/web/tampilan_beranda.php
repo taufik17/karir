@@ -109,7 +109,13 @@
 							</div>
 						</div>
 						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-							isi terpopuler
+							<div class="container">
+								<div class="demo1" data-simplebar>
+									<div id="content">
+										<div id="load_data_popular"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 

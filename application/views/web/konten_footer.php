@@ -330,6 +330,74 @@ jQuery(function(){
 		  });
 		</script>
 
+		<script>
+			$(document).ready(function(){
+
+				var limit_popular = 5;
+				var start_popular = 0;
+				var action = 'inactive';
+
+				function lazzy_loader(limit_popular)
+				{
+					var output = '';
+					for(var count=0; count<limit_popular; count++)
+					{
+						output += '<div class="post_data">';
+						output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+						output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+						output += '</div>';
+					}
+					$('#load_data_message').html(output);
+				}
+
+				lazzy_loader(limit_popular);
+
+				function load_data_popular(limit_popular, start_popular)
+				{
+					$.ajax({
+						url:"<?php echo base_url(); ?>beranda/fetch_popular",
+						method:"POST",
+						data:{limit_popular:limit_popular, start_popular:start_popular},
+						cache: false,
+						success:function(data)
+						{
+							if(data == '')
+							{
+								$('#load_data_message').html('<h3>No More Result Found</h3>');
+								action = 'active';
+							}
+							else
+							{
+								$('#load_data_popular').append(data);
+								$('#load_data_message').html("");
+								action = 'inactive';
+							}
+						}
+					})
+				}
+
+				if(action == 'inactive')
+				{
+					action = 'active';
+					load_data_popular(limit_popular, start_popular);
+				}
+
+				$(window).scroll(function(){
+					if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+					{
+						lazzy_loader(limit_popular);
+						action = 'active';
+						start_popular = start_popular + limit_popular;
+						setTimeout(function(){
+							load_data_popular(limit_popular, start_popular);
+						}, 1000);
+					}
+				});
+
+			});
+		</script>
+
+
 		<!-- ini untuk news -->
 		<script>
 		  $(document).ready(function(){

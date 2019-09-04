@@ -141,13 +141,26 @@ class Model_data extends CI_model {
 		return $query;
 	}
 
-	function fetch_news($limit_news, $start_news){
-		// $query = $this->db->select("*")
-		// 					->from("tbl_berita")
-		// 					->order_by("berita_id", "DESC")
-		// 					->limit($limit_news, $start_news)
-		// 					->get();
+	function fetch_data_popular($limit_popular, $start_popular)
+	{
+		$query = $this->db->query("SELECT Nama_joblist, COUNT(*) as jumlah, id_joblist, nama_perusahaan, logo_perusahaan, nama
+		FROM joblist
+		NATURAL JOIN company
+		NATURAL JOIN provinsi
+    NATURAL JOIN  lamaran
 
+    WHERE id_perusahaan = perusahaan
+		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
+		AND id_provinsi = id
+    AND pekerjaan = id_joblist
+    GROUP BY pekerjaan
+		ORDER BY jumlah  DESC
+		LIMIT $limit_popular OFFSET $start_popular ");
+
+		return $query;
+	}
+
+	function fetch_news($limit_news, $start_news){
 		$query = $this->db->query("SELECT * FROM tbl_berita ORDER BY berita_id DESC LIMIT $limit_news OFFSET $start_news");
 		return $query;
 	}
