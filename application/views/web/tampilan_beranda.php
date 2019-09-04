@@ -219,9 +219,18 @@
 						?>
 
 						<?php
-						$query = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $row->Id_perusahaan AND status = '<span class=\"label label-success\">Telah tayang</span>';");
+						$query = $this->db->query("SELECT * FROM joblist
+																								WHERE perusahaan = $row->Id_perusahaan
+        																				AND status = '<span class=\"label label-success\">Telah tayang</span>'
+        																				AND deadline >= current_date();");
+						$query_tutup = $this->db->query("SELECT * FROM joblist
+																								WHERE perusahaan = $row->Id_perusahaan
+																		        		AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																		        		AND deadline <= current_date();");
 						$query2 = $this->db->query("SELECT nama FROM provinsi
-																				WHERE id = ( SELECT id_provinsi FROM company WHERE Id_perusahaan = $row->Id_perusahaan )");
+																				WHERE id = ( SELECT id_provinsi
+																										 FROM company
+																										 WHERE Id_perusahaan = $row->Id_perusahaan )");
 							?>
 
 						<div class="card">
@@ -309,11 +318,31 @@
 
 											</div>
 											<div id="<?= $row->Id_perusahaan; ?>2" class="container tab-pane fade"><br>
-												<table class="table table-striped">
-													<tbody>
-														<h5 align="center">Kosong</h5>
-													</tbody>
-												</table>
+												<div class="box-body">
+													<table class="table table-striped">
+														<tbody>
+																<?php
+																if ($query->num_rows() > 0) {
+																	$no = 1;
+																	foreach ($query_tutup->result() as $jobtutup) {
+																		?>
+																		<tr>
+																			<td><?= $no++ ?></td>
+																			<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
+																		</tr>
+																	<?php } ?>
+																</tbody>
+															</table>
+														<?php }
+														else {
+															?>
+															<table class="table table-striped">
+																<tbody>
+																	<h5 align="center">Kosong</h5>
+																</tbody>
+															</table>
+														<?php } ?>
+													</div>
 
 											</div>
 										</div>
