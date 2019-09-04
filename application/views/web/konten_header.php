@@ -30,6 +30,16 @@
 	<!-- untuk terbaru dan terpopuler -->
 	<style>
 
+	.nice-select {
+    border-radius: 0px;
+}
+
+.nice-select .list {
+    border-radius: 0px;
+    height: 200px;
+    overflow-y: auto;
+}
+
 /* Centered text */
 .info-box-icon .centered {
   position: absolute;
