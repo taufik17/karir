@@ -1,45 +1,12 @@
 <?php $this->load->view('web/konten_header') ?>
 
-<div id="modal_warning" class="modal fade" role="dialog">
-	<div role="document" class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header modaldaftar">
-				<h5 id="daftar-modalLabel" class="modal-title" style="color:white;">Event Terdekat</h5>
-				<button type="button" data-dismiss="modal" aria-label="Close" class="close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<br>
-			</div>
-
-			<div class="modal-body">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0"  class="active"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="<?= base_url() ?>event/careerday" target="_blank">
-								<img src="<?= base_url() ?>assets/gambar/iklan/careerday.png" style="width: 100%" class="img-responsive">
-							</a>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <section class="banner-area relative" id="home">
 	<div class="overlay overlay-bg"></div>
 	<div class="container">
 		<div class="row fullscreen d-flex align-items-center justify-content-center">
 			<div class="banner-content col-lg-12">
 				<h1 class="text-white">
-					Start Your Career
+					Search Result
 				</h1>
 				<form action="<?= base_url(); ?>beranda/cari" method="post" class="serach-form-area">
 					<div class="row justify-content-center form-wrap">
@@ -83,125 +50,23 @@
 </section>
 <!-- End banner Area -->
 
-<!-- Start features Area -->
-<section class="features-area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-6">
-				<div class="single-feature">
-					<h4 align="center">Lowongan</h4>
-					<ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Terbaru</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Terpopuler</a>
-						</li>
-					</ul>
-					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							<div class="container">
-								<div class="demo1" data-simplebar>
-									<div id="content">
-										<div id="load_data"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-							<div class="container">
-								<div class="demo1" data-simplebar>
-									<div id="content">
-										<div id="load_data_popular"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-feature">
-					<h4 align="center">Career News</h4>
-					<br>
-						<div class="news" data-simplebar>
-							<div id="content">
-								<div id="load_data_news"></div>
-							</div>
-						</div>
-
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6">
-				<div class="single-feature">
-					<h4 align="center">Kalender Event</h4>
-					<div class="info-box">
-						<span class="info-box-icon">
-							<img src="<?= base_url() ?>assets/gambar/calendar-bg.png" alt="">
-							<div class="centered">
-								<?php
-								date_default_timezone_set('Asia/Jakarta');
-								echo date('d');
-								?>
-							</div>
-						</span>
-
-						<div class="info-box-content" text-align="center">
-							<h3>&nbsp
-								<?php
-								echo date('M Y');
-								?>
-							</h3>
-						</div>
-						<!-- /.info-box-content -->
-						<br>
-
-						<div class="event-box" data-simplebar>
-							<div id="content">
-								<?php foreach ($event->result() as $judul ) {
-									?>
-									<ul class="list-group">
-										<li class="list-group-item">
-											<a href="<?= base_url();?>event/viewevent/<?= $judul->id; ?>"><?= $judul->title; ?></a>
-										</li>
-									</ul>
-								<?php } ?>
-							</div>
-						</div>
-
-
-					</div>
-					<div class="button-center">
-						<a href="<?= base_url() ?>event" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>
-					</div>
-
-
-
-				</div>
-			</div>
-
-
-		</div>
-	</div>
-</section>
-
-
 <!-- Start post Area -->
 <section class="post-area section-gap">
 
 	<div class="container">
 		<div class="row justify-content-center d-flex">
 			<div class="col-lg-8 post-list">
-				<ul class="cat-list">
-					<li><a href="#">Full Time</a></li>
-					<li><a href="#">Intern</a></li>
-					<li><a href="#">part Time</a></li>
-				</ul>
-
 				<div id="accordion">
 
+					<?php
+					if($data_list->num_rows() > 0)
+					{
+						echo "data ada";
+					} else {
+						echo "data kosong";
+					}
+					?>
+					<?php echo $profinsi ?>
 					<?php
 					$a = 0;
 					foreach ($data_list->result() as $row ) {

@@ -187,6 +187,40 @@ class Beranda extends CI_Controller {
 		echo $output;
 	}
 
+	function cari() {
+		$katalog = $this->input->post('search');
+		$prvinsi = $this->input->post('prov');
+		$kategori = $this->input->post('kategori');
+		$isi['string'] = $this->input->post('cari');
+		$isi['profinsi'] = $this->input->post('provinsi');
+		$isi['kategori'] = $this->input->post('kategori');
+		$isi['title'] = "ITERA | Search Result";
+		$isi['provinsi'] = $this->model_data->provinsi();
+		$isi['jenis_industri'] = $this->model_data->jenis_industri();
+		$this->load->model('model_data');
+		$isi['event'] = $this->model_data->event();
+		$isi['data_list'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, Logo_perusahaan, deskripsi_perusahaan
+																					FROM company
+																					NATURAL JOIN joblist
+																					WHERE id_provinsi = $prvinsi
+																					AND id_industri = $kategori
+																					AND Id_perusahaan = perusahaan
+																					AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																					AND deadline >= current_date()
+																					AND Nama_joblist LIKE '%$katalog%'
+																					UNION
+																					SELECT Id_perusahaan, Nama_perusahaan, Logo_perusahaan, deskripsi_perusahaan
+																					FROM company
+																					NATURAL JOIN joblist
+																					WHERE id_provinsi = $prvinsi
+																					AND id_industri = $kategori
+																					AND Id_perusahaan = perusahaan
+																					AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																					AND deadline >= current_date()
+																					AND Nama_perusahaan LIKE '%$katalog%'");
+		$this->load->view('tampilan_hasil_cari', $isi);
+	}
+
 	function location()
 	{
 		$key = $this->uri->segment(3);

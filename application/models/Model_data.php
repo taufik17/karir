@@ -202,4 +202,12 @@ class Model_data extends CI_model {
 		return $hasil;
 	}
 
+	function cari($prov, $kategori){
+		$hasil = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan
+																					FROM company
+																					WHERE id_provinsi = $prov
+																					AND id_industri = $kategori");
+		return $hasil;
+	}
+
 }

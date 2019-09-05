@@ -175,7 +175,7 @@
 </head>
 
 <body>
-	<div class="loader"></div>
+	<!-- <div class="loader"></div> -->
 	<header id="header">
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">
