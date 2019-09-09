@@ -81,6 +81,11 @@ class Model_data extends CI_model {
 		return $hasil;
 	}
 
+	function hapus_requirement($id_requirement){
+		$hasil = $this->db->query("DELETE FROM requirement_job WHERE id_requirement='$id_requirement'");
+		return $hasil;
+	}
+
 	function validasi_joblist($idjoblist){
 		$hasil = $this->db->query("UPDATE `joblist` SET `status` = '<span class=\"label label-success\">Telah tayang</span>' WHERE `joblist`.`id_joblist` = $idjoblist");
 		return $hasil;
@@ -89,6 +94,12 @@ class Model_data extends CI_model {
 	function insert_kategori($namakategori){
 		$data = array('jenis_industri' => $namakategori );
     $hasil = $this->db->insert('industri', $data);
+    return $hasil;
+	}
+
+	function insert_requirement($namarequirement){
+		$data = array('nama_requirement' => $namarequirement );
+    $hasil = $this->db->insert('requirement_job', $data);
     return $hasil;
 	}
 
@@ -107,8 +118,29 @@ class Model_data extends CI_model {
     return $hasil;
 	}
 
+	function get_tipe_by_kode_req($id){
+		$this->db->where('id_requirement', $id);
+    $hsl = $this->db->get('requirement_job', $id);
+		$hasil = array();
+    if($hsl->num_rows()>0){
+            foreach ($hsl->result() as $data) {
+                $hasil=array(
+                    'id_requirement' => $data->id_requirement,
+                    'nama_requirement' => $data->nama_requirement,
+                    );
+            }
+        }
+    return $hasil;
+	}
+
+
+
 	function update_kategori($id, $jenis){
 		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$jenis' WHERE id_industri=$id");
+	}
+
+	function update_requirement($id, $nama){
+		return $hasil = $this->db->query("UPDATE requirement_job SET nama_requirement='$nama' WHERE id_requirement=$id");
 	}
 
 	function fetch_data($limit, $start)
@@ -208,6 +240,11 @@ class Model_data extends CI_model {
 																					WHERE id_provinsi = $prov
 																					AND id_industri = $kategori");
 		return $hasil;
+	}
+
+	function list_requirement(){
+		$hasil = $this->db->query("SELECT * FROM requirement_job");
+		return $hasil->result();
 	}
 
 }

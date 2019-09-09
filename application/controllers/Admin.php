@@ -161,6 +161,21 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	public function requirement(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['data']		= $this->model_data->dataadmin();
+		$isi['daftar_requirement'] = $this->model_data->list_requirement();
+		$isi['title'] = "ICC | Admin requirement";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_requirement";
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
+	public function list_requirement(){
+		$data = $this->model_data->list_requirement();
+    echo json_encode($data);
+	}
+
 	public function save()
 	{
 		$response = array();
@@ -259,15 +274,28 @@ class Admin extends CI_Controller {
     echo json_encode($data);
 	}
 
+	function tambah_requirement(){
+		$namarequirement=$this->input->post('namarequirement');
+    $data=$this->model_data->insert_requirement($namarequirement);
+    echo json_encode($data);
+	}
+
 	function hapusjoblist(){
 		$idjoblist=$this->input->post('kode');
     $data=$this->model_data->hapus_joblist($idjoblist);
     echo json_encode($data);
 	}
 
+
 	function hapuskategori(){
 		$id_industri=$this->input->post('kode_kategori');
     $data=$this->model_data->hapus_kategori($id_industri);
+    echo json_encode($data);
+	}
+
+	function hapusrequirement(){
+		$id_requirement=$this->input->post('kode_requirement');
+    $data=$this->model_data->hapus_requirement($id_requirement);
     echo json_encode($data);
 	}
 
@@ -277,11 +305,24 @@ class Admin extends CI_Controller {
     echo json_encode($data);
 	}
 
+	function getidrequirement(){
+		$id_requirement = $this->input->get('id');
+    $data = $this->model_data->get_tipe_by_kode_req($id_requirement);
+    echo json_encode($data);
+	}
+
 	function update_kategori(){
 		$id=$this->input->post('id_industri');
     $jenis=$this->input->post('jenis_industri');
     $data=$this->model_data->update_kategori($id, $jenis);
     echo json_encode($data);
+	}
+
+	function update_requirement(){
+		$id=$this->input->post('id_requirement');
+		$nama=$this->input->post('nama_requirement');
+		$data=$this->model_data->update_requirement($id, $nama);
+		echo json_encode($data);
 	}
 
 	function validasi(){

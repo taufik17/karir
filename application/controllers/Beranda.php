@@ -199,25 +199,16 @@ class Beranda extends CI_Controller {
 		$isi['jenis_industri'] = $this->model_data->jenis_industri();
 		$this->load->model('model_data');
 		$isi['event'] = $this->model_data->event();
-		$isi['data_list'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, Logo_perusahaan, deskripsi_perusahaan
-																					FROM company
-																					NATURAL JOIN joblist
-																					WHERE id_provinsi = $prvinsi
-																					AND id_industri = $kategori
-																					AND Id_perusahaan = perusahaan
-																					AND status = '<span class=\"label label-success\">Telah tayang</span>'
-																					AND deadline >= current_date()
-																					AND Nama_joblist LIKE '%$katalog%'
-																					UNION
-																					SELECT Id_perusahaan, Nama_perusahaan, Logo_perusahaan, deskripsi_perusahaan
-																					FROM company
-																					NATURAL JOIN joblist
-																					WHERE id_provinsi = $prvinsi
-																					AND id_industri = $kategori
-																					AND Id_perusahaan = perusahaan
-																					AND status = '<span class=\"label label-success\">Telah tayang</span>'
-																					AND deadline >= current_date()
-																					AND Nama_perusahaan LIKE '%$katalog%'");
+		$isi['data_list'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, Logo_perusahaan, deskripsi_perusahaan, Nama_joblist
+FROM joblist NATURAL JOIN company
+WHERE Id_perusahaan = perusahaan
+AND deadline >= current_date()
+AND Nama_joblist LIKE '%$katalog%' OR Nama_perusahaan LIKE '%$katalog%'
+AND id_provinsi = $prvinsi
+AND id_industri = $kategori
+AND status = '<span class=\"label label-success\">Telah tayang</span>'
+");
+																					// SELECT * FROM joblist, company WHERE Nama_joblist = 'ITERA' OR Nama_perusahaan = 'ITERA'
 		$this->load->view('tampilan_hasil_cari', $isi);
 	}
 

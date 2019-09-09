@@ -46,4 +46,10 @@
 		</ul>
 	</li>
 
+	<li <?=$this->uri->segment(2) == 'requirement' ? 'class="active"' : 'class=""'?>>
+		<a href="<?= base_url() ?>admin/requirement">
+			<i class="fa fa-asterisk"></i> <span>Requirement</span>
+		</a>
+	</li>
+
 </ul>

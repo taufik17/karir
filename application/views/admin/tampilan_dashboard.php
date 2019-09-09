@@ -102,6 +102,7 @@
 </div>
 <!-- endmodal -->
 
+
 <!-- modal hapus kategori -->
 <div class="modal fade" id="ModalHapusKategori" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -120,6 +121,32 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
           <button class="btn_hapus btn btn-danger" id="btn_hapus_kategori">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+
+<!-- modal hapus requirement -->
+<div class="modal fade" id="ModalHapusRequirement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+        <h4 class="modal-title" id="myModalLabel">Hapus Requirement</h4>
+      </div>
+      <form class="form-horizontal">
+        <div class="modal-body">
+
+          <input type="hidden" name="kode_requirement" id="textkoderequirement" value="">
+          <div class="alert alert-warning"><p>Apakah Anda yakin mau memhapus requirement ini?</p></div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button class="btn_hapus btn btn-danger" id="btn_hapus_requirement">Hapus</button>
         </div>
       </form>
     </div>
@@ -183,6 +210,37 @@
   </div>
   <!-- end modal edit kategori -->
 
+  <!-- modal edit requirement -->
+  <div class="modal fade" id="Modal_Edit_Requirement" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Edit Requirement</h4>
+          </div>
+          <form class="form-horizontal">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-sm-2">
+                  <label for="inputTipe" class="control-label">Nama Requirement Baru</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="hidden" name="id_requirement_edit" id="idrequirementedit" value="">
+                  <input type="text" class="form-control" name="nama_requirement_edit" id="namarequirementedit" placeholder="Nama Requirement Baru">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+              <button class="btn btn-success" id="btn_simpan_requirement"><i class="fa fa-save"></i>&nbsp&nbspSimpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- end modal edit requirement -->
+
   <!-- modal tambah kategori -->
   <div class="modal fade" id="modal_tambah_kategori" style="display: none;">
     <div class="modal-dialog">
@@ -212,6 +270,37 @@
       </div>
     </div>
     <!-- end modal -->
+
+
+    <!-- modal tambah requirement -->
+    <div class="modal fade" id="modal_tambah_requirement" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">Tambah Requirement</h4>
+            </div>
+            <form class="form-horizontal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="inputTipe" class="control-label">Nama Requirement</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="namarequirement" id="nama_requirement" placeholder="Nama Requirement" required>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+                <button class="btn btn-success" id="btn_tambah_requirement"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- end modal -->
 
     <script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
     <script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
@@ -745,6 +834,119 @@
     });
     </script>
     <!-- end script list kategori industri -->
+
+    <!-- list Requirement -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	tampil_listrequirement();   //pemanggilan fungsi tampil tipe.
+    	$('#joblist').dataTable();
+    	//fungsi tampil tipe
+    	function tampil_listrequirement(){
+    		$.ajax({
+    			type  : 'ajax',
+    			url   : '<?php echo base_url()?>admin/list_requirement',
+    			async : false,
+    			dataType : 'json',
+    			success : function(data){
+    				var html = '';
+    				var i;
+    				var no=1;
+    				for(i=0; i<data.length; i++){
+    					html += '<tr>'+
+    					'<td>'+no+'</td>'+
+    					'<td>'+data[i].nama_requirement+'</td>'+
+    					'<td style="text-align:center;">'+
+    					'<a href="javascript:;" class="btn btn-info btn-xs item_edit_requirement" data="'+data[i].id_requirement+'"><i class="fa fa-edit"></i>&nbsp&nbspEdit</a>'+' '+
+    					'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus_requirement" data="'+data[i].id_requirement+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+    					'</td>'+
+    					'</tr>';
+    					no++;
+    				}
+    				$('#show_list_requirement').html(html);
+    			}
+
+    		});
+    	}
+    	//Tambah requirement
+    	$('#btn_tambah_requirement').on('click',function(){
+    		var namarequirement=$('#nama_requirement').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/tambah_requirement')?>",
+    			dataType : "JSON",
+    			data : {namarequirement: namarequirement},
+    			success: function(data){
+    				$('[name="namarequirement"]').val("");
+    				$('#modal_tambah_requirement').modal('hide');
+    				tampil_listrequirement();
+    			}
+    		});
+    		return false;
+    	});
+    	//GET HAPUS
+    	$('#show_list_requirement').on('click','.item_hapus_requirement',function(){
+    		var id=$(this).attr('data');
+    		$('#ModalHapusRequirement').modal('show');
+    		$('[name="kode_requirement"]').val(id);
+    	});
+    	//Hapus kategori
+    	$('#btn_hapus_requirement').on('click',function(){
+    		var kode_requirement=$('#textkoderequirement').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/hapusrequirement')?>",
+    			dataType : "JSON",
+    			data : {kode_requirement: kode_requirement},
+    			success: function(data){
+    				$('#ModalHapusRequirement').modal('hide');
+    				tampil_listrequirement();
+    			}
+    		});
+    		return false;
+    	});
+
+
+    	//GET UPDATE
+    	$('#show_list_requirement').on('click','.item_edit_requirement',function(){
+    		var id=$(this).attr('data');
+    		$.ajax({
+    			type : "GET",
+    			url  : "<?php echo base_url()?>admin/getidrequirement",
+    			dataType : "JSON",
+    			data : {id:id},
+    			success: function(data){
+    				$.each(data,function(id_requirement, jenis_requirement){
+    					$('#Modal_Edit_Requirement').modal('show');
+    					$('[name="id_requirement_edit"]').val(data.id_requirement);
+    					$('[name="nama_requirement_edit"]').val(data.nama_requirement);
+    				});
+    			}
+    		});
+    		return false;
+    	});
+
+    	//Update Kategori
+    	$('#btn_simpan_requirement').on('click',function(){
+    		var id_requirement=$('#idrequirementedit').val();
+    		var nama_requirement=$('#namarequirementedit').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/update_requirement')?>",
+    			dataType : "JSON",
+    			data : {id_requirement:id_requirement , nama_requirement:nama_requirement},
+    			success: function(data){
+    				$('[name="id_requirement_edit"]').val("");
+    				$('[name="nama_requirement_edit"]').val("");
+    				$('#Modal_Edit_Requirement').modal('hide');
+    				tampil_listrequirement();
+    			}
+    		});
+    		return false;
+    	});
+    });
+    </script>
+
+    <!-- end requirement -->
 
     <script>
     $(function () {

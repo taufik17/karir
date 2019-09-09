@@ -49,7 +49,7 @@
 						<div class="col-lg-3 form-cols">
 							<div class="default-select" id="default-selects">
 								<select name="prov">
-									<option selected="selected">select area</option>
+									<option value="*" selected="selected">All Area</option>
 									<?php
 									foreach ($provinsi->result() as $row ) {
 										?>
@@ -61,7 +61,7 @@
 						<div class="col-lg-3 form-cols">
 							<div class="default-select" id="default-selects2">
 								<select name="kategori">
-									<option selected="selected">All Category</option>
+									<option value="*" selected="selected">All Category</option>
 									<?php
 									foreach ($jenis_industri->result() as $row ) {
 										?>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 				</form>
-				<p class="text-white"> <span>Search by tags:</span> Tecnology, Business, Consulting, IT Company, Design, Development</p>
+				<p class="text-white"> <span>Cari Perusahaan:</span> Cari berdasarkan nama perusahaan yang ingin kampu apply.  </p>
 			</div>
 		</div>
 	</div>
