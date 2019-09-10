@@ -82,7 +82,12 @@ class Model_data extends CI_model {
 	}
 
 	function hapus_requirement($id_requirement){
-		$hasil = $this->db->query("DELETE FROM requirement_job WHERE id_requirement='$id_requirement'");
+		$hasil = $this->db->query("DELETE FROM requirement_berkas WHERE id_requirement='$id_requirement'");
+		return $hasil;
+	}
+
+	function hapus_requirement_jurusan($id_requirement_jurusan){
+		$hasil = $this->db->query("DELETE FROM requirement_jurusan WHERE id_requirement='$id_requirement_jurusan'");
 		return $hasil;
 	}
 
@@ -99,7 +104,13 @@ class Model_data extends CI_model {
 
 	function insert_requirement($namarequirement){
 		$data = array('nama_requirement' => $namarequirement );
-    $hasil = $this->db->insert('requirement_job', $data);
+    $hasil = $this->db->insert('requirement_berkas', $data);
+    return $hasil;
+	}
+
+	function insert_requirement_jurusan($namajurusan){
+		$data = array('nama_jurusan' => $namajurusan );
+    $hasil = $this->db->insert('requirement_jurusan', $data);
     return $hasil;
 	}
 
@@ -120,7 +131,7 @@ class Model_data extends CI_model {
 
 	function get_tipe_by_kode_req($id){
 		$this->db->where('id_requirement', $id);
-    $hsl = $this->db->get('requirement_job', $id);
+    $hsl = $this->db->get('requirement_berkas', $id);
 		$hasil = array();
     if($hsl->num_rows()>0){
             foreach ($hsl->result() as $data) {
@@ -133,14 +144,31 @@ class Model_data extends CI_model {
     return $hasil;
 	}
 
-
+	function get_tipe_by_kode_req_jurusan($id){
+		$this->db->where('id_requirement', $id);
+    $hsl = $this->db->get('requirement_jurusan', $id);
+		$hasil = array();
+    if($hsl->num_rows()>0){
+            foreach ($hsl->result() as $data) {
+                $hasil=array(
+                    'id_requirement' => $data->id_requirement,
+                    'nama_jurusan' => $data->nama_jurusan,
+                    );
+            }
+        }
+    return $hasil;
+	}
 
 	function update_kategori($id, $jenis){
 		return $hasil = $this->db->query("UPDATE industri SET jenis_industri='$jenis' WHERE id_industri=$id");
 	}
 
 	function update_requirement($id, $nama){
-		return $hasil = $this->db->query("UPDATE requirement_job SET nama_requirement='$nama' WHERE id_requirement=$id");
+		return $hasil = $this->db->query("UPDATE requirement_berkas SET nama_requirement='$nama' WHERE id_requirement=$id");
+	}
+
+	function update_requirement_jurusan($id, $nama){
+		return $hasil = $this->db->query("UPDATE requirement_jurusan SET nama_jurusan='$nama' WHERE id_requirement=$id");
 	}
 
 	function fetch_data($limit, $start)
@@ -243,7 +271,12 @@ class Model_data extends CI_model {
 	}
 
 	function list_requirement(){
-		$hasil = $this->db->query("SELECT * FROM requirement_job");
+		$hasil = $this->db->query("SELECT * FROM requirement_berkas");
+		return $hasil->result();
+	}
+
+	function list_requirement_jurusan(){
+		$hasil = $this->db->query("SELECT * FROM requirement_jurusan");
 		return $hasil->result();
 	}
 

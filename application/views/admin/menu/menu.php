@@ -46,10 +46,21 @@
 		</ul>
 	</li>
 
-	<li <?=$this->uri->segment(2) == 'requirement' ? 'class="active"' : 'class=""'?>>
-		<a href="<?= base_url() ?>admin/requirement">
+	<li <?=$this->uri->segment(2) == 'requirement_berkas' || $this->uri->segment(2) == 'requirement_jurusan' ? 'class="treeview active"' : 'class="treeview"'?>>
+		<a href="#">
 			<i class="fa fa-asterisk"></i> <span>Requirement</span>
+			<span class="pull-right-container">
+				<i class="fa fa-angle-left pull-right"></i>
+			</span>
 		</a>
+		<ul class="treeview-menu">
+			<li <?=$this->uri->segment(2) == 'requirement_berkas' ? 'class="active"' : 'class=""'?>>
+				<a href="<?= base_url() ?>admin/requirement_berkas"><i class="fa fa-circle-o"></i> Berkas</a>
+			</li>
+			<li <?=$this->uri->segment(2) == 'requirement_jurusan' ? 'class="active"' : 'class=""'?>>
+				<a href="<?= base_url() ?>admin/requirement_jurusan"><i class="fa fa-circle-o"></i> Jurusan</a>
+			</li>
+		</ul>
 	</li>
 
 </ul>

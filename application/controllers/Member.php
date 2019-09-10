@@ -84,6 +84,10 @@ class Member extends CI_Controller {
 		}
 	}
 
+	function cv(){
+		
+	}
+
 	function logout(){
 		$this->model_keamanan->getkeamananmember();
 		$this->session->sess_destroy();

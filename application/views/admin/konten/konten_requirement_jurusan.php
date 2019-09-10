@@ -15,7 +15,7 @@
 
 		<div class="box box-danger">
 			<div class="box-header with-border">
-				<h3 class="box-title">Tabel Master Requirement Berkas</h3>
+				<h3 class="box-title">Tabel Master Requirement Jurusan</h3>
 				<div class="box-tools pull-right">
 					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 					</button>
@@ -23,7 +23,7 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
-				<button type="button" name="tambah_requirement" class="btn btn-primary" data-toggle="modal" data-target="#modal_tambah_requirement"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah Requirement</button><br></br>
+				<button type="button" name="tambah_requirement_jurusan" class="btn btn-primary" data-toggle="modal" data-target="#modal_tambah_requirement_jurusan"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah Jurusan</button><br></br>
 				<table class="table table-bordered table-hover datatable" id="example1">
 					<thead>
 						<tr>
@@ -32,7 +32,7 @@
 							<th style="text-align: center" width="20%">Edit</th>
 						</tr>
 					</thead>
-					<tbody id="show_list_requirement">
+					<tbody id="show_list_requirement_jurusan">
 					</tbody>
 				</table>
 			</div>

@@ -161,18 +161,31 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
-	public function requirement(){
+	public function requirement_berkas(){
 		$this->model_keamanan->getkeamananadmin();
 		$isi['data']		= $this->model_data->dataadmin();
-		$isi['daftar_requirement'] = $this->model_data->list_requirement();
-		$isi['title'] = "ICC | Admin requirement";
+		$isi['title'] = "ICC | Admin requirement berkas";
 		$isi['menu'] = "admin/menu/menu";
 		$isi['konten'] = "admin/konten/konten_requirement";
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	public function requirement_jurusan(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['data']		= $this->model_data->dataadmin();
+		$isi['title'] = "ICC | Admin requirement jurusan";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_requirement_jurusan";
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
 	public function list_requirement(){
 		$data = $this->model_data->list_requirement();
+    echo json_encode($data);
+	}
+
+	public function list_requirement_jurusan(){
+		$data = $this->model_data->list_requirement_jurusan();
     echo json_encode($data);
 	}
 
@@ -280,6 +293,12 @@ class Admin extends CI_Controller {
     echo json_encode($data);
 	}
 
+	function tambah_requirement_jurusan(){
+		$namajurusan=$this->input->post('namarequirement_jurusan');
+    $data=$this->model_data->insert_requirement_jurusan($namajurusan);
+    echo json_encode($data);
+	}
+
 	function hapusjoblist(){
 		$idjoblist=$this->input->post('kode');
     $data=$this->model_data->hapus_joblist($idjoblist);
@@ -299,6 +318,12 @@ class Admin extends CI_Controller {
     echo json_encode($data);
 	}
 
+	function hapusrequirement_jurusan(){
+		$id_requirement_jurusan=$this->input->post('kode_requirement_jurusan');
+    $data=$this->model_data->hapus_requirement_jurusan($id_requirement_jurusan);
+    echo json_encode($data);
+	}
+
 	function getidkategori(){
 		$id_kategori = $this->input->get('id');
     $data = $this->model_data->get_tipe_by_kode($id_kategori);
@@ -308,6 +333,12 @@ class Admin extends CI_Controller {
 	function getidrequirement(){
 		$id_requirement = $this->input->get('id');
     $data = $this->model_data->get_tipe_by_kode_req($id_requirement);
+    echo json_encode($data);
+	}
+
+	function getidrequirement_jurusan(){
+		$id_requirement = $this->input->get('id');
+    $data = $this->model_data->get_tipe_by_kode_req_jurusan($id_requirement);
     echo json_encode($data);
 	}
 
@@ -322,6 +353,13 @@ class Admin extends CI_Controller {
 		$id=$this->input->post('id_requirement');
 		$nama=$this->input->post('nama_requirement');
 		$data=$this->model_data->update_requirement($id, $nama);
+		echo json_encode($data);
+	}
+
+	function update_requirement_jurusan(){
+		$id=$this->input->post('id_requirement');
+		$nama=$this->input->post('nama_jurusan');
+		$data=$this->model_data->update_requirement_jurusan($id, $nama);
 		echo json_encode($data);
 	}
 

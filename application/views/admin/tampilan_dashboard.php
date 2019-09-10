@@ -154,6 +154,33 @@
 </div>
 <!-- end modal -->
 
+
+
+<!-- modal hapus requirement jurusan -->
+<div class="modal fade" id="ModalHapusrequirement_jurusan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+        <h4 class="modal-title" id="myModalLabel">Hapus Requirement Jurusan</h4>
+      </div>
+      <form class="form-horizontal">
+        <div class="modal-body">
+
+          <input type="hidden"  name="kode_requirement_jurusan" id="textkoderequirement_jurusan" value="">
+          <div class="alert alert-warning"><p>Apakah Anda yakin mau memhapus jurusan ini?</p></div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button class="btn_hapus btn btn-danger" id="btn_hapus_requirement_jurusan">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
 <!-- modal validasi -->
 <div class="modal fade" id="ModalValidasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -241,6 +268,37 @@
     </div>
     <!-- end modal edit requirement -->
 
+    <!-- modal edit requirement jurusan-->
+    <div class="modal fade" id="Modal_Edit_requirement_jurusan" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">Edit Jurusan</h4>
+            </div>
+            <form class="form-horizontal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <label for="inputTipe" class="control-label">Nama Jurusan Baru</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="hidden" name="id_requirement_jurusan_edit" id="idrequirement_jurusanedit" value="">
+                    <input type="text" class="form-control" name="nama_requirement_jurusan_edit" id="namarequirement_jurusanedit" placeholder="Nama Jurusan Baru">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+                <button class="btn btn-success" id="btn_simpan_requirement_jurusan"><i class="fa fa-save"></i>&nbsp&nbspSimpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- end modal edit requirement jurusan -->
+
   <!-- modal tambah kategori -->
   <div class="modal fade" id="modal_tambah_kategori" style="display: none;">
     <div class="modal-dialog">
@@ -301,6 +359,36 @@
         </div>
       </div>
       <!-- end modal -->
+
+      <!-- modal tambah requirement jurusan -->
+      <div class="modal fade" id="modal_tambah_requirement_jurusan" style="display: none;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Tambah Jurusan</h4>
+              </div>
+              <form class="form-horizontal">
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <label for="inputTipe" class="control-label">Nama Jurusan</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="namarequirement_jurusan" id="nama_requirement_jurusan" placeholder="Nama Jurusan" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
+                  <button class="btn btn-success" id="btn_tambah_requirement_jurusan"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end modal -->
 
     <script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
     <script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
@@ -889,7 +977,7 @@
     		$('#ModalHapusRequirement').modal('show');
     		$('[name="kode_requirement"]').val(id);
     	});
-    	//Hapus kategori
+    	//Hapus requirement
     	$('#btn_hapus_requirement').on('click',function(){
     		var kode_requirement=$('#textkoderequirement').val();
     		$.ajax({
@@ -925,7 +1013,7 @@
     		return false;
     	});
 
-    	//Update Kategori
+    	//Update requirement
     	$('#btn_simpan_requirement').on('click',function(){
     		var id_requirement=$('#idrequirementedit').val();
     		var nama_requirement=$('#namarequirementedit').val();
@@ -945,8 +1033,121 @@
     	});
     });
     </script>
-
     <!-- end requirement -->
+
+
+    <!-- list requirement_jurusan -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	tampil_listrequirement_jurusan();   //pemanggilan fungsi tampil tipe.
+    	$('#joblist').dataTable();
+    	//fungsi tampil tipe
+    	function tampil_listrequirement_jurusan(){
+    		$.ajax({
+    			type  : 'ajax',
+    			url   : '<?php echo base_url()?>admin/list_requirement_jurusan',
+    			async : false,
+    			dataType : 'json',
+    			success : function(data){
+    				var html = '';
+    				var i;
+    				var no=1;
+    				for(i=0; i<data.length; i++){
+    					html += '<tr>'+
+    					'<td>'+no+'</td>'+
+    					'<td>'+data[i].nama_jurusan+'</td>'+
+    					'<td style="text-align:center;">'+
+    					'<a href="javascript:;" class="btn btn-info btn-xs item_edit_requirement_jurusan" data="'+data[i].id_requirement+'"><i class="fa fa-edit"></i>&nbsp&nbspEdit</a>'+' '+
+    					'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus_requirement_jurusan" data="'+data[i].id_requirement+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+    					'</td>'+
+    					'</tr>';
+    					no++;
+    				}
+    				$('#show_list_requirement_jurusan').html(html);
+    			}
+
+    		});
+    	}
+    	//Tambah requirement_jurusan
+    	$('#btn_tambah_requirement_jurusan').on('click',function(){
+    		var namarequirement_jurusan=$('#nama_requirement_jurusan').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/tambah_requirement_jurusan')?>",
+    			dataType : "JSON",
+    			data : {namarequirement_jurusan: namarequirement_jurusan},
+    			success: function(data){
+    				$('[name="namarequirement_jurusan"]').val("");
+    				$('#modal_tambah_requirement_jurusan').modal('hide');
+    				tampil_listrequirement_jurusan();
+    			}
+    		});
+    		return false;
+    	});
+    	//GET HAPUS
+    	$('#show_list_requirement_jurusan').on('click','.item_hapus_requirement_jurusan',function(){
+    		var id=$(this).attr('data');
+    		$('#ModalHapusrequirement_jurusan').modal('show');
+    		$('[name="kode_requirement_jurusan"]').val(id);
+    	});
+    	//Hapus requirement_jurusan
+    	$('#btn_hapus_requirement_jurusan').on('click',function(){
+    		var kode_requirement_jurusan=$('#textkoderequirement_jurusan').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/hapusrequirement_jurusan')?>",
+    			dataType : "JSON",
+    			data : {kode_requirement_jurusan: kode_requirement_jurusan},
+    			success: function(data){
+    				$('#ModalHapusrequirement_jurusan').modal('hide');
+    				tampil_listrequirement_jurusan();
+    			}
+    		});
+    		return false;
+    	});
+
+
+    	//GET UPDATE
+    	$('#show_list_requirement_jurusan').on('click','.item_edit_requirement_jurusan',function(){
+    		var id=$(this).attr('data');
+    		$.ajax({
+    			type : "GET",
+    			url  : "<?php echo base_url()?>admin/getidrequirement_jurusan",
+    			dataType : "JSON",
+    			data : {id:id},
+    			success: function(data){
+    				$.each(data,function(id_requirement, nama_jurusan){
+    					$('#Modal_Edit_requirement_jurusan').modal('show');
+    					$('[name="id_requirement_jurusan_edit"]').val(data.id_requirement);
+    					$('[name="nama_requirement_jurusan_edit"]').val(data.nama_jurusan);
+    				});
+    			}
+    		});
+    		return false;
+    	});
+
+    	//Update requirement_jurusan
+    	$('#btn_simpan_requirement_jurusan').on('click',function(){
+    		var id_requirement=$('#idrequirement_jurusanedit').val();
+    		var nama_jurusan=$('#namarequirement_jurusanedit').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/update_requirement_jurusan')?>",
+    			dataType : "JSON",
+    			data : {id_requirement:id_requirement , nama_jurusan:nama_jurusan},
+    			success: function(data){
+    				$('[name="id_requirement_jurusan_edit"]').val("");
+    				$('[name="nama_requirement_jurusan_edit"]').val("");
+    				$('#Modal_Edit_requirement_jurusan').modal('hide');
+    				tampil_listrequirement_jurusan();
+    			}
+    		});
+    		return false;
+    	});
+    });
+    </script>
+    <!-- end requirement_jurusan -->
+
 
     <script>
     $(function () {

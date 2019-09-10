@@ -11,26 +11,17 @@
 								<h5 class="m-0 font-weight-bold text-muted">Pendidikan Terakhir</h5>
 								<a class="txt-blue" href="#">-</a>
 							</div>
-							<div class="col-md-1">
-								<a href=""><i class="fa fa-pencil"></i></a>
-							</div>
 						</div>
 						<div class="row p-3">
 							<div class="col-md-11">
 								<h5 class="m-0 font-weight-bold text-muted">Pekerjaan Terakhir</h5>
 								<a class="txt-blue" href="#">-</a>
 							</div>
-							<div class="col-md-1">
-								<a href=""><i class="fa fa-pencil"></i></a>
-							</div>
 						</div>
 						<div class="row p-3">
 							<div class="col-md-11">
 								<h5 class="m-0 font-weight-bold text-muted">Alamat</h5>
 								<p>-</p>
-							</div>
-							<div class="col-md-1">
-								<a href=""><i class="fa fa-pencil"></i></a>
 							</div>
 						</div>
 					</div>
@@ -40,7 +31,7 @@
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							<div class="mb-3 p-2 box-shadow rounded alert alert-warning">
-								Hai <b><?= $row->Nama_jobseeker; ?></b>, selamat datang di aplikasi upgrad.id.
+								Hai <b><?= $row->Nama_jobseeker; ?></b>, selamat datang di aplikasi Itera Carer Center.
 								Saat ini profil cv kamu belum lengkap, Ayo update cv kamu dari sekarang, agar Kamu lebih mudah mencari pekerjaan yang paling tepat. Biarkan perusahaan tahu kualifikasi dan prestasi terbaru kamu melalui cv !
 							</div>
 						</div>
