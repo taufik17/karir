@@ -1,15 +1,27 @@
-<div class="col-md-9">
-	<div class="col-xs-12">
-		<div class="box">
-			<div class="box-header with-border">
-				<i class="fa fa-paperclip" aria-hidden="true"></i>
-				<h3 class="box-title text-center">List Job</h3>
-			</div>
-			<div class="box-body">
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>
+			List Pekerjaan
+			<small>Informasi utama</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+		</ol>
+	</section>
 
-				<button type="button" name="tambah" class="btn btn-primary" data-toggle="modal" data-target="#modal_tambah"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah Posisi Lowongan</button>
-				<br></br>
-				<table class="table table-bordered table-hover datatable" id="joblist">
+	<section class="content">
+		<div class="box box-danger">
+			<div class="box-header with-border">
+				<h3 class="box-title">Data Pekerjaan</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered table-hover datatable" id="example1">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -19,11 +31,10 @@
 							<th>Edit</th>
 						</tr>
 					</thead>
-					<tbody id="show_joblist">
-
+					<tbody id="show_list_permohonan">
 					</tbody>
-				</table>								
+				</table>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>

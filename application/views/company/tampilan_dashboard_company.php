@@ -1,227 +1,115 @@
-<?php $this->load->view('company/konten_header'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><?= $title ?></title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.css'; ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
 
-<section class="header-company section-gap">
-	<div class="container">
-		<div class="row">
-			<?php foreach ($profil_company->result() as $nama ) {
-				?>
-			<?php } ?>
-			<?php $this->load->view($menu); ?>
-			<?php $this->load->view($konten); ?>
-		</div>
-	</div>
-</section>
+<body class="hold-transition skin-red-light fixed sidebar-mini">
+  <div class="wrapper">
+    <header class="main-header">
+      <a href="../../index2.html" class="logo">
+        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-lg"><b>ITERA</b> Career Center</span>
+      </a>
+      <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li>
+              <?php foreach ($profil_company->result() as $nama ) {
+                ?>
+                <a href="<?php echo base_url() ?>Company/profil"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama_perusahaan ?></a>
+              <?php }?>
+            </li>
+            <li>
+              <a href="<?php echo base_url() ?>Company/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <?php foreach ($profil_company->result() as $nama ) {
+          ?>
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="<?= base_url() ?>assets/gambar/company/profil/<?php echo $nama->Logo_perusahaan; ?>" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p><?php echo $nama->Nama_perusahaan ?></p>
+            <?php }?>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+        <br>
+        <?php $this->load->view($menu); ?>
+      </section>
+    </aside>
+
+    <?php $this->load->view($konten); ?>
+
+  </div>
+</div>
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Version</b> Beta
+  </div>
+  <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> by <a href="https://tik.itera.ac.id/id/" target="_blank">UPT TIK.</a></strong> All rights reserved.
+</footer>
+    <script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/admin/kalender/js/bootstrap.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.js'; ?>"></script>
+
+    <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/dist/js/adminlte.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
+    <script type="text/javascript">
+      $(function () {
+        CKEDITOR.replace('ckeditor');
+      });
+
+    </script>
 
 
-<br>
-&nbsp
-<br>
-<!-- modal -->
-
-<div class="modal fade" id="modal_tambah" style="display: none;">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span></button>
-					<h4 class="modal-title">Tambah Pekerjaan</h4>
-				</div>
-				<form class="form-horizontal">
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-sm-2">
-								<label for="inputTipe" class="control-label">Nama Pekerjaan</label>
-							</div>
-							<div class="col-sm-8">
-								<input type="text" class="form-control" name="job" id="nama_job" placeholder="Nama Pekerjaan">
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-2">
-								<label for="inputTipe" class="control-label">Deadline</label>
-							</div>
-							<div class="col-sm-8">
-								<input type="text" class="form-control" name="waktu" id="deadline" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask="">
-							</div>
-						</div>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbspTutup</button>
-						<button class="btn btn-success" id="btn_tambah"><i class="fa fa-plus-circle"></i>&nbsp&nbspTambah</button>
-					</div>
-				</form>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-
-	<!-- end modal -->
-
-	<?php $this->load->view('company/konten_footer') ?>
-
-
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/dist/js/adminlte.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
-	<!-- InputMask -->
-	<script src="<?php echo base_url() ?>assets/admin/plugins/input-mask/jquery.inputmask.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-	<script src="<?php echo base_url() ?>assets/admin/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
-
-
-	<script type="text/javascript">
-	$(document).ready(function(){
-		tampil_joblist();   //pemanggilan fungsi tampil tipe.
-
-		$('#joblist').dataTable();
-
-		//fungsi tampil tipe
-		function tampil_joblist(){
-			$.ajax({
-				type  : 'ajax',
-				url   : '<?php echo base_url()?>company/data_pekerjaan',
-				async : false,
-				dataType : 'json',
-				success : function(data){
-					var html = '';
-					var i;
-					var no=1;
-					for(i=0; i<data.length; i++){
-						html += '<tr>'+
-						'<td>'+no+'</td>'+
-						'<td>'+data[i].Nama_joblist+'</td>'+
-						'<td>'+data[i].deadline+'</td>'+
-						'<td>'+data[i].status+'</td>'+
-						'<td style="text-align:center;">'+
-						'<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].Id_perusahaan+'"><i class="fa fa-edit"></i>&nbsp&nbspEdit</a>'+' '+
-						'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].Id_perusahaan+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
-						'</td>'+
-						'</tr>';
-						no++;
-					}
-					$('#show_joblist').html(html);
-				}
-
-			});
-		}
-
-		//GET UPDATE
-		$('#show_joblist').on('click','.item_edit',function(){
-			var id=$(this).attr('data');
-			$.ajax({
-				type : "GET",
-				url  : '<?php echo base_url()?>edit/gettipekode',
-				dataType : 'json',
-				data : {id:id},
-				success: function(data){
-					$.each(data,function(id_tipe, nama_tipe){
-						$('#modal_edit').modal('show');
-						$('[name="namatipebaru"]').val(data.nama_tipe);
-						$('[name="idtipe"]').val(data.id_tipe);
-					});
-				}
-			});
-			return false;
-		});
-
-		//GET HAPUS
-		$('#show_joblist').on('click','.item_hapus',function(){
-			var id=$(this).attr('data');
-			$('#modal_hapus').modal('show');
-			$('[name="kode"]').val(id);
-		});
-
-		//Tambah tipe
-		$('#btn_tambah').on('click',function(){
-			var job=$('#nama_job').val();
-			var waktu=$('#deadline').val();
-			$.ajax({
-				type : "POST",
-				url  : "<?php echo base_url('company/tambah_joblist')?>",
-				dataType : "JSON",
-				data : {job:job, waktu:waktu},
-				success: function(data){
-					$('[name="job"]').val("");
-					$('[name="waktu"]').val("");
-					$('#modal_tambah').modal('hide');
-					tampil_joblist();
-				}
-			});
-			return false;
-		});
-
-		//Update Barang
-		$('#btn_simpan').on('click',function(){
-			var namatipebaru=$('#nama_tipe_baru').val();
-			var idtipe=$('#textid').val();
-			$.ajax({
-				type : "POST",
-				url  : "<?php echo base_url('edit/update_tipe')?>",
-				dataType : "JSON",
-				data : {namatipebaru: namatipebaru, idtipe: idtipe},
-				success: function(data){
-					$('[name="namatipebaru"]').val("");
-					$('[name="tipebrg"]').val("");
-					$('#modal_edit').modal('hide');
-					tampil_joblist();
-				}
-			});
-			return false;
-		});
-
-		//Hapus Barang
-		$('#btn_hapus').on('click',function(){
-			var kode=$('#textkode').val();
-			$.ajax({
-				type : "POST",
-				url  : "<?php echo base_url('edit/delete_tipe')?>",
-				dataType : "JSON",
-				data : {kode: kode},
-				success: function(data){
-					$('#modal_hapus').modal('hide');
-					tampil_joblist();
-				}
-			});
-			return false;
-		});
-	});
-</script>
-<script>
-$(function () {
-	$('#example1').DataTable()
-	$('#example2').DataTable({
-		'paging'      : true,
-		'lengthChange': false,
-		'searching'   : false,
-		'ordering'    : true,
-		'info'        : true,
-		'autoWidth'   : false
-	})
-})
-</script>
-
-<script>
-//Datemask dd/mm/yyyy
-$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-//Datemask2 mm/dd/yyyy
-$('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-//Datemask3 mm/dd/yyyy
-$('#datemask3').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
-//Money Euro
-$('[data-mask]').inputmask()
-</script>
-
-</body>
-</html>
+    <script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+    </script>
+  </body>
+  </html>
