@@ -2,10 +2,10 @@
 	<section class="content-header">
 		<h1>
 			List Pekerjaan
-			<small>Informasi utama</small>
+			<small>Tambah dan ubah pekerjaan</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+			<li class="active"><i class="fa fa-list-alt"></i> List Pekerjaan</li>
 		</ol>
 	</section>
 
@@ -21,6 +21,10 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
+				<a href="<?= base_url() ?>company/tambah_joblist">
+					<button type="button" name="tambah_pekerjaan" class="btn btn-primary">
+						<i class="fa fa-plus-circle"></i>&nbsp&nbspTambah Pekerjaan</button><br></br>
+				</a>
 				<table class="table table-bordered table-hover datatable" id="example1">
 					<thead>
 						<tr>

@@ -5,7 +5,7 @@ class Model_keamanan extends CI_model {
 
 	public function getkeamananadmin()
 	{
-		$session_admin = $this->session->userdata('Email_admin');
+		$session_admin = $this->session->userdata('username_admin');
 		if(empty($session_admin))
 		{
 			$this->session->sess_destroy($session_admin);

@@ -14,8 +14,8 @@
 			<div class="col-lg-3 col-xs-6">
 				<div class="small-box bg-aqua">
 					<div class="inner">
-						<h3><?php echo $jmlh_almni_itera; ?></h3>
-						<p>Jumlah Alumni</p>
+						<h3><?php echo $jmlh_user_umum; ?></h3>
+						<p>Jumlah User Umum</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-university"></i>
@@ -26,8 +26,8 @@
 			<div class="col-lg-3 col-xs-6">
 				<div class="small-box bg-green">
 					<div class="inner">
-						<h3><?php echo $jmlh_almni_non_itera; ?></h3>
-						<p>Jumlah Non Alumni</p>
+						<h3><?php echo $jmlh_mhs_itera; ?></h3>
+						<p>Jumlah Mahasiswa ITERA</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-university"></i>
@@ -38,8 +38,8 @@
 			<div class="col-lg-3 col-xs-6">
 				<div class="small-box bg-yellow">
 					<div class="inner">
-						<h3><?php echo $jmlh_mhs; ?></h3>
-						<p>Mahasiswa ( ITERA & non ITERA)</p>
+						<h3><?php echo $jmlh_mhs_non_itera; ?></h3>
+						<p>Mahasiswa non ITERA</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-university"></i>

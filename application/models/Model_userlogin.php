@@ -150,17 +150,19 @@ class Model_userlogin extends CI_model {
 	public function getloginadmin($u,$p)
 	{
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_admin',$u);
+		$this->db->where('username',$u);
 		$this->db->where('password',$pwd);
-		$query = $this->db->get('admin');
+		$query = $this->db->get('user');
 		if($query->num_rows()>0)
 		{
 			foreach ($query->result() as $row)
 			{
-				$session_admin = array('Email_admin'	=> $row->Email_admin,
-							  'password'	=> $row->password);
-				$this->session->set_userdata($session_admin);
-				$output['message'] = 'Masuk. Silahkan tunggu...';
+				if ($row->role_user == 3) {
+					$session_admin = array('username_admin'	=> $row->username,
+								  'password'	=> $row->password);
+					$this->session->set_userdata($session_admin);
+					$output['message'] = 'Masuk. Silahkan tunggu...';
+				}
 			}
 		}
 			else{

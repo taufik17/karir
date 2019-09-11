@@ -24,9 +24,9 @@ class Company extends CI_Controller {
 
 	public function listjob(){
 		$this->model_keamanan->getkeamanancompany();
-		$isi['title'] = "ICC | List Job";
+		$isi['title'] = "ICC | List Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
-		$isi['konten'] = "company/konten/konten_tambah_joblist";
+		$isi['konten'] = "company/konten/konten_joblist";
 		$isi['profil_company'] = $this->model_data->profil_company();
 		$this->load->view('company/tampilan_dashboard_company',$isi);
 	}
@@ -37,10 +37,12 @@ class Company extends CI_Controller {
   }
 
 	public function tambah_joblist(){
-		$nama_joblist = $this->input->post('job');
-		$deadline = $this->input->post('waktu');
-    $data = $this->model_data->insert_job($nama_joblist, $deadline);
-    echo json_encode($data);
+		$this->model_keamanan->getkeamanancompany();
+		$isi['title'] = "ICC | Tambah Pekerjaan";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "company/konten/konten_tambah_pekerjaan";
+		$isi['profil_company'] = $this->model_data->profil_company();
+		$this->load->view('company/tampilan_dashboard_company',$isi);
 	}
 
 	public function detailjob(){

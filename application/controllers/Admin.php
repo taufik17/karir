@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$session_admin = $this->session->userdata('Email_admin');
+		$session_admin = $this->session->userdata('username_admin');
 		$isi['title'] = "ICC | Admin Login";
 		if(!empty($session_admin))
 		{
@@ -36,9 +36,9 @@ class Admin extends CI_Controller {
 		$isi['menu'] = "admin/menu/menu";
 		$isi['konten'] = "admin/konten/konten_beranda";
 		$isi['data']		= $this->model_data->dataadmin();
-		$isi['jmlh_almni_itera'] = $this->model_data->jmlh_almni_itera();
-		$isi['jmlh_almni_non_itera'] = $this->model_data->jmlh_almni_non_itera();
-		$isi['jmlh_mhs'] = $this->model_data->jmlh_mhs();
+		$isi['jmlh_user_umum'] = $this->model_data->jmlh_user_umum();
+		$isi['jmlh_mhs_itera'] = $this->model_data->jmlh_mhs_itera();
+		$isi['jmlh_mhs_non_itera'] = $this->model_data->jmlh_mhs_non_itera();
 		$isi['jmlh_company'] = $this->model_data->jmlh_company();
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}

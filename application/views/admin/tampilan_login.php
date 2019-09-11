@@ -30,7 +30,7 @@
 
     <form id="admin_login" class="adminpro-form">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="Email" placeholder="Email" required>
+        <input type="text" class="form-control" name="Email" placeholder="Username" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

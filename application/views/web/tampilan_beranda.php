@@ -238,7 +238,7 @@
 								<div class="single-post row">
 									<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
 										<a class="comp-logo col-md-2 pl-0 pr-3" href="<?= base_url(); ?>company/view">
-											<img class="box-shadow p-1" src="<?= base_url() ?>assets/logo_perusahaan/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
+											<img class="box-shadow p-1" src="<?= base_url() ?>assets/gambar/company/profil/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
 										</a>
 										<div>
 											<h4 class="m-0"><a href="<?= base_url(); ?>company/view" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h4>

@@ -4,23 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_data extends CI_model {
 
 	function dataadmin() {
-		$email_login = $this->session->userdata('Email_admin');
-		$data = $this->db->query("SELECT * FROM admin WHERE Email_admin='$email_login'");
+		$username = $this->session->userdata('username_admin');
+		$data = $this->db->query("SELECT * FROM admin WHERE id_akun=( SELECT id_akun FROM user WHERE username = '$username')");
 		return $data;
 	}
 
-	function jmlh_almni_itera(){
-		$data = $this->db->query("SELECT id_jobseeker_alumni FROM jobseeker_alumni")->num_rows();
+	function jmlh_user_umum(){
+		$data = $this->db->query("SELECT id_jobseeker FROM jobseeker WHERE role_jobseeker = 2 ")->num_rows();
 		return $data;
 	}
 
-	function jmlh_almni_non_itera(){
-		$data = $this->db->query("SELECT id_jobseeker_nonalumni FROM jobseeker_nonalumni")->num_rows();
+	function jmlh_mhs_itera(){
+		$data = $this->db->query("SELECT id_jobseeker FROM jobseeker WHERE status_mhs = 1")->num_rows();
 		return $data;
 	}
 
-	function jmlh_mhs(){
-		$data = $this->db->query("SELECT id_jobseeker_mhs FROM jobseeker_mahasiswa")->num_rows();
+	function jmlh_mhs_non_itera(){
+		$data = $this->db->query("SELECT id_jobseeker FROM jobseeker WHERE status_mhs = 2")->num_rows();
 		return $data;
 	}
 

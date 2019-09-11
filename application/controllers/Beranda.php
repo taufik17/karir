@@ -39,7 +39,7 @@ class Beranda extends CI_Controller {
 					<div class="single-post row">
 						<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
 						<a class="comp-logo col-md-2 pl-0 pr-terbaru" href="<?= base_url(); ?>company/view">
-							<img class="box-shadow p-1" src="'.$base_url.'assets/logo_perusahaan/'.$row->logo_perusahaan.'" width="95px" alt="'.$row->nama_perusahaan.'" >
+							<img class="box-shadow p-1" src="'.$base_url.'assets/gambar/company/profil/'.$row->logo_perusahaan.'" width="95px" alt="'.$row->nama_perusahaan.'" >
 						</a>
 							<div>
 								<p><a href="company/detailjob/'.$row->id_joblist.'" target="_blank" class="txt-dark-blue"><strong>'.$row->Nama_joblist.'</strong></a></p>
