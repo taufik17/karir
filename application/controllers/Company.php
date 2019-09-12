@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Company extends CI_Controller {
 	public function index()
 	{
-		$sess_company = $this->session->userdata('Email_officer');
-		if(!empty($sess_company))
+		$sess_user = $this->session->userdata('username_user');
+		if(!empty($sess_user))
 		{
 			redirect('company/dashboard');
 		}else {
@@ -14,7 +14,7 @@ class Company extends CI_Controller {
 	}
 
 	public function dashboard(){
-		$this->model_keamanan->getkeamanancompany();
+		$this->model_keamanan->getkeamananuser();
 		$isi['title'] = "ICC | Dashboard Company";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_beranda";
@@ -23,7 +23,7 @@ class Company extends CI_Controller {
 	}
 
 	public function listjob(){
-		$this->model_keamanan->getkeamanancompany();
+		$this->model_keamanan->getkeamananuser();
 		$isi['title'] = "ICC | List Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_joblist";
@@ -37,7 +37,7 @@ class Company extends CI_Controller {
   }
 
 	public function tambah_joblist(){
-		$this->model_keamanan->getkeamanancompany();
+		$this->model_keamanan->getkeamananuser();
 		$isi['title'] = "ICC | Tambah Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_tambah_pekerjaan";
@@ -52,7 +52,7 @@ class Company extends CI_Controller {
 
 	function logout(){
 		$this->session->sess_destroy();
-		$this->session->unset_userdata($sess_company);
+		$this->session->unset_userdata($sess_user);
 		redirect('Beranda');
 	}
 }

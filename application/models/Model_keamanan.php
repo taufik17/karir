@@ -13,21 +13,13 @@ class Model_keamanan extends CI_model {
 		}
 	}
 
-	public function getkeamanancompany()
+	public function getkeamananuser()
 	{
-		$sess_company = $this->session->userdata('Email_officer');
-		if(empty($sess_company))
+		$sess_user = $this->session->userdata('username_user');
+		if(empty($sess_user))
 		{
-			$this->session->sess_destroy($sess_company);
+			$this->session->sess_destroy($sess_user);
 			redirect('Company');
-		}
-	}
-
-	public function getkeamananmember(){
-		$sess_member = $this->session->userdata('Email_jobseeker');
-		if (empty($sess_member)) {
-			$this->session->sess_destroy($sess_member);
-			redirect('login/member');
 		}
 	}
 

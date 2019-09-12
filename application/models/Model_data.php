@@ -30,8 +30,8 @@ class Model_data extends CI_model {
 	}
 
 	function profil_company(){
-		$email_login = $this->session->userdata('Email_officer');
-		$data = $this->db->query("SELECT * FROM company WHERE Email_officer='$email_login'");
+		$id_perusahaan = $this->session->userdata('id_akun');
+		$data = $this->db->query("SELECT * FROM company WHERE id_akun ='$id_perusahaan'");
 		return $data;
 	}
 

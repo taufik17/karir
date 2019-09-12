@@ -56,70 +56,32 @@
 			</div>
 
 			<div class="modal-body">
-				<ul class="nav nav-pills nav-justified" id="tablogin" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" id="jobseeker-tab" data-toggle="tab" href="#jobseeker" role="tab" aria-controls="jobseeker" aria-selected="false">Jobseeker</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="company-tab" data-toggle="tab" href="#company" role="tab" aria-controls="company" aria-selected="false">Company</a>
-					</li>
-				</ul>
 				<?php echo $this->session->flashdata('info');?>
-				<div class="tab-content" id="tabloginContent">
-					<div class="tab-pane fade show active" id="jobseeker" role="tabpanel" aria-labelledby="jobseeker-tab">
-						<form id="logForm">
-							<div class="form-group-login">
-								<input id="username" name="emailjobseeker" type="email" placeholder="Email jobseeker" class="form-control" required>
-							</div>
-							<div class="form-group-login">
-								<input id="password" name="passwordjobseeker" type="password" placeholder="Password" class="form-control" required>
-							</div>
-							<p class="text-center">
-								<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText"></span></button>
-							</p>
-							<hr>
-							<p class="text-center text-muted">
-								<a href="http://localhost/pariwisata/user/daftar">
-									<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
-										<strong style="color:red;">Lupa Sandi</strong></a> </p>
-
-										<div id="responseDiv" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">
-											<button type="button" class="close" id="clearMsg"><span aria-hidden="true">&times;</span></button>
-											<span id="message"></span>
-										</div>
-
-									</form>
+				<form id="logForm">
+					<div class="form-group-login">
+						<input id="username" name="username" type="text" placeholder="Username" class="form-control" required>
+					</div>
+					<div class="form-group-login">
+						<input id="password" name="password" type="password" placeholder="Password" class="form-control" required>
+					</div>
+					<p class="text-center">
+						<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText"></span></button>
+					</p>
+					<hr style="margin:30px">
+					<p class="text-center text-muted">
+						<a href="http://localhost/pariwisata/user/daftar">
+							<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
+								<strong style="color:red;">Lupa Sandi</strong></a> </p>
+								<div id="responseDiv" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">
+									<button type="button" class="close" id="clearMsg"><span aria-hidden="true">&times;</span></button>
+									<span id="message"></span>
 								</div>
-								<div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
-									<form id="logForm2">
-										<div class="form-group-login">
-											<input id="username" name="emailcompany" type="email" placeholder="Email company" class="form-control" required>
-										</div>
-										<div class="form-group-login">
-											<input id="password" name="passwordcompany" type="password" placeholder="Password" class="form-control" required>
-										</div>
-										<p class="text-center">
-											<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText2"></span></button>
-										</p>
-										<hr>
-										<p class="text-center text-muted">
-											<a href="http://localhost/pariwisata/user/daftar">
-												<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
-													<strong style="color:red;">Lupa Sandi</strong></a> </p>
-
-													<div id="responseDiv2" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">
-														<button type="button" class="close" id="clearMsg"><span aria-hidden="true">&times;</span></button>
-														<span id="message2"></span>
-													</div>
-
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
+							</form>
 						</div>
+					</div>
+				</div>
+
+			</div>
 						<!-- end modal -->
 						<!-- End footer Area -->
 
@@ -134,7 +96,7 @@
 								var login = function(){
 									$.ajax({
 										type: 'POST',
-										url: url + 'login/loginjobseeker',
+										url: url + 'login/login_user',
 										dataType: 'json',
 										data: user,
 										success:function(response){
@@ -147,46 +109,7 @@
 												$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
 												$('#logForm')[0].reset();
 												setTimeout(function(){
-													location.href = "<?= base_url(); ?>Login/inijobseeker";
-												}, 1000);
-											}
-										}
-									});
-								};
-								setTimeout(login, 1000);
-							});
-
-							$(document).on('click', '#clearMsg', function(){
-								$('#responseDiv').hide();
-							});
-						});
-						</script>
-
-						<script type="text/javascript">
-						$(document).ready(function(){
-							$('#logText2').html('<i class="fa fa-sign-in"></i>&nbspMasuk');
-							$('#logForm2').submit(function(e){
-								e.preventDefault();
-								$('#logText2').html('<img src="http://localhost/karir/assets/gambar/login.gif" width="30" height="30">Proses Login...');
-								var url = '<?php echo base_url(); ?>';
-								var user = $('#logForm2').serialize();
-								var login = function(){
-									$.ajax({
-										type: 'POST',
-										url: url + 'login/logincompany',
-										dataType: 'json',
-										data: user,
-										success:function(response){
-											$('#message2').html(response.message);
-											$('#logText2').html('<i class="fa fa-sign-in"></i>&nbspMasuk');
-											if(response.error){
-												$('#responseDiv2').removeClass('alert-success').addClass('alert-danger').show();
-											}
-											else{
-												$('#responseDiv2').removeClass('alert-danger').addClass('alert-success').show();
-												$('#logForm2')[0].reset();
-												setTimeout(function(){
-													location.href = "Company";
+													location.href = "Beranda";
 												}, 1000);
 											}
 										}

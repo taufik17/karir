@@ -123,21 +123,28 @@ class Model_userlogin extends CI_model {
 		}
 	}
 
-	public function getlogin2($u,$p)
-	{
+
+	public function getlogin_user($u,$p){
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_officer',$u);
-		$this->db->where('Password_perusahaan',$pwd);
-		$query = $this->db->get('company');
+		$this->db->where('username',$u);
+		$this->db->where('password',$pwd);
+		$query = $this->db->get('user');
 		if($query->num_rows()>0)
 		{
 			foreach ($query->result() as $row)
 			{
-				$sess_company = array('Email_officer'	=> $row->Email_officer,
-							  'Password_perusahaan'	=> $row->Password_perusahaan,
-								'Id_perusahaan' => $row->Id_perusahaan);
-				$this->session->set_userdata($sess_company);
-				$output['message'] = 'Masuk. Silahkan tunggu...';
+				if ($row->role_user == '1' || $row->role_user == '2' ) {
+					$sess_user = array('username_user'	=> $row->username,
+								  'password_user'	=> $row->password,
+									'role_user' => $row->role_user,
+									'id_akun' => $row->id_akun);
+					$this->session->set_userdata($sess_user);
+					$output['message'] = 'Masuk. Silahkan tunggu...';
+				} else{
+					$output['error'] = true;
+					$output['message'] = 'Masuk gagal. Email atau password salah';
+				}
+
 			}
 		}
 			else{

@@ -4,14 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Beranda extends CI_Controller {
 	public function index()
 	{
-		$sess_company = $this->session->userdata('Email_officer');
-		$sess_member = $this->session->userdata('Email_jobseeker');
-		if(!empty($sess_company))
-		{
+		$username_user = $this->session->userdata('username_user');
+		$role_user = $this->session->userdata('role_user');
+		if ($role_user == '1') {
 			redirect('company');
 		}
-		if(!empty($sess_member))
-		{
+		if ($role_user == '2') {
 			redirect('member');
 		}
 		else {
@@ -22,6 +20,13 @@ class Beranda extends CI_Controller {
 			$isi['data_list'] = $this->model_data->data_list();
 			$this->load->view('web/tampilan_beranda',$isi);
 		}
+	}
+
+	public function tes(){
+		$username_user = $this->session->userdata('username_user');
+		$role_user = $this->session->userdata('role_user');
+		echo $username_user;
+		echo $role_user;
 	}
 
 	function fetch()

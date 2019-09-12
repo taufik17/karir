@@ -48,6 +48,14 @@ class Login extends CI_Controller {
 		$this->model_userlogin->getlogin2($u, $p);
 	}
 
+	public function login_user(){
+		$output = array('error' => false);
+		$u = $this->input->post('username');
+		$p = $this->input->post('password');
+		$this->load->model('model_userlogin');
+		$this->model_userlogin->getlogin_user($u, $p);
+	}
+
 	public function inijobseeker(){
 		redirect ('member');
 	}

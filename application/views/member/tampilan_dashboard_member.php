@@ -11,7 +11,7 @@
 					<div class="btn-group position-relative">
 						<span id="profileid" style="display:none;">1</span>
 						<a href="#" class="prof-pic" role="button" id="photoMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="rounded-circle prof-img" src="<?= base_url() ?>assets/gambar/member/profil/<?= $row->foto; ?>" alt="<?= $row->Nama_jobseeker; ?>" width="85">
+							<img class="rounded-circle prof-img" src="<?= base_url() ?>assets/gambar/member/profil/<?= $row->foto; ?>" alt="<?= $row->nama_jobseeker; ?>" width="85">
 						</a>
 						<div class="dropdown-menu p-0" aria-labelledby="photoMenu">
 							<input type="file" name="upload-photo" id="upload-photo" class="input-file-post" onchange="readURLpostpropic(this);" href="/member/site/uploadprofpic" accept="image/*">
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div class="pl-4 profile">
-					<h4 class="text-white ml-2 mb-0"><strong><?= $row->Nama_jobseeker ?></strong></h4>
+					<h4 class="text-white ml-2 mb-0"><strong><?= $row->nama_jobseeker ?></strong></h4>
 				</div>
 			</div>
 			<div class="col-md-4">
