@@ -58,14 +58,21 @@
 		<script src="<?php echo base_url() ?>assets/js/parallax.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/mail-script.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/main.js"></script>
+		<script src="<?php echo base_url() ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 		<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 		<script src="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
+		<script>
+		  $(function () {
+		    $('.textarea').wysihtml5()
+		  })
+		</script>
+
 		<!-- Datepicker -->
 		<script>
 		$('#datepicker').datepicker({
-			
+
 		 format: "dd-mm-yyyy",
 		 autoclose: true
 		})

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Sep 2019 pada 06.26
+-- Waktu pembuatan: 12 Sep 2019 pada 12.47
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id_admin` int(8) NOT NULL,
+  `id_akun` int(10) NOT NULL,
   `Nama` varchar(100) NOT NULL,
   `Email_admin` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `foto` varchar(100) NOT NULL DEFAULT 'avatar.svg',
   `ref` int(11) NOT NULL,
   `time_reg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -42,8 +42,8 @@ CREATE TABLE `admin` (
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `Nama`, `Email_admin`, `password`, `foto`, `ref`, `time_reg`) VALUES
-(1, 'Taufik Agung Santoso', 'admin@admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', 'avatar.svg', 0, '2019-08-05 03:30:56');
+INSERT INTO `admin` (`id_admin`, `id_akun`, `Nama`, `Email_admin`, `foto`, `ref`, `time_reg`) VALUES
+(2, 1, 'Taufik Agung Santoso', 'admin@admin', 'avatar.svg', 0, '2019-09-11 03:42:31');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,8 @@ INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `en
 (98, 'SELESAI MAGANG', '', '', '2019-09-11', '2019-09-30', '2019-08-15 09:45:07', NULL, NULL, NULL),
 (101, 'Pengumuman Seleksi', 'seleksi masuk perguruan tinggi', '', '2019-08-25', '2019-08-25', '2019-08-16 11:15:39', NULL, NULL, NULL),
 (102, 'snmptn', 'snmptn', '', '2019-09-01', '2019-09-10', '2019-09-02 14:11:18', NULL, NULL, NULL),
-(103, 'GSDFG', 'SFG', '', '2019-09-05', '2019-09-10', '2019-09-02 14:18:25', NULL, NULL, NULL);
+(103, 'GSDFG', 'SFG', '', '2019-09-05', '2019-09-10', '2019-09-02 14:18:25', NULL, NULL, NULL),
+(104, 'tes', 'tes', '#FFD700', '2019-10-01', '2019-09-05', '2019-09-12 11:57:28', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -84,6 +85,7 @@ INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `en
 
 CREATE TABLE `company` (
   `Id_perusahaan` int(8) NOT NULL,
+  `id_akun` int(10) NOT NULL,
   `Nama_perusahaan` varchar(100) NOT NULL,
   `Nama_officer` varchar(50) NOT NULL,
   `Email_officer` varchar(100) NOT NULL,
@@ -92,7 +94,6 @@ CREATE TABLE `company` (
   `id_industri` int(8) NOT NULL,
   `id_provinsi` varchar(2) NOT NULL,
   `id_kabupaten_kota` varchar(4) NOT NULL,
-  `Password_perusahaan` varchar(255) NOT NULL,
   `Logo_perusahaan` varchar(100) NOT NULL DEFAULT 'default.png',
   `Website` varchar(200) NOT NULL,
   `telp_perusahaan` varchar(20) NOT NULL,
@@ -107,9 +108,8 @@ CREATE TABLE `company` (
 -- Dumping data untuk tabel `company`
 --
 
-INSERT INTO `company` (`Id_perusahaan`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Password_perusahaan`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
-(4, 'ITERA', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'icc@itera.ac.id', 'ini deskripsi perusahaan ITERA', 33, '18', '1803', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', 'default.png', 'itera.ac.id', '039239402', '3204809380', '30284039493', 'desa umbul natim\r\nway hui', '35365', '2019-08-16 08:02:59'),
-(5, 'PT warung kopi', 'taufik agung santoso', 'taufikagungsantoso07@gmail.com', 'warungkopi@gmail.com', 'ini deskripsi perusahaan warung kopi', 34, '16', '1605', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', 'quick.png', 'warungkopi.com', '085356764787', '08535735468', '08764675876', 'jajaran baru', '31657', '2019-09-03 07:52:49');
+INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
+(1, 2, 'ITERA', 'Taufik Agung Santoso', 'taufikagungsantoso17@gmail.com', 'mail@itera.ac.id', 'ini deskripsi kampus itera', 35, '17', '1107', 'default.png', 'http://itera.ac.id', '085357037094', '085364759837', '082345763098', 'jl ryacudu lampung selatan', '35365', '2019-09-11 08:16:15');
 
 -- --------------------------------------------------------
 
@@ -127,10 +127,10 @@ CREATE TABLE `industri` (
 --
 
 INSERT INTO `industri` (`id_industri`, `jenis_industri`) VALUES
-(32, 'geofisika'),
 (33, 'perkantoran'),
 (34, 'accounting'),
-(35, 'developer');
+(35, 'developer'),
+(36, 'android developer');
 
 -- --------------------------------------------------------
 
@@ -146,90 +146,32 @@ CREATE TABLE `joblist` (
   `status` varchar(255) NOT NULL DEFAULT '<span class="label label-warning">Pending</span>'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `joblist`
---
-
-INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `perusahaan`, `deadline`, `status`) VALUES
-(8, 'bismillah', 4, '2019-08-29', '<span class=\"label label-success\">Telah tayang</span>'),
-(20, 'dosen informatika', 4, '2019-08-24', '<span class=\"label label-success\">Telah tayang</span>'),
-(21, 'accounting', 4, '2019-10-19', '<span class=\"label label-success\">Telah tayang</span>'),
-(22, 'programmer', 5, '2019-08-31', '<span class=\"label label-success\">Telah tayang</span>'),
-(23, 'hrd', 5, '2019-12-10', '<span class=\"label label-success\">Telah tayang</span>');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jobseeker_alumni`
+-- Struktur dari tabel `jobseeker`
 --
 
-CREATE TABLE `jobseeker_alumni` (
-  `id_jobseeker_alumni` int(8) NOT NULL,
-  `Nama_jobseeker` varchar(50) NOT NULL,
-  `NIM_jobseeker` int(20) NOT NULL,
-  `Email_jobseeker` varchar(50) NOT NULL,
-  `nohp_jobseeker` varchar(15) NOT NULL,
-  `Password_jobseeker` varchar(255) NOT NULL,
+CREATE TABLE `jobseeker` (
+  `id_jobseeker` int(15) NOT NULL,
+  `id_akun` int(10) NOT NULL,
+  `nama_jobseeker` varchar(50) NOT NULL,
+  `nim_jobseeker` int(20) DEFAULT NULL,
+  `email_jobseeker` varchar(100) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
   `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
-  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
+  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png',
+  `status_mhs` enum('1','2','','') DEFAULT NULL COMMENT '1 untuk itera, 2 untuk mhs luar itera',
+  `role_jobseeker` enum('1','2','','') NOT NULL COMMENT '1. untuk mahasiswa 2. untuk umum',
+  `perguruan_tinggi` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jobseeker_alumni`
+-- Dumping data untuk tabel `jobseeker`
 --
 
-INSERT INTO `jobseeker_alumni` (`id_jobseeker_alumni`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `foto`, `sampul`) VALUES
-(1, 'Taufik Agung Santoso', 0, 'taufik.14116007@student.itera.ac.id', '+6285357037093', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'profil_default.png', 'sampul_default.png'),
-(3, 'yohanes eloi pardamean', 14116059, 'yohanes.14116059@student.itera.ac.id', '08535703709', 'de8ad6f029e922ddabfbd982ef4bc2924d8662cf7dd036aadc652b59320ad1d8da099dd09bed2eab80a2ec5d812fb33883a14e67d122bc286fb5ed38e93e009f', 'profil_default.png', 'sampul_default.png');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `jobseeker_mahasiswa`
---
-
-CREATE TABLE `jobseeker_mahasiswa` (
-  `id_jobseeker_mhs` int(8) NOT NULL,
-  `Nama_jobseeker` varchar(50) NOT NULL,
-  `NIM_jobseeker` varchar(50) NOT NULL,
-  `Email_jobseeker` varchar(50) NOT NULL,
-  `nohp_jobseeker` varchar(50) NOT NULL,
-  `Password_jobseeker` varchar(255) NOT NULL,
-  `status` enum('Mahasiswa ITERA','Mahasiswa Non ITERA','','') NOT NULL,
-  `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
-  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `jobseeker_mahasiswa`
---
-
-INSERT INTO `jobseeker_mahasiswa` (`id_jobseeker_mhs`, `Nama_jobseeker`, `NIM_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `status`, `foto`, `sampul`) VALUES
-(2, 'mahasiswa itera', '14116007', 'mhsitera@gmail.com', '084938493849', 'a992e85d192c8bc4cb7e152ec98a5c42a32243730becaa511bba949ce5fa92d17a49032d999686082ae65469cdd5b3a2c2dac8aa27ab0846cfaf23b4b976c2c4', 'Mahasiswa ITERA', 'profil_default.png', 'sampul_default.png');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `jobseeker_nonalumni`
---
-
-CREATE TABLE `jobseeker_nonalumni` (
-  `id_jobseeker_nonalumni` int(8) NOT NULL,
-  `Nama_jobseeker` varchar(50) NOT NULL,
-  `Email_jobseeker` varchar(50) NOT NULL,
-  `nohp_jobseeker` varchar(15) NOT NULL,
-  `Password_jobseeker` varchar(255) NOT NULL,
-  `foto` varchar(150) NOT NULL DEFAULT 'profil_default.png',
-  `sampul` varchar(150) NOT NULL DEFAULT 'sampul_default.png'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `jobseeker_nonalumni`
---
-
-INSERT INTO `jobseeker_nonalumni` (`id_jobseeker_nonalumni`, `Nama_jobseeker`, `Email_jobseeker`, `nohp_jobseeker`, `Password_jobseeker`, `foto`, `sampul`) VALUES
-(1, 'ilman', 'ilman@gmail.com', '085367232946', 'caf95e9fb3df134411fe6ba6a51dc0bd25c51def721983a4c4a6a4ef763ea3ad569461c0ad8f61bbaf21b0ff477a9c67c6b5426f19977decc59d7fd3fd3a91db', 'profil_default.png', 'sampul_default.png'),
-(2, 'sunarno', 'sunarno@gmail.com', '085356763564', '3203424970496d3a13f55b0c7f7f01261d41d073691a228f448f11e2930e3cca5a5bd89cc3d5b7fb8ede46092bee7b36f6c19ebba67cd8b2de916a261fefd0d5', 'profil_default.png', 'sampul_default.png');
+INSERT INTO `jobseeker` (`id_jobseeker`, `id_akun`, `nama_jobseeker`, `nim_jobseeker`, `email_jobseeker`, `no_hp`, `foto`, `sampul`, `status_mhs`, `role_jobseeker`, `perguruan_tinggi`) VALUES
+(1, 3, 'sunarno', NULL, 'sunarno@gmail.com', '085367232946', 'profil_default.png', 'sampul_default.png', '1', '1', 'Institut Teknologi Sumatera');
 
 -- --------------------------------------------------------
 
@@ -756,21 +698,8 @@ INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
 
 CREATE TABLE `lamaran` (
   `id_lamaran` int(8) NOT NULL,
-  `pekerjaan` int(100) DEFAULT NULL,
-  `alumni` int(8) DEFAULT NULL,
-  `nonalumni` int(8) DEFAULT NULL,
-  `mahasiswa` int(8) DEFAULT NULL
+  `pekerjaan` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `lamaran`
---
-
-INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `alumni`, `nonalumni`, `mahasiswa`) VALUES
-(7, 20, NULL, 1, NULL),
-(8, 8, 3, NULL, NULL),
-(9, 8, 1, NULL, NULL),
-(10, 22, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -857,6 +786,48 @@ INSERT INTO `provinsi` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `requirement_berkas`
+--
+
+CREATE TABLE `requirement_berkas` (
+  `id_requirement` int(8) NOT NULL,
+  `nama_requirement` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `requirement_berkas`
+--
+
+INSERT INTO `requirement_berkas` (`id_requirement`, `nama_requirement`) VALUES
+(2, 'Surat kelakuan baik'),
+(5, 'SKCK'),
+(7, 'Ijazah sma');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `requirement_jurusan`
+--
+
+CREATE TABLE `requirement_jurusan` (
+  `id_requirement` int(8) NOT NULL,
+  `nama_jurusan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `requirement_jurusan`
+--
+
+INSERT INTO `requirement_jurusan` (`id_requirement`, `nama_jurusan`) VALUES
+(2, 'Teknik Informatika'),
+(3, 'Teknik Sipil'),
+(4, 'Teknik Industri'),
+(5, 'teknik pertambangan'),
+(6, 'Semua Jurusan');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_berita`
 --
 
@@ -881,6 +852,28 @@ INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_ima
 (9, 'KKN', '<p style=\"text-align:center\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><strong><span style=\"font-size:14.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">SURAT PERNYATAAN</span></span></strong></span></span></p>\r\n\r\n<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Saya yang bertanda tangan di bawah ini:</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">NIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Tempat/Tanggal Lahir&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Program Studi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">No Telepon/Hp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Dengan ini menyatakan bahwa saya sanggup:</span></span></span></span></p>\r\n\r\n<ol>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Menetap di lokasi KKN selama pelaksanaan KKN, mulai tanggal &hellip;.. Juni 2018 sampai tanggal &hellip;.. Juli 2018.</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Tidak meninggalkan lokasi atau melalui jalan-jalan utama menggunakan kendaraan sepeda motor selama di lokasi. </span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Mengikuti dan patuh kepada segala peraturan yang ada selama pelaksanaan KKN.</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Melaksanakan tanggung jawab sebagai peserta KKN selama pelaksanaan KKN.</span></span></span></span></li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Jika terjadi sesuatu dan lain hal akibat ketidakpatuhan terhadap pernyataan ini</span></span><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">,</span></span><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\"> maka akibat yang ditimbulkan tersebut merupakan di</span></span> <span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">luar tanggung jawab </span></span><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">pihak</span></span> <span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Institut Teknologi Sumatera.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Demikian pernyataan ini saya buat untuk dipergunakan sebagaimana mestinya.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<table cellspacing=\"0\" class=\"MsoTableGrid\" style=\"border-collapse:collapse; border:none\">\r\n	<tbody>\r\n		<tr>\r\n			<td style=\"vertical-align:top; width:300px\">\r\n			<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Mengetahui,</span></span></span></span></p>\r\n\r\n			<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n			<p><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Orang Tua/Wali</span></span></span></span></p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n			<p style=\"margin-left:2px\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">______________________________</span></span></span></span></p>\r\n			</td>\r\n			<td style=\"vertical-align:top; width:300px\">\r\n			<p style=\"margin-left:2px; text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Lampung Selatan, </span></span><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">... Maret </span></span><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">2018</span></span></span></span></p>\r\n\r\n			<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:center\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">Yang membuat pernyataan,</span></span></span></span></p>\r\n\r\n			<p style=\"margin-left:1px\">&nbsp;</p>\r\n\r\n			<p style=\"margin-left:1px\">&nbsp;</p>\r\n\r\n			<p style=\"margin-left:1px\">&nbsp;</p>\r\n\r\n			<p style=\"margin-left:1px\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\">&nbsp;&nbsp; <span style=\"font-size:9.0pt\"><span style=\"color:gray\">Materai </span></span></span></span></p>\r\n\r\n			<p style=\"margin-left:1px\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\">&nbsp;&nbsp; <span style=\"font-size:9.0pt\"><span style=\"color:gray\">6000</span></span></span></span></p>\r\n\r\n			<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n			<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n			<p style=\"margin-left:2px; text-align:center\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">_________________________________</span></span></span></span></p>\r\n\r\n			<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Bookman Old Style&quot;,serif\">&nbsp;&nbsp; NIM</span></span></span></span></p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n', 'f9e7ce9ac1416047fe7364fd581cd1af.png', '2019-08-30 03:16:39'),
 (10, 'mencoba form', '<form enctype=\"multipart/form-data\" method=\"post\" name=\"Pendaftaran Careerday\">\r\n<p><input name=\"Nama\" required=\"required\" type=\"text\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n</form>\r\n\r\n<p>&nbsp;</p>\r\n', '8c8349606141fd3523992c562bb0bb0b.jpg', '2019-08-30 04:08:05');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id_akun` int(10) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role_user` enum('1','2','3','') NOT NULL COMMENT '1. untuk company 2. untuk jobseeker 3. untuk admin'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`) VALUES
+(1, 'admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', '3'),
+(2, 'company', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '1'),
+(3, 'jobseeker', '3203424970496d3a13f55b0c7f7f01261d41d073691a228f448f11e2930e3cca5a5bd89cc3d5b7fb8ede46092bee7b36f6c19ebba67cd8b2de916a261fefd0d5', '2');
+
 --
 -- Indexes for dumped tables
 --
@@ -889,7 +882,8 @@ INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_ima
 -- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
+  ADD PRIMARY KEY (`id_admin`),
+  ADD KEY `id_akun` (`id_akun`);
 
 --
 -- Indeks untuk tabel `calendar`
@@ -904,7 +898,8 @@ ALTER TABLE `company`
   ADD PRIMARY KEY (`Id_perusahaan`),
   ADD KEY `id_industri` (`id_industri`),
   ADD KEY `id_provinsi` (`id_provinsi`),
-  ADD KEY `id_kabupaten_kota` (`id_kabupaten_kota`);
+  ADD KEY `id_kabupaten_kota` (`id_kabupaten_kota`),
+  ADD KEY `id_akun` (`id_akun`);
 
 --
 -- Indeks untuk tabel `industri`
@@ -920,22 +915,11 @@ ALTER TABLE `joblist`
   ADD KEY `perusahaan` (`perusahaan`);
 
 --
--- Indeks untuk tabel `jobseeker_alumni`
+-- Indeks untuk tabel `jobseeker`
 --
-ALTER TABLE `jobseeker_alumni`
-  ADD PRIMARY KEY (`id_jobseeker_alumni`);
-
---
--- Indeks untuk tabel `jobseeker_mahasiswa`
---
-ALTER TABLE `jobseeker_mahasiswa`
-  ADD PRIMARY KEY (`id_jobseeker_mhs`);
-
---
--- Indeks untuk tabel `jobseeker_nonalumni`
---
-ALTER TABLE `jobseeker_nonalumni`
-  ADD PRIMARY KEY (`id_jobseeker_nonalumni`);
+ALTER TABLE `jobseeker`
+  ADD PRIMARY KEY (`id_jobseeker`),
+  ADD KEY `id_akun` (`id_akun`);
 
 --
 -- Indeks untuk tabel `kabupaten`
@@ -948,9 +932,6 @@ ALTER TABLE `kabupaten`
 --
 ALTER TABLE `lamaran`
   ADD PRIMARY KEY (`id_lamaran`),
-  ADD KEY `lamaran_ibfk_1` (`alumni`),
-  ADD KEY `lamaran_ibfk_2` (`mahasiswa`),
-  ADD KEY `lamaran_ibfk_3` (`nonalumni`),
   ADD KEY `lamaran_ibfk_4` (`pekerjaan`);
 
 --
@@ -967,10 +948,28 @@ ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `requirement_berkas`
+--
+ALTER TABLE `requirement_berkas`
+  ADD PRIMARY KEY (`id_requirement`);
+
+--
+-- Indeks untuk tabel `requirement_jurusan`
+--
+ALTER TABLE `requirement_jurusan`
+  ADD PRIMARY KEY (`id_requirement`);
+
+--
 -- Indeks untuk tabel `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
   ADD PRIMARY KEY (`berita_id`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_akun`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -980,55 +979,43 @@ ALTER TABLE `tbl_berita`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `calendar`
 --
 ALTER TABLE `calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `jobseeker_alumni`
+-- AUTO_INCREMENT untuk tabel `jobseeker`
 --
-ALTER TABLE `jobseeker_alumni`
-  MODIFY `id_jobseeker_alumni` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `jobseeker_mahasiswa`
---
-ALTER TABLE `jobseeker_mahasiswa`
-  MODIFY `id_jobseeker_mhs` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `jobseeker_nonalumni`
---
-ALTER TABLE `jobseeker_nonalumni`
-  MODIFY `id_jobseeker_nonalumni` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `jobseeker`
+  MODIFY `id_jobseeker` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_careerday`
@@ -1037,14 +1024,38 @@ ALTER TABLE `peserta_careerday`
   MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT untuk tabel `requirement_berkas`
+--
+ALTER TABLE `requirement_berkas`
+  MODIFY `id_requirement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `requirement_jurusan`
+--
+ALTER TABLE `requirement_jurusan`
+  MODIFY `id_requirement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
   MODIFY `berita_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
 
 --
 -- Ketidakleluasaan untuk tabel `company`
@@ -1052,7 +1063,8 @@ ALTER TABLE `tbl_berita`
 ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`id_industri`) REFERENCES `industri` (`id_industri`) ON UPDATE CASCADE,
   ADD CONSTRAINT `company_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `company_ibfk_3` FOREIGN KEY (`id_kabupaten_kota`) REFERENCES `kabupaten` (`id`);
+  ADD CONSTRAINT `company_ibfk_3` FOREIGN KEY (`id_kabupaten_kota`) REFERENCES `kabupaten` (`id`),
+  ADD CONSTRAINT `company_ibfk_4` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
 
 --
 -- Ketidakleluasaan untuk tabel `joblist`
@@ -1061,12 +1073,15 @@ ALTER TABLE `joblist`
   ADD CONSTRAINT `joblist_ibfk_1` FOREIGN KEY (`perusahaan`) REFERENCES `company` (`Id_perusahaan`) ON UPDATE CASCADE;
 
 --
+-- Ketidakleluasaan untuk tabel `jobseeker`
+--
+ALTER TABLE `jobseeker`
+  ADD CONSTRAINT `jobseeker_ibfk_1` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
+
+--
 -- Ketidakleluasaan untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  ADD CONSTRAINT `lamaran_ibfk_1` FOREIGN KEY (`alumni`) REFERENCES `jobseeker_alumni` (`id_jobseeker_alumni`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `lamaran_ibfk_2` FOREIGN KEY (`mahasiswa`) REFERENCES `jobseeker_mahasiswa` (`id_jobseeker_mhs`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `lamaran_ibfk_3` FOREIGN KEY (`nonalumni`) REFERENCES `jobseeker_nonalumni` (`id_jobseeker_nonalumni`) ON UPDATE CASCADE,
   ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
 
 --

@@ -408,7 +408,6 @@
       $(function () {
         CKEDITOR.replace('ckeditor');
       });
-
     </script>
 
     <!-- kalender event -->
