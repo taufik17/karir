@@ -281,4 +281,12 @@ class Model_data extends CI_model {
 		return $hasil->result();
 	}
 
+	function data_requir_berkas(){
+		return $this->db->query("SELECT id_requirement, nama_requirement FROM requirement_berkas");
+	}
+
+	function data_jurusan(){
+		return $this->db->query("SELECT id_requirement, nama_jurusan FROM requirement_jurusan");
+	}
+
 }

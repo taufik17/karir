@@ -12,9 +12,9 @@ class Register extends CI_Controller {
 		$this->load->view('web/daftar/jobseeker/form_alumniitera',$isi);
 	}
 
-	public function selainalumniitera(){ // halaman register non alumni itera
+	public function umum(){ // halaman register non alumni itera
 		$isi['title'] = "ICC | Register non alumni ITERA";
-		$this->load->view('web/daftar/jobseeker/form_selainalumniitera',$isi);
+		$this->load->view('web/daftar/jobseeker/form_umum',$isi);
 	}
 
 	public function mahasiswa(){ // halaman register mahasiswa
@@ -104,12 +104,12 @@ class Register extends CI_Controller {
 			<h3><i class="icon fa fa-ban"></i> Alert!</h3>
 			sandi tidak sama
 			</div>');
-			redirect('Register/selainalumniitera');
+			redirect('Register/umum');
 		}
 		else {
 			if ($cek2 == false) {
 				echo "<script>window.alert('Email Sudah Terdaftar')</script>";
-				echo "<meta http-equiv='refresh' content='0;url=http://localhost/karir/Register/selainalumniitera'>";
+				echo "<meta http-equiv='refresh' content='0;url=http://localhost/karir/Register/umum'>";
 			}
 			else {
 				$this->model_daftar->getinsert2($data);
@@ -119,7 +119,7 @@ class Register extends CI_Controller {
 				<h3><i class="icon fa fa-check"></i> Alert!</h3>
 				Pendaftaran Berhasil
 				</div>');
-				redirect('Register/selainalumniitera');
+				redirect('Register/umum');
 			}
 		}
 	}

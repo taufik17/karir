@@ -653,6 +653,17 @@ pre code {
   margin-left: auto;
 }
 
+.container-login  {
+  width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
 .row {
   display: flex;
   flex-wrap: wrap;

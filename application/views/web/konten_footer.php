@@ -58,12 +58,19 @@
 			<div class="modal-body">
 				<?php echo $this->session->flashdata('info');?>
 				<form id="logForm">
-					<div class="form-group-login">
-						<input id="username" name="username" type="text" placeholder="Username" class="form-control" required>
+
+					<div class="container-login">
+						<div class="input-group-icon mt-10">
+							<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+							<input type="text" name="username" id="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required="" class="single-input">
+						</div>
+
+						<div class="input-group-icon mt-20">
+							<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+							<input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" class="single-input">
+						</div>
 					</div>
-					<div class="form-group-login">
-						<input id="password" name="password" type="password" placeholder="Password" class="form-control" required>
-					</div>
+
 					<p class="text-center">
 						<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText"></span></button>
 					</p>

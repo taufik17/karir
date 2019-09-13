@@ -41,6 +41,8 @@ class Company extends CI_Controller {
 		$isi['title'] = "ICC | Tambah Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_tambah_pekerjaan";
+		$isi['data_berkas'] = $this->model_data->data_requir_berkas();
+		$isi['data_jurusan'] = $this->model_data->data_jurusan();
 		$isi['profil_company'] = $this->model_data->profil_company();
 		$this->load->view('company/tampilan_dashboard_company',$isi);
 	}

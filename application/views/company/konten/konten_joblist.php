@@ -35,7 +35,7 @@
 							<th>Edit</th>
 						</tr>
 					</thead>
-					<tbody id="show_list_permohonan">
+					<tbody id="show_list_pekerjaan">
 					</tbody>
 				</table>
 			</div>

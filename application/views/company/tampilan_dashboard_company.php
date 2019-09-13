@@ -11,13 +11,15 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/css/select2.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.css'; ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 </head>
 
 <body class="hold-transition skin-red-light fixed sidebar-mini">
+  <div class="loader"></div>
   <div class="wrapper">
     <header class="main-header">
       <a href="../../index2.html" class="logo">
@@ -89,14 +91,56 @@
     <script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Select2 -->
+    <script src="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/js/select2.full.min.js"></script>
 
     <script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
+
+    <script type="text/javascript">
+    $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2()
+    });
+    </script>
+
     <script type="text/javascript">
       $(function () {
         CKEDITOR.replace('ckeditor');
       });
-
     </script>
+
+
+    <script type="text/javascript">
+      $(function () {
+        CKEDITOR.replace('ckeditor2',{ toolbar: [['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']]});
+      });
+    </script>
+
+    <script type="text/javascript">
+    $(function () {
+      CKEDITOR.replace('ckeditor3',{ toolbar: [
+      ['Styles','Format','Font','FontSize'],
+      '/',
+      ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste','Find','Replace','-','Outdent','Indent','-','Print'],
+      '/',
+      ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+      ['Image','Table','-','Link','Flash','Smiley','TextColor','BGColor','Source']
+      ]});
+    });
+    </script>
+
+    <script type="text/javascript">
+      $(function () {
+        CKEDITOR.replace('ckeditor4',{ toolbar: [['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']]});
+      });
+    </script>
+
+    <script>
+		  $(function () {
+		    $('.textarea').wysihtml5()
+		  })
+		</script>
+
 
 
     <script>
@@ -112,5 +156,87 @@
       })
     })
     </script>
+
+
+    <!-- script list pekerjaan -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	tampil_joblist();   //pemanggilan fungsi tampil tipe.
+    	$('#joblist').dataTable();
+    	//fungsi tampil tipe
+    	function tampil_joblist(){
+    		$.ajax({
+    			type  : 'ajax',
+    			url   : '<?php echo base_url()?>company/list_pekerjaan',
+    			async : false,
+    			dataType : 'json',
+    			success : function(data){
+    				var html = '';
+    				var i;
+    				var no=1;
+    				for(i=0; i<data.length; i++){
+    					html += '<tr>'+
+    					'<td>'+no+'</td>'+
+    					'<td>'+data[i].Nama_joblist+'</td>'+
+    					'<td>'+data[i].Nama_perusahaan+'</td>'+
+    					'<td>'+data[i].deadline+'</td>'+
+    					'<td style="text-align:center;">'+
+    					'<a href="javascript:;" class="btn btn-success btn-xs item_validasi" data="'+data[i].id_joblist+'"><i class="fa fa-check"></i>&nbsp&nbspValidasi</a>'+' '+
+    					'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id_joblist+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
+    					'</td>'+
+    					'</tr>';
+    					no++;
+    				}
+    				$('#show_list_pekerjaan').html(html);
+    			}
+
+    		});
+    	}
+    	//GET HAPUS
+    	$('#show_list_pekerjaan').on('click','.item_hapus',function(){
+    		var id=$(this).attr('data');
+    		$('#ModalHapus').modal('show');
+    		$('[name="kode"]').val(id);
+    	});
+    	//GET VALIDASI
+    	$('#show_list_pekerjaan').on('click','.item_validasi',function(){
+    		var id=$(this).attr('data');
+    		$('#ModalValidasi').modal('show');
+    		$('[name="kode"]').val(id);
+    	});
+    	//Hapus joblist
+    	$('#btn_hapus').on('click',function(){
+    		var kode=$('#textkode').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/hapusjoblist')?>",
+    			dataType : "JSON",
+    			data : {kode: kode},
+    			success: function(data){
+    				$('#ModalHapus').modal('hide');
+    				tampil_joblist();
+    			}
+    		});
+    		return false;
+    	});
+    	//validasi joblist
+    	$('#btn_validasi').on('click',function(){
+    		var kode=$('#textkode').val();
+    		$.ajax({
+    			type : "POST",
+    			url  : "<?php echo base_url('admin/validasi')?>",
+    			dataType : "JSON",
+    			data : {kode: kode},
+    			success: function(data){
+    				$('#ModalValidasi').modal('hide');
+    				tampil_joblist();
+    			}
+    		});
+    		return false;
+    	});
+    });
+    </script>
+    <!-- end script list permohonan -->
+
   </body>
   </html>
