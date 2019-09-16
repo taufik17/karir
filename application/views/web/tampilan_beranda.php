@@ -174,11 +174,8 @@
 
 					</div>
 					<div class="button-center">
-						<a href="<?= base_url() ?>event" class="genric-btn default arrow">Selengkapnya<span class="lnr lnr-arrow-right"></span></a>
+						<a href="<?= base_url() ?>event" class="genric-btn default">Selengkapnya <span class="fa  fa-arrow-right"></span></a>
 					</div>
-
-
-
 				</div>
 			</div>
 

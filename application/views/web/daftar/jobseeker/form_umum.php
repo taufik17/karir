@@ -13,55 +13,77 @@
 	</div>
 </section>
 
-<section class="features-area">
+
+<section class="section-add-job">
+	<div class="container">
+		<h4>&nbsp&nbsp&nbspForm Registrasi</h4>
+		<br>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="<?php echo base_url() ?>Register">Register</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Umum</li>
+			</ol>
+		</nav>
+		<hr>
+		<div class="row">
+			<div class="col-lg-4 d-flex flex-column mt-20">
+				<img src="<?= base_url(); ?>assets/gambar/company/register.jpg" alt="">
+			</div>
+			<br>
+			<div class="col-lg-8">
+				<form method="post" action="<?= base_url(); ?>register/savereg_umum">
+					<div class="row">
+						<div class="col-lg-12 form-group">
+							<?php echo $this->session->flashdata('info_reg_umum');?>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+								<input type="text" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required="required" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
+								<input type="text" name="Nama_jobseeker" placeholder="Nama Lengkap" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Lengkap'" required="required" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+								<input type="email" name="Email_jobseeker" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required="required" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-university" aria-hidden="true"></i></div>
+								<input type="text" name="perguruan_tinggi" placeholder="Perguruan Tinggi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Perguruan Tinggi'" required="required" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+								<input type="text" name="nohp_jobseeker" placeholder="No HP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'No HP'" required="required" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+								<input type="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="required" minlength="8" class="single-input">
+							</div>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+								<input type="password" name="password2" placeholder="Ulang Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ulangi Password'" required="required" minlength="8" class="single-input">
+							</div>
+						</div>
+					</div>
+					<button class="genric-btn primary circle arrow" style="float: right; margin-top: 10px;">Selanjutnya <span class="fa  fa-arrow-right"></span></button>
+
+				</form>
+			</div>
+		</div>
+				</div>
+
+</section>
+
+<!-- <section class="features-area">
 	<div class="container">
 		<div class="row">
-
-			<div class="col-lg-12 col-md-12">
-				<div class="container">
-<form action="/action_page.php">
-<div class="row">
-<div class="col-25">
-	<label for="fname">First Name</label>
-</div>
-<div class="col-75">
-	<input type="text" id="fname" name="firstname" placeholder="Your name..">
-</div>
-</div>
-<div class="row">
-<div class="col-25">
-	<label for="lname">Last Name</label>
-</div>
-<div class="col-75">
-	<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-</div>
-</div>
-<div class="row">
-<div class="col-25">
-	<label for="country">Country</label>
-</div>
-<div class="col-75">
-	<select id="country" name="country">
-		<option value="australia">Australia</option>
-		<option value="canada">Canada</option>
-		<option value="usa">USA</option>
-	</select>
-</div>
-</div>
-<div class="row">
-<div class="col-25">
-	<label for="subject">Subject</label>
-</div>
-<div class="col-75">
-	<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-</div>
-</div>
-<div class="row">
-<input type="submit" value="Submit">
-</div>
-</form>
-</div>
-						</div>
 
 			<div class="col-lg-12 col-md-12">
 				<div class="single-feature">
@@ -84,10 +106,6 @@
 					</div>
 
 					<div class="conatiner-fluid">
-						<div class="input-group-icon mt-10">
-										<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-										<input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required="" class="single-input">
-									</div>
 					</div>
 					<form method="POST" action="<?php echo base_url();?>Register/sregnonalumniitera">
 
@@ -95,8 +113,6 @@
 							<label for="exampleFormControlInput1">Nama Lengkap<span class="required">*</span>&nbsp:</label>
 							<input type="text" class="form-control" id="Nama_jobseeker" name="Nama_jobseeker" required>
 						</div>
-
-
 
 						<div class="form-group-daftar">
 							<label for="exampleFormControlInput1">Email<span class="required">*</span>&nbsp:</label>
@@ -130,7 +146,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <br>
 &nbsp

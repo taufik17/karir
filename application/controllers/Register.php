@@ -22,150 +22,44 @@ class Register extends CI_Controller {
 		$this->load->view('web/daftar/jobseeker/form_mahasiswa',$isi);
 	}
 
-	public function sregalumniitera(){ // save registrasi alumni itera
-		$key = $this->input->post('Email_jobseeker');
-		$pswd = $this->input->post('password_jobseeker');
-		$data['Email_jobseeker']	= $this->input->post('Email_jobseeker');
-		$data['password_jobseeker'] = hash('sha512',$pswd . config_item('encryption_key'));
-		$data['NIM_jobseeker'] = $this->input->post('NIM_jobseeker');
-		$data['Nama_jobseeker']	= $this->input->post('Nama_jobseeker');
-		$data['nohp_jobseeker'] = $this->input->post('nohp_jobseeker');
+	public function savereg_umum(){
+		$pswd = $this->input->post('password');
+		$isi['username'] = $this->input->post('username');
+		$username = $this->input->post('username');
+		$isi['password'] = hash('sha512',$pswd . config_item('encryption_key'));
+		$isi['status'] = 1;
+		$isi['role_user'] = 2;
 
-		$sandi1 = $this->input->post('password_jobseeker');
-		$sandi2 = $this->input->post('ulangi_password');
-		$this->load->model('model_daftar');
-
-		$cektera=$this->model_daftar->cekitera($key);
-		$cek1=$this->model_daftar->checkEmail($key);
-		$cek2=$this->model_daftar->cekmail($key);
+		$sandi1 = $this->input->post('password');
+		$sandi2 = $this->input->post('password2');
 
 		if ($sandi1 != $sandi2) {
 			echo "<script>window.alert('Sandi Tidak Sama')</script>";
-			$this->session->set_flashdata('info',
+			$this->session->set_flashdata('info_reg_umum',
 			'<div class="alert alert-danger alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<h3><i class="icon fa fa-ban"></i> Alert!</h3>
+			<h4><i class="icon fa fa-ban"></i> Alert!</h4>
 			sandi tidak sama
 			</div>');
-			redirect('Register/alumniitera');
-		}
-		else {
-			if($cektera == false) {
-				echo "<script>window.alert('Gunakan Email ITERA')</script>";
-				echo "<meta http-equiv='refresh' content='0;url=http://localhost/karir/Register/alumniitera'>";
+			redirect('register/umum');
+		} else {
+			$username = $this->input->post('username');
+			$this->model_daftar->cek_username_jobseeker($username);
+			$this->model_daftar->getinsert_user($isi);
+			$id = $this->db->query("SELECT id_akun FROM user WHERE username = '$username'");
+			foreach ($id->result() as $row) {
+				$id_akun = $row->id_akun;
 			}
-			else {
-				if($cek1 == false)
-				{
-					echo "<script>window.alert('Email anda invalid')</script>";
-					echo "<meta http-equiv='refresh' content='0;url=http://localhost/mtageo/Register'>";
-				}
-				else
-				{
-					if ($cek2 == false) {
-						echo "<script>window.alert('Email Sudah Terdaftar')</script>";
-						echo "<meta http-equiv='refresh' content='0;url=http://localhost/mtageo/Register'>";
-					}
-					else
-					{
-						$this->model_daftar->getinsert($data);
-						$this->session->set_flashdata('info',
-						'<div class="alert alert-success alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						<h3><i class="icon fa fa-check"></i> Alert!</h3>
-						Pendaftaran Berhasil
-						</div>');
-						redirect('Register/alumniitera');
-					}
-				}
-			}
+			$data['Email_jobseeker']	= $this->input->post('Email_jobseeker');
+			$data['Nama_jobseeker']	= $this->input->post('Nama_jobseeker');
+			$data['no_hp'] = $this->input->post('nohp_jobseeker');
+			$data['id_akun'] = $id_akun;
+			$data['role_jobseeker'] = 2;
+			$data['perguruan_tinggi'] = $this->input->post('perguruan_tinggi');
+			$this->model_daftar->getinsertjobseeker($data);
+			redirect('login/member');
 		}
-	}
 
-	function sregnonalumniitera(){ // save registrasi alumni non itera
-		$key = $this->input->post('Email_jobseeker');
-		$pswd = $this->input->post('password_jobseeker');
-		$data['Email_jobseeker']	= $this->input->post('Email_jobseeker');
-		$data['password_jobseeker'] = hash('sha512',$pswd . config_item('encryption_key'));
-		$data['Nama_jobseeker']	= $this->input->post('Nama_jobseeker');
-		$data['nohp_jobseeker'] = $this->input->post('nohp_jobseeker');
-
-		$sandi1 = $this->input->post('password_jobseeker');
-		$sandi2 = $this->input->post('ulangi_password');
-		$this->load->model('model_daftar');
-
-		$cek2=$this->model_daftar->cekmail2($key);
-
-		if ($sandi1 != $sandi2) {
-			echo "<script>window.alert('Sandi Tidak Sama')</script>";
-			$this->session->set_flashdata('info',
-			'<div class="alert alert-danger alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<h3><i class="icon fa fa-ban"></i> Alert!</h3>
-			sandi tidak sama
-			</div>');
-			redirect('Register/umum');
-		}
-		else {
-			if ($cek2 == false) {
-				echo "<script>window.alert('Email Sudah Terdaftar')</script>";
-				echo "<meta http-equiv='refresh' content='0;url=http://localhost/karir/Register/umum'>";
-			}
-			else {
-				$this->model_daftar->getinsert2($data);
-				$this->session->set_flashdata('info',
-				'<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h3><i class="icon fa fa-check"></i> Alert!</h3>
-				Pendaftaran Berhasil
-				</div>');
-				redirect('Register/umum');
-			}
-		}
-	}
-
-	function sregmahasiswa(){ // save registrasi mahasiswa
-		$key = $this->input->post('Email_jobseeker');
-		$pswd = $this->input->post('password_jobseeker');
-		$data['Email_jobseeker']	= $this->input->post('Email_jobseeker');
-		$data['password_jobseeker'] = hash('sha512',$pswd . config_item('encryption_key'));
-		$data['Nama_jobseeker']	= $this->input->post('Nama_jobseeker');
-		$data['nohp_jobseeker'] = $this->input->post('nohp_jobseeker');
-		$data['NIM_jobseeker'] = $this->input->post('NIM_jobseeker');
-		$data['status'] = $this->input->post('status');
-
-		$sandi1 = $this->input->post('password_jobseeker');
-		$sandi2 = $this->input->post('ulangi_password');
-		$this->load->model('model_daftar');
-
-		$cek2=$this->model_daftar->cekmail3($key);
-
-		if ($sandi1 != $sandi2) {
-			echo "<script>window.alert('Sandi Tidak Sama')</script>";
-			$this->session->set_flashdata('info',
-			'<div class="alert alert-danger alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<h3><i class="icon fa fa-ban"></i> Alert!</h3>
-			sandi tidak sama
-			</div>');
-			redirect('Register/mahasiswa');
-		}
-		else {
-			if ($cek2 == false) {
-				echo "<script>window.alert('Email Sudah Terdaftar')</script>";
-				echo "<meta http-equiv='refresh' content='0;url=http://localhost/karir/Register/mahasiswa'>";
-			}
-			else {
-				$this->model_daftar->getinsert3($data);
-				$this->session->set_flashdata('info',
-				'<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h3><i class="icon fa fa-check"></i> Alert!</h3>
-				Pendaftaran Berhasil
-				</div>');
-				redirect('Register/mahasiswa');
-			}
-		}
 	}
 
 	function hash($string)

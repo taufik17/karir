@@ -22,13 +22,6 @@ class Beranda extends CI_Controller {
 		}
 	}
 
-	public function tes(){
-		$username_user = $this->session->userdata('username_user');
-		$role_user = $this->session->userdata('role_user');
-		echo $username_user;
-		echo $role_user;
-	}
-
 	function fetch()
 	{
 		$output = '';

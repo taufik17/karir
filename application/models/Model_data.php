@@ -259,7 +259,10 @@ class Model_data extends CI_model {
 
 	function data_list() {
 		$hasil = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan
-			FROM company");
+						FROM company
+            NATURAL join joblist
+            WHERE status = '<span class=\"label label-success\">Telah tayang</span>'
+            AND id_perusahaan = perusahaan");
 		return $hasil;
 	}
 
