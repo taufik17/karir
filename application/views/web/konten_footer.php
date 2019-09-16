@@ -74,7 +74,7 @@
 					<p class="text-center">
 						<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText"></span></button>
 					</p>
-					<hr style="margin:30px">
+					<hr style="margin:30px;">
 					<p class="text-center text-muted">
 						<a href="http://localhost/pariwisata/user/daftar">
 							<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">

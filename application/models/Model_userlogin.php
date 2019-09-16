@@ -3,127 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_userlogin extends CI_model {
 
-	public function getlogin($u,$p)
-	{
-		$pwd = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwd);
-		$query = $this->db->get('jobseeker_alumni');
-		if($query->num_rows()>0)
-		{
-			foreach ($query->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				$output['message'] = 'Masuk. Silahkan tunggu...';
-			}
-			goto go_echo;
-		}
-		else {
-			goto next1;
-		}
-
-		next1:
-		$pwdnonalumni = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwdnonalumni);
-		$query2 = $this->db->get('jobseeker_nonalumni');
-		if($query2->num_rows()>0)
-		{
-			foreach ($query2->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				$output['message'] = 'Masuk. Silahkan tunggu...';
-			}
-			goto go_echo;
-		}
-		else {
-			goto next2;
-		}
-
-		next2:
-		$pwdmhs = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwdmhs);
-		$query3 = $this->db->get('jobseeker_mahasiswa');
-		if($query3->num_rows()>0)
-		{
-			foreach ($query3->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				$output['message'] = 'Masuk. Silahkan tunggu...';
-			}
-			goto go_echo;
-		}
-		else {
-			goto go_error;
-		}
-
-		go_error:
-			$output['error'] = true;
-			$output['message'] = 'Masuk gagal. Email atau password salah';
-
-			go_echo:
-		echo json_encode($output);
-	}
-
-	public function login_member($u, $p) {
-		$pwd = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwd);
-		$query = $this->db->get('jobseeker_alumni');
-		if($query->num_rows()>0)
-		{
-			foreach ($query->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				redirect('member');
-			}
-		}
-		$pwdnonalumni = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwdnonalumni);
-		$query2 = $this->db->get('jobseeker_nonalumni');
-		if($query2->num_rows()>0)
-		{
-			foreach ($query2->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				redirect('member');
-			}
-		}
-		$pwdmhs = hash('sha512', $p . config_item('encryption_key'));
-		$this->db->where('Email_jobseeker',$u);
-		$this->db->where('Password_jobseeker',$pwdmhs);
-		$query3 = $this->db->get('jobseeker_mahasiswa');
-		if($query3->num_rows()>0)
-		{
-			foreach ($query3->result() as $row)
-			{
-				$sess = array('Email_jobseeker'	=> $row->Email_jobseeker,
-								'Nama_jobseeker'	=> $row->Nama_jobseeker,
-							  'Password_jobseeker'	=> $row->Password_jobseeker);
-				$this->session->set_userdata($sess);
-				redirect('member');
-			}
-		}
-	}
-
-
 	public function getlogin_user($u,$p){
 		$pwd = hash('sha512', $p . config_item('encryption_key'));
 		$this->db->where('username',$u);
@@ -133,7 +12,7 @@ class Model_userlogin extends CI_model {
 		{
 			foreach ($query->result() as $row)
 			{
-				if ($row->role_user == '1' || $row->role_user == '2' ) {
+				if (($row->role_user == '1' || $row->role_user == '2') AND $row->status == '1' ) {
 					$sess_user = array('username_user'	=> $row->username,
 								  'password_user'	=> $row->password,
 									'role_user' => $row->role_user,

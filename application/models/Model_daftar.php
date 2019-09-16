@@ -113,4 +113,29 @@ class Model_daftar extends CI_model {
     }
   }
 
+  public function cek_username($username){
+    $this->db->where('username', $username);
+    $hasil = $this->db->get('user');
+    if ($hasil->num_rows()>0) {
+      echo "<script>window.alert('Sandi Tidak Sama')</script>";
+			$this->session->set_flashdata('info_reg_company',
+			'<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h4><i class="icon fa fa-ban"></i> Alert!</h4>
+			Username sudah ada, harap gunakan username lain.
+			</div>');
+			redirect('register_company');
+    }
+
+  }
+
+  public function getinsertreg1($data){
+    $this->db->where('id_akun');
+    $this->db->insert('user', $data);
+  }
+
+  public function getupdateuser($isi){
+    $this->db->query("UPDATE `user` SET `status` = '1' WHERE `user`.`id_akun` = $isi;");
+  }
+
 }

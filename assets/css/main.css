@@ -970,25 +970,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.primary {
   color: #fff;
-  background: #49e4fa;
+  background: #222222;
   border: 1px solid transparent;
 }
 
 .genric-btn.primary:hover {
-  color: #49e4fa;
-  border: 1px solid #49e4fa;
+  color: #222222;
+  border: 1px solid #222222;
   background: #fff;
 }
 
 .genric-btn.primary-border {
-  color: #49e4fa;
-  border: 1px solid #49e4fa;
+  color: #222222;
+  border: 1px solid #222222;
   background: #fff;
 }
 
 .genric-btn.primary-border:hover {
   color: #fff;
-  background: #49e4fa;
+  background: #222222;
   border: 1px solid transparent;
 }
 
@@ -2286,6 +2286,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .section-add-job{
   padding-top: 50px;
+}
+
+.section-register-company{
+  padding-top: 120px;
+  padding-bottom: 50px;
 }
 
 .section-member {

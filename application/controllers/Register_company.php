@@ -26,6 +26,14 @@ class Register_company extends CI_Controller {
 	function sregcompany(){
 		$isi['title'] = "ITERA | Register Company";
 		$isi['email'] = $this->input->post('Email_officer');
+		$username = $this->input->post('username');
+		$id = $this->db->query("SELECT id_akun FROM user WHERE username = '$username'");
+
+		foreach ($id->result() as $row) {
+			$id_akun = $row->id_akun;
+		}
+		$isi = $id_akun;
+		$data['id_akun'] = $id_akun;
 		$data['Nama_perusahaan']	= $this->input->post('Nama_perusahaan');
 		$data['id_industri'] = $this->input->post('Jenis_industri');
 		$data['Email_perusahaan']	= $this->input->post('Email_perusahaan');
@@ -43,14 +51,37 @@ class Register_company extends CI_Controller {
 
 		$this->load->model('model_daftar');
 		$this->model_daftar->getinsertcompany($data);
-		$this->load->view('web/daftar/company/step2',$isi);
+		$this->model_daftar->getupdateuser($isi);
+		$this->load->view('web/login/company/tampilan_company_login');
 	}
 
-	function sregstep2(){
-		$pswd = $this->input->post('Password');
-		$password = hash('sha512',$pswd . config_item('encryption_key'));
-		$email = $this->input->post('Email_officer');
-		$this->model_daftar->getinsertstep2($password, $email);
+
+	function reg1(){
+		$isi['title'] = "ITERA | Pendaftaran Perusahaan";
+		$isi['nama_perusahaan']	= $this->input->post('nama_perusahaan');
+		$isi['jenis_industri'] = $this->model_data->jenis_industri();
+		$isi['provinsi'] = $this->model_data->provinsi();
+		$isi['username'] = $this->input->post('username');
+		$pswd = $this->input->post('password');
+		$pswd2 = $this->input->post('password2');
+		$data['password'] = hash('sha512',$pswd . config_item('encryption_key'));
+		$data['username'] = $this->input->post('username');
+		$data['role_user'] = 1;
+		$username = $this->input->post('username');
+		if ($pswd != $pswd2) {
+			echo "<script>window.alert('Sandi Tidak Sama')</script>";
+			$this->session->set_flashdata('info_reg_company',
+			'<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h4><i class="icon fa fa-ban"></i> Alert!</h4>
+			sandi tidak sama
+			</div>');
+			redirect('register_company');
+		} else {
+			$this->model_daftar->cek_username($username);
+			$this->model_daftar->getinsertreg1($data);
+			$this->load->view('web/daftar/company/step2', $isi);
+		}
 	}
 
 	function hash($string)
