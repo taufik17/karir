@@ -50,8 +50,7 @@ class Model_data extends CI_model {
     return $hasil->result();
 	}
 
-	function data_pekerjaan(){
-		$id_perusahaan = $this->session->userdata('Id_perusahaan');
+	function data_pekerjaan($id_perusahaan){
 		$hasil = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $id_perusahaan");
 		return $hasil->result();
 	}
@@ -290,6 +289,10 @@ class Model_data extends CI_model {
 
 	function data_jurusan(){
 		return $this->db->query("SELECT id_requirement, nama_jurusan FROM requirement_jurusan");
+	}
+
+	function getinsert_job($data){
+		$this->db->insert('joblist', $data);
 	}
 
 }

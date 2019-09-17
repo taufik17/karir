@@ -32,7 +32,12 @@ class Company extends CI_Controller {
 	}
 
 	public function data_pekerjaan(){
-    $data = $this->model_data->data_pekerjaan();
+		$id_akun = $this->session->userdata('id_akun');
+		$id = $this->db->query("SELECT Id_perusahaan FROM company WHERE id_akun = $id_akun");
+		foreach ($id->result() as $row) {
+			$id_perusahaan = $row->Id_perusahaan;
+		}
+    $data = $this->model_data->data_pekerjaan($id_perusahaan);
     echo json_encode($data);
   }
 
@@ -48,15 +53,18 @@ class Company extends CI_Controller {
 	}
 
 	public function simpan_pekerjaan(){
-		var_dump($_POST);exit();
+		// var_dump($_POST);exit();
 		$this->model_keamanan->getkeamananuser();
-		$isi['title'] = "ICC | Tambah Pekerjaan";
-		$isi['menu'] = "company/menu/menu";
-		$isi['konten'] = "company/konten/konten_joblist";
-		$isi['data_berkas'] = $this->model_data->data_requir_berkas();
-		$isi['data_jurusan'] = $this->model_data->data_jurusan();
-		$isi['profil_company'] = $this->model_data->profil_company();
-		$this->load->view('company/tampilan_dashboard_company', $isi);
+		$data['perusahaan'] = $this->input->post('perusahaan');
+		$data['Nama_joblist'] = $this->input->post('Nama_joblist');
+		$data['Tipe_pekerjaan'] = $this->input->post('Tipe_pekerjaan');
+		$data['deadline'] = $this->input->post('deadline');
+		$data['dibutuhkan'] = $this->input->post('dibutuhkan');
+		$data['deskripsi_pekerjaan'] = $this->input->post('deskripsi_pekerjaan');
+		$data['syarat_khusus'] = $this->input->post('syarat_khusus');
+		$this->model_data->getinsert_job($data);
+		redirect('company/listjob');
+
 	}
 
 	public function detailjob(){

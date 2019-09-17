@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/css/select2.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.css'; ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
+
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
@@ -81,7 +83,9 @@
 <script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
 <script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
 <script src="<?php echo base_url().'assets/admin/kalender/js/bootstrap.min.js'; ?>"></script>
-<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
+
+<!-- bootstrap datepicker -->
+<script src="<?= base_url(); ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.js'; ?>"></script>
 
 <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -142,7 +146,7 @@ $(function () {
     	function tampil_joblist(){
     		$.ajax({
     			type  : 'ajax',
-    			url   : '<?php echo base_url()?>company/list_pekerjaan',
+    			url   : '<?php echo base_url()?>company/data_pekerjaan',
     			async : false,
     			dataType : 'json',
     			success : function(data){
@@ -153,8 +157,8 @@ $(function () {
     					html += '<tr>'+
     					'<td>'+no+'</td>'+
     					'<td>'+data[i].Nama_joblist+'</td>'+
-    					'<td>'+data[i].Nama_perusahaan+'</td>'+
     					'<td>'+data[i].deadline+'</td>'+
+    					'<td>'+data[i].status+'</td>'+
     					'<td style="text-align:center;">'+
     					'<a href="javascript:;" class="btn btn-success btn-xs item_validasi" data="'+data[i].id_joblist+'"><i class="fa fa-check"></i>&nbsp&nbspValidasi</a>'+' '+
     					'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id_joblist+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
@@ -212,6 +216,16 @@ $(function () {
     });
     </script>
     <!-- end script list permohonan -->
+
+    <script>
+      $(function () {
+        //Date picker
+        $('#datepicker').datepicker({
+          format: "yyyy-mm-dd",
+          autoclose: true
+        })
+      })
+    </script>
 
     <script>
     $(function () {

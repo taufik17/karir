@@ -28,19 +28,18 @@
           <div>
             <div class="box-body">
 							<form action="<?= base_url('company/simpan_pekerjaan') ?>" method="POST" enctype="multipart/form-data">
-              <!-- Date dd/mm/yyyy -->
               <div class="form-group">
                 <label>Nama Pekerjaan:</label>
 								<div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="email" class="form-control" placeholder="Nama Pekerjaan">
+                <input type="text" class="form-control" name="Nama_joblist" placeholder="Nama Pekerjaan">
               </div>
                 <!-- /.input group -->
               </div>
 
 							<div class="form-group" data-select2-id="33">
                 <label>Tipe Pekerjaan:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                <select class="form-control select2 select2-hidden-accessible" name="Tipe_pekerjaan" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                   <option selected="selected">Pilih</option>
                   <option value="1">Full Time</option>
                   <option value="2">Part Time</option>
@@ -52,20 +51,20 @@
               <!-- Date mm/dd/yyyy -->
 							<label>Tanggal Tutup:</label>
               <div class="form-group">
-                <div class="input-group">
+								<div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="">
+                  <input type="text" name="deadline" class="form-control pull-right" id="datepicker">
                 </div>
 								<span class="help-block">* Batas akhir pendaftaran</span>
-                <!-- /.input group -->
+
               </div>
 
 							<label>Dibutuhkan :</label>
               <div class="form-group">
 								<div class="input-group">
-                <input type="text" class="form-control">
+                <input type="text" name="dibutuhkan" class="form-control">
                 <span class="input-group-addon">orang</span>
               </div>
 								<span class="help-block">* Kosongkan jika tidak ingin disebutkan</span>
@@ -78,7 +77,7 @@
               <!-- Date dd/mm/yyyy -->
               <div class="form-group">
                 <label>Deskripsi Pekerjaan:</label>
-													<textarea class="textarea" id="ckeditor3" placeholder="Deskripsi Pekerjaan"
+													<textarea class="textarea" id="ckeditor3" name="deskripsi_pekerjaan" placeholder="Deskripsi Pekerjaan"
 																		style="width: 100%; height: 250px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 <!-- /.input group -->
               </div>
@@ -175,7 +174,7 @@
 				<div class="col-md-3">
             <div class="box-body">
 								<label>Syarat Khusus:</label>
-								<textarea class="textarea" id="ckeditor4"
+								<textarea class="textarea" id="ckeditor4" name="syarat_khusus"
 													style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
 													</textarea>
 													<span class="help-block">* Isikan Jika Perlu</span>
@@ -186,6 +185,12 @@
         </div>
         <!-- /.col (right) -->
       </div>
+
+			<?php
+			foreach ($profil_company->result() as $id ) {
+			?>
+			<input type="hidden" name="perusahaan" value="<?= $id->Id_perusahaan; ?>">
+		<?php } ?>
 
 			</div>
 			<div class="box-footer">
