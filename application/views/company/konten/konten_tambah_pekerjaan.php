@@ -27,6 +27,7 @@
 
           <div>
             <div class="box-body">
+							<form action="<?= base_url('company/simpan_pekerjaan') ?>" method="POST" enctype="multipart/form-data">
               <!-- Date dd/mm/yyyy -->
               <div class="form-group">
                 <label>Nama Pekerjaan:</label>
@@ -77,11 +78,8 @@
               <!-- Date dd/mm/yyyy -->
               <div class="form-group">
                 <label>Deskripsi Pekerjaan:</label>
-									<form action="<?php echo base_url(); ?>admin/simpan_post" method="post" enctype="multipart/form-data">
 													<textarea class="textarea" id="ckeditor3" placeholder="Deskripsi Pekerjaan"
 																		style="width: 100%; height: 250px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-
-					            </form>
                 <!-- /.input group -->
               </div>
             </div>
@@ -157,7 +155,7 @@
 
 								<div class="form-group">
 	                <label>Jurusan:</label>
-	                <select class="form-control select2" multiple="multiple" data-placeholder="Pilih Jurusan"
+	                <select class="form-control select2" multiple="multiple" name="data_jurusan[]" data-placeholder="Pilih Jurusan"
 	                        style="width: 100%;">
 													<?php
 													foreach ($data_jurusan->result() as $row ) {
@@ -194,6 +192,8 @@
                 <button type="submit" class="btn btn-primary pull-right">
 									<i class="fa fa-save">&nbsp</i>Simpan</button>
               </div>
+
+							</form>
 		</div>
 	</section>
 </div>

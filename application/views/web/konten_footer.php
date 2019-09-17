@@ -67,7 +67,7 @@
 
 						<div class="input-group-icon mt-20">
 							<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
-							<input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" class="single-input">
+							<input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" minlength="8" class="single-input">
 						</div>
 					</div>
 
@@ -76,7 +76,7 @@
 					</p>
 					<hr style="margin:30px;">
 					<p class="text-center text-muted">
-						<a href="http://localhost/pariwisata/user/daftar">
+						<a href="<?= base_url('daftar'); ?>">
 							<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
 								<strong style="color:red;">Lupa Sandi</strong></a> </p>
 								<div id="responseDiv" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">

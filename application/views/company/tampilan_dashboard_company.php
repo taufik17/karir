@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/gambar/favicon.png">
   <title><?= $title ?></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -11,7 +12,6 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
-  <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/css/select2.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.css'; ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
@@ -19,7 +19,6 @@
 </head>
 
 <body class="hold-transition skin-red-light fixed sidebar-mini">
-  <div class="loader"></div>
   <div class="wrapper">
     <header class="main-header">
       <a href="../../index2.html" class="logo">
@@ -39,11 +38,11 @@
             <li>
               <?php foreach ($profil_company->result() as $nama ) {
                 ?>
-                <a href="<?php echo base_url() ?>Company/profil"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama_perusahaan ?></a>
+                <a href="<?php echo base_url() ?>ProfilDosen"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama_perusahaan ?></a>
               <?php }?>
             </li>
             <li>
-              <a href="<?php echo base_url() ?>Company/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
+              <a href="<?php echo base_url() ?>Admin/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
             </li>
           </ul>
         </div>
@@ -79,36 +78,35 @@
   </div>
   <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> by <a href="https://tik.itera.ac.id/id/" target="_blank">UPT TIK.</a></strong> All rights reserved.
 </footer>
-    <script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin/kalender/js/bootstrap.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.js'; ?>"></script>
+<script src="<?php echo base_url().'assets/admin/kalender/js/jquery.min.js'; ?>"></script>
+<script src="<?php echo base_url().'assets/admin/kalender/js/moment.min.js'; ?>"></script>
+<script src="<?php echo base_url().'assets/admin/kalender/js/bootstrap.min.js'; ?>"></script>
+<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
+<script src="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.js'; ?>"></script>
 
-    <script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/dist/js/adminlte.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <!-- Select2 -->
-    <script src="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/dist/js/demo.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url() ?>assets/admin/bower_components/select2/dist/js/select2.full.min.js"></script>
 
-    <script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
+<script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
 
-    <script type="text/javascript">
-    $(function () {
-      //Initialize Select2 Elements
-      $('.select2').select2()
-    });
-    </script>
+<script type="text/javascript">
+$(function () {
+  //Initialize Select2 Elements
+  $('.select2').select2()
+});
+</script>
 
     <script type="text/javascript">
       $(function () {
         CKEDITOR.replace('ckeditor');
       });
     </script>
-
 
     <script type="text/javascript">
       $(function () {
@@ -134,29 +132,6 @@
         CKEDITOR.replace('ckeditor4',{ toolbar: [['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']]});
       });
     </script>
-
-    <script>
-		  $(function () {
-		    $('.textarea').wysihtml5()
-		  })
-		</script>
-
-
-
-    <script>
-    $(function () {
-      $('#example1').DataTable()
-      $('#example2').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : false,
-        'ordering'    : true,
-        'info'        : true,
-        'autoWidth'   : false
-      })
-    })
-    </script>
-
 
     <!-- script list pekerjaan -->
     <script type="text/javascript">
@@ -238,5 +213,18 @@
     </script>
     <!-- end script list permohonan -->
 
+    <script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+    </script>
   </body>
   </html>

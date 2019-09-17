@@ -26,7 +26,7 @@
 							<br>
 							<div class="row">
 								<div class="col-lg-6 col-md-2">
-									<a href="<?= base_url() ?>login/company">
+									<a href="<?= base_url('register_company') ?>">
 										<div class="single-service" align="center">
 											<i class="fa fa-building fa-4x"></i>
 											<br>
@@ -38,7 +38,7 @@
 								</div>
 
 								<div class="col-lg-6 col-md-2">
-									<a href="<?= base_url() ?>login/member">
+									<a href="<?= base_url('register') ?>">
 										<div class="single-service" align="center">
 											<i class="fa fa-users fa-4x"></i>
 											<br>
