@@ -63,8 +63,21 @@ class Company extends CI_Controller {
 		$data['deskripsi_pekerjaan'] = $this->input->post('deskripsi_pekerjaan');
 		$data['syarat_khusus'] = $this->input->post('syarat_khusus');
 		$this->model_data->getinsert_job($data);
-		redirect('company/listjob');
 
+		$n_joblist = $this->input->post('Nama_joblist');
+		$perusahaan = $this->input->post('perusahaan');
+		$id = $this->db->query("SELECT id_joblist FROM joblist WHERE Nama_joblist = '$n_joblist' AND perusahaan = '$perusahaan'");
+		foreach ($id->result() as $row) {
+			$id_joblist = $row->id_joblist;
+		}
+		$checkbox = $_POST['berkas'];
+		for($i=0;$i<count($checkbox);$i++){
+			$req_berkas = $this->input->post('berkas');
+			$isi = array('id_requirement' => $req_berkas[$i], 'id_joblist' => $id_joblist);
+			$this->db->insert('tb_detail_req_brks', $isi);
+		}
+
+		redirect('company/listjob');
 	}
 
 	public function detailjob(){
