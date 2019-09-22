@@ -60,6 +60,9 @@
 
 	</style>
 </head>
+<?php
+foreach ($data->result() as $row)
+?>
 
 <body class="bg-redup">
 	<!-- <div class="loader"></div> -->
@@ -75,23 +78,29 @@
 			</div>
 		</div>
 	</header>
-
-
 	<section class="service-area section-company" id="service">
 		<div class="container">
 			<div class="position-relative box-shadow">
-				<div class="row box-member m-0" style="background: linear-gradient(to top, rgba(100, 100, 100, 0.7),
-				rgba(0, 0, 0, 0)), url(<?= base_url() ?>assets/gambar/company/sampul/sampul_default.png); background-size: cover;" >
+				<div class="row box-member m-0" style="background: linear-gradient(to top, rgba(100, 100, 100, 1),
+				rgba(0, 0, 0, 0)), url(<?= base_url() ?>assets/gambar/company/sampul/<?= $row->sampul; ?>); background-size: cover;" >
 				<div class="col-md-8 d-flex text-white align-self-end">
 					<div class="align-items-center d-flex">
 						<div class="btn-group position-relative">
 							<span id="profileid" style="display:none;">1</span>
-							<img class="prof-img" src="<?= base_url() ?>assets/gambar/company/profil/default.png" alt="Nama perusahaan" width="85" style="padding-bottom:8px;">
+							<img class="prof-img" src="<?= base_url() ?>assets/gambar/company/profil/<?= $row->Logo_perusahaan; ?>" alt="<?= $row->Nama_perusahaan; ?>" width="85" style="padding-bottom:8px;">
 						</div>
 					</div>
 					<div class="pl-4 profile">
-						<h4 class="text-white ml-2 mb-0"><strong>Nama Company</strong></h4>
-						<p style="margin-left: 0.6em;">Provinsi</p>
+						<h4 class="text-white ml-2 mb-0"><strong><?= $row->Nama_perusahaan; ?></strong></h4>
+						<?php
+						$perusahaan = $this->db->query("SELECT nama FROM provinsi WHERE id = $row->id_provinsi");
+						$kabkota = $this->db->query("SELECT nama FROM kabupaten WHERE id = $row->id_kabupaten_kota");?>
+						<?php
+						foreach ($perusahaan->result() as $key);
+						foreach ($kabkota->result() as $key2);
+						?>
+						<p style="margin-left: 0.6em;"> <i class="fa fa-map-marker"></i> <?= $key2->nama; ?>, <?= $key->nama; ?>
+					</p>
 					</div>
 				</div>
 			</div>
@@ -101,11 +110,11 @@
 				</button>
 				<div class="collapse navbar-collapse " id="navbarMenuContent">
 					<ul class="navbar-nav mr-auto d-flex w-100">
-						<li class="nav-item active">
-							<a class="nav-link" href="<?= base_url() ?>member">Profil Perusahaan</a>
+						<li <?= $this->uri->segment(2) == 'view' ? 'class="nav-item active"' : 'class="nav-item"'?>>
+							<a class="nav-link" href="<?= base_url() ?>company/view/<?= $row->Id_perusahaan; ?>">Profil Perusahaan</a>
 						</li>
-						<li <?= $this->uri->segment(2) == 'cv' ? 'class="nav-item active"' : 'class="nav-item"'?>>
-							<a class="nav-link" href="<?= base_url() ?>member/cv">Lowongan</a>
+						<li <?= $this->uri->segment(2) == 'lowongan' ? 'class="nav-item active"' : 'class="nav-item"'?>>
+							<a class="nav-link" href="<?= base_url() ?>company/lowongan/<?= $row->Id_perusahaan; ?>">Lowongan</a>
 						</li>
 					</ul>
 				</div>
@@ -113,90 +122,7 @@
 		</div>
 	</div>
 </section>
-<section class="contents container-fluid mt-3" style="transform: none;">
-	<div class="container" style="transform: none;">
-		<div id="content" class="row" style="transform: none;">
-			<div class="col-lg-5 col-md-12" style="transform: none;">
-				<div class="sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
-					<div class="box-shadow bg-white rounded mb-4">
-						<div class="row p-3">
-							<div class="col-12">
-								<!-- <h4 class="m-0 font-weight-bold">PT. SWEVEL UNIVERSAL MEDIA</h4> -->
-								<h4 class="m-0 font-weight-bold">PT. AVO Innovation Technology</h4>
-							</div>
-						</div>
-						<div class="row p-3">
-							<div class="col-md-11">
-								<h5 class="m-0 font-weight-bold text-muted">Jenis Industri</h5>
-								<!-- <p>Information Technology</p> -->
-								<p>
-									ritel
-								</p>
-							</div>
-						</div>
-						<div class="row p-3">
-							<div class="col-md-11">
-								<h5 class="m-0 font-weight-bold text-muted">Website</h5>
-								<!-- <p><a href="https://ecc.co.id" target="_blank">https://ecc.co.id</a></p> -->
-								<p><a href="https://www.avoskinbeauty.com" target="_blank">https://www.avoskinbeauty.com</a></p>
-							</div>
-						</div>
-						<div class="row p-3">
-							<div class="col-md-11">
-								<h5 class="m-0 font-weight-bold text-muted">Alamat</h5>
-								<!-- <p>Jl. HOS Cokroaminoto No.73  - Kota Yogyakarta Daerah Istimewa Yogyakarta 0000 Indonesia</p> -->
-								<p>Kabupaten Sleman, Daerah Istimewa Yogyakarta</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-7 col-md-12 main-content">
-				<div class="news-feed0">
-					<div id="posting-0" class="post-content box-shadow bg-white rounded mb-4">
-						<div class="comments-box create-post">
-							<div class="post-comment d-flex p-3">
-								<div class="w-100 comment-area">
-									<h3 class="m-0 font-weight-bold text-muted">Tentang Perusahaan</h3>
-									<div class="posting-btn d-block mt-2">
-										<div class="row p-3">
-											<p>
-												PT. AVO Innovation Technology has been growth consistently in order to provide natural beauty  product with high corporate solidarity values. Based on three bottom line values such as profit, people and planet, we are focusing on better transformation and development |
 
-												Vision :
-												•Being a leader in the beauty industry with a women empowerment mission to build confident and courageous characters |
-
-												Mision :
-												• Distribute quality, safe and convenient products
-												• Create periodic product innovation with maximum research and development
-												• Increase the competence of human resource and organization with high integrity
-												• Provide education and implement our high quality service for customer satisfaction |
-
-												Corporate Values :
-												1.Passion : Our business is more than just money growth, it's about passion, ambition, and inspiration
-												2. Dream : what we dream, we do
-												3. Integrity : be great, and real
-												4. Togetherness : team work makes the dream works
-												5. Winning Mentality : We are here to win, to be number one, and we'll #MAKEITHAPPENS
-												6. Striving Excellence : Never do good enough, do great!
-												7. Sense Of Belonging : hear, learn, the outcomes, focus on building values, and being different from others
-												8. We Are The Brand : we innovate, we educate, and we inspire                                            </p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-
-				<div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-				</div>
-				<div class="tab-pane fade" id="article" role="tabpanel" aria-labelledby="article-tab">Content</div>
-			</div>
-		</div>
-	</section>
+	<?php $this->load->view($konten) ?>
 <?php $this->load->view("web/konten_footer"); ?>
 </html>

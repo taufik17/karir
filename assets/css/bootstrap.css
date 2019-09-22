@@ -1173,7 +1173,7 @@ pre code {
   .col-lg-2 {
     flex: 0 0 16.66667%;
     max-width: 16.66667%;
-    background-color: #eeeeee;
+    background-color: #d9d9d9;
   }
   .col-lg-3 {
     flex: 0 0 25%;
@@ -4767,8 +4767,8 @@ tbody.collapse.show {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: rgba(189, 189, 189, 0.65);
+  border-color: #8C1515;
 }
 
 .list-group-flush .list-group-item {

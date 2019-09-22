@@ -90,9 +90,28 @@ class Company extends CI_Controller {
 
 	public function view(){
 		$key = $this->uri->segment(3);
-		$isi['title'] = "ICC | Nama Company";
+		$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
+		foreach ($id->result() as $row) {
+			$nama = $row->Nama_perusahaan;
+		}
+		$isi['title'] = "$nama | ICC";
 		$isi['menu'] = "company/menu/menu";
-		$isi['konten'] = "member/konten_profil";
+		$isi['konten'] = "web/konten_profil_company";
+		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
+		$this->load->view('web/tampilan_view_company', $isi);
+	}
+
+	public function lowongan(){
+		$key = $this->uri->segment(3);
+		$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
+		foreach ($id->result() as $row) {
+			$nama = $row->Nama_perusahaan;
+		}
+		$isi['title'] = "Daftar Lowongan | $nama";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "web/konten_lowongan_company";
+		$isi['joblist'] = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $key AND status = '<span class=\"label label-success\">Telah tayang</span>'");
+		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
 		$this->load->view('web/tampilan_view_company', $isi);
 	}
 
