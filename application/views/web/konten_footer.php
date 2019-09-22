@@ -116,7 +116,7 @@
 												$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
 												$('#logForm')[0].reset();
 												setTimeout(function(){
-													location.href = "Beranda";
+													location.href = "<?= base_url('beranda'); ?>";
 												}, 1000);
 											}
 										}

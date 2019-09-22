@@ -2298,6 +2298,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   /* padding-bottom: 120px; */
 }
 
+.section-company {
+  padding-top: 45px;
+}
+
 .nav-item.active{
   border-bottom: 1px solid #8C1515;
 }

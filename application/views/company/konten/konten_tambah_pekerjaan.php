@@ -115,39 +115,39 @@
 
 						<div class="col-md-3">
 							<div class="box-body">
-								<label>Lulusan:</label>
+								<label>Minimal Lulusan:</label>
 								<div class="form-group">
-									<div class="checkbox">
+									<div class="radio">
 										<label>
-											<input type="checkbox" name="berkas" value="2">
+											<input type="radio" name="lulusan" value="1">
 											SMA / SMK / Sederajat
 										</label>
 									</div>
 
-									<div class="checkbox">
+									<div class="radio">
 										<label>
-											<input type="checkbox" name="berkas" value="1">
+											<input type="radio" name="lulusan" value="2">
 											Diploma
 										</label>
 									</div>
 
-									<div class="checkbox">
+									<div class="radio">
 										<label>
-											<input type="checkbox" name="berkas" value="1">
+											<input type="radio" name="lulusan" value="3">
 											Sarjana / S1
 										</label>
 									</div>
 
-									<div class="checkbox">
+									<div class="radio">
 										<label>
-											<input type="checkbox" name="berkas" value="1">
+											<input type="radio" name="lulusan" value="4">
 											Magister / S2
 										</label>
 									</div>
 
-									<div class="checkbox">
+									<div class="radio">
 										<label>
-											<input type="checkbox" name="berkas" value="1">
+											<input type="radio" name="lulusan" value="0">
 											Apa Saja
 										</label>
 									</div>

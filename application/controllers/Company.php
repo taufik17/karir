@@ -62,6 +62,7 @@ class Company extends CI_Controller {
 		$data['dibutuhkan'] = $this->input->post('dibutuhkan');
 		$data['deskripsi_pekerjaan'] = $this->input->post('deskripsi_pekerjaan');
 		$data['syarat_khusus'] = $this->input->post('syarat_khusus');
+		$data['min_lulus'] = $this->input->post('lulusan');
 		$this->model_data->getinsert_job($data);
 
 		$n_joblist = $this->input->post('Nama_joblist');
@@ -77,7 +78,22 @@ class Company extends CI_Controller {
 			$this->db->insert('tb_detail_req_brks', $isi);
 		}
 
+		$multiselect = $_POST['data_jurusan'];
+		for($i=0;$i<count($multiselect);$i++){
+			$req_jurusan = $this->input->post('data_jurusan');
+			$isi = array('id_requirement' => $req_jurusan[$i], 'id_joblist' => $id_joblist);
+			$this->db->insert('tb_detail_req_jrsn', $isi);
+		}
+
 		redirect('company/listjob');
+	}
+
+	public function view(){
+		$key = $this->uri->segment(3);
+		$isi['title'] = "ICC | Nama Company";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "member/konten_profil";
+		$this->load->view('web/tampilan_view_company', $isi);
 	}
 
 	public function detailjob(){
@@ -88,6 +104,6 @@ class Company extends CI_Controller {
 	function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_user);
-		redirect('Beranda');
+		redirect('login/company');
 	}
 }

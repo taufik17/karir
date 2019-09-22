@@ -44,7 +44,7 @@
               <?php }?>
             </li>
             <li>
-              <a href="<?php echo base_url() ?>Admin/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
+              <a href="<?php echo base_url() ?>company/logout"><i class="fa fa-sign-out"></i>&nbsp Logout</a>
             </li>
           </ul>
         </div>
