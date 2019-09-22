@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Sep 2019 pada 12.16
+-- Waktu pembuatan: 22 Sep 2019 pada 18.09
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -95,6 +95,7 @@ CREATE TABLE `company` (
   `id_provinsi` varchar(2) NOT NULL,
   `id_kabupaten_kota` varchar(4) NOT NULL,
   `Logo_perusahaan` varchar(100) NOT NULL DEFAULT 'default.png',
+  `sampul` varchar(100) NOT NULL DEFAULT 'sampul_default.png',
   `Website` varchar(200) NOT NULL,
   `telp_perusahaan` varchar(20) NOT NULL,
   `telp_officer` varchar(15) NOT NULL,
@@ -108,11 +109,12 @@ CREATE TABLE `company` (
 -- Dumping data untuk tabel `company`
 --
 
-INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Logo_perusahaan`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
-(1, 2, 'ITERA', 'Taufik Agung Santoso', 'taufikagungsantoso17@gmail.com', 'mail@itera.ac.id', 'ini deskripsi kampus itera', 35, '18', '1107', 'default.png', 'http://itera.ac.id', '085357037094', '085364759837', '082345763098', 'jl ryacudu lampung selatan', '35365', '2019-09-16 04:54:19'),
-(2, 11, 'surya', 'taufik', 'taufik@gmail.com', 'surya@gmail.com', '', 33, '18', '1803', 'default.png', 'surya.com', '083749408283', '0849239472739', '94829371939', 'jl 2 korpri jaya', '35365', '2019-09-16 01:56:52'),
-(3, 12, 'bismillah', 'taufik agung santoso', 'taufik@gmail.com', 'bismillah@gmail.com', '', 36, '18', '1803', 'default.png', 'bismillah.com', '08382038402', '0837273948', '0846583729', 'korpri jaya', '35365', '2019-09-16 02:06:57'),
-(4, 13, 'nocturnal production', 'taufik', 'taufik@gmail.com', 'nocturnal@gmail.com', '', 36, '51', '5106', 'default.png', 'nocturnal.com', '08372938495', '09382342394', '948032344', 'bali', '7895', '2019-09-16 02:14:48');
+INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Logo_perusahaan`, `sampul`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
+(1, 2, 'ITERA', 'Taufik Agung Santoso', 'taufikagungsantoso17@gmail.com', 'mail@itera.ac.id', 'ini deskripsi kampus itera', 35, '18', '1803', 'default.png', 'sampul_default.png', 'http://itera.ac.id', '085357037094', '085364759837', '082345763098', 'jl ryacudu lampung selatan', '35365', '2019-09-22 03:35:52'),
+(2, 11, 'surya', 'taufik', 'taufik@gmail.com', 'surya@gmail.com', '', 33, '18', '1803', 'default.png', 'sampul_default.png', 'surya.com', '083749408283', '0849239472739', '94829371939', 'jl 2 korpri jaya', '35365', '2019-09-16 01:56:52'),
+(3, 12, 'bismillah', 'taufik agung santoso', 'taufik@gmail.com', 'bismillah@gmail.com', '', 36, '18', '1803', 'default.png', 'sampul_default.png', 'bismillah.com', '08382038402', '0837273948', '0846583729', 'korpri jaya', '35365', '2019-09-16 02:06:57'),
+(4, 13, 'nocturnal production', 'taufik', 'taufik@gmail.com', 'nocturnal@gmail.com', '', 36, '51', '5106', 'default.png', 'sampul_default.png', 'nocturnal.com', '08372938495', '09382342394', '948032344', 'bali', '7895', '2019-09-16 02:14:48'),
+(5, 21, 'Babeh Foundation', 'dicky hermawan', 'dickystudent@gmail.com', 'babeh@gmail.com', '', 33, '18', '1871', 'default.png', 'sampul_default.png', 'babeh.com', '084293027302', '03823842372', '04827384723', 'jalanin aja dulu', '35365', '2019-09-22 04:45:01');
 
 -- --------------------------------------------------------
 
@@ -149,6 +151,7 @@ CREATE TABLE `joblist` (
   `deadline` date NOT NULL,
   `dibutuhkan` int(8) DEFAULT NULL,
   `deskripsi_pekerjaan` text NOT NULL,
+  `min_lulus` int(1) NOT NULL DEFAULT '0' COMMENT '0.apa aja 1.sma/smk 2.diploma 3.s1 4.s2',
   `syarat_khusus` text,
   `status` varchar(255) NOT NULL DEFAULT '<span class="label label-warning">Pending</span>'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -157,14 +160,16 @@ CREATE TABLE `joblist` (
 -- Dumping data untuk tabel `joblist`
 --
 
-INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `syarat_khusus`, `status`) VALUES
-(1, 'Dosen Informatika', '1', 1, '2019-09-20', 0, '', NULL, '<span class=\"label label-success\">Telah tayang</span>'),
-(5, 'content creator', '1', 2, '0000-00-00', 50, '<p>membuat content youtube</p>\r\n', '<ul>\r\n	<li>sanggup bekerja dalam tekanan.</li>\r\n	<li>bersedia ditempatkan di jakarta</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n', '<span class=\"label label-warning\">Pending</span>'),
-(6, 'web developer', '1', 2, '2019-09-30', 7, '<p>memahami html, css dan javascript</p>\r\n', '<p>sanggup bekerja secara tim</p>\r\n', '<span class=\"label label-warning\">Pending</span>'),
-(7, 'content creator ', '2', 2, '2019-11-01', 10, '<p>membuat konten instagram</p>\r\n', '<p>ditempatkan dijakarta</p>\r\n', '<span class=\"label label-warning\">Pending</span>'),
-(8, 'tes', '3', 2, '2019-10-05', 56, '<p>adsfa</p>\r\n', '<p>adfa</p>\r\n', '<span class=\"label label-warning\">Pending</span>'),
-(9, 'dsafas', '2', 2, '2019-10-01', 90, '<p>adfa</p>\r\n', '<p>adfa</p>\r\n', '<span class=\"label label-warning\">Pending</span>'),
-(10, 'bismillah', '2', 1, '2019-10-05', 10, '<p>bismillah deskripsi</p>\r\n', '<p>bismillah syarat</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>');
+INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `min_lulus`, `syarat_khusus`, `status`) VALUES
+(5, 'content creator', '1', 2, '0000-00-00', 50, '<p>membuat content youtube</p>\r\n', 0, '<ul>\r\n	<li>sanggup bekerja dalam tekanan.</li>\r\n	<li>bersedia ditempatkan di jakarta</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(6, 'web developer', '1', 2, '2019-09-30', 7, '<p>memahami html, css dan javascript</p>\r\n', 0, '<p>sanggup bekerja secara tim</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(7, 'content creator ', '2', 2, '2019-11-01', 10, '<p>membuat konten instagram</p>\r\n', 0, '<p>ditempatkan dijakarta</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(8, 'tes', '3', 2, '2019-10-05', 56, '<p>adsfa</p>\r\n', 0, '<p>adfa</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(9, 'dsafas', '2', 2, '2019-10-01', 90, '<p>adfa</p>\r\n', 0, '<p>adfa</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(23, 'dosen teknik industri', '1', 1, '2019-10-05', 10, '<p>menjadi dosen teknik industri di itera</p>\r\n', 0, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(24, 'dosen teknik sipil', '1', 1, '2019-10-05', 10, '<p>menjadi dosen teknik sipil ITERA</p>\r\n', 0, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(25, 'dosen teknik pertambangan', '1', 1, '2019-09-30', 10, '<p>menjadi dosen teknik pertambangan di ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>'),
+(26, 'penulis', '1', 1, '2019-09-30', 10, '<p>dapat menulis</p>\r\n', 3, '<p>style ok</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>');
 
 -- --------------------------------------------------------
 
@@ -720,8 +725,16 @@ INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
 
 CREATE TABLE `lamaran` (
   `id_lamaran` int(8) NOT NULL,
-  `pekerjaan` int(100) DEFAULT NULL
+  `pekerjaan` int(100) DEFAULT NULL,
+  `id_jobseeker` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `lamaran`
+--
+
+INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`) VALUES
+(1, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -878,6 +891,40 @@ INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_ima
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_detail_req_brks`
+--
+
+CREATE TABLE `tb_detail_req_brks` (
+  `id_detail_req` int(11) NOT NULL,
+  `id_requirement` int(8) NOT NULL,
+  `id_joblist` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_detail_req_brks`
+--
+
+INSERT INTO `tb_detail_req_brks` (`id_detail_req`, `id_requirement`, `id_joblist`) VALUES
+(32, 2, 23),
+(33, 5, 23),
+(34, 7, 23),
+(35, 8, 23),
+(36, 2, 24),
+(37, 5, 24),
+(38, 7, 24),
+(39, 8, 24),
+(40, 2, 25),
+(41, 5, 25),
+(42, 7, 25),
+(43, 8, 25),
+(44, 2, 26),
+(45, 5, 26),
+(46, 7, 26),
+(47, 8, 26);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_detail_req_jrsn`
 --
 
@@ -892,7 +939,13 @@ CREATE TABLE `tb_detail_req_jrsn` (
 --
 
 INSERT INTO `tb_detail_req_jrsn` (`id_detail_req`, `id_requirement`, `id_joblist`) VALUES
-(1, 2, 1);
+(1, 4, 23),
+(2, 3, 24),
+(3, 5, 25),
+(4, 2, 26),
+(5, 3, 26),
+(6, 4, 26),
+(7, 5, 26);
 
 -- --------------------------------------------------------
 
@@ -920,7 +973,9 @@ INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VA
 (12, 'bismillah', '1e140057670f42e762730c0e16e9cdc40c4b4f30808592052a832fefed63aea934b31afea2e15dcd066f5f678ad5df2fe46882275399eb5e27b52c8668a48446', '1', 1),
 (13, 'nocturnal', '520816f038f9462e7fb7a68788f62758f10898a241058a6a7af564ebe672f879766f800cadef2b8e4a619c9baf8be3aadc8b624346ea857cd7f8e2d78ba94a94', '1', 1),
 (19, 'pak okata', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '2', 0),
-(20, 'taufiksan', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '2', 1);
+(20, 'taufiksan', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '2', 1),
+(21, 'dicky', '2bd6f308842c3d035e00310bb2ef6c363f3c2d96641c56c5f3a824e1f37ce344c80e17fd569e6fbd0643cf3239063a1056c373b7e06f386a07d907356327b285', '1', 1),
+(22, 'taufik', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '1', 0);
 
 --
 -- Indexes for dumped tables
@@ -980,7 +1035,8 @@ ALTER TABLE `kabupaten`
 --
 ALTER TABLE `lamaran`
   ADD PRIMARY KEY (`id_lamaran`),
-  ADD KEY `lamaran_ibfk_4` (`pekerjaan`);
+  ADD KEY `lamaran_ibfk_4` (`pekerjaan`),
+  ADD KEY `id_jobseeker` (`id_jobseeker`);
 
 --
 -- Indeks untuk tabel `peserta_careerday`
@@ -1012,6 +1068,14 @@ ALTER TABLE `requirement_jurusan`
 --
 ALTER TABLE `tbl_berita`
   ADD PRIMARY KEY (`berita_id`);
+
+--
+-- Indeks untuk tabel `tb_detail_req_brks`
+--
+ALTER TABLE `tb_detail_req_brks`
+  ADD PRIMARY KEY (`id_detail_req`),
+  ADD KEY `id_requirement` (`id_requirement`),
+  ADD KEY `id_joblist` (`id_joblist`);
 
 --
 -- Indeks untuk tabel `tb_detail_req_jrsn`
@@ -1047,7 +1111,7 @@ ALTER TABLE `calendar`
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `industri`
@@ -1059,7 +1123,7 @@ ALTER TABLE `industri`
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker`
@@ -1071,7 +1135,7 @@ ALTER TABLE `jobseeker`
 -- AUTO_INCREMENT untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_careerday`
@@ -1098,16 +1162,22 @@ ALTER TABLE `tbl_berita`
   MODIFY `berita_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_detail_req_brks`
+--
+ALTER TABLE `tb_detail_req_brks`
+  MODIFY `id_detail_req` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_detail_req_jrsn`
 --
 ALTER TABLE `tb_detail_req_jrsn`
-  MODIFY `id_detail_req` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detail_req` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -1144,13 +1214,21 @@ ALTER TABLE `jobseeker`
 -- Ketidakleluasaan untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `lamaran_ibfk_5` FOREIGN KEY (`id_jobseeker`) REFERENCES `jobseeker` (`id_jobseeker`) ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `peserta_careerday`
 --
 ALTER TABLE `peserta_careerday`
   ADD CONSTRAINT `peserta_careerday_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `calendar` (`id`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_detail_req_brks`
+--
+ALTER TABLE `tb_detail_req_brks`
+  ADD CONSTRAINT `tb_detail_req_brks_ibfk_2` FOREIGN KEY (`id_requirement`) REFERENCES `requirement_berkas` (`id_requirement`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_detail_req_brks_ibfk_3` FOREIGN KEY (`id_joblist`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_detail_req_jrsn`
