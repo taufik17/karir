@@ -361,7 +361,7 @@
 				<div class="col-lg-4 sidebar">
 
 					<div class="single-slidebar">
-						<h4>Jobs by Category</h4>
+						<h4>Pekerjaan Berdasarkan Kategori</h4>
 						<ul id="load_data_category" class="cat-list">
 						</ul>
 						<a href="#" class="genric-btn default arrow">Selengkapnya<span class="fa  fa-arrow-right"></span></a>
@@ -419,7 +419,7 @@
 								</div> -->
 
 								<div class="single-slidebar">
-									<h4>Jobs by Location</h4>
+									<h4>Pekerjaan Berdasarkan Lokasi</h4>
 									<ul id="load_data_location" class="cat-list">
 									</ul>
 								</div>
@@ -435,10 +435,10 @@
 						<div class="row d-flex justify-content-center">
 							<div class="menu-content col-lg-9">
 								<div class="title text-center">
-									<h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-									<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-									<a class="primary-btn" href="<?= base_url() ?>register" target="_blank">I am a Jobseeker</a>
-									<a class="primary-btn" href="<?= base_url() ?>register_company" target="_blank">Company</a>
+									<h2 class="mb-10 text-white">Bergabung sekarang dengan ITERA Career Center.</h2>
+									<p class="text-white">Platform pencari pekerjaan dari Institut Teknologi Sumatera.</p>
+									<a class="primary-btn" href="<?= base_url() ?>register" target="_blank">I am Jobseeker</a>
+									<a class="primary-btn" href="<?= base_url() ?>register_company" target="_blank">I am Company</a>
 								</div>
 							</div>
 						</div>

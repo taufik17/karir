@@ -8,7 +8,7 @@
 				<h1 class="text-white">
 					Daftarkan Perusahaanmu
 				</h1>
-				<p class="tex-white">Dengan menjadi employer di icc persuahaan anda dapat menemukan sdm yang berkualitas.</p>
+				<p class="tex-white">Dengan menjadi employer di ICC perusahaan anda dapat menemukan SDM yang berkualitas.</p>
 			</div>
 		</div>
 	</div>
