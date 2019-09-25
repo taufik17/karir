@@ -9,7 +9,7 @@
 		<a href="<?= base_url() ?>event">EVENT</a>
 	</li>
 	<li>
-		<a href="#">FAQ</a>
+		<a href="<?= base_url() ?>faq">FAQ</a>
 	</li>
 
 	<li class="menu-has-children"><a class="ticker-btn" style="color:white">Signup&nbsp&nbsp</a>

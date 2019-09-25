@@ -290,7 +290,7 @@ class Model_data extends CI_model {
 	}
 
 	function data_jurusan(){
-		return $this->db->query("SELECT id_requirement, nama_jurusan FROM requirement_jurusan");
+		return $this->db->query("SELECT id_requirement, nama_jurusan FROM requirement_jurusan ORDER by nama_jurusan ASC");
 	}
 
 	function getinsert_job($data){
