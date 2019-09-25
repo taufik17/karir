@@ -19,24 +19,34 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="single-feature">
-					<div class="footer_daftar">
-						<form action="<?= base_url() ?>login/login_member" method="post">
-							<div class="form-group-login">
-								<input id="username" name="emailjobseeker" type="email" placeholder="Email jobseeker" class="form-control" required>
+
+					<form id="logForm">
+
+						<div class="container-login">
+							<div class="input-group-icon mt-10">
+								<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+								<input type="text" name="username" id="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required="" class="single-input">
 							</div>
-							<div class="form-group-login">
-								<input id="password" name="passwordjobseeker" type="password" placeholder="Password" class="form-control" required>
+
+							<div class="input-group-icon mt-20">
+								<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+								<input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" minlength="8" class="single-input">
 							</div>
-							<p class="text-center">
-								<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span>Masuk</span></button>
-							</p>
-							<hr>
-							<p class="text-center text-muted">
-								<a href="<?= base_url() ?>register">
-									<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
-										<strong style="color:red;">Lupa Sandi</strong></a> </p>
-									</form>
-								</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logText"></span></button>
+						</p>
+						<hr style="margin:30px;">
+						<p class="text-center text-muted">
+							<a href="<?= base_url('daftar'); ?>">
+								<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
+									<strong style="color:red;">Lupa Sandi</strong></a> </p>
+									<div id="responseDiv" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">
+										<button type="button" class="close" id="clearMsg"><span aria-hidden="true">&times;</span></button>
+										<span id="message"></span>
+									</div>
+								</form>
 
 							</div>
 						</div>
