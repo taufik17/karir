@@ -23,8 +23,8 @@
 <body class="hold-transition skin-red-light fixed sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
-      <a href="../../index2.html" class="logo">
-        <span class="logo-mini"><b>A</b>LT</span>
+      <a href="<?= base_url() ?>" class="logo">
+        <span class="logo-mini"><b>ICC</b></span>
         <span class="logo-lg"><b>ITERA</b> Career Center</span>
       </a>
       <nav class="navbar navbar-static-top">
