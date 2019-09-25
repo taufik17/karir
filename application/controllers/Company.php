@@ -15,10 +15,17 @@ class Company extends CI_Controller {
 
 	public function dashboard(){
 		$this->model_keamanan->getkeamananuser();
+		$id_akun = $this->session->userdata('id_akun');
+		$id = $this->db->query("SELECT Id_perusahaan FROM company WHERE id_akun = $id_akun");
+		foreach ($id->result() as $row) {
+			$id_perusahaan = $row->Id_perusahaan;
+		}
 		$isi['title'] = "ICC | Dashboard Company";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_beranda";
 		$isi['profil_company'] = $this->model_data->profil_company();
+		$isi['pelamar'] = $this->model_data->jumlah_pelamar($id_perusahaan);
+		$isi['jumlah_pekerjaan'] = $this->model_data->jumlah_pekerjaan($id_perusahaan);
 		$this->load->view('company/tampilan_dashboard_company',$isi);
 	}
 

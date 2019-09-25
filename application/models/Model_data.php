@@ -297,4 +297,16 @@ class Model_data extends CI_model {
 		$this->db->insert('joblist', $data);
 	}
 
+	function jumlah_pelamar($id_perusahaan){
+		return $this->db->query("SELECT id_lamaran FROM lamaran
+											NATURAL JOIN joblist
+											WHERE pekerjaan = id_joblist
+											AND perusahaan = $id_perusahaan")->num_rows();
+	}
+
+	function jumlah_pekerjaan($id_perusahaan){
+		return $this->db->query("SELECT id_joblist FROM joblist
+											WHERE perusahaan = $id_perusahaan")->num_rows();
+	}
+
 }

@@ -14,7 +14,7 @@
 			<div class="col-lg-6 col-xs-6">
 				<div class="small-box bg-aqua">
 					<div class="inner">
-						<h3>2</h3>
+						<h3><?= $pelamar; ?></h3>
 						<p>Jumlah Pelamar</p>
 					</div>
 					<div class="icon">
@@ -26,7 +26,7 @@
 			<div class="col-lg-6 col-xs-6">
 				<div class="small-box bg-green">
 					<div class="inner">
-						<h3>4</h3>
+						<h3><?= $jumlah_pekerjaan; ?></h3>
 						<p>Jumlah Pekerjaan</p>
 					</div>
 					<div class="icon">
