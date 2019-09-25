@@ -188,13 +188,14 @@ class Model_data extends CI_model {
 		// ORDER BY id_joblist DESC
 		// LIMIT $limit OFFSET $start ");
 
-		$query = $this->db->query("SELECT Nama_joblist, id_joblist, nama_perusahaan, logo_perusahaan, nama
+		$query = $this->db->query("SELECT Nama_joblist, id_joblist, nama_perusahaan, logo_perusahaan, nama, perusahaan
 		FROM joblist
 		NATURAL JOIN company
 		NATURAL JOIN provinsi
     WHERE id_perusahaan = perusahaan
 		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
 		AND id_provinsi = id
+		AND deadline >= current_date()
 		ORDER BY id_joblist DESC
 		LIMIT $limit OFFSET $start ");
 
@@ -203,7 +204,7 @@ class Model_data extends CI_model {
 
 	function fetch_data_popular($limit_popular, $start_popular)
 	{
-		$query = $this->db->query("SELECT Nama_joblist, COUNT(*) as jumlah, id_joblist, nama_perusahaan, logo_perusahaan, nama
+		$query = $this->db->query("SELECT Nama_joblist, COUNT(*) as jumlah, id_joblist, nama_perusahaan, logo_perusahaan, nama, perusahaan
 		FROM joblist
 		NATURAL JOIN company
 		NATURAL JOIN provinsi
@@ -213,6 +214,7 @@ class Model_data extends CI_model {
 		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
 		AND id_provinsi = id
     AND pekerjaan = id_joblist
+		AND deadline >= current_date()
     GROUP BY pekerjaan
 		ORDER BY jumlah  DESC
 		LIMIT $limit_popular OFFSET $start_popular ");

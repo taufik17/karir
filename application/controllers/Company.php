@@ -107,17 +107,70 @@ class Company extends CI_Controller {
 		foreach ($id->result() as $row) {
 			$nama = $row->Nama_perusahaan;
 		}
-		$isi['title'] = "Daftar Lowongan | $nama";
+		$isi['title'] = "Daftar Lowongan Buka | $nama";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "web/konten_lowongan_company";
-		$isi['joblist'] = $this->db->query("SELECT * FROM joblist WHERE perusahaan = $key AND status = '<span class=\"label label-success\">Telah tayang</span>'");
+		$isi['joblist'] = $this->db->query("SELECT * FROM joblist
+																				WHERE perusahaan = $key
+																				AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																				AND deadline >= current_date()");
 		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
 		$this->load->view('web/tampilan_view_company', $isi);
 	}
 
-	public function detailjob(){
+	public function lowongan_tutup(){
 		$key = $this->uri->segment(3);
-		echo "ini adalah data pekerjaan $key";
+		$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
+		foreach ($id->result() as $row) {
+			$nama = $row->Nama_perusahaan;
+		}
+		$isi['title'] = "Daftar Lowongan Tutup | $nama";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "web/konten_lowongan_company_tutup";
+		$isi['joblist'] = $this->db->query("SELECT * FROM joblist
+																				WHERE perusahaan = $key
+																				AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																				AND deadline <= current_date()");
+		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
+		$this->load->view('web/tampilan_view_company', $isi);
+	}
+
+	public function detailjob_buka(){
+		$key = $this->uri->segment(3);
+		$id_job = $this->uri->segment(4);
+		$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
+		foreach ($id->result() as $row) {
+			$nama = $row->Nama_perusahaan;
+		}
+		$id2 = $this->db->query("SELECT Nama_joblist FROM joblist WHERE id_joblist = '$id_job'");
+		foreach ($id2->result() as $n_job) {
+			$nama_job = $n_job->Nama_joblist;
+		}
+		$isi['title'] = "$nama_job | $nama";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "web/konten_detail_pekerjaan";
+		$isi['joblist'] = $this->db->query("SELECT * FROM joblist
+																				WHERE perusahaan = $key
+																				AND id_joblist = $id_job");
+		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
+		$this->load->view('web/tampilan_view_company', $isi);
+	}
+
+	public function detailjob_tutup(){
+		$key = $this->uri->segment(3);
+		$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
+		foreach ($id->result() as $row) {
+			$nama = $row->Nama_perusahaan;
+		}
+		$isi['title'] = "Daftar Lowongan | $nama";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "web/konten_detail_pekerjaan_tutup";
+		$isi['joblist'] = $this->db->query("SELECT * FROM joblist
+																				WHERE perusahaan = 1
+																				AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																				AND deadline <= current_date()");
+		$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
+		$this->load->view('web/tampilan_view_company', $isi);
 	}
 
 	function logout(){

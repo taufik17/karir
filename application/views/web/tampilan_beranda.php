@@ -292,7 +292,7 @@
 																	?>
 																	<tr>
 																		<td><?= $no++ ?></td>
-																		<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
+																		<td> <a href="<?= base_url(); ?>company/detailjob_buka/<?= $row->Id_perusahaan ?>/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
 																		<td>
 																			<span style="color: green;">
 																				<i class="fa fa-clock-o">&nbsp <?= $diff->days; ?> Hari Lagi</i>
@@ -325,7 +325,7 @@
 																		?>
 																		<tr>
 																			<td><?= $no++ ?></td>
-																			<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
+																			<td> <a href="<?= base_url(); ?>company/detailjob_buka/<?= $row->Id_perusahaan ?>/<?= $jobbuka->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
 																		</tr>
 																	<?php } ?>
 																</tbody>
@@ -354,7 +354,7 @@
 
 
 					<!-- disini pagination -->
-					<h5>pagination</h5>
+					<!-- <h5>pagination</h5> -->
 					<!-- end pagination -->
 
 				</div>

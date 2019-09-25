@@ -13,13 +13,13 @@ foreach ($data->result() as $row)
 								<small><strong>Lowongan</strong></small>
 							</h5>
 							<ul class="list-sidebar list-group list-group-flush vacancy-menu">
-								<li class="list-group-item active">
+								<li <?= $this->uri->segment(2) == 'lowongan' ? 'class="list-group-item active"' : 'class="list-group-item"'?>>
 									<a href="<?= base_url() ?>company/lowongan/<?= $row->Id_perusahaan; ?>" class="d-block">
 										<i class="fa fa-envelope-open-o mr-2"></i>
 										Lowongan Buka
 									</a>
 								</li>
-								<li class="list-group-item">
+								<li <?= $this->uri->segment(2) == 'lowongan_tutup' ? 'class="list-group-item active"' : 'class="list-group-item"'?>>
 									<a href="<?= base_url() ?>company/lowongan_tutup/<?= $row->Id_perusahaan; ?>" class="d-block">
 										<i class="fa fa-window-close mr-2"></i>
 										Lowongan Tutup
@@ -39,7 +39,7 @@ foreach ($data->result() as $row)
 						<div class="row m-0">
 							<div class="col-lg-10 col-md-9 profile p-3 border-right">
 								<h4 class="mb-1">
-									<a href="<?= base_url() ?>company/detailjob_buka/<?= $row->Id_perusahaan; ?>/<?= $key->id_joblist; ?>" class="txt-orange font-weight-bold" name="lowongan-it-project-manager-it-and-software">
+									<a href="<?= base_url() ?>company/detailjob_tutup/<?= $row->Id_perusahaan; ?>/<?= $key->id_joblist; ?>" class="txt-orange font-weight-bold" name="lowongan-it-project-manager-it-and-software">
 										<?= $key->Nama_joblist; ?>
 									</a>
 								</h4>
@@ -126,7 +126,7 @@ foreach ($data->result() as $row)
 										<span class="d-block font-weight-bold">Pelamar</span>
 									</div>
 									<div class="w-100 text-center">
-										<a href="<?= base_url() ?>company/detailjob_buka/<?= $row->Id_perusahaan; ?>/<?= $key->id_joblist; ?>" class="w-75 btn text-white green btn-success btn-sm mt-2 detailbtn" name="accounting-intern">
+										<a href="<?= base_url() ?>company/detailjob_tutup/<?= $row->Id_perusahaan; ?>/<?= $key->id_joblist; ?>" class="w-75 btn text-white green btn-success btn-sm mt-2 detailbtn" name="accounting-intern">
 											<i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>Detail
 										</a>
 

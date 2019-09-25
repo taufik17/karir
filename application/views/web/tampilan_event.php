@@ -14,19 +14,13 @@
 	</div>
 </section>
 
-<section class="features-area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<div class="single-feature">
-
-					<h1 align="center">Coming Soon</h1>
-
+<section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row">
+						Kalender Event
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-</section>
+			</section>
 
 <br>
 &nbsp

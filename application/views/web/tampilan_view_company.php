@@ -113,7 +113,7 @@ foreach ($data->result() as $row)
 						<li <?= $this->uri->segment(2) == 'view' ? 'class="nav-item active"' : 'class="nav-item"'?>>
 							<a class="nav-link" href="<?= base_url() ?>company/view/<?= $row->Id_perusahaan; ?>">Profil Perusahaan</a>
 						</li>
-						<li <?= $this->uri->segment(2) == 'lowongan' ? 'class="nav-item active"' : 'class="nav-item"'?>>
+						<li <?= $this->uri->segment(2) == 'lowongan' || $this->uri->segment(2) == 'lowongan_tutup' || $this->uri->segment(2) == 'detailjob_buka' || $this->uri->segment(2) == 'detailjob_tutup' ? 'class="nav-item active"' : 'class="nav-item"'?>>
 							<a class="nav-link" href="<?= base_url() ?>company/lowongan/<?= $row->Id_perusahaan; ?>">Lowongan</a>
 						</li>
 					</ul>
