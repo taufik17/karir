@@ -76,7 +76,7 @@
 						</div>
 					</div>
 				</form>
-				<p class="text-white"> <span>Cari Perusahaan:</span> Cari berdasarkan nama perusahaan yang ingin kampu apply.  </p>
+				<p class="text-white"> <span>Cari Perusahaan:</span> Cari berdasarkan nama perusahaan yang sesuai dengan minat kamu.</p>
 			</div>
 		</div>
 	</div>

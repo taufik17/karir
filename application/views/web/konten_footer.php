@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-lg-3  col-md-12">
 				<div class="single-footer-widget">
-					<h6>Contact US</h6>
+					<h6>Contact Us</h6>
 					<ul class="footer-nav">
 						<li>
 							<i class="fa fa-map-marker"></i> Institut Teknologi Sumatera
@@ -535,3 +535,4 @@
 				});
 				</script>
 				<!-- end scroll location -->
+				

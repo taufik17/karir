@@ -1,11 +1,15 @@
 Login
 - Lupa Password
 - Sesuaikan lebar inputan ID PW
+- Setelah logout redirect ke Homepage
 
 Homepage
-# Career Information
+- # Career Information
 
-Akun Job Seeker
+Footer
+- Footer tidak presisi, di bagi 3 sama rata jarak nya
+
+Akun Job Seeker(JS)
 - CV Saya
 - Logout
 - Ubah Sampul
@@ -13,4 +17,4 @@ Akun Job Seeker
 - Melihat View Job
 
 Kondisi
-1. tidak login melihat detail pekerjaan kemudian klik lamar tidak redirect ke halaman login.
+1. JS tidak login dan melihat detail pekerjaan kemudian klik lamar tidak redirect ke halaman login.
