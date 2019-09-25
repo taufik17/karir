@@ -8,7 +8,7 @@
 				<h1 class="text-white">
 					Company Login
 				</h1>
-				<p class="tex-white">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+				<p class="tex-white">Mencari pekerja untuk Indonesia.</p>
 			</div>
 		</div>
 	</div>
