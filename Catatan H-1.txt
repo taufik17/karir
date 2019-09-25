@@ -1,0 +1,16 @@
+Login
+- Lupa Password
+- Sesuaikan lebar inputan ID PW
+
+Homepage
+# Career Information
+
+Akun Job Seeker
+- CV Saya
+- Logout
+- Ubah Sampul
+- # Berita
+- Melihat View Job
+
+Kondisi
+1. tidak login melihat detail pekerjaan kemudian klik lamar tidak redirect ke halaman login.
