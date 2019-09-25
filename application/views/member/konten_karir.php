@@ -6,7 +6,7 @@
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							<div class="mb-3 p-2 box-shadow rounded alert alert-warning">
-								disini adalah daftar karir yang telah di apply dan statusnya, serta histori pekerjaan apa saja yang telah di ambil berbentuk tabel atau list 
+								COMING SOON Karir Saya. 
 							</div>
 						</div>
 					</div>

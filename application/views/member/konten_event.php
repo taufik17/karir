@@ -6,7 +6,7 @@
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							<div class="mb-3 p-2 box-shadow rounded alert alert-warning">
-								disini adalah daftar event yang di ambil oleh akun ini berbentuk tabel atau list 
+								COMING SOON Event Saya. 
 							</div>
 						</div>
 					</div>

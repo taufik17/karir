@@ -31,8 +31,8 @@
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							<div class="mb-3 p-2 box-shadow rounded alert alert-warning">
-								Hai <b><?= $row->nama_jobseeker; ?></b>, selamat datang di aplikasi Itera Carer Center.
-								Saat ini profil cv kamu belum lengkap, Ayo update cv kamu dari sekarang, agar Kamu lebih mudah mencari pekerjaan yang paling tepat. Biarkan perusahaan tahu kualifikasi dan prestasi terbaru kamu melalui cv !
+								Hai <b><?= $row->nama_jobseeker; ?></b>, Selamat datang di Platform ITERA Career Center.
+								Saat ini profil CV kamu belum lengkap, Ayo update CV kamu dari sekarang, agar Kamu lebih mudah mencari pekerjaan yang paling tepat. Biarkan perusahaan tahu kualifikasi dan prestasi terbaru kamu melalui CV!
 							</div>
 						</div>
 					</div>

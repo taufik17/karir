@@ -8,7 +8,7 @@
 				<h1 class="text-white">
 					Member Login
 				</h1>
-				<p class="tex-white">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+				<p class="tex-white">Mencari pekerjaan dengan mitra Institut Teknologi Sumatera.</p>
 			</div>
 		</div>
 	</div>
