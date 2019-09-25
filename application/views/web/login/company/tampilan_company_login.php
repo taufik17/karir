@@ -8,7 +8,7 @@
 				<h1 class="text-white">
 					Company Login
 				</h1>
-				<p class="text-white">Login dan Dapatkan Human Resource Berkualitas</p>
+				<p class="text-white">Login dan dapatkan <em>human resource</em> berkualitas.</p>
 			</div>
 		</div>
 	</div>
