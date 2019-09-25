@@ -161,29 +161,7 @@ foreach ($data->result() as $row)
 													<div class="col-md-7 form-control-plaintext">
 														<div class="requirement-special">
 															<strong>Requirements:</strong><br>
-															<ul>
-																<li>
-																	Male - Maximum Age 24 years old
-																</li>
-																<li>
-																	University Graduate with majoring Chemical Engineer
-																</li>
-																<li>
-																	Have a minimum GPA 3.00 (4.00 scale)
-																</li>
-																<li>
-																	Ability to operate personal computer and fluent in English
-																</li>
-																<li>
-																	Highly motivated to start a career in the Production Department
-																</li>
-																<li>
-																	Hard worker, honest and discipline
-																</li>
-																<li>
-																	Willing to be interviewed and work in Cilegon – Banten
-																</li>
-															</ul>
+															<?= $key->syarat_khusus; ?>
 														</div>
 													</div>
 												</div>

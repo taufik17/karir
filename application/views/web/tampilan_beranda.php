@@ -241,7 +241,7 @@
 											<h4 class="m-0"><a href="<?= base_url(); ?>company/view/<?= $row->Id_perusahaan ?>" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h4>
 											<span class="d-block txt-dark-blue">
 												<?php foreach ($query2->result() as $prov) ?>
-												<?= $prov->nama ?>, Indonesia
+												<p><?= $prov->nama ?>, Indonesia </p>
 											</span>
 											<p class="mb-1 mt-1"><?= $row->deskripsi_perusahaan; ?></p>
 										</div>

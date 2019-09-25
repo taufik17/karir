@@ -3,7 +3,7 @@
 		<a href="<?php echo base_url() ?>">Home</a>
 	</li>
 	<li>
-		<a href="#">CAREER INFORMATION</a>
+		<a href="<?= base_url() ?>Carier_information">CAREER INFORMATION</a>
 	</li>
 	<li <?=$this->uri->segment(1) == 'Event' || $this->uri->segment(1) == 'event' ? 'class="menu-active"' : 'class=""'?>>
 		<a href="<?= base_url() ?>event">EVENT</a>
