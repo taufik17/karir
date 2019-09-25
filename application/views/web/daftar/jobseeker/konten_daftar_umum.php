@@ -19,16 +19,16 @@
 <hr>
 <div class="tab-content" id="daftar_umumContent">
 	<div class="tab-pane fade show active" id="alur_umum" role="tabpanel" aria-labelledby="alur_umum-tab">
-		<h1 align="center">ini alur pendaftaran alumni selain itera</h1>
+		<h1 align="center">Coming Soon Alur Pendaftaran Alumni Non ITERA</h1>
 	</div>
 	<div class="tab-pane fade" id="fitur_umum" role="tabpanel" aria-labelledby="fitur_umum-tab">
-		<h1 align="center">ini fitur alumni selain itera</h1>
+		<h1 align="center">Coming Soon Fitur Alumni Non ITERA.</h1>
 	</div>
 	<div class="tab-pane fade" id="benefit_umum" role="tabpanel" aria-labelledby="benefit_umum-tab">
-		<h1 align="center">ini benefit alumni selain itera</h1>
+		<h1 align="center">Coming Soon Benefit Alumni Non ITERA.</h1>
 	</div>
 	<div class="tab-pane fade" id="event_umum" role="tabpanel" aria-labelledby="event_umum-tab">
-		<h1 align="center">ini event alumni selain itera</h1>
+		<h1 align="center">Coming Soon Event Alumni Non ITERA.</h1>
 	</div>
 </div>
 

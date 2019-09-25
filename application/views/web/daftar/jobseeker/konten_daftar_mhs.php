@@ -18,16 +18,16 @@
 <hr>
 <div class="tab-content" id="daftar_mhs">
 	<div class="tab-pane fade show active" id="alur_mhs" role="tabpanel" aria-labelledby="alur_mhs-tab">
-		<h1 align="center">ini alur pendaftaran mahasiswa</h1>
+		<h1 align="center">Coming SOON Alur Pendaftaran Mahasiswa.</h1>
 	</div>
 	<div class="tab-pane fade" id="fitur_mhs" role="tabpanel" aria-labelledby="fitur_mhs-tab">
-		<h1 align="center">ini fitur mahasiswa</h1>
+		<h1 align="center">Coming Soon Fitur Mahasiswa.</h1>
 	</div>
 	<div class="tab-pane fade" id="benefit_mhs" role="tabpanel" aria-labelledby="benefit_mhs-tab">
-		<h1 align="center">ini benefit mahasiswa</h1>
+		<h1 align="center">Coming Benefit Mahasiswa.</h1>
 	</div>
 	<div class="tab-pane fade" id="event_mhs" role="tabpanel" aria-labelledby="event_mhs-tab">
-		<h1 align="center">ini event mahasiswa</h1>
+		<h1 align="center">Coming Event Mahasiswa.</h1>
 	</div>
 </div>
 
