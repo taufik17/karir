@@ -37,7 +37,7 @@
 			</div>
 		</div>
 
-		<div class="box box-danger">
+		<!-- <div class="box box-danger">
 			<div class="box-header with-border">
 				<h3 class="box-title">Data Permohonan Validasi Pekerjaan</h3>
 
@@ -46,7 +46,7 @@
 					</button>
 				</div>
 			</div>
-			<!-- /.box-header -->
+			
 			<div class="box-body">
 				<table class="table table-bordered table-hover datatable" id="example1">
 					<thead>
@@ -62,6 +62,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
+		</div> -->
 	</section>
 </div>

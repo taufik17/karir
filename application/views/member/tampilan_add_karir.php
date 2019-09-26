@@ -45,67 +45,70 @@
 						?>
 
 						<?php
-						$query = $this->db->query("SELECT pekerjaan, COUNT(*) as jumlah, Nama_joblist, deadline, status, perusahaan,id_joblist
-						FROM lamaran
-						NATURAL JOIN joblist
-						WHERE pekerjaan = id_joblist
-						AND status = '<span class=\"label label-success\">Telah tayang</span>'
-						AND perusahaan = $row->Id_perusahaan
-						GROUP BY pekerjaan;");
+						$query = $this->db->query("SELECT * FROM joblist
+																								WHERE perusahaan = $row->Id_perusahaan
+        																				AND status = '<span class=\"label label-success\">Telah tayang</span>'
+        																				AND deadline >= current_date();");
+						$query_tutup = $this->db->query("SELECT * FROM joblist
+																								WHERE perusahaan = $row->Id_perusahaan
+																		        		AND status = '<span class=\"label label-success\">Telah tayang</span>'
+																		        		AND deadline <= current_date();");
 						$query2 = $this->db->query("SELECT nama FROM provinsi
-							WHERE id = ( SELECT id_provinsi FROM company WHERE Id_perusahaan = $row->Id_perusahaan )");
+																				WHERE id = ( SELECT id_provinsi
+																										 FROM company
+																										 WHERE Id_perusahaan = $row->Id_perusahaan )");
 							?>
 
-							<div class="card">
-								<div class="card-header" id="heading-<?= $row->Id_perusahaan ?>">
-									<div class="single-post row">
-										<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
-											<a class="comp-logo col-md-2 pl-0 pr-3" href="<?= base_url(); ?>company/view">
-												<img class="box-shadow p-1" src="<?= base_url() ?>assets/gambar/company/profil/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
-											</a>
-											<div>
-												<h4 class="m-0"><a href="<?= base_url(); ?>company/view" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h4>
-												<span class="d-block txt-dark-blue">
-													<?php foreach ($query2->result() as $prov) ?>
-													<?= $prov->nama ?>, Indonesia
-												</span>
-												<p class="mb-1 mt-1"><?= $row->deskripsi_perusahaan; ?></p>
-											</div>
+						<div class="card">
+							<div class="card-header" id="heading-<?= $row->Id_perusahaan ?>">
+								<div class="single-post row">
+									<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+										<a class="comp-logo col-md-2 pl-0 pr-3" href="<?= base_url(); ?>company/view/<?= $row->Id_perusahaan ?>">
+											<img class="box-shadow p-1" src="<?= base_url() ?>assets/gambar/company/profil/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
+										</a>
+										<div>
+											<h4 class="m-0"><a href="<?= base_url(); ?>company/view/<?= $row->Id_perusahaan ?>" class="txt-dark-blue"><strong><?= $row->Nama_perusahaan; ?></strong></a></h4>
+											<span class="d-block txt-dark-blue">
+												<?php foreach ($query2->result() as $prov) ?>
+												<p><?= $prov->nama ?>, Indonesia </p>
+											</span>
+											<p class="mb-1 mt-1"><?= $row->deskripsi_perusahaan; ?></p>
 										</div>
-										<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
-											<div class="w-100">
-												<?php
-												$count = 0;
-												foreach ($query->result() as $jobbuka)
-												$count++
-												?>
-												<h1><?= $count ?></h1>
-												<span>Lowongan</span>
-												<h5 class="mb-0">
-													<a data-toggle="collapse" class="<?= $kelas; ?>" href="#collapse-<?= $row->Id_perusahaan ?>" aria-expanded="<?= $ekspand; ?>" aria-controls="collapse-<?= $row->Id_perusahaan ?>">
-													</a>
-												</h5>
-											</div>
+									</div>
+									<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">
+										<div class="w-100">
+											<?php
+											$count = 0;
+											foreach ($query->result() as $jobbuka)
+											$count++
+											?>
+										<h1><?= $count ?></h1>
+											<span>Lowongan</span>
+											<h5 class="mb-0">
+												<a data-toggle="collapse" class="<?= $kelas; ?>" href="#collapse-<?= $row->Id_perusahaan ?>" aria-expanded="<?= $ekspand; ?>" aria-controls="collapse-<?= $row->Id_perusahaan ?>">
+												</a>
+											</h5>
 										</div>
 									</div>
 								</div>
-								<div id="collapse-<?= $row->Id_perusahaan ?>" class="<?= $col; ?>" data-parent="#accordion" aria-labelledby="heading-<?= $row->Id_perusahaan ?>">
-									<div class="card-body">
-										<ul class="nav nav-tabs nav-justified" role="tablist">
-											<li class="nav-item">
-												<a class="nav-link active" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>1">Lowongan Buka</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>2">Lowongan Tutup</a>
-											</li>
-										</ul>
+							</div>
+							<div id="collapse-<?= $row->Id_perusahaan ?>" class="<?= $col; ?>" data-parent="#accordion" aria-labelledby="heading-<?= $row->Id_perusahaan ?>">
+								<div class="card-body">
+									<ul class="nav nav-tabs nav-justified" role="tablist">
+										<li class="nav-item">
+											<a class="nav-link active rounded-0" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>1">Lowongan Buka</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link rounded-0" data-toggle="tab" href="#<?= $row->Id_perusahaan; ?>2">Lowongan Tutup</a>
+										</li>
+									</ul>
 
-										<!-- Tab panes -->
-										<div class="tab-content">
-											<div id="<?= $row->Id_perusahaan; ?>1" class="container tab-pane active">
-												<div class="box-body">
-													<table class="table table-striped">
-														<tbody>
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<div id="<?= $row->Id_perusahaan; ?>1" class="container tab-pane active">
+											<div class="box-body">
+												<table class="table table-striped">
+													<tbody>
 															<?php
 															if ($query->num_rows() > 0) {
 																$no = 1;
@@ -118,12 +121,11 @@
 																	?>
 																	<tr>
 																		<td><?= $no++ ?></td>
-																		<td> <a href="<?= base_url(); ?>add_karir/viewjob/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
+																		<td> <a href="<?= base_url(); ?>company/detailjob_buka/<?= $row->Id_perusahaan ?>/<?= $jobbuka->id_joblist ?>"><?= $jobbuka->Nama_joblist; ?></a></td>
 																		<td>
-																			<i class="fa fa-users">&nbsp<?= $jobbuka->jumlah ?> pelamar</i>
-																		</td>
-																		<td>
-																			<i class="fa fa-clock-o">&nbsp <?= $diff->days; ?> Hari Lagi</i>
+																			<span style="color: green;">
+																				<i class="fa fa-clock-o">&nbsp <?= $diff->days; ?> Hari Lagi</i>
+																			</span>
 																		</td>
 																	</tr>
 																<?php } ?>
@@ -142,11 +144,31 @@
 
 											</div>
 											<div id="<?= $row->Id_perusahaan; ?>2" class="container tab-pane fade"><br>
-												<table class="table table-striped">
-													<tbody>
-														<h5 align="center">Kosong</h5>
-													</tbody>
-												</table>
+												<div class="box-body">
+													<table class="table table-striped">
+														<tbody>
+																<?php
+																if ($query->num_rows() > 0) {
+																	$no = 1;
+																	foreach ($query_tutup->result() as $jobtutup) {
+																		?>
+																		<tr>
+																			<td><?= $no++ ?></td>
+																			<td> <a href="<?= base_url(); ?>company/detailjob_buka/<?= $row->Id_perusahaan ?>/<?= $jobbuka->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
+																		</tr>
+																	<?php } ?>
+																</tbody>
+															</table>
+														<?php }
+														else {
+															?>
+															<table class="table table-striped">
+																<tbody>
+																	<h5 align="center">Kosong</h5>
+																</tbody>
+															</table>
+														<?php } ?>
+													</div>
 
 											</div>
 										</div>
@@ -161,7 +183,7 @@
 
 
 
-					<ul class="pagination justify-content-center p-3"><li class="prev disabled"><span>«</span></li>
+					<!-- <ul class="pagination justify-content-center p-3"><li class="prev disabled"><span>«</span></li>
 						<li class="active"><a href="/vacancy/site/index?page=1&amp;per-page=6" data-page="0">1</a></li>
 						<li><a href="/vacancy/site/index?page=2&amp;per-page=6" data-page="1">2</a></li>
 						<li><a href="/vacancy/site/index?page=3&amp;per-page=6" data-page="2">3</a></li>
@@ -172,7 +194,7 @@
 						<li><a href="/vacancy/site/index?page=8&amp;per-page=6" data-page="7">8</a></li>
 						<li><a href="/vacancy/site/index?page=9&amp;per-page=6" data-page="8">9</a></li>
 						<li><a href="/vacancy/site/index?page=10&amp;per-page=6" data-page="9">10</a></li>
-						<li class="next"><a href="/vacancy/site/index?page=2&amp;per-page=6" data-page="1">»</a></li></ul>
+						<li class="next"><a href="/vacancy/site/index?page=2&amp;per-page=6" data-page="1">»</a></li></ul> -->
 					</div>
 				</div>
 			</div>
