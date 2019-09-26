@@ -7,7 +7,7 @@
 				<h1 class="text-white">
 					Daftarkan Dirimu
 				</h1>
-				<p class="tex-white">Dan mulailah menyusun rencana karir terbaikmu</p>
+				<p class="text-white">Dan mulailah menyusun rencana karir terbaikmu</p>
 			</div>
 		</div>
 	</div>

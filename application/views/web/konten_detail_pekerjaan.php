@@ -174,7 +174,7 @@ foreach ($data->result() as $row)
 													<label class="col-6 col-md-4 col-form-label">Penempatan</label>
 													<div class="col-md-7 form-control-plaintext">
 														<div class="location">:
-															<span>Provinsi Banten</span>
+															<span>Provinsi Lampung</span>
 														</div>
 													</div>
 												</div>

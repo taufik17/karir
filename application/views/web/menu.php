@@ -2,13 +2,13 @@
 	<li <?=$this->uri->segment(1) == 'Beranda' || $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == '' ? 'class="menu-active"' : 'class=""'?>>
 		<a href="<?php echo base_url() ?>">Home</a>
 	</li>
-	<li>
-		<a href="<?= base_url() ?>Carier_information">CAREER INFORMATION</a>
+	<li <?=$this->uri->segment(1) == 'carier_information' || $this->uri->segment(1) == 'Carier_information' ? 'class="menu-active"' : 'class=""'?>>
+		<a href="<?= base_url() ?>carier_information">CAREER INFORMATION</a>
 	</li>
 	<li <?=$this->uri->segment(1) == 'Event' || $this->uri->segment(1) == 'event' ? 'class="menu-active"' : 'class=""'?>>
 		<a href="<?= base_url() ?>event">EVENT</a>
 	</li>
-	<li>
+	<li <?=$this->uri->segment(1) == 'faq' || $this->uri->segment(1) == 'Faq' ? 'class="menu-active"' : 'class=""'?>>
 		<a href="<?= base_url() ?>faq">FAQ</a>
 	</li>
 

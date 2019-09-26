@@ -8,6 +8,7 @@
 						<h5 class="p-2 text-black text-center">
 							<strong>Cari Lowongan Buka</strong>
 						</h5>
+
 						<form id="form_search_sidebar" class="p-2" action="/vacancy/site/index" method="GET">
 							<button type="submit" class="btn green text-white center rounded btn-sm h-100">Cari</button>
 						</form>
@@ -17,7 +18,8 @@
 			<div class="vacancy-list col-md-9" id="printThisViewIndex">
 				<div class="summary row align-items-center mt-4">
 					<div class="col-sm-8 col-md-8 text-right">
-						<span class="text-muted mr-3">Menampilkan 1 - 10 dari 1514 Online Company</span>
+						<!-- <span class="text-muted mr-3">Menampilkan 1 - 10 dari 1514 Online Company</span> -->
+						&nbsp
 					</div>
 
 					<div class="col-sm-4 col-md-4 text-right">

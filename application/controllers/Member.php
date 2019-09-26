@@ -34,7 +34,23 @@ class Member extends CI_Controller {
 	}
 
 	function cv(){
+		$this->model_keamanan->getkeamananuser();
+		$username_user = $this->session->userdata('username_user');
+		$role_user = $this->session->userdata('role_user');
+		$isi['data'] = $this->db->query("SELECT * FROM jobseeker WHERE id_akun = (SELECT id_akun FROM user WHERE username = '$username_user')");
+		$isi['title'] = "ICC | CV - $username_user";
+		$isi['konten'] = "member/konten_cv";
+		$this->load->view('member/tampilan_dashboard_member', $isi);
+	}
 
+	function pemintan(){
+		$this->model_keamanan->getkeamananuser();
+		$username_user = $this->session->userdata('username_user');
+		$role_user = $this->session->userdata('role_user');
+		$isi['data'] = $this->db->query("SELECT * FROM jobseeker WHERE id_akun = (SELECT id_akun FROM user WHERE username = '$username_user')");
+		$isi['title'] = "ICC | Peminatan - $username_user";
+		$isi['konten'] = "member/konten_peminatan";
+		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
 
 	function logout(){
