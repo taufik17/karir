@@ -16,11 +16,21 @@
 			<i class="fa fa-newspaper-o fa-lg">&nbsp</i>
 			Berita</a>
 	</li>
-	<li>
+
+	<li <?= $this->uri->segment(1) == 'berita' ? 'class="menu-active"' : 'class=""'?>>
+		<a href="<?= base_url(); ?>member/logout">
+			<i class="fa fa-sign-out fa-lg">&nbsp</i>
+			Logout</a>
+	</li>
+
+	<!-- <li>
 		<div class="foto-profil">
 			<div class="pull-left image">
 				<img class="img-circle" alt="User Image" src="<?= base_url() ?>assets/gambar/member/profil/<?= $row->foto; ?>">
+				<div class="dropdown-menu p-0" aria-labelledby="profil">
+					<button class="dropdown-item dropdown-item text-center p-2 border-bottom small" type="button">Logout</button>
+				</div>
 			</div>
 		</div>
-	</li>
+	</li> -->
 </ul>
