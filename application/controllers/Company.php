@@ -183,6 +183,6 @@ class Company extends CI_Controller {
 	function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_user);
-		redirect('login/company');
+		redirect('beranda');
 	}
 }

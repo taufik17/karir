@@ -57,6 +57,6 @@ class Member extends CI_Controller {
 		$this->model_keamanan->getkeamananuser();
 		$this->session->sess_destroy();
 		$this->session->unset_userdata($sess_user);
-		redirect('login/member');
+		redirect('beranda');
 	}
 }
