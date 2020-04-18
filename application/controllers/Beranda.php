@@ -17,7 +17,15 @@ class Beranda extends CI_Controller {
 			$isi['provinsi'] = $this->model_data->provinsi();
 			$isi['jenis_industri'] = $this->model_data->jenis_industri();
 			$isi['event'] = $this->model_data->event();
-			$isi['data_list'] = $this->model_data->data_list();
+
+			//pagination
+			$config['base_url'] = "http://localhost/karir/beranda/index";
+			$config['total_rows'] = $this->model_data->jmlhPerusahaanBuka();
+			$config['per_page'] = 5;
+
+			$this->pagination->initialize($config);
+
+			$isi['data_list'] = $this->model_data->data_list(5, 1);
 			$this->load->view('web/tampilan_beranda',$isi);
 		}
 	}

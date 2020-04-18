@@ -258,13 +258,20 @@ class Model_data extends CI_model {
 		return $hasil;
 	}
 
-	function data_list() {
+	function data_list($limit, $start) {
 		$hasil = $this->db->query("SELECT DISTINCT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan
 						FROM company
             NATURAL join joblist
             WHERE status = '<span class=\"label label-success\">Telah tayang</span>'
-            AND id_perusahaan = perusahaan");
+            AND id_perusahaan = perusahaan LIMIT $limit OFFSET $start");
 		return $hasil;
+	}
+
+	function jmlhPerusahaanBuka()
+	{
+		return $this->db->query("SELECT perusahaan FROM joblist
+																WHERE status = '<span class=\"label label-success\">Telah tayang</span>'
+																AND deadline >= current_date();")->num_rows();
 	}
 
 	function cari($prov, $kategori){

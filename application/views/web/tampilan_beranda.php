@@ -224,7 +224,7 @@
 						$query_buka = $this->db->query("SELECT perusahaan FROM joblist
 																				WHERE status = '<span class=\"label label-success\">Telah tayang</span>'
 																				AND deadline >= current_date();");
-																				
+
 						$query_tutup = $this->db->query("SELECT * FROM joblist
 																								WHERE perusahaan = $row->Id_perusahaan
 																		        		AND status = '<span class=\"label label-success\">Telah tayang</span>'
@@ -367,12 +367,12 @@
 							<br>
 
 						<?php } ?>
-
 					</div>
 
 
 					<!-- disini pagination -->
-					<!-- <h5>pagination</h5> -->
+
+					<?= $this->pagination->create_links(); ?>
 					<!-- end pagination -->
 
 				</div>
