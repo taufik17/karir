@@ -230,6 +230,19 @@
 																										 WHERE Id_perusahaan = $row->Id_perusahaan )");
 							?>
 
+							<?php
+							$hitung_buka = 0;
+							foreach ($query->result() as $jobbuka)
+							$hitung_buka++
+							?>
+
+							<?php
+							if ($hitung_buka > 1) { ?>
+
+							<?php } else { ?>
+
+							<?php } ?>
+
 						<div class="card">
 							<div class="card-header" id="heading-<?= $row->Id_perusahaan ?>">
 								<div class="single-post row">
@@ -319,13 +332,13 @@
 													<table class="table table-striped">
 														<tbody>
 																<?php
-																if ($query->num_rows() > 0) {
+																if ($query_tutup->num_rows() > 0) {
 																	$no = 1;
 																	foreach ($query_tutup->result() as $jobtutup) {
 																		?>
 																		<tr>
 																			<td><?= $no++ ?></td>
-																			<td> <a href="<?= base_url(); ?>company/detailjob_buka/<?= $row->Id_perusahaan ?>/<?= $jobbuka->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
+																			<td> <a href="<?= base_url(); ?>company/detailjob_tutup/<?= $row->Id_perusahaan ?>/<?= $jobtutup->id_joblist ?>"><?= $jobtutup->Nama_joblist; ?></a></td>
 																		</tr>
 																	<?php } ?>
 																</tbody>
