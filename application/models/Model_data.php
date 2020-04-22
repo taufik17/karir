@@ -267,6 +267,20 @@ class Model_data extends CI_model {
 		return $hasil;
 	}
 
+	public function data_list_ajax($limit,$start) {
+		$this->db->distinct();
+		$this->db->select('Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan');
+		$this->db->from('company');
+		$this->db->join('joblist', 'id_perusahaan = perusahaan');
+		$where = "<span class=\"label label-success\">Telah tayang</span>";
+		$this->db->where('status', $where);
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+		return $query;
+	}
+
+
+
 	function jmlhPerusahaanBuka()
 	{
 		return $this->db->query("SELECT perusahaan FROM joblist

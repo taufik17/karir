@@ -19,14 +19,100 @@ class Beranda extends CI_Controller {
 			$isi['event'] = $this->model_data->event();
 
 			//pagination
-			$config['base_url'] = "http://localhost/karir/beranda/index";
+			$config['base_url'] = base_url().'beranda/pagination';
 			$config['total_rows'] = $this->model_data->jmlhPerusahaanBuka();
 			$config['per_page'] = 5;
 
-			$this->pagination->initialize($config);
+			// styling
+			$config['full_tag_open'] = '<nav> <ul class="pagination justify-content-center">';
+			$config['full_tag_close'] = ' </ul> </nav>';
+			$config['first_link'] = 'First';
+			$config['first_tag_open'] = '<li class="page-item">';
+			$config['first_tag_close'] = '</li>';
 
-			$isi['data_list'] = $this->model_data->data_list(5, 1);
+			$config['last_link'] = 'Last';
+			$config['last_tag_open'] = '<li class="page-item">';
+			$config['last_tag_close'] = '</li>';
+
+			$config['next_link'] = '&raquo';
+			$config['next_tag_open'] = '<li class="page-item">';
+			$config['next_tag_close'] = '</li>';
+
+			$config['left_link'] = '&laquo';
+			$config['left_tag_open'] = '<li class="page-item">';
+			$config['left_tag_close'] = '</li>';
+
+			$config['cur_tag_open'] = '<li class="page-item active"> <a class="page-link" href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$config['num_tag_open'] = '<li class="page-item">';
+			$config['num_tag_close'] = '</li>';
+
+			$config['attributes'] = array('class' => 'page-link');
+
+			$config['first_url'] = base_url();
+
+			$this->pagination->initialize($config);
+			$isi['start'] = $this->uri->segment(3);
+			$isi['data_list'] = $this->model_data->data_list_ajax($config['per_page'], $isi['start']);
 			$this->load->view('web/tampilan_beranda',$isi);
+		}
+	}
+
+	public function pagination()
+	{
+		$username_user = $this->session->userdata('username_user');
+		$role_user = $this->session->userdata('role_user');
+		if ($role_user == '1') {
+			redirect('company');
+		}
+		if ($role_user == '2') {
+			redirect('member');
+		}
+		else {
+			$isi['title'] = "ITERA | Career Center";
+			$isi['provinsi'] = $this->model_data->provinsi();
+			$isi['jenis_industri'] = $this->model_data->jenis_industri();
+			$isi['event'] = $this->model_data->event();
+
+			//pagination
+			$config['base_url'] = "http://localhost/karir/beranda/pagination";
+			$config['total_rows'] = $this->model_data->jmlhPerusahaanBuka();
+			$config['per_page'] = 5;
+
+			$config['full_tag_open'] = '<nav> <ul class="pagination justify-content-center">';
+			$config['full_tag_close'] = ' </ul> </nav>';
+			$config['first_link'] = 'First';
+			$config['first_tag_open'] = '<li class="page-item">';
+			$config['first_tag_close'] = '</li>';
+
+			$config['last_link'] = 'Last';
+			$config['last_tag_open'] = '<li class="page-item">';
+			$config['last_tag_close'] = '</li>';
+
+			$config['next_link'] = '&raquo';
+			$config['next_tag_open'] = '<li class="page-item">';
+			$config['next_tag_close'] = '</li>';
+
+			$config['prev_link'] = '&laquo';
+			$config['prev_tag_open'] = '<li class="page-item">';
+			$config['prev_tag_close'] = '</li>';
+
+			$config['cur_tag_open'] = '<li class="page-item active"> <a class="page-link" href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$config['num_tag_open'] = '<li class="page-item">';
+			$config['num_tag_close'] = '</li>';
+
+			$config['attributes'] = array('class' => 'page-link');
+
+			$config['first_url'] = base_url();
+
+			$this->pagination->initialize($config);
+			$isi['start'] = $this->uri->segment(3);
+			$isi['data_list'] = $this->model_data->data_list_ajax($config['per_page'], $isi['start']);
+			$isi['konten'] = "web/konten_pagination";
+			$this->load->view('web/tampilan_beranda_pagination',$isi);
 		}
 	}
 

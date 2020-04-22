@@ -187,7 +187,6 @@
 
 <!-- Start post Area -->
 <section class="post-area section-gap">
-
 	<div class="container">
 		<div class="row justify-content-center d-flex">
 			<div class="col-lg-8 post-list">
@@ -233,13 +232,13 @@
 																				WHERE id = ( SELECT id_provinsi
 																										 FROM company
 																										 WHERE Id_perusahaan = $row->Id_perusahaan )");
-							?>
+						?>
 
-							<?php
-							$hitung_buka = 0;
-							foreach ($query->result() as $jobbuka)
-							$hitung_buka++
-							?>
+						<?php
+						$hitung_buka = 0;
+						foreach ($query->result() as $jobbuka)
+						$hitung_buka++
+						?>
 
 							<?php
 							if ($hitung_buka >= 1) { ?>
