@@ -43,7 +43,7 @@ class Member extends CI_Controller {
 		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
 
-	function pemintan(){
+	function peminatan(){
 		$this->model_keamanan->getkeamananuser();
 		$username_user = $this->session->userdata('username_user');
 		$role_user = $this->session->userdata('role_user');

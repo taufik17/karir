@@ -3,7 +3,7 @@
 	<li <?= $this->uri->segment(1) == 'member' ? 'class="menu-active"' : 'class=""'?>>
 		<a href="<?php echo base_url() ?>">
 			<i class="fa fa-home fa-lg">&nbsp</i>
-			Beranda
+			Dashboard
 		</a>
 	</li>
 	<li <?= $this->uri->segment(1) == 'add_karir' ? 'class="menu-active"' : 'class=""'?>>

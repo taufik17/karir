@@ -29,6 +29,16 @@ class Company extends CI_Controller {
 		$this->load->view('company/tampilan_dashboard_company',$isi);
 	}
 
+	public function profilCompany()
+	{
+		$this->model_keamanan->getkeamananuser();
+		$isi['title'] = "ICC | Profil Perusahaan";
+		$isi['menu'] = "company/menu/menu";
+		$isi['konten'] = "company/konten/konten_profil";
+		$isi['profil_company'] = $this->model_data->profil_company();
+		$this->load->view('company/tampilan_dashboard_company',$isi);
+	}
+
 	public function listjob(){
 		$this->model_keamanan->getkeamananuser();
 		$isi['title'] = "ICC | List Pekerjaan";

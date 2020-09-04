@@ -21,6 +21,7 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    
     <div id="responseDiv3" class="alert alert-danger alert-mg-b" style="margin-left:20px; margin-right:20px;  display:none;">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>

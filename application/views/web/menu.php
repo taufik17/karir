@@ -12,13 +12,31 @@
 		<a href="<?= base_url() ?>faq">FAQ</a>
 	</li>
 
-	<li class="menu-has-children"><a class="ticker-btn" style="color:white">Daftar&nbsp&nbsp</a>
-					<ul style="display: none;">
-			<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
-			<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
-					</ul>
-				</li>
-	<li>
-		<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
-	</li>
+	<?php
+	$role_user = $this->session->userdata('role_user');
+
+	if ($role_user == '1') { ?>
+		<li>
+			<a href="<?= base_url() ?>company" class="ticker-btn">Dashboard</a>
+		</li>
+	<?php }
+	else if ($role_user == '2') { ?>
+		<li>
+			<a href="<?= base_url() ?>member" class="ticker-btn">Member</a>
+		</li>
+	<?php }
+	else { ?>
+		<li class="menu-has-children"><a class="ticker-btn" style="color:white">Daftar&nbsp&nbsp</a>
+						<ul style="display: none;">
+				<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
+				<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
+						</ul>
+					</li>
+		<li>
+			<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
+		</li>
+	<?php } ?>
+
+
+
 </ul>

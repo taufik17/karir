@@ -40,7 +40,7 @@
             <li>
               <?php foreach ($profil_company->result() as $nama ) {
                 ?>
-                <a href="<?php echo base_url() ?>ProfilDosen"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama_perusahaan ?></a>
+                <a href="<?php echo base_url() ?>company/profilcompany"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama_perusahaan ?></a>
               <?php }?>
             </li>
             <li>

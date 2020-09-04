@@ -1,3 +1,12 @@
+<ul class="sidebar-menu">
+	<li>
+		<a href="<?= base_url(); ?>">
+			<i class="fa fa-home"></i>
+			<span>Home</span>
+		</a>
+	</li>
+</ul>
+
 <ul class="sidebar-menu" data-widget="tree">
 	<li class="header">MENU UTAMA</li>
 	<li <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == 'dashboard' || $this->uri->segment(2) == '' ? 'class="active"' : 'class=""'?> >

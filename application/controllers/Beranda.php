@@ -6,13 +6,7 @@ class Beranda extends CI_Controller {
 	{
 		$username_user = $this->session->userdata('username_user');
 		$role_user = $this->session->userdata('role_user');
-		if ($role_user == '1') {
-			redirect('company');
-		}
-		if ($role_user == '2') {
-			redirect('member');
-		}
-		else {
+
 			$isi['title'] = "ITERA | Career Center";
 			$isi['provinsi'] = $this->model_data->provinsi();
 			$isi['jenis_industri'] = $this->model_data->jenis_industri();
@@ -56,7 +50,19 @@ class Beranda extends CI_Controller {
 			$isi['start'] = $this->uri->segment(3);
 			$isi['data_list'] = $this->model_data->data_list_ajax($config['per_page'], $isi['start']);
 			$this->load->view('web/tampilan_beranda',$isi);
+
+	}
+
+	public function redirect()
+	{
+		$role_user = $this->session->userdata('role_user');
+		if ($role_user == '1') {
+			redirect('company');
 		}
+		if ($role_user == '2') {
+			redirect('member');
+		}
+
 	}
 
 	public function pagination()
