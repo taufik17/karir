@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Sep 2019 pada 02.21
+-- Waktu pembuatan: 04 Sep 2020 pada 06.09
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -110,7 +110,12 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Logo_perusahaan`, `sampul`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
 (1, 2, 'ITERA', 'Taufik Agung Santoso', 'taufikagungsantoso17@gmail.com', 'mail@itera.ac.id', 'Institut Teknologi Sumatera (ITERA) merupakan perguruan tinggi negeri baru yang berdiri sejak 6 Oktober 2014 dan berlokasi di Lampung.', 35, '18', '1803', 'itera.png', 'sampul_itera.png', 'http://itera.ac.id', '085357037094', '085364759837', '082345763098', 'jl ryacudu lampung selatan', '35365', '2019-09-25 23:11:32'),
-(2, 11, 'PGN', 'taufik', 'taufik@gmail.com', 'surya@gmail.com', 'PT Perusahaan Gas Negara Tbk, is an Indonesian natural gas transportation and distribution company. The total length of distribution pipelines of the company is 3,187 km that serve around 84 million customers.', 33, '18', '1803', 'pgn.png', 'sampul_default.png', 'surya.com', '083749408283', '0849239472739', '94829371939', 'jl 2 korpri jaya', '35365', '2019-09-25 23:10:01');
+(2, 11, 'PGN', 'taufik', 'taufik@gmail.com', 'surya@gmail.com', 'PT Perusahaan Gas Negara Tbk, is an Indonesian natural gas transportation and distribution company. The total length of distribution pipelines of the company is 3,187 km that serve around 84 million customers.', 33, '18', '1803', 'pgn.png', 'sampul_default.png', 'surya.com', '083749408283', '0849239472739', '94829371939', 'jl 2 korpri jaya', '35365', '2019-09-25 23:10:01'),
+(3, 22, 'taufiksan', 'taufik agung santoso', 'taufikagungsantoso17@gmail.com', 'taufiksan@gmail.com', 'perusahaan teknologi', 36, '71', '1117', 'default.png', 'sampul_default.png', 'taufiksan.com', '086382938', '083749232', '083872839', 'jajaran baru', '', '2020-04-18 19:51:13'),
+(5, 23, 'ilman', 'ilman', 'ilman@ilman', 'ilman@gmail.com', 'ilman industri', 33, '36', '1114', 'default.png', 'sampul_default.png', 'ilman.com', '0987654', '0987654', '09876', 'jajaran', '31657', '2020-04-22 10:09:22'),
+(6, 24, 'purwati', 'purwati', 'purwati@purwati', 'purwati@gmail.com', 'deskripsi', 33, '52', '1171', 'default.png', 'sampul_default.png', 'purwati.com', '098765', '098765', '098765', 'jajran baru', '31657', '2020-04-22 10:12:32'),
+(7, 13, 'nocturnal', 'mhd yudi', 'mhd@nocturnal', 'mhd@gmail.com', 'nocturnal production', 36, '64', '1101', 'default.png', 'sampul_default.png', 'nocturnal.com', '098765', '0987654', '0987654', 'lampung', '2344', '2020-04-22 10:33:18'),
+(8, 26, 'Musi Rawas', 'Musi Rawas', 'musirawas@gmail.com', 'musirawas@gmail.com', '', 33, '16', '1606', 'default.png', 'sampul_default.png', 'muisrawas.com', '085357037093', '085357037093', '085357037093', 'beliti', '31657', '2020-09-03 07:02:51');
 
 -- --------------------------------------------------------
 
@@ -159,14 +164,18 @@ CREATE TABLE `joblist` (
 --
 
 INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `min_lulus`, `syarat_khusus`, `status`, `tanggal_buat`, `tanggal_verif`) VALUES
-(5, 'Content Creator', '1', 2, '0000-00-00', 50, '<p>membuat content youtube</p>\r\n', 0, '<ul>\r\n	<li>sanggup bekerja dalam tekanan.</li>\r\n	<li>bersedia ditempatkan di jakarta</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(6, 'Web Developer', '1', 2, '2019-09-30', 7, '<p>memahami html, css dan javascript</p>\r\n', 0, '<p>sanggup bekerja secara tim</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(7, 'Content Creator ', '2', 2, '2019-11-01', 10, '<p>membuat konten instagram</p>\r\n', 0, '<p>ditempatkan dijakarta</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(23, 'Dosen Teknik Industri', '1', 1, '2019-10-05', 10, '<p>menjadi dosen teknik industri di itera</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(24, 'Dosen Teknik Sipil', '1', 1, '2019-10-05', 10, '<p>menjadi dosen teknik sipil ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(25, 'Dosen Teknik Elektro', '1', 1, '2019-09-30', 10, '<p>menjadi dosen teknik Elektro di ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(26, 'penulis', '1', 1, '2019-09-23', 10, '<p>dapat menulis</p>\r\n', 3, '<p>style ok</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(29, 'Dosen Teknik Mesin', '1', 1, '2019-09-30', 5, '<p>Dosen Teknik Mesin Institut Teknologi Sumatera</p>\r\n', 4, '<ul style=\"margin-left:0px; margin-right:0px\">\r\n	<li>Laki-laki/perempuan, usia maksimal 35 tahun</li>\r\n	<li>Sehat jasmani, rohani dan bebas narkoba</li>\r\n	<li>Pendidikan S-1 Teknik Mesin, IPK minimal 3.25, pendidikan S-2 Teknik Mesin, IPK minimal 3.25</li>\r\n	<li>Menguasai bahasa Inggris aktif dan pasif</li>\r\n</ul>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL);
+(5, 'Content Creator', '1', 2, '2020-08-28', 50, '<p>membuat content youtube</p>\r\n', 0, '<ul>\r\n	<li>sanggup bekerja dalam tekanan.</li>\r\n	<li>bersedia ditempatkan di jakarta</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(6, 'Web Developer', '1', 2, '2021-08-27', 7, '<p>memahami html, css dan javascript</p>\r\n', 0, '<p>sanggup bekerja secara tim</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(7, 'Content Creator ', '2', 2, '2020-09-30', 10, '<p>membuat konten instagram</p>\r\n', 0, '<p>ditempatkan dijakarta</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(23, 'Dosen Teknik Industri', '1', 1, '2020-08-29', 10, '<p>menjadi dosen teknik industri di itera</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(24, 'Dosen Teknik Sipil', '1', 1, '2020-09-30', 10, '<p>menjadi dosen teknik sipil ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(25, 'Dosen Teknik Elektro', '1', 1, '2020-04-25', 10, '<p>menjadi dosen teknik Elektro di ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(26, 'penulis', '1', 1, '2020-08-26', 10, '<p>dapat menulis</p>\r\n', 3, '<p>style ok</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(29, 'Dosen Teknik Mesin', '1', 1, '2020-04-30', 5, '<p>Dosen Teknik Mesin Institut Teknologi Sumatera</p>\r\n', 4, '<ul style=\"margin-left:0px; margin-right:0px\">\r\n	<li>Laki-laki/perempuan, usia maksimal 35 tahun</li>\r\n	<li>Sehat jasmani, rohani dan bebas narkoba</li>\r\n	<li>Pendidikan S-1 Teknik Mesin, IPK minimal 3.25, pendidikan S-2 Teknik Mesin, IPK minimal 3.25</li>\r\n	<li>Menguasai bahasa Inggris aktif dan pasif</li>\r\n</ul>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '2020-07-27', NULL),
+(30, 'web developer', '2', 3, '2020-04-30', 100, 'mampu codeigniter', 2, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-19', '2020-04-19'),
+(31, 'kasir', '3', 6, '2020-04-30', 4, 'kasir', 3, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-22', '2020-04-22'),
+(32, 'kasir', '1', 5, '2020-04-30', 5, 'kasir', 2, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
+(33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, 'menguasai desain', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22');
 
 -- --------------------------------------------------------
 
@@ -197,7 +206,8 @@ INSERT INTO `jobseeker` (`id_jobseeker`, `id_akun`, `nama_jobseeker`, `nim_jobse
 (2, 19, 'okta pilopa', NULL, 'okta@gmail.com', '092384932', 'profil_default.png', 'sampul_default.png', NULL, '1', NULL),
 (3, 20, 'taufik agung santoso', NULL, 'taufik@gmail.com', '083728392739', 'profil_default.png', 'sampul_default.png', NULL, '2', 'institut teknologi sumatera'),
 (4, 23, 'ilman nugroho', NULL, 'ilmannugroho@gmail.com', '085357635234', 'profil_default.png', 'sampul_default.png', NULL, '2', 'smp negeri megang sakti'),
-(5, 24, 'purwati', NULL, 'purwati@gmail.com', '085367232946', 'profil_default.png', 'sampul_default.png', NULL, '2', 'Institut Teknologi Sumatera');
+(5, 24, 'purwati', NULL, 'purwati@gmail.com', '085367232946', 'profil_default.png', 'sampul_default.png', NULL, '2', 'Institut Teknologi Sumatera'),
+(6, 27, 'ringgom tri saputra', NULL, 'ringgom@gmail.com', '0987654', 'profil_default.png', 'sampul_default.png', NULL, '2', 'institut teknologi sumatera');
 
 -- --------------------------------------------------------
 
@@ -725,17 +735,18 @@ INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
 CREATE TABLE `lamaran` (
   `id_lamaran` int(8) NOT NULL,
   `pekerjaan` int(100) DEFAULT NULL,
-  `id_jobseeker` int(15) NOT NULL
+  `id_jobseeker` int(15) NOT NULL,
+  `aktif` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `lamaran`
 --
 
-INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`) VALUES
-(1, 23, 1),
-(2, 6, 2),
-(3, 23, 2);
+INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `aktif`) VALUES
+(1, 23, 1, 1),
+(2, 6, 2, 0),
+(3, 23, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -835,7 +846,7 @@ CREATE TABLE `requirement_berkas` (
 --
 
 INSERT INTO `requirement_berkas` (`id_requirement`, `nama_requirement`) VALUES
-(2, 'Surat kelakuan baik'),
+(2, 'tes'),
 (5, 'SKCK'),
 (7, 'Ijazah sma'),
 (8, 'Bebas Narkoba');
@@ -971,7 +982,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VALUES
 (1, 'admin', '2199a8069abaeb5679eca44782df7578ed4e83f8960785699ec43331f7b77ef553c0111c2e823a4e70d273e53e9c626dac0bdd220c5e63163d5f2f159d3d0a76', '3', 1),
 (2, 'company', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '1', 1),
-(3, 'jobseeker', '3203424970496d3a13f55b0c7f7f01261d41d073691a228f448f11e2930e3cca5a5bd89cc3d5b7fb8ede46092bee7b36f6c19ebba67cd8b2de916a261fefd0d5', '2', 1),
+(3, 'jobseeker', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '2', 1),
 (11, 'surya', 'ca4ea13f7fa615b25ab6605322c4ad875a296b978bdacc4d3951b40735292a282edd2229b7f2ecb42971171da75c82fef01595c817084fd438c868144578b3bf', '1', 1),
 (12, 'bismillah', '1e140057670f42e762730c0e16e9cdc40c4b4f30808592052a832fefed63aea934b31afea2e15dcd066f5f678ad5df2fe46882275399eb5e27b52c8668a48446', '1', 1),
 (13, 'nocturnal', '520816f038f9462e7fb7a68788f62758f10898a241058a6a7af564ebe672f879766f800cadef2b8e4a619c9baf8be3aadc8b624346ea857cd7f8e2d78ba94a94', '1', 1),
@@ -980,7 +991,10 @@ INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VA
 (21, 'dicky', '2bd6f308842c3d035e00310bb2ef6c363f3c2d96641c56c5f3a824e1f37ce344c80e17fd569e6fbd0643cf3239063a1056c373b7e06f386a07d907356327b285', '1', 1),
 (22, 'taufik', 'fa5c7a530e42271e741f057614ad91621f120682f6289c5f28b57f3d6754ea7f62ac0386f68d84dbb752ba665a5db780d69ade4f213cc30e222a0e6e300e0ead', '1', 0),
 (23, 'ilman', 'e67106f20e7f7014e3ab9efb24b6e200bab662b97af05b00bd9aa47fca64af0c954075d1b4d9689104b3108aeeceed2c5804c3975a0e0a5c36715cd4eb1f4b33', '2', 1),
-(24, 'purwati', 'cd8f3611aeac97018a328925557cc75a089bc2cbcf735320640dc7975c8fd1c08495a1a2997ecf2aa646dc5928b846f0b40a3e9e9d5e258ddcccc77924632985', '2', 1);
+(24, 'purwati', 'cd8f3611aeac97018a328925557cc75a089bc2cbcf735320640dc7975c8fd1c08495a1a2997ecf2aa646dc5928b846f0b40a3e9e9d5e258ddcccc77924632985', '2', 1),
+(25, 'nugraha', 'a737efa71b3616598918732733d36899fd79e65aef65fda710eb0a34a23c48348d96b6b3e23cf6cec7d3f98cca504e5ba7e43d6c25a25b3df561eb5e996bd32d', '1', 0),
+(26, 'musirawas', '40a1ea4482c936cb519387248f4628a018983e8ca5bcf4b6151226daa38bc923b8f36d3f55a2de66fe740a31c90e6791b281279ef60e9dd9cfb53fc4b3901ba8', '1', 1),
+(27, 'ringgom', 'bc049b26822f34db8c04b75885b4bfbd4cfc199b1c9554c214657f23a3c20aca93aeb594c5de52217a09bea644dc93ec1a641c5613ac31022ac3cd8e4a68640a', '2', 1);
 
 --
 -- Indexes for dumped tables
@@ -1116,7 +1130,7 @@ ALTER TABLE `calendar`
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `industri`
@@ -1128,13 +1142,13 @@ ALTER TABLE `industri`
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker`
 --
 ALTER TABLE `jobseeker`
-  MODIFY `id_jobseeker` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jobseeker` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `lamaran`
@@ -1182,7 +1196,7 @@ ALTER TABLE `tb_detail_req_jrsn`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
