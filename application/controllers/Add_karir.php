@@ -9,7 +9,7 @@ class Add_karir extends CI_Controller {
 		$nama_member = $this->session->userdata('Nama_jobseeker');
 		$isi['data'] = $this->db->query("SELECT * FROM jobseeker WHERE id_akun = (SELECT id_akun FROM user WHERE username = '$username_user')");
 		$isi['title'] = "ICC | Joblist ";
-		$isi['data_list'] = $this->model_data->data_list();
+		$isi['data_list'] = $this->model_data->data_list_ajax(5, 0);
 		$this->load->view('member/tampilan_add_karir', $isi);
 	}
 

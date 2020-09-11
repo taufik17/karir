@@ -49,6 +49,8 @@ class Beranda extends CI_Controller {
 			$this->pagination->initialize($config);
 			$isi['start'] = $this->uri->segment(3);
 			$isi['data_list'] = $this->model_data->data_list_ajax($config['per_page'], $isi['start']);
+
+			$isi['jumlah_event'] = $this->model_data->data_event();
 			$this->load->view('web/tampilan_beranda',$isi);
 
 	}

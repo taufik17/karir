@@ -1,37 +1,60 @@
 <?php $this->load->view('web/konten_header') ?>
 
-<div id="modal_warning" class="modal fade" role="dialog">
-	<div role="document" class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header modaldaftar">
-				<h5 id="daftar-modalLabel" class="modal-title" style="color:white;">Event Terdekat</h5>
-				<button type="button" data-dismiss="modal" aria-label="Close" class="close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<br>
-			</div>
+<?php
+if ($jumlah_event > 0) { ?>
+	<div id="modal_warning" class="modal fade" role="dialog">
+		<div role="document" class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header modaldaftar">
+					<h5 id="daftar-modalLabel" class="modal-title" style="color:white;">Event Terdekat</h5>
+					<button type="button" data-dismiss="modal" aria-label="Close" class="close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<br>
+				</div>
 
-			<div class="modal-body">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0"  class="active"></li>
-					</ol>
+				<div class="modal-body" style="padding-bottom: 0px;">
+					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="<?= base_url() ?>event/careerday" target="_blank">
-								<img src="<?= base_url() ?>assets/gambar/iklan/careerday.png" style="width: 100%" class="img-responsive">
-							</a>
-						</div>
+						<?php
+						$hitungslide = -1;
+						foreach ($event->result() as $ev ) {
+							$hitungslide++;
+						?>
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleIndicators" data-slide-to="<?= $hitungslide; ?>" <?= $hitungslide == 0 ? 'class="active"' : 'class=""'?>></li>
+					  </ol>
+						<?php } ?>
+
+					  <div class="carousel-inner">
+							<?php
+							$hitungslide = -1;
+							foreach ($event->result() as $ev1 ) {
+								$hitungslide++;
+							?>
+					    <div <?= $hitungslide == 0 ? 'class="carousel-item active"' : 'class="carousel-item"'?>>
+								<a href="<?= base_url(); ?>event/viewevent/<?= $ev1->id; ?>">
+					      <img class="d-block w-100" src="<?= base_url(); ?>assets/gambar/event/<?= $ev1->gambar; ?>" alt="First slide">
+								</a>
+					    </div>
+							<?php } ?>
+					  </div>
+
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php } ?>
 
 <section class="banner-area relative" id="home">
 	<div class="overlay overlay-bg"></div>

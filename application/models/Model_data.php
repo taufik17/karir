@@ -244,6 +244,11 @@ class Model_data extends CI_model {
 		return $query;
 	}
 
+	function data_event(){
+		$data = $this->db->query("SELECT id FROM calendar WHERE start_date<=current_date() AND end_date >= current_date() ")->num_rows();
+		return $data;
+	}
+
 	function getinsert_career_day($data){
 		$this->db->insert('peserta_careerday', $data);
 	}
