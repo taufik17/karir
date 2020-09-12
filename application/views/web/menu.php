@@ -17,23 +17,29 @@
 
 	if ($role_user == '1') { ?>
 		<li>
-			<a href="<?= base_url() ?>company" class="ticker-btn">Dashboard</a>
+			<a href="<?= base_url() ?>company" class="ticker-btn">
+				<i class="fa fa-dashboard">&nbsp</i>Dashboard
+			</a>
 		</li>
 	<?php }
 	else if ($role_user == '2') { ?>
 		<li>
-			<a href="<?= base_url() ?>member" class="ticker-btn">Member</a>
+			<a href="<?= base_url() ?>member" class="ticker-btn">
+				<i class="fa fa-user">&nbsp</i>Member
+			</a>
 		</li>
 	<?php }
 	else { ?>
-		<li class="menu-has-children"><a class="ticker-btn" style="color:white">Daftar&nbsp&nbsp</a>
-						<ul style="display: none;">
+		<li class="menu-has-children"><a class="ticker-btn" style="color:white">Daftar <i>&nbsp</i></a>
+			<ul>
 				<li><a href="<?php echo base_url() ?>register">JOBSEEKER</a></li>
 				<li><a href="<?php echo base_url() ?>register_company">COMPANY</a></li>
-						</ul>
-					</li>
+			</ul>
+		</li>
 		<li>
-			<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">Login</a>
+			<a href="" class="ticker-btn" data-toggle="modal" data-target="#login-modal">
+				<i class="fa fa-sign-in">&nbsp</i>Login
+			</a>
 		</li>
 	<?php } ?>
 

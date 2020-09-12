@@ -57,7 +57,6 @@
 		width:100%;
 		height:350px;
 	  max-width: 100%;
-	  font-size: 12px;
 	}
 
 	.news {
@@ -161,7 +160,7 @@
 	.post_data
 	{
 		padding-left:24px;
-		padding-right: 15px;
+		padding-right: 24px;
 		padding-top: 0px;
 		padding-bottom: 0px;
 		border:1px solid #f9f9f9;
@@ -175,7 +174,7 @@
 </head>
 
 <body>
-	<!-- <div class="loader"></div> -->
+	<div class="loader"></div>
 	<header id="header">
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">

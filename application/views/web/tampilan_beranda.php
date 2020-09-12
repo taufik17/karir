@@ -40,11 +40,11 @@ if ($jumlah_event > 0) { ?>
 							<?php } ?>
 					  </div>
 
-					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="background: linear-gradient(to right, rgba(0, 0, 0, 0.70), rgba(150, 150, 150, 0.1));">
 					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					    <span class="sr-only">Previous</span>
 					  </a>
-					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.70), rgba(150, 150, 150, 0.1));">
 					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 					    <span class="sr-only">Next</span>
 					  </a>
@@ -213,11 +213,25 @@ if ($jumlah_event > 0) { ?>
 	<div class="container">
 		<div class="row justify-content-center d-flex">
 			<div class="col-lg-8 post-list">
-				<ul class="cat-list">
-					<li><a href="#">Full Time</a></li>
-					<li><a href="#">Intern</a></li>
-					<li><a href="#">part Time</a></li>
+				<ul class="nav nav-pills mb-12" id="pills-tab" role="tablist">
+				  <li class="nav-item">
+				    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">All</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Full Time</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Part Time</a>
+				  </li>
+					<li class="nav-item">
+				    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Intern</a>
+				  </li>
 				</ul>
+				<div class="tab-content" id="pills-tabContent">
+				  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Isi Home</div>
+				  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Isi Profile</div>
+				  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Isi kontak</div>
+				</div>
 
 				<div id="accordion">
 
@@ -268,7 +282,7 @@ if ($jumlah_event > 0) { ?>
 								<div class="card">
 									<div class="card-header" id="heading-<?= $row->Id_perusahaan ?>">
 										<div class="single-post row">
-											<div class="col-lg-10 col-md-9 profile d-flex align-items-start p-2">
+											<div class="col-lg-10 col-md-9 profile d-flex">
 												<a class="comp-logo col-md-2 pl-0 pr-3" href="<?= base_url(); ?>company/view/<?= $row->Id_perusahaan ?>">
 													<img class="box-shadow p-1" src="<?= base_url() ?>assets/gambar/company/profil/<?= $row->Logo_perusahaan; ?>" width="95px" alt="<?= $row->Nama_perusahaan; ?>">
 												</a>
