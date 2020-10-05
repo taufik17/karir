@@ -53,6 +53,10 @@ class Member extends CI_Controller {
 		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
 
+	function apply(){
+		
+	}
+
 	function logout(){
 		$this->model_keamanan->getkeamananuser();
 		$this->session->sess_destroy();

@@ -3,11 +3,11 @@
 	<li>
 		<a href="<?= base_url() ?>">
 			<i class="fa fa-home fa-lg">&nbsp</i>
-			Beranda
+			Home
 		</a>
 	</li>
 	<li <?= $this->uri->segment(1) == 'member' ? 'class="menu-active"' : 'class=""'?>>
-		<a href="<?php echo base_url() ?>">
+		<a href="<?php echo base_url() ?>member">
 			<i class="fa fa-dashboard fa-lg">&nbsp</i>
 			Dashboard
 		</a>

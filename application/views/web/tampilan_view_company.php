@@ -73,7 +73,7 @@ foreach ($data->result() as $row)
 					<a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets/img/logo.png" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
-					<?php $this->load->view('web/menu'); ?>
+					<?php $this->load->view($menu); ?>
 				</nav><!-- #nav-menu-container -->
 			</div>
 		</div>

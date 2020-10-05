@@ -16,11 +16,13 @@ class Model_keamanan extends CI_model {
 	public function getkeamananuser()
 	{
 		$sess_user = $this->session->userdata('username_user');
-		if(empty($sess_user))
+		$id_akun = $this->session->userdata('id_akun');
+		$role = $this->session->userdata('role_user');
+		if((empty($sess_user)&&empty($id_akun)&&empty($role)))
 		{
 			$this->session->sess_destroy($sess_user);
 			redirect('Company');
-		}
+		}		
 	}
 
 }

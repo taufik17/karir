@@ -206,7 +206,7 @@ foreach ($data->result() as $row)
 													<em class="card-text"><?= $diff->days; ?> Hari Lagi</em>
 													<?php } ?>
 												</div>
-												<a href="#" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+												<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
 
 											</div>
 

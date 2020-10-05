@@ -18,10 +18,23 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
+	<link href="<?php echo base_url() ?>assets/modal/dist/min/jquery.sweet-modal.min.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/modal/dist/min/jquery.sweet-modal.min.js"></script>
 
 	<style type="text/css">
+
+	.nice-select {
+    border-radius: 0px;
+}
+
+.nice-select .list {
+    border-radius: 0px;
+    height: 200px;
+    overflow-y: auto;
+}
+
 	.mb-0 > a {
 		display: block;
 		position: relative;
