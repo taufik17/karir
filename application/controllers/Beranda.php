@@ -59,10 +59,12 @@ class Beranda extends CI_Controller {
 	{
 		$role_user = $this->session->userdata('role_user');
 		if ($role_user == '1') {
-			redirect('company');
+			// redirect('company');
+			var_dump($role_user);
 		}
 		if ($role_user == '2') {
-			redirect('member');
+			// redirect('member');
+			var_dump($role_user);
 		}
 
 	}

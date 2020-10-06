@@ -207,7 +207,7 @@ foreach ($data->result() as $row)
 													<?php } ?>
 												</div>
 												<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
-
+												<button id="confirm" class="bordered">Try out!</button>
 											</div>
 
 										</div>

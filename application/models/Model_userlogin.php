@@ -12,7 +12,15 @@ class Model_userlogin extends CI_model {
 		{
 			foreach ($query->result() as $row)
 			{
-				if (($row->role_user == '1' || $row->role_user == '2') AND $row->status == '1' ) {
+				if (($row->role_user == '1') AND $row->status == '1' ) {
+					$sess_user_company = array('username_user_cpy'	=> $row->username,
+								  'password_user_cpy'	=> $row->password,
+									'role_user' => $row->role_user,
+									'id_akun_cpy' => $row->id_akun);
+					$this->session->set_userdata($sess_user_company);
+					$output['message'] = 'Masuk. Silahkan tunggu...';
+				}
+				elseif (($row->role_user == '2') AND $row->status == '1') {
 					$sess_user = array('username_user'	=> $row->username,
 								  'password_user'	=> $row->password,
 									'role_user' => $row->role_user,

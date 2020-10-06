@@ -2,20 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Company extends CI_Controller {
-	public function index()
-	{
-		$this->model_keamanan->getkeamananuser();
-		$role = $this->session->userdata('role_user');
-		if($role == "1")
-		{
-			redirect('company/dashboard');
-		}else {
-			redirect(base_url());
-		}
-	}
 
-	public function dashboard(){
-		$this->model_keamanan->getkeamananuser();
+	public function index(){
+		$this->model_keamanan->getkeamanancompany();
 		$id_akun = $this->session->userdata('id_akun');
 		$id = $this->db->query("SELECT Id_perusahaan FROM company WHERE id_akun = $id_akun");
 		foreach ($id->result() as $row) {
@@ -126,7 +115,7 @@ class Company extends CI_Controller {
 			}
 			$isi['konten'] = "web/konten_profil_company";
 			$isi['data'] = $this->db->query("SELECT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, id_industri, id_provinsi, id_kabupaten_kota, Logo_perusahaan, sampul, Website, telp_perusahaan, Alamat FROM company WHERE Id_perusahaan = $key ");
-			$this->load->view('web/tampilan_view_company', $isi);	
+			$this->load->view('web/tampilan_view_company', $isi);
 		}
 	}
 
@@ -188,11 +177,11 @@ class Company extends CI_Controller {
 	public function detailjob_buka(){
 		$role_user = $this->session->userdata('role_user');
 		$key = $this->uri->segment(3);
-		if (empty($key)) {
+		$id_job = $this->uri->segment(4);
+		if (empty($key) || empty($id_job)) {
 			echo "<h1>forbidden<h1>";
 		}
 		else {
-			$id_job = $this->uri->segment(4);
 			$id = $this->db->query("SELECT Nama_perusahaan FROM company WHERE Id_perusahaan = '$key'");
 			foreach ($id->result() as $row) {
 				$nama = $row->Nama_perusahaan;

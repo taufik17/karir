@@ -16,13 +16,35 @@ class Model_keamanan extends CI_model {
 	public function getkeamananuser()
 	{
 		$sess_user = $this->session->userdata('username_user');
-		$id_akun = $this->session->userdata('id_akun');
 		$role = $this->session->userdata('role_user');
-		if((empty($sess_user)&&empty($id_akun)&&empty($role)))
+		if((empty($sess_user)))
 		{
-			$this->session->sess_destroy($sess_user);
-			redirect('Company');
-		}		
+			$this->session->unset_userdata('username_user');
+			redirect('beranda');
+		}
+		else {
+			if ($role != "2" ) {
+				$this->session->sess_destroy('username_user');
+				redirect('beranda');
+			}
+		}
+	}
+
+	public function getkeamanancompany()
+	{
+		$sess_user_company = $this->session->userdata('username_user_cpy');
+		$role = $this->session->userdata('role_user');
+		if((empty($sess_user_company)))
+		{
+			$this->session->unset_userdata('username_user_cpy');
+			redirect('beranda');
+		}
+		else {
+			if ($role != "1" ) {
+				$this->session->sess_destroy('username_user_cpy');
+				redirect('beranda');
+			}
+		}
 	}
 
 }

@@ -47,12 +47,4 @@ class Login extends CI_Controller {
 		$this->load->model('model_userlogin');
 		$this->model_userlogin->getlogin_user($u, $p);
 	}
-
-	public function inijobseeker(){
-		redirect ('member');
-	}
-
-	public function inicompany(){
-		echo "ini company";
-	}
 }
