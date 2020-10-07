@@ -5,7 +5,8 @@ class Company extends CI_Controller {
 
 	public function index(){
 		$this->model_keamanan->getkeamanancompany();
-		$id_akun = $this->session->userdata('id_akun');
+		$id_akun = $this->session->userdata('id_akun_cpy');
+		
 		$id = $this->db->query("SELECT Id_perusahaan FROM company WHERE id_akun = $id_akun");
 		foreach ($id->result() as $row) {
 			$id_perusahaan = $row->Id_perusahaan;
@@ -21,7 +22,7 @@ class Company extends CI_Controller {
 
 	public function profilCompany()
 	{
-		$this->model_keamanan->getkeamananuser();
+		$this->model_keamanan->getkeamanancompany();
 		$isi['title'] = "ICC | Profil Perusahaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_profil";
@@ -30,7 +31,7 @@ class Company extends CI_Controller {
 	}
 
 	public function listjob(){
-		$this->model_keamanan->getkeamananuser();
+		$this->model_keamanan->getkeamanancompany();
 		$isi['title'] = "ICC | List Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_joblist";
@@ -49,7 +50,7 @@ class Company extends CI_Controller {
   }
 
 	public function tambah_joblist(){
-		$this->model_keamanan->getkeamananuser();
+		$this->model_keamanan->getkeamanancompany();
 		$isi['title'] = "ICC | Tambah Pekerjaan";
 		$isi['menu'] = "company/menu/menu";
 		$isi['konten'] = "company/konten/konten_tambah_pekerjaan";
@@ -61,7 +62,7 @@ class Company extends CI_Controller {
 
 	public function simpan_pekerjaan(){
 		// var_dump($_POST);exit();
-		$this->model_keamanan->getkeamananuser();
+		$this->model_keamanan->getkeamanancompany();
 		$data['perusahaan'] = $this->input->post('perusahaan');
 		$data['Nama_joblist'] = $this->input->post('Nama_joblist');
 		$data['Tipe_pekerjaan'] = $this->input->post('Tipe_pekerjaan');

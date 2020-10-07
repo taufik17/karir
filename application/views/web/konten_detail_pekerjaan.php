@@ -147,13 +147,18 @@ foreach ($data->result() as $row)
 
 												<div class="row pl-3">
 													<label class="col-6 col-md-4 col-form-label">IPK Minimal</label>
-													<div class="col-md-7 form-control-plaintext">3</div>
+													<div class="col-md-7 form-control-plaintext"><?= $key->IPK; ?></div>
 												</div>
 
 
 												<div class="row pl-3">
-													<label class="col-6 col-md-4 col-form-label">Umur</label>
-													<div class="col-md-7 form-control-plaintext">24 Tahun</div>
+													<label class="col-6 col-md-4 col-form-label">Minimal Umur</label>
+													<div class="col-md-7 form-control-plaintext"><?= $key->min_umur ?></div>
+												</div>
+
+												<div class="row pl-3">
+													<label class="col-6 col-md-4 col-form-label">Maksimal Umur</label>
+													<div class="col-md-7 form-control-plaintext"><?= $key->max_umur ?></div>
 												</div>
 
 												<div class="row pl-3">
@@ -174,7 +179,7 @@ foreach ($data->result() as $row)
 													<label class="col-6 col-md-4 col-form-label">Penempatan</label>
 													<div class="col-md-7 form-control-plaintext">
 														<div class="location">:
-															<span>Provinsi Lampung</span>
+															<span><?= $key->penempatan; ?></span>
 														</div>
 													</div>
 												</div>
@@ -206,10 +211,35 @@ foreach ($data->result() as $row)
 													<em class="card-text"><?= $diff->days; ?> Hari Lagi</em>
 													<?php } ?>
 												</div>
-												<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
-												<button id="confirm" class="bordered">Try out!</button>
-											</div>
+												<?php
+												$id_akun = $this->session->userdata('id_akun');
+												$id_akun_cpy = $this->session->userdata('id_akun_cpy');
+												$role = $this->session->userdata('role_user');
+												if (empty($id_akun)) {
+													if (!(empty($id_akun_cpy))) {
+														// do nothing
+													}
+													else { ?>
+														<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+												<?php	}
+												}
+												else {
+													if ($role == "2") {
+														$pekerjaan = $this->uri->segment(4);
+														$cek_lamaran = $this->db->query("SELECT id_lamaran FROM lamaran WHERE id_jobseeker = (SELECT id_jobseeker FROM jobseeker WHERE id_akun = $id_akun) AND pekerjaan = $pekerjaan")->num_rows();
+														if ($cek_lamaran > 0) { ?>
+															<a href="<?= base_url() ?>member/karir" class="card-footer btn btn-success"><i class="fa fa-check mr-2"></i>Telah Lamar</a>
+														<?php }
+														else { ?>
+															<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+														<?php }
+													}
+													else { ?>
+														<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Check</a>
+													<?php }
+												 } ?>
 
+											</div>
 										</div>
 										<br>
 									</div>

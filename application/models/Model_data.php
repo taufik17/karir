@@ -30,7 +30,7 @@ class Model_data extends CI_model {
 	}
 
 	function profil_company(){
-		$id_perusahaan = $this->session->userdata('id_akun');
+		$id_perusahaan = $this->session->userdata('id_akun_cpy');
 		$data = $this->db->query("SELECT * FROM company WHERE id_akun ='$id_perusahaan'");
 		return $data;
 	}
