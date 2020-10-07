@@ -220,7 +220,11 @@ foreach ($data->result() as $row)
 														// do nothing
 													}
 													else { ?>
-														<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+														<a href="" class="card-footer btn btn-primary" data-toggle="modal" data-target="#login-modal-lamar"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+														<?php
+														$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+														$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+														echo '<a href="' . $escaped_url . '">' . $escaped_url . '</a>'; ?>
 												<?php	}
 												}
 												else {

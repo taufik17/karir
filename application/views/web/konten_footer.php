@@ -89,6 +89,55 @@
 				</div>
 
 			</div>
+
+
+			<!-- login modal ketika klik daftar -->
+			<div id="login-modal-lamar" tabindex="-1" role="dialog" aria-labelledby="daftar-modalLabel" aria-hidden="true" class="modal fade">
+				<div role="document" class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header modaldaftar">
+							<h5 id="daftar-modalLabel" class="modal-title" style="color:white;">Login ICC</h5>
+							<button type="button" data-dismiss="modal" aria-label="Close" class="close">
+								<span aria-hidden="true">×</span>
+							</button>
+							<br>
+						</div>
+
+						<div class="modal-body">
+							<?php echo $this->session->flashdata('info');?>
+							<form id="logFormLamar">
+
+								<div class="container-login">
+									<div class="d-flex justify-content-center" style="padding: 20px">Silahkan Login terlebih dahulu untuk melamar pekerjaan</div>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+										<input type="text" name="username" id="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required="" class="single-input">
+									</div>
+
+									<div class="input-group-icon mt-20">
+										<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+										<input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" minlength="8" class="single-input">
+									</div>
+								</div>
+
+								<p class="text-center">
+									<button type="submit" class="btn btn-primary py-1 px-3">&nbsp<span id="logTextLamar"></span></button>
+								</p>
+								<hr style="margin:30px;">
+								<p class="text-center text-muted">
+									<a href="<?= base_url('daftar'); ?>">
+										<strong style="color:green;">Daftar</strong></a> |<a href="<?php echo base_url() ?>lupapas">
+											<strong style="color:red;">Lupa Sandi</strong></a> </p>
+											<div id="responseDivLamar" class="alert text-center" style="margin-left:20px; margin-right:20px;  display:none;">
+												<button type="button" class="close" id="clearMsgLamar"><span aria-hidden="true">&times;</span></button>
+												<span id="messagelamar"></span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<!-- end modal -->
 						<!-- End footer Area -->
 
@@ -127,6 +176,49 @@
 
 							$(document).on('click', '#clearMsg', function(){
 								$('#responseDiv').hide();
+							});
+						});
+						</script>
+
+						<script type="text/javascript">
+						$(document).ready(function(){
+							$('#logTextLamar').html('<i class="fa fa-sign-in"></i>&nbspMasuk');
+							$('#logFormLamar').submit(function(e){
+								e.preventDefault();
+								$('#logTextLamar').html('<img src="http://localhost/karir/assets/gambar/login.gif" width="30" height="30">Proses Login...');
+								var url = '<?php echo base_url(); ?>';
+								var user = $('#logFormLamar').serialize();
+								var login = function(){
+									$.ajax({
+										type: 'POST',
+										url: url + 'login/login_user',
+										dataType: 'json',
+										data: user,
+										success:function(response){
+											$('#messagelamar').html(response.message);
+											$('#logTextLamar').html('<i class="fa fa-sign-in"></i>&nbspMasuk');
+											if(response.error){
+												$('#responseDivLamar').removeClass('alert-success').addClass('alert-danger').show();
+											}
+											else{
+												$('#responseDivLamar').removeClass('alert-danger').addClass('alert-success').show();
+												$('#logFormLamar')[0].reset();
+												setTimeout(function(){
+													<?php
+													$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+													$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+													?>
+													location.href = "<?= $escaped_url; ?>";
+												}, 1000);
+											}
+										}
+									});
+								};
+								setTimeout(login, 1000);
+							});
+
+							$(document).on('click', '#clearMsgLamar', function(){
+								$('#responseDivLamar').hide();
 							});
 						});
 						</script>
