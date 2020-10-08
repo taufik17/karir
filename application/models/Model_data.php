@@ -335,4 +335,8 @@ class Model_data extends CI_model {
 											WHERE perusahaan = $id_perusahaan")->num_rows();
 	}
 
+	function lamar_pekerjaan($id_pekerjaan, $id_jobseeker) {
+		return $this->db->query("INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`) VALUES (NULL, '$id_pekerjaan', '$id_jobseeker')");
+	}
+
 }

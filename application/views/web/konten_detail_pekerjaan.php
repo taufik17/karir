@@ -252,7 +252,19 @@ foreach ($data->result() as $row)
 
 															      <!--Footer-->
 															      <div class="modal-footer flex-center">
-															        <a href="<?= base_url() ?>member/apply" class="btn btn-info">Iya</a>
+																			<?php
+																			$id_pekerjaan = $this->uri->segment(4);
+																			$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+																			$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+																			 ?>
+																			<form class="" action="<?= base_url() ?>member/apply" method="post">
+																				<input type="text" name="id_pekerjaan" value="<?= $id_pekerjaan; ?>" hidden>
+																				<input type="text" name="url" value="<?= $escaped_url; ?>" hidden>
+																				<button type="submit" class="btn btn-info">
+																					<a href="<?= base_url() ?>member/apply"></a>Iya
+																				</button>
+																			</form>
+
 															        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Batal</a>
 															      </div>
 															    </div>
@@ -281,3 +293,12 @@ foreach ($data->result() as $row)
 		</div>
 	</div>
 </section>
+
+
+<?php
+$info = $this->session->flashdata('info');
+if(!empty($info))
+{
+ echo $info;
+}
+?>
