@@ -38,9 +38,6 @@
 					</div>
 				</div>
 
-				<div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-				</div>
-				<div class="tab-pane fade" id="article" role="tabpanel" aria-labelledby="article-tab">Content</div>
 			</div>
 		</div>
 	</section>

@@ -43,18 +43,18 @@ class Member extends CI_Controller {
 		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
 
-	function peminatan(){
+	function rekomendasi(){
 		$this->model_keamanan->getkeamananuser();
 		$username_user = $this->session->userdata('username_user');
 		$role_user = $this->session->userdata('role_user');
 		$isi['data'] = $this->db->query("SELECT * FROM jobseeker WHERE id_akun = (SELECT id_akun FROM user WHERE username = '$username_user')");
-		$isi['title'] = "ICC | Peminatan - $username_user";
-		$isi['konten'] = "member/konten_peminatan";
+		$isi['title'] = "ICC | Rekomendasi Pekerjaan - $username_user";
+		$isi['konten'] = "member/konten_rekomendasi";
 		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
 
 	function apply(){
-		
+
 	}
 
 	function logout(){

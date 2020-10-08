@@ -45,8 +45,8 @@
 					<li <?= $this->uri->segment(2) == 'cv' ? 'class="nav-item active"' : 'class="nav-item"'?>>
 						<a class="nav-link" href="<?= base_url() ?>member/cv">CV Saya</a>
 					</li>
-					<li <?= $this->uri->segment(2) == 'peminatan' ? 'class="nav-item active"' : 'class="nav-item"'?>>
-						<a class="nav-link" href="<?= base_url() ?>member/peminatan">Peminatan</a>
+					<li <?= $this->uri->segment(2) == 'rekomendasi' ? 'class="nav-item active"' : 'class="nav-item"'?>>
+						<a class="nav-link" href="<?= base_url() ?>member/rekomendasi">Rekomendasi</a>
 					</li>
 					<li <?= $this->uri->segment(2) == 'karir' ? 'class="nav-item active"' : 'class="nav-item"'?>>
 						<a class="nav-link" href="<?= base_url() ?>member/karir">Karier Saya</a>

@@ -243,6 +243,7 @@
 						<!-- bootstrap datepicker -->
 						<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
 						<script src="<?php echo base_url() ?>assets/dropify/dropify.min.js"></script>
+						<script type="text/javascript" src="<?php echo base_url(); ?>assets/mdb/js/mdb.min.js"></script>
 
 						<script type="text/javascript">
 						$(document).ready(function(){

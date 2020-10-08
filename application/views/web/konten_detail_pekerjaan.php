@@ -221,10 +221,6 @@ foreach ($data->result() as $row)
 													}
 													else { ?>
 														<a href="" class="card-footer btn btn-primary" data-toggle="modal" data-target="#login-modal-lamar"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
-														<?php
-														$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-														$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
-														echo '<a href="' . $escaped_url . '">' . $escaped_url . '</a>'; ?>
 												<?php	}
 												}
 												else {
@@ -235,7 +231,35 @@ foreach ($data->result() as $row)
 															<a href="<?= base_url() ?>member/karir" class="card-footer btn btn-success"><i class="fa fa-check mr-2"></i>Telah Lamar</a>
 														<?php }
 														else { ?>
-															<a href="<?= base_url() ?>member/apply" class="card-footer btn btn-primary"><i class="fa fa-check-square-o mr-2"></i>Lamar</a>
+															<!-- Button trigger modal-->
+															<button type="button" class="card-footer btn btn-primary" data-toggle="modal" data-target="#modalPush"><i class="fa fa-check-square-o mr-2"></i>Lamar</button>
+
+															<!--Modal: modalPush-->
+															<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+															  aria-hidden="true">
+															  <div class="modal-dialog modal-notify modal-default" role="document">
+															    <!--Content-->
+															    <div class="modal-content text-center">
+															      <!--Header-->
+																		<div class="modal-header d-flex justify-content-center" style="box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); background:#00c0ef">
+															        <h5 style="color:white">Konfirmasi</h5>
+															      </div>
+															      <!--Body-->
+															      <div class="modal-body">
+															        <i class="fa fa-bell fa-4x animated rotateIn mb-4" style="padding-top:15px; color:orange;"></i>
+															        <p>Apakah kamu yakin ingin melamar pekerjaan ini?</p>
+															      </div>
+
+															      <!--Footer-->
+															      <div class="modal-footer flex-center">
+															        <a href="<?= base_url() ?>member/apply" class="btn btn-info">Iya</a>
+															        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Batal</a>
+															      </div>
+															    </div>
+															    <!--/.Content-->
+															  </div>
+															</div>
+															<!--Modal: modalPush-->
 														<?php }
 													}
 													else { ?>
@@ -257,4 +281,3 @@ foreach ($data->result() as $row)
 		</div>
 	</div>
 </section>
-?>

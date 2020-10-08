@@ -220,6 +220,9 @@
 		<!-- bootstrap datepicker -->
 		<script src="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>
 		<script src="<?php echo base_url() ?>assets/dropify/dropify.min.js"></script>
+		<!-- DataTables -->
+		<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+		<script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -253,6 +256,20 @@
     viewMode: "years",
     minViewMode: "years"
 	});
+		</script>
+
+		<script>
+		  $(function () {
+		    $('#example1').DataTable()
+		    $('#example2').DataTable({
+		      'paging'      : true,
+		      'lengthChange': false,
+		      'searching'   : false,
+		      'ordering'    : true,
+		      'info'        : true,
+		      'autoWidth'   : false
+		    })
+		  })
 		</script>
 
 		<!-- <script>

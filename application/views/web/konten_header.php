@@ -6,8 +6,10 @@
 	<meta charset="UTF-8">
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url(); ?>assets/css/customfont.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>assets/mdb/css/mdb.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/linearicons.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/magnific-popup.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/nice-select.css">
