@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Sep 2020 pada 06.09
+-- Waktu pembuatan: 12 Okt 2020 pada 22.10
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -34,6 +34,7 @@ CREATE TABLE `admin` (
   `Nama` varchar(100) NOT NULL,
   `Email_admin` varchar(100) NOT NULL,
   `foto` varchar(100) NOT NULL DEFAULT 'avatar.svg',
+  `role` int(2) DEFAULT NULL COMMENT 'belum tahu privillage apa saja, nanti dapat dikembangkan',
   `ref` int(11) NOT NULL,
   `time_reg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,8 +43,8 @@ CREATE TABLE `admin` (
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `id_akun`, `Nama`, `Email_admin`, `foto`, `ref`, `time_reg`) VALUES
-(2, 1, 'Taufik Agung Santoso', 'admin@admin', 'avatar.svg', 0, '2019-09-11 03:42:31');
+INSERT INTO `admin` (`id_admin`, `id_akun`, `Nama`, `Email_admin`, `foto`, `role`, `ref`, `time_reg`) VALUES
+(2, 1, 'Taufik Agung Santoso', 'admin@admin', 'avatar.png', 1, 0, '2020-10-12 17:06:59');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,7 @@ CREATE TABLE `calendar` (
   `title` varchar(126) DEFAULT NULL,
   `description` text,
   `color` varchar(24) DEFAULT NULL,
+  `gambar` varchar(100) DEFAULT 'event.png',
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
@@ -68,13 +70,13 @@ CREATE TABLE `calendar` (
 -- Dumping data untuk tabel `calendar`
 --
 
-INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
-(86, 'Career Day', 'career day adalah ...', '#FF8C00', '2019-08-25', '2019-09-26', '2019-08-12 14:10:12', NULL, '2019-08-29 10:53:19', NULL),
-(96, 'PEMBAYARAN UKT', '', '', '2019-08-12', '2019-08-21', '2019-08-15 09:43:57', NULL, NULL, NULL),
-(101, 'Pengumuman Seleksi', 'seleksi masuk perguruan tinggi', '', '2019-08-25', '2019-08-25', '2019-08-16 11:15:39', NULL, NULL, NULL),
-(102, 'snmptn', 'snmptn', '', '2019-09-01', '2019-09-10', '2019-09-02 14:11:18', NULL, NULL, NULL),
-(103, 'GSDFG', 'SFG', '', '2019-09-05', '2019-09-10', '2019-09-02 14:18:25', NULL, NULL, NULL),
-(104, 'tes', 'tes', '#FFD700', '2019-10-01', '2019-09-05', '2019-09-12 11:57:28', NULL, NULL, NULL);
+INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `gambar`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
+(86, 'Career Day', 'career day adalah ...', '#FF8C00', 'careerday.png', '2019-08-25', '2020-12-31', '2019-08-12 14:10:12', NULL, '2019-08-29 10:53:19', NULL),
+(96, 'PEMBAYARAN UKT', '', '', 'event.png', '2019-08-12', '2019-08-21', '2019-08-15 09:43:57', NULL, NULL, NULL),
+(101, 'Pengumuman Seleksi', 'seleksi masuk perguruan tinggi', '', 'kerja.png', '2019-08-25', '2020-12-30', '2019-08-16 11:15:39', NULL, NULL, NULL),
+(102, 'snmptn', 'snmptn', '', 'event.png', '2019-09-01', '2019-09-10', '2019-09-02 14:11:18', NULL, NULL, NULL),
+(103, 'GSDFG', 'SFG', '', 'event.png', '2019-09-05', '2019-09-10', '2019-09-02 14:18:25', NULL, NULL, NULL),
+(104, 'tes', 'tes', '#FFD700', 'event.png', '2019-10-01', '2019-09-05', '2019-09-12 11:57:28', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -153,7 +155,11 @@ CREATE TABLE `joblist` (
   `dibutuhkan` int(8) DEFAULT NULL,
   `deskripsi_pekerjaan` text NOT NULL,
   `min_lulus` int(1) NOT NULL DEFAULT '0' COMMENT '0.apa aja 1.sma/smk 2.diploma 3.s1 4.s2',
+  `IPK` decimal(2,1) DEFAULT NULL,
+  `min_umur` int(3) NOT NULL,
+  `max_umur` int(11) NOT NULL,
   `syarat_khusus` text,
+  `penempatan` text NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT '<span class="label label-warning">Pending</span>',
   `tanggal_buat` date NOT NULL,
   `tanggal_verif` date DEFAULT NULL
@@ -163,19 +169,18 @@ CREATE TABLE `joblist` (
 -- Dumping data untuk tabel `joblist`
 --
 
-INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `min_lulus`, `syarat_khusus`, `status`, `tanggal_buat`, `tanggal_verif`) VALUES
-(5, 'Content Creator', '1', 2, '2020-08-28', 50, '<p>membuat content youtube</p>\r\n', 0, '<ul>\r\n	<li>sanggup bekerja dalam tekanan.</li>\r\n	<li>bersedia ditempatkan di jakarta</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(6, 'Web Developer', '1', 2, '2021-08-27', 7, '<p>memahami html, css dan javascript</p>\r\n', 0, '<p>sanggup bekerja secara tim</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(7, 'Content Creator ', '2', 2, '2020-09-30', 10, '<p>membuat konten instagram</p>\r\n', 0, '<p>ditempatkan dijakarta</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(23, 'Dosen Teknik Industri', '1', 1, '2020-08-29', 10, '<p>menjadi dosen teknik industri di itera</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(24, 'Dosen Teknik Sipil', '1', 1, '2020-09-30', 10, '<p>menjadi dosen teknik sipil ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(25, 'Dosen Teknik Elektro', '1', 1, '2020-04-25', 10, '<p>menjadi dosen teknik Elektro di ITERA</p>\r\n', 4, '<p>dapat menjadi dosen yang baik</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(26, 'penulis', '1', 1, '2020-08-26', 10, '<p>dapat menulis</p>\r\n', 3, '<p>style ok</p>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
-(29, 'Dosen Teknik Mesin', '1', 1, '2020-04-30', 5, '<p>Dosen Teknik Mesin Institut Teknologi Sumatera</p>\r\n', 4, '<ul style=\"margin-left:0px; margin-right:0px\">\r\n	<li>Laki-laki/perempuan, usia maksimal 35 tahun</li>\r\n	<li>Sehat jasmani, rohani dan bebas narkoba</li>\r\n	<li>Pendidikan S-1 Teknik Mesin, IPK minimal 3.25, pendidikan S-2 Teknik Mesin, IPK minimal 3.25</li>\r\n	<li>Menguasai bahasa Inggris aktif dan pasif</li>\r\n</ul>\r\n', '<span class=\"label label-success\">Telah tayang</span>', '2020-07-27', NULL),
-(30, 'web developer', '2', 3, '2020-04-30', 100, 'mampu codeigniter', 2, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-19', '2020-04-19'),
-(31, 'kasir', '3', 6, '2020-04-30', 4, 'kasir', 3, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-22', '2020-04-22'),
-(32, 'kasir', '1', 5, '2020-04-30', 5, 'kasir', 2, 'tidak ada', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
-(33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, 'menguasai desain', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22');
+INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `min_lulus`, `IPK`, `min_umur`, `max_umur`, `syarat_khusus`, `penempatan`, `status`, `tanggal_buat`, `tanggal_verif`) VALUES
+(6, 'Web Developer', '1', 2, '2021-08-27', 7, '<p>memahami html, css dan javascript</p>\r\n', 0, '4.0', 24, 0, '<p>sanggup bekerja secara tim</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(7, 'Content Creator ', '2', 2, '2021-01-01', 10, '<p>membuat konten instagram</p>\r\n', 0, '0.0', 0, 0, '<p>ditempatkan dijakarta</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(23, 'Dosen Teknik Industri', '1', 1, '2021-01-01', 10, '<p>menjadi dosen teknik industri di itera</p>\r\n', 4, '0.0', 0, 0, '<p>dapat menjadi dosen yang baik</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(24, 'Dosen Teknik Sipil', '1', 1, '2020-09-30', 10, '<p>menjadi dosen teknik sipil ITERA</p>\r\n', 4, '0.0', 0, 0, '<p>dapat menjadi dosen yang baik</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(25, 'Dosen Teknik Elektro', '1', 1, '2020-04-25', 10, '<p>menjadi dosen teknik Elektro di ITERA</p>\r\n', 4, '0.0', 0, 0, '<p>dapat menjadi dosen yang baik</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(26, 'penulis', '1', 1, '2020-08-26', 10, '<p>dapat menulis</p>\r\n', 3, '0.0', 0, 0, '<p>style ok</p>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(29, 'Dosen Teknik Mesin', '1', 1, '2020-04-30', 5, '<p>Dosen Teknik Mesin Institut Teknologi Sumatera</p>\r\n', 4, '0.0', 0, 0, '<ul style=\"margin-left:0px; margin-right:0px\">\r\n	<li>Laki-laki/perempuan, usia maksimal 35 tahun</li>\r\n	<li>Sehat jasmani, rohani dan bebas narkoba</li>\r\n	<li>Pendidikan S-1 Teknik Mesin, IPK minimal 3.25, pendidikan S-2 Teknik Mesin, IPK minimal 3.25</li>\r\n	<li>Menguasai bahasa Inggris aktif dan pasif</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-07-27', NULL),
+(30, 'web developer', '2', 3, '2020-04-30', 100, 'mampu codeigniter', 2, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-19', '2020-04-19'),
+(31, 'kasir', '3', 6, '2020-04-30', 4, 'kasir', 3, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-22', '2020-04-22'),
+(32, 'kasir', '1', 5, '2020-04-30', 5, 'kasir', 2, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
+(33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, '0.0', 0, 0, 'menguasai desain', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22');
 
 -- --------------------------------------------------------
 
@@ -736,17 +741,19 @@ CREATE TABLE `lamaran` (
   `id_lamaran` int(8) NOT NULL,
   `pekerjaan` int(100) DEFAULT NULL,
   `id_jobseeker` int(15) NOT NULL,
-  `aktif` int(11) NOT NULL
+  `status` tinyint(4) NOT NULL DEFAULT '2' COMMENT '1. untuk telah ada pengumuman, 2. untuk masih menunggu'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `lamaran`
 --
 
-INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `aktif`) VALUES
-(1, 23, 1, 1),
-(2, 6, 2, 0),
-(3, 23, 2, 0);
+INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `status`) VALUES
+(1, 23, 1, 2),
+(2, 6, 2, 2),
+(3, 23, 2, 2),
+(20, 23, 6, 2),
+(21, 6, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -1154,7 +1161,7 @@ ALTER TABLE `jobseeker`
 -- AUTO_INCREMENT untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_careerday`
