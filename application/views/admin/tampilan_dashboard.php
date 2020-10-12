@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/dropify/dist/css/dropify.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/fullcalendar/fullcalendar.css'; ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/admin/kalender/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -20,7 +21,7 @@
 <body class="hold-transition skin-red-light fixed sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
-      <a href="../../index2.html" class="logo">
+      <a href="<?= base_url(); ?>admin" class="logo">
         <span class="logo-mini"><b>A</b>LT</span>
         <span class="logo-lg"><b>ITERA</b> Career Center</span>
       </a>
@@ -37,7 +38,7 @@
             <li>
               <?php foreach ($data->result() as $nama ) {
                 ?>
-                <a href="<?php echo base_url() ?>ProfilDosen"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama ?></a>
+                <a href="<?php echo base_url() ?>admin/profil"><i class="fa fa-user"></i>&nbsp <?php echo $nama->Nama ?></a>
               <?php }?>
             </li>
             <li>
@@ -54,7 +55,7 @@
           ?>
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="<?= base_url() ?>assets/gambar/<?php echo $nama->foto; ?>" class="img-circle" alt="User Image">
+              <img src="<?= base_url() ?>assets/gambar/<?= $nama->foto; ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p><?php echo $nama->Nama ?></p>
@@ -405,10 +406,54 @@
     <script src="<?php echo base_url() ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
     <script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
+    <script src="<?php echo base_url() ?>assets/dropify/dist/js/dropify.min.js"></script>
     <script type="text/javascript">
       $(function () {
         CKEDITOR.replace('ckeditor');
       });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove:  'Supprimer',
+                    error:   'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element){
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element){
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element){
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e){
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
     </script>
 
     <!-- kalender event -->

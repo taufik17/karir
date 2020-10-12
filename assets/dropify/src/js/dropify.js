@@ -1,21 +1,3 @@
-/*!
- * =============================================================
- * dropify v0.2.1 - Override your input files with style.
- * https://github.com/JeremyFagis/dropify
- *
- * (c) 2016 - Jeremy FAGIS <jeremy@fagis.fr> (http://fagis.fr)
- * =============================================================
- */
-
-;(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(['jquery'], factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require('jquery'));
-  } else {
-    root.Dropify = factory(root.jQuery);
-  }
-}(this, function($) {
 var pluginName = "dropify";
 
 /**
@@ -49,7 +31,7 @@ function Dropify(element, options) {
             'default': 'Drag and drop a file here or click',
             'replace': 'Drag and drop or click to replace',
             'remove':  'Remove',
-            'error':   'Ooops, something wrong appended.'
+            'error':   'Ooops, something wrong happended.'
         },
         error: {
             'fileSize': 'The file size is too big ({{ value }} max).',
@@ -65,7 +47,7 @@ function Dropify(element, options) {
             loader:          '<div class="dropify-loader"></div>',
             message:         '<div class="dropify-message"><span class="file-icon" /> <p>{{ default }}</p></div>',
             preview:         '<div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-infos-message">{{ replace }}</p></div></div></div>',
-            filename:        '<p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p>',
+            filename:        '<p class="dropify-filename"><span class="dropify-filename-inner"></span></p>',
             clearButton:     '<button type="button" class="dropify-clear">{{ remove }}</button>',
             errorLine:       '<p class="dropify-error">{{ error }}</p>',
             errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
@@ -652,6 +634,3 @@ $.fn[pluginName] = function(options) {
     return this;
 };
 
-
-return Dropify;
-}));

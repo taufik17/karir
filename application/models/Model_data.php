@@ -5,7 +5,10 @@ class Model_data extends CI_model {
 
 	function dataadmin() {
 		$username = $this->session->userdata('username_admin');
-		$data = $this->db->query("SELECT * FROM admin WHERE id_akun=( SELECT id_akun FROM user WHERE username = '$username')");
+		$data = $this->db->query("SELECT id_admin, admin.id_akun AS id_akun, role, Nama, Email_admin, foto, username
+			FROM admin INNER JOIN user
+			WHERE admin.id_akun=( SELECT user.id_akun FROM user WHERE username = '$username')
+			AND user.id_akun = admin.id_akun");
 		return $data;
 	}
 

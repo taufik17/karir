@@ -43,6 +43,24 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	function profil(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['title'] = "ICC | Admin Profil";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_profil";
+		$isi['data']		= $this->model_data->dataadmin();
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
+	function settings(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['title'] = "ICC | Admin Settings";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_settings";
+		$isi['data']		= $this->model_data->dataadmin();
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
 	function industri(){
 		$this->model_keamanan->getkeamananadmin();
 		$isi['title'] = "ICC | Admin Dashboard";

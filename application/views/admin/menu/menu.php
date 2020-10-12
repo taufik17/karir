@@ -63,4 +63,10 @@
 		</ul>
 	</li>
 
+	<li <?=$this->uri->segment(2) == 'settings' ? 'class="active"' : 'class=""'?>>
+		<a href="<?= base_url() ?>admin/settings">
+			<i class="fa fa-cog"></i> <span>Settings</span>
+		</a>
+	</li>
+
 </ul>
