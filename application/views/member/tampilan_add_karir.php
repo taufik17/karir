@@ -7,7 +7,7 @@
 						<h5 class="p-2 text-center">
 							Cari Lowongan Buka
 						</h5>
-						
+
 						<form id="form_search_sidebar" class="p-2" action="/vacancy/site/index" method="POST">
 							<input type="text" class="form-control" name="search" placeholder="ex: job, company, etc." style="border-radius:5px">
 							<div class="col-md-12" style="padding-left:0px; padding-top:10px; border-radius:5px;">

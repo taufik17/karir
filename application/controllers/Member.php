@@ -17,8 +17,15 @@ class Member extends CI_Controller {
 		$this->model_keamanan->getkeamananuser();
 		$username_user = $this->session->userdata('username_user');
 		$role_user = $this->session->userdata('role_user');
+		$id_akun = $this->session->userdata('id_akun');
+		$cari_idjobseeker = $this->db->query("SELECT id_jobseeker FROM jobseeker WHERE id_akun = $id_akun");
+		foreach ($cari_idjobseeker->result() as $row) {
+			$id_jobseeker = $row->id_jobseeker;
+		}
 		$isi['data'] = $this->db->query("SELECT * FROM jobseeker WHERE id_akun = (SELECT id_akun FROM user WHERE username = '$username_user')");
 		$isi['title'] = "ICC | karir - $username_user";
+		$isi['data_pekerjaan'] = $this->model_data->getdatapekerjaan($id_jobseeker);
+		$isi['jumlah_dilamar'] = $this->model_data->getdatapekerjaan($id_jobseeker)->num_rows();
 		$isi['konten'] = "member/konten_karir";
 		$this->load->view('member/tampilan_dashboard_member', $isi);
 	}
@@ -63,7 +70,7 @@ class Member extends CI_Controller {
 			$id_jobseeker = $row->id_jobseeker;
 		}
 		$this->model_data->lamar_pekerjaan($id_pekerjaan, $id_jobseeker);
-
+		$lihat = base_url('member/karir');
 		$this->session->set_flashdata('info',
 				'<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
@@ -82,7 +89,7 @@ class Member extends CI_Controller {
 
 							<!--Footer-->
 							<div class="modal-footer flex-center">
- 									<a href="<?= base_url() ?>member/karir" class="btn btn-success">Lihat</a>
+ 									<a href="'.$lihat.'" class="btn btn-success">Lihat</a>
 								<a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Tutup</a>
 							</div>
 						</div>

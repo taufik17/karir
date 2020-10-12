@@ -23,7 +23,7 @@
 				<div class="single-footer-widget mail-chimp">
 					<h6 class="mb-20">Social Media</h6>
 					<ul class="footer-nav">
-						<a href="#"><i class="fa fa-facebook"> ITERA Career Center</i></a>
+						<a href="#"><i class="fa fa-facebook"></i> ITERA Career Center</a>
 						<br>
 						<br>
 						<a href="#"><i class="fa fa-twitter"></i> ITERA Career Center</a>

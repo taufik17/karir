@@ -339,4 +339,13 @@ class Model_data extends CI_model {
 		return $this->db->query("INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`) VALUES (NULL, '$id_pekerjaan', '$id_jobseeker')");
 	}
 
+	function getdatapekerjaan($id_jobseeker) {
+		return $this->db->query("SELECT Nama_joblist,Nama_perusahaan,lamaran.status AS status FROM `lamaran`
+			INNER JOIN joblist
+			INNER JOIN company
+			WHERE pekerjaan = id_joblist
+			AND Id_perusahaan = perusahaan
+			AND id_jobseeker = $id_jobseeker");
+	}
+
 }
