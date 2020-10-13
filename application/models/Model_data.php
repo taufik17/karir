@@ -351,4 +351,12 @@ class Model_data extends CI_model {
 			AND id_jobseeker = $id_jobseeker");
 	}
 
+	function dataperusahaan(){
+		return $this->db->query("SELECT Id_perusahaan, id_akun, Nama_perusahaan, Logo_perusahaan FROM company");
+	}
+
+	function dataumum(){
+		return $this->db->query("SELECT id_jobseeker, id_akun, nama_jobseeker FROM jobseeker WHERE role_jobseeker = 2");
+	}
+
 }

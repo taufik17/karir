@@ -61,6 +61,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/tampilan_dashboard',$isi);
 	}
 
+	function detailUser(){
+		$this->model_keamanan->getkeamananadmin();
+		$isi['title'] = "ICC | Admin Detail User";
+		$isi['menu'] = "admin/menu/menu";
+		$isi['konten'] = "admin/konten/konten_detail_user";
+		$isi['data']		= $this->model_data->dataadmin();
+		$isi['perusahaan'] = $this->model_data->dataperusahaan();
+		$isi['umum'] = $this->model_data->dataumum();
+		$this->load->view('admin/tampilan_dashboard',$isi);
+	}
+
 	function industri(){
 		$this->model_keamanan->getkeamananadmin();
 		$isi['title'] = "ICC | Admin Dashboard";
