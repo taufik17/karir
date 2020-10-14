@@ -13,7 +13,7 @@ class Add_karir extends CI_Controller {
 		$isi['jenis_industri'] = $this->model_data->jenis_industri();
 		$config['base_url'] = base_url().'beranda/pagination';
 		$config['total_rows'] = $this->model_data->jmlhPerusahaanBuka();
-		$config['per_page'] = 5;
+		$config['per_page'] = 10;
 
 		// styling
 		$config['full_tag_open'] = '<nav> <ul class="pagination justify-content-center">';
@@ -45,7 +45,7 @@ class Add_karir extends CI_Controller {
 		$config['first_url'] = base_url();
 
 		$this->pagination->initialize($config);
-		$isi['start'] = $this->uri->segment(3);
+		$isi['start'] = 0;
 		$isi['data_list'] = $this->model_data->data_list_ajax($config['per_page'], $isi['start']);
 		$this->load->view('member/tampilan_add_karir', $isi);
 	}

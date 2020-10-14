@@ -214,12 +214,10 @@
 											</div>
 										</div>
 									</div>
+									<br>
 							<?php } else { ?>
 
 							<?php } ?>
-
-
-							<br>
 
 						<?php } ?>
 					</div>

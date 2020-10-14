@@ -395,12 +395,10 @@ if ($jumlah_event > 0) { ?>
 											</div>
 										</div>
 									</div>
+									<br>
 							<?php } else { ?>
 
 							<?php } ?>
-
-
-							<br>
 
 						<?php } ?>
 					</div>

@@ -207,19 +207,19 @@ class Model_data extends CI_model {
 
 	function fetch_data_popular($limit_popular, $start_popular)
 	{
-		$query = $this->db->query("SELECT Nama_joblist, COUNT(*) as jumlah, id_joblist, nama_perusahaan, logo_perusahaan, nama, perusahaan
-		FROM joblist
-		NATURAL JOIN company
-		NATURAL JOIN provinsi
-    NATURAL JOIN  lamaran
+		$query = $this->db->query("SELECT Nama_joblist, COUNT(*) as jumlah, id_joblist, nama, nama_perusahaan, logo_perusahaan, perusahaan
+	FROM joblist
+	INNER JOIN company
+    INNER JOIN  lamaran
+    INNER JOIN provinsi
 
     WHERE id_perusahaan = perusahaan
-		AND  status = '<span class=\"label label-success\">Telah tayang</span>'
-		AND id_provinsi = id
+	AND  joblist.status = '<span class=\"label label-success\">Telah tayang</span>'
     AND pekerjaan = id_joblist
-		AND deadline >= current_date()
+    AND id_provinsi = id
+    AND deadline >= current_date()
     GROUP BY pekerjaan
-		ORDER BY jumlah  DESC
+	ORDER BY jumlah  DESC
 		LIMIT $limit_popular OFFSET $start_popular ");
 
 		return $query;
@@ -276,14 +276,16 @@ class Model_data extends CI_model {
 	}
 
 	public function data_list_ajax($limit,$start) {
-		$this->db->distinct();
-		$this->db->select('Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan');
-		$this->db->from('company');
-		$this->db->join('joblist', 'id_perusahaan = perusahaan');
-		$where = "<span class=\"label label-success\">Telah tayang</span>";
-		$this->db->where('status', $where);
-		$this->db->limit($limit, $start);
-		$query = $this->db->get();
+		// $this->db->distinct();
+		// $this->db->select('Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan');
+		// $this->db->from('company');
+		// $this->db->join('joblist', 'id_perusahaan = perusahaan');
+		// $where = "<span class=\"label label-success\">Telah tayang</span>";
+		// $this->db->where('status', $where);
+		// $this->db->limit($limit, $start);
+		$query = $this->db->query("SELECT DISTINCT Id_perusahaan, Nama_perusahaan, deskripsi_perusahaan, Logo_perusahaan FROM company
+			INNER JOIN joblist WHERE id_perusahaan = perusahaan
+			AND status = '<span class=\"label label-success\">Telah tayang</span>' LIMIT $limit OFFSET $start");
 		return $query;
 	}
 
