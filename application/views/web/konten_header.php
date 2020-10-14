@@ -169,6 +169,21 @@
 		margin-bottom: 24px;
 		box-shadow: 10px 10px 5px #eeeeee;
 	}
+
+	/* Back to Top Pure CSS With Delay by igniel.com */
+		html {scroll-behavior:smooth;}
+		.ignielToTop {width:50px; height:50px; position:fixed; bottom:50px; right: 50px; z-index:99; cursor:pointer; border-radius:100px; transition:all .5s ease; opacity:0; visibility:hidden; animation:ignielDelay .75s 3s forwards; -moz-animation:ignielDelay .75s 3s forwards; -webkit-animation:ignielDelay .75s 3s forwards; -o-animation:ignielDelay .75s 3s forwards; background:#008c5f url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center;}
+		.ignielToTop:hover {background:#1d2129 url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center;}
+		.ignielToTop:active, .ignielToTop:focus {bottom:100%;}
+		@keyframes ignielDelay {
+		to {opacity:1; visibility:visible;}
+		}
+		@-webkit-keyframes ignielDelay {
+		to {opacity:1; visibility:visible;}
+		}
+		@-moz-keyframes ignielDelay {
+		to {opacity:1; visibility:visible;}
+		}
 	</style>
 	<!-- end terbaru dan terpopuler -->
 
@@ -188,3 +203,4 @@
 			</div>
 		</div>
 	</header>
+	<a href="#" class="ignielToTop"></a>
