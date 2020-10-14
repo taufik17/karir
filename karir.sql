@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Okt 2020 pada 22.10
+-- Waktu pembuatan: 14 Okt 2020 pada 16.54
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -117,7 +117,8 @@ INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_offi
 (5, 23, 'ilman', 'ilman', 'ilman@ilman', 'ilman@gmail.com', 'ilman industri', 33, '36', '1114', 'default.png', 'sampul_default.png', 'ilman.com', '0987654', '0987654', '09876', 'jajaran', '31657', '2020-04-22 10:09:22'),
 (6, 24, 'purwati', 'purwati', 'purwati@purwati', 'purwati@gmail.com', 'deskripsi', 33, '52', '1171', 'default.png', 'sampul_default.png', 'purwati.com', '098765', '098765', '098765', 'jajran baru', '31657', '2020-04-22 10:12:32'),
 (7, 13, 'nocturnal', 'mhd yudi', 'mhd@nocturnal', 'mhd@gmail.com', 'nocturnal production', 36, '64', '1101', 'default.png', 'sampul_default.png', 'nocturnal.com', '098765', '0987654', '0987654', 'lampung', '2344', '2020-04-22 10:33:18'),
-(8, 26, 'Musi Rawas', 'Musi Rawas', 'musirawas@gmail.com', 'musirawas@gmail.com', '', 33, '16', '1606', 'default.png', 'sampul_default.png', 'muisrawas.com', '085357037093', '085357037093', '085357037093', 'beliti', '31657', '2020-09-03 07:02:51');
+(8, 26, 'Musi Rawas', 'Musi Rawas', 'musirawas@gmail.com', 'musirawas@gmail.com', '', 33, '16', '1606', 'default.png', 'sampul_default.png', 'muisrawas.com', '085357037093', '085357037093', '085357037093', 'beliti', '31657', '2020-09-03 07:02:51'),
+(9, 28, 'CicilSewa', 'cicilsewa', 'cicilsewa@gmail.com', 'cicilsewa@gmail.com', '', 33, '31', '3171', 'default.png', 'sampul_default.png', 'https://cicilsewa.id', '80808798', '08798798', '098098080', 'Jl. Bangka XI, Mampang Prapatan, Jakarta Selatan', '43232', '2020-10-14 08:28:59');
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,7 @@ CREATE TABLE `joblist` (
   `deadline` date NOT NULL,
   `dibutuhkan` int(8) DEFAULT NULL,
   `deskripsi_pekerjaan` text NOT NULL,
-  `min_lulus` int(1) NOT NULL DEFAULT '0' COMMENT '0.apa aja 1.sma/smk 2.diploma 3.s1 4.s2',
+  `min_lulus` int(1) DEFAULT NULL COMMENT '0.apa aja 1.sma/smk 2.diploma 3.s1 4.s2',
   `IPK` decimal(2,1) DEFAULT NULL,
   `min_umur` int(3) NOT NULL,
   `max_umur` int(11) NOT NULL,
@@ -180,7 +181,8 @@ INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusaha
 (30, 'web developer', '2', 3, '2020-04-30', 100, 'mampu codeigniter', 2, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-19', '2020-04-19'),
 (31, 'kasir', '3', 6, '2020-04-30', 4, 'kasir', 3, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-22', '2020-04-22'),
 (32, 'kasir', '1', 5, '2020-04-30', 5, 'kasir', 2, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
-(33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, '0.0', 0, 0, 'menguasai desain', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22');
+(33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, '0.0', 0, 0, 'menguasai desain', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
+(34, 'Senior Back End Developer - Ruby on Rails', '1', 9, '2020-11-08', 2, '<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Job Description</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Optimization of the application for maximum speed and scalability;</li>\r\n	<li>Implementation of security and data protection of application;</li>\r\n	<li>Design and implementation of data storage solutions;</li>\r\n	<li>Integration of user-facing elements with server-side logic; and</li>\r\n	<li>Building reusable code and libraries for future use.</li>\r\n</ul>\r\n</div>\r\n\r\n<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Minimum Qualifications</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Skills Advance Knowledge in PHP-Laravel Framework or Ruby is a must.</li>\r\n	<li>Able to create database schemas that represent and support business processes.</li>\r\n	<li>2 &ndash; 5 years of experience of Web Development using any Web Framework.</li>\r\n	<li>Work well independently and in a team setting.</li>\r\n	<li>In-depth understanding of the entire web development process (design, development, and deployment).</li>\r\n	<li>Deep knowledge of user authentication and authorization between multiple systems, servers, and environments.</li>\r\n	<li>Excellent analytical and time management skills.</li>\r\n	<li>Experience in managing host environments, implementing automated testing platforms, and unit tests is a plus.</li>\r\n</ul>\r\n</div>\r\n', 0, NULL, 0, 0, '<ul>\r\n	<li>ruby on rails</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
@@ -753,7 +755,8 @@ INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `status`) VALU
 (2, 6, 2, 2),
 (3, 23, 2, 2),
 (20, 23, 6, 2),
-(21, 6, 6, 1);
+(21, 6, 6, 1),
+(22, 34, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -1001,7 +1004,8 @@ INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VA
 (24, 'purwati', 'cd8f3611aeac97018a328925557cc75a089bc2cbcf735320640dc7975c8fd1c08495a1a2997ecf2aa646dc5928b846f0b40a3e9e9d5e258ddcccc77924632985', '2', 1),
 (25, 'nugraha', 'a737efa71b3616598918732733d36899fd79e65aef65fda710eb0a34a23c48348d96b6b3e23cf6cec7d3f98cca504e5ba7e43d6c25a25b3df561eb5e996bd32d', '1', 0),
 (26, 'musirawas', '40a1ea4482c936cb519387248f4628a018983e8ca5bcf4b6151226daa38bc923b8f36d3f55a2de66fe740a31c90e6791b281279ef60e9dd9cfb53fc4b3901ba8', '1', 1),
-(27, 'ringgom', 'bc049b26822f34db8c04b75885b4bfbd4cfc199b1c9554c214657f23a3c20aca93aeb594c5de52217a09bea644dc93ec1a641c5613ac31022ac3cd8e4a68640a', '2', 1);
+(27, 'ringgom', 'bc049b26822f34db8c04b75885b4bfbd4cfc199b1c9554c214657f23a3c20aca93aeb594c5de52217a09bea644dc93ec1a641c5613ac31022ac3cd8e4a68640a', '2', 1),
+(28, 'cicilsewa', 'd57f3d6812f49b19833dd07721f371831a0ead4648d2a0f27237349473ec5936863794c7464a2b4344a77790ab89525e761e66e1e693b05ec3ec89cd0492b704', '1', 1);
 
 --
 -- Indexes for dumped tables
@@ -1137,7 +1141,7 @@ ALTER TABLE `calendar`
 -- AUTO_INCREMENT untuk tabel `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `industri`
@@ -1149,7 +1153,7 @@ ALTER TABLE `industri`
 -- AUTO_INCREMENT untuk tabel `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `jobseeker`
@@ -1161,7 +1165,7 @@ ALTER TABLE `jobseeker`
 -- AUTO_INCREMENT untuk tabel `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_careerday`
@@ -1203,7 +1207,7 @@ ALTER TABLE `tb_detail_req_jrsn`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
