@@ -40,7 +40,7 @@ class Company extends CI_Controller {
 	}
 
 	public function data_pekerjaan(){
-		$id_akun = $this->session->userdata('id_akun');
+		$id_akun = $this->session->userdata('id_akun_cpy');
 		$id = $this->db->query("SELECT Id_perusahaan FROM company WHERE id_akun = $id_akun");
 		foreach ($id->result() as $row) {
 			$id_perusahaan = $row->Id_perusahaan;

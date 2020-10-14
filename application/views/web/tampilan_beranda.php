@@ -1,5 +1,17 @@
 <?php $this->load->view('web/konten_header') ?>
 
+<?php 
+function wordlimit($text,$limit=15){
+                    if (strlen($text)>$limit) {
+                      $word = mb_substr($text,0,$limit-3)."...";
+                    }
+                    else{
+                      $word = $text;
+                    }
+                    return $word;
+                  }
+?>
+
 <?php
 if ($jumlah_event > 0) { ?>
 	<div id="modal_warning" class="modal fade" role="dialog">
@@ -292,7 +304,8 @@ if ($jumlah_event > 0) { ?>
 														<?php foreach ($query2->result() as $prov) ?>
 														<p><?= $prov->nama ?>, Indonesia </p>
 													</span>
-													<p class="mb-1 mt-1"><?= $row->deskripsi_perusahaan; ?></p>
+
+													<p class="mb-1 mt-1"><?= wordlimit($row->deskripsi_perusahaan,100); ?></p>
 												</div>
 											</div>
 											<div class="col-lg-2 col-md-3 position text-center d-flex align-items-center p-2">

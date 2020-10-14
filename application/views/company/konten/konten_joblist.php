@@ -32,7 +32,7 @@
 							<th>Nama Pekerjaan</th>
 							<th>Deadline</th>
 							<th>Status</th>
-							<th>Edit</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody id="show_list_pekerjaan">

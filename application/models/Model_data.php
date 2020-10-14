@@ -37,7 +37,7 @@ class Model_data extends CI_model {
 		$data = $this->db->query("SELECT * FROM company WHERE id_akun ='$id_perusahaan'");
 		return $data;
 	}
-
+	
 	function provinsi(){
 		$data = $this->db->query("SELECT id, nama FROM provinsi");
 		return $data;

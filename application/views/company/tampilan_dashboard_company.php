@@ -62,7 +62,6 @@
             <div class="pull-left info">
               <p><?php echo $nama->Nama_perusahaan ?></p>
             <?php }?>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
         <br>
@@ -160,7 +159,6 @@ $(function () {
     					'<td>'+data[i].deadline+'</td>'+
     					'<td>'+data[i].status+'</td>'+
     					'<td style="text-align:center;">'+
-    					'<a href="javascript:;" class="btn btn-success btn-xs item_validasi" data="'+data[i].id_joblist+'"><i class="fa fa-check"></i>&nbsp&nbspValidasi</a>'+' '+
     					'<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id_joblist+'"><i class="fa fa-trash"></i>&nbsp&nbspHapus</a>'+
     					'</td>'+
     					'</tr>';
