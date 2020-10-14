@@ -106,7 +106,7 @@ if ($jumlah_event > 0) { ?>
 							</div>
 						</div>
 						<div class="col-lg-1 form-cols">
-							<button type="submit" class="btn btn-info">
+							<button type="submit" class="btn btn-info" style="margin:0px; background-color: #8c1515 !important">
 								<span class="lnr lnr-magnifier"></span></button>
 						</div>
 					</div>
