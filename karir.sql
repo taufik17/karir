@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Okt 2020 pada 16.54
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.0
+-- Generation Time: Oct 19, 2020 at 04:00 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,11 +35,11 @@ CREATE TABLE `admin` (
   `foto` varchar(100) NOT NULL DEFAULT 'avatar.svg',
   `role` int(2) DEFAULT NULL COMMENT 'belum tahu privillage apa saja, nanti dapat dikembangkan',
   `ref` int(11) NOT NULL,
-  `time_reg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `time_reg` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `id_akun`, `Nama`, `Email_admin`, `foto`, `role`, `ref`, `time_reg`) VALUES
@@ -49,13 +48,13 @@ INSERT INTO `admin` (`id_admin`, `id_akun`, `Nama`, `Email_admin`, `foto`, `role
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `calendar`
+-- Table structure for table `calendar`
 --
 
 CREATE TABLE `calendar` (
   `id` int(11) NOT NULL,
   `title` varchar(126) DEFAULT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `color` varchar(24) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT 'event.png',
   `start_date` date DEFAULT NULL,
@@ -67,7 +66,7 @@ CREATE TABLE `calendar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `calendar`
+-- Dumping data for table `calendar`
 --
 
 INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `gambar`, `start_date`, `end_date`, `create_at`, `create_by`, `modified_at`, `modified_by`) VALUES
@@ -81,7 +80,7 @@ INSERT INTO `calendar` (`id`, `title`, `description`, `color`, `gambar`, `start_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `company`
+-- Table structure for table `company`
 --
 
 CREATE TABLE `company` (
@@ -103,11 +102,11 @@ CREATE TABLE `company` (
   `hp_officer` varchar(15) NOT NULL,
   `Alamat` text NOT NULL,
   `kode_pos` varchar(8) NOT NULL,
-  `waktu_pendaftaran` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `waktu_pendaftaran` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `company`
+-- Dumping data for table `company`
 --
 
 INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_officer`, `Email_officer`, `Email_perusahaan`, `deskripsi_perusahaan`, `id_industri`, `id_provinsi`, `id_kabupaten_kota`, `Logo_perusahaan`, `sampul`, `Website`, `telp_perusahaan`, `telp_officer`, `hp_officer`, `Alamat`, `kode_pos`, `waktu_pendaftaran`) VALUES
@@ -118,12 +117,14 @@ INSERT INTO `company` (`Id_perusahaan`, `id_akun`, `Nama_perusahaan`, `Nama_offi
 (6, 24, 'purwati', 'purwati', 'purwati@purwati', 'purwati@gmail.com', 'deskripsi', 33, '52', '1171', 'default.png', 'sampul_default.png', 'purwati.com', '098765', '098765', '098765', 'jajran baru', '31657', '2020-04-22 10:12:32'),
 (7, 13, 'nocturnal', 'mhd yudi', 'mhd@nocturnal', 'mhd@gmail.com', 'nocturnal production', 36, '64', '1101', 'default.png', 'sampul_default.png', 'nocturnal.com', '098765', '0987654', '0987654', 'lampung', '2344', '2020-04-22 10:33:18'),
 (8, 26, 'Musi Rawas', 'Musi Rawas', 'musirawas@gmail.com', 'musirawas@gmail.com', '', 33, '16', '1606', 'default.png', 'sampul_default.png', 'muisrawas.com', '085357037093', '085357037093', '085357037093', 'beliti', '31657', '2020-09-03 07:02:51'),
-(9, 28, 'CicilSewa', 'cicilsewa', 'cicilsewa@gmail.com', 'cicilsewa@gmail.com', '', 33, '31', '3171', 'default.png', 'sampul_default.png', 'https://cicilsewa.id', '80808798', '08798798', '098098080', 'Jl. Bangka XI, Mampang Prapatan, Jakarta Selatan', '43232', '2020-10-14 08:28:59');
+(9, 28, 'CicilSewa', 'cicilsewa', 'cicilsewa@gmail.com', 'cicilsewa@gmail.com', '', 33, '31', '3171', 'cicilsewa.png', 'sampul_default.png', 'https://cicilsewa.id', '80808798', '08798798', '098098080', 'Jl. Bangka XI, Mampang Prapatan, Jakarta Selatan', '43232', '2020-10-14 15:01:17'),
+(10, 29, 'First Tech', 'firstech@gmail.com', 'firstech@gmail.com', 'firstech@gmail.com', 'First Tech adalah sebuah Digital Marketing Agency yang berbasis di Medan. Kami adalah perusahaan yang bergerak di bidang Digital yang didirikan kerena melihat kebutuhan masyarakat akan bidang digital yang cukup tinggi saat ini. Kami menyediakan beberapa layanan digital seperti Jasa Pembuatan Website, Jasa Digital Marketing dan Jasa Design Logo dan akan terus melebarkan sayap kami ke beberapa layanan Digital lainnya secara bertahap. ', 33, '12', '1275', 'firstech.png', 'sampul_default.png', 'https://firsttech.id', '0574212455', '18845245', '316546575', 'Jalan Pancing, Medan 20221, Indonesia', '20221', '2020-10-14 15:25:57'),
+(11, 31, 'Dans Multi Pro', 'dans', 'dans@gmail.com', 'dans@gmail.com', 'PT. DANS MULTI PRO sebuah perusahaan Teknologi Informasi (Information Technology), saat ini kami mengkhususkan diri sebagai sebuah perusahaan penyedia solusi layanan TI di semua sektor industri. Solusi layanan TI yang kami hasilkan akan membantu perusahaan dalam menganalisa implikasi bisnis, biaya, dan peraturan yang ada untuk menghasilkan suatu roadmap teknologi yang digunakan oleh perusahaan tersebut.  Pengalaman kami menunjukkan bahwa dengan menyediakan lingkungan kerja yang nyaman dan menantang bagi para pegawai kami, berbagai inovasi akan muncul untuk menghasilkan suatu produk yang berkualitas. Tangan tangan karyawan profesional kami terus menghasilkan inovasi untuk memenuhi kepuasan pelanggan  Selain memiliki tim profesional untuk membantu pelanggan, kami pun membangun aliansi strategis dengan sejumlah partner teknologi nasional, regional, maupun global untuk memperkuat penawaran solusi kami.', 37, '31', '3171', 'dans.png', 'sampul_default.png', 'http://www.dansmultipro.co.id', '464656546', '14564655', '1324655', 'Gdg. SOHO Pancoran Unit Splendor Lt. 11 No.1103 Jl. MT. Haryono Kav. 2-3 Jakarta Selatan', '1103', '2020-10-14 15:36:33');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `industri`
+-- Table structure for table `industri`
 --
 
 CREATE TABLE `industri` (
@@ -132,19 +133,20 @@ CREATE TABLE `industri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `industri`
+-- Dumping data for table `industri`
 --
 
 INSERT INTO `industri` (`id_industri`, `jenis_industri`) VALUES
 (33, 'perkantoran'),
 (34, 'accounting'),
 (35, 'Perguruan Tinggi'),
-(36, 'android developer');
+(36, 'android developer'),
+(37, 'Information Technology / IT');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `joblist`
+-- Table structure for table `joblist`
 --
 
 CREATE TABLE `joblist` (
@@ -159,7 +161,7 @@ CREATE TABLE `joblist` (
   `IPK` decimal(2,1) DEFAULT NULL,
   `min_umur` int(3) NOT NULL,
   `max_umur` int(11) NOT NULL,
-  `syarat_khusus` text,
+  `syarat_khusus` text DEFAULT NULL,
   `penempatan` text NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT '<span class="label label-warning">Pending</span>',
   `tanggal_buat` date NOT NULL,
@@ -167,7 +169,7 @@ CREATE TABLE `joblist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `joblist`
+-- Dumping data for table `joblist`
 --
 
 INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusahaan`, `deadline`, `dibutuhkan`, `deskripsi_pekerjaan`, `min_lulus`, `IPK`, `min_umur`, `max_umur`, `syarat_khusus`, `penempatan`, `status`, `tanggal_buat`, `tanggal_verif`) VALUES
@@ -182,12 +184,14 @@ INSERT INTO `joblist` (`id_joblist`, `Nama_joblist`, `Tipe_pekerjaan`, `perusaha
 (31, 'kasir', '3', 6, '2020-04-30', 4, 'kasir', 3, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-22', '2020-04-22'),
 (32, 'kasir', '1', 5, '2020-04-30', 5, 'kasir', 2, '0.0', 0, 0, 'tidak ada', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
 (33, 'UI Android', '', 7, '2020-04-29', 10, 'membuat UI Android', 1, '0.0', 0, 0, 'menguasai desain', '', '<span class=\"label label-success\">Telah tayang</span>', '2020-04-21', '2020-04-22'),
-(34, 'Senior Back End Developer - Ruby on Rails', '1', 9, '2020-11-08', 2, '<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Job Description</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Optimization of the application for maximum speed and scalability;</li>\r\n	<li>Implementation of security and data protection of application;</li>\r\n	<li>Design and implementation of data storage solutions;</li>\r\n	<li>Integration of user-facing elements with server-side logic; and</li>\r\n	<li>Building reusable code and libraries for future use.</li>\r\n</ul>\r\n</div>\r\n\r\n<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Minimum Qualifications</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Skills Advance Knowledge in PHP-Laravel Framework or Ruby is a must.</li>\r\n	<li>Able to create database schemas that represent and support business processes.</li>\r\n	<li>2 &ndash; 5 years of experience of Web Development using any Web Framework.</li>\r\n	<li>Work well independently and in a team setting.</li>\r\n	<li>In-depth understanding of the entire web development process (design, development, and deployment).</li>\r\n	<li>Deep knowledge of user authentication and authorization between multiple systems, servers, and environments.</li>\r\n	<li>Excellent analytical and time management skills.</li>\r\n	<li>Experience in managing host environments, implementing automated testing platforms, and unit tests is a plus.</li>\r\n</ul>\r\n</div>\r\n', 0, NULL, 0, 0, '<ul>\r\n	<li>ruby on rails</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL);
+(34, 'Senior Back End Developer - Ruby on Rails', '1', 9, '2020-11-08', 2, '<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Job Description</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Optimization of the application for maximum speed and scalability;</li>\r\n	<li>Implementation of security and data protection of application;</li>\r\n	<li>Design and implementation of data storage solutions;</li>\r\n	<li>Integration of user-facing elements with server-side logic; and</li>\r\n	<li>Building reusable code and libraries for future use.</li>\r\n</ul>\r\n</div>\r\n\r\n<h2 style=\"font-style:normal; margin-left:0px; margin-right:0px; text-align:start\">Minimum Qualifications</h2>\r\n\r\n<div style=\"margin-left:0px; margin-right:0px; text-align:start\">\r\n<ul>\r\n	<li>Skills Advance Knowledge in PHP-Laravel Framework or Ruby is a must.</li>\r\n	<li>Able to create database schemas that represent and support business processes.</li>\r\n	<li>2 &ndash; 5 years of experience of Web Development using any Web Framework.</li>\r\n	<li>Work well independently and in a team setting.</li>\r\n	<li>In-depth understanding of the entire web development process (design, development, and deployment).</li>\r\n	<li>Deep knowledge of user authentication and authorization between multiple systems, servers, and environments.</li>\r\n	<li>Excellent analytical and time management skills.</li>\r\n	<li>Experience in managing host environments, implementing automated testing platforms, and unit tests is a plus.</li>\r\n</ul>\r\n</div>\r\n', 0, NULL, 0, 0, '<ul>\r\n	<li>ruby on rails</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(35, 'Search Engine Optimization (SEO) Specialist', '1', 10, '2020-10-31', 1, '<h2>Job Description</h2>\r\n\r\n<ul>\r\n	<li>Memastikan website yang sedang dikembangkan sudah dioptimalisasi secara teknis</li>\r\n	<li>Membuat laporan terperinci untuk klien tentang performa SEO yang sedang dikerjakan pada website</li>\r\n	<li>Mendesain sebuah rancangan yang akan digunakan dalam membangun SEO</li>\r\n	<li>Membangun sistem serta protokol internal. Hal ini digunakan untuk menjamin pengoptimlan seluruh konten pada semua jenis platform</li>\r\n	<li>Mempromosikan website dengan cara onsite maupun offsite</li>\r\n	<li>Mempertahankan interaksi pengguna website dengan website yang bisa membangun peringkat serta lalu lintas website</li>\r\n</ul>\r\n\r\n<h2>Minimum Qualifications</h2>\r\n\r\n<ul>\r\n	<li>Pria Max Usia 35 Tahun</li>\r\n	<li>Memiliki pengetahuan yang kuat tentang SEO mulai dari pengerjaan awal hingga proses maintenance</li>\r\n	<li>Menguasai alat analisis website ( ex : Google Analytic )</li>\r\n	<li>Terbiasa dan mahir dalam menggunakan Tools SEO</li>\r\n	<li>Memiliki kemampuan dasar Front End &amp; Back End Website</li>\r\n	<li>Memiliki pengetahuan &amp; pengalaman dalam membuat Iklan Digital ( e.x : Google Ads, Facebook &amp; Instagram Ads ) merupakan poin plus</li>\r\n	<li>Mampu bekerja dibawah tekanan, mempunyai inisiatif dan kecepatan kerja yang tinggi dan stabil, serta dapat bekerja secara team</li>\r\n	<li>Keterampilan analitis yang kuat dan pemikirian berbasis data</li>\r\n	<li>Memiliki pengalaman minimal 2 tahun</li>\r\n	<li>Full Timer dan Onsite</li>\r\n</ul>\r\n', NULL, NULL, 0, 0, '<ul>\r\n	<li>Google Analytics</li>\r\n	<li>Creative Thinking</li>\r\n	<li>Action Planning</li>\r\n	<li>Copywriting</li>\r\n	<li>Digital Marketing</li>\r\n	<li>Search Engine Optimization (SEO)</li>\r\n	<li>Data Analysis</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL),
+(36, 'Senior Quality Assurance', '1', 11, '2021-04-01', 2, '<p>Testing system, database, web application, mobile application and reproduce bugs.</p>\r\n\r\n<h2>Minimum Qualifications</h2>\r\n\r\n<ul>\r\n	<li>Candidate must possess at least Bachelor&#39;s Degree in Computer Science/Information Technology or equivalent.</li>\r\n	<li>Experince minimum 2 year in testing.</li>\r\n	<li>Have understanding about process flow.</li>\r\n	<li>Having skill to identify and evaluate rare problems and missing requirements while conducting tests.</li>\r\n	<li>Excellent in testing system, database, web application, mobile application and reproduce bugs.</li>\r\n	<li>Having knowledge of Application testing methodology, good communication, analytical and software design skills.</li>\r\n	<li>Ability to work as a good team player or individually and willing to work under pressure.</li>\r\n</ul>\r\n\r\n<h2>Perks and Benefits</h2>\r\n\r\n<ul>\r\n</ul>\r\n\r\n<p>Other</p>\r\n\r\n<ul>\r\n	<li>BPJS</li>\r\n	<li>Free Snack</li>\r\n	<li>Performance Bonus</li>\r\n</ul>\r\n', NULL, NULL, 0, 0, '<ul>\r\n	<li>Software Testing</li>\r\n	<li>Usability Testing</li>\r\n</ul>\r\n', '', '<span class=\"label label-success\">Telah tayang</span>', '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jobseeker`
+-- Table structure for table `jobseeker`
 --
 
 CREATE TABLE `jobseeker` (
@@ -205,7 +209,7 @@ CREATE TABLE `jobseeker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jobseeker`
+-- Dumping data for table `jobseeker`
 --
 
 INSERT INTO `jobseeker` (`id_jobseeker`, `id_akun`, `nama_jobseeker`, `nim_jobseeker`, `email_jobseeker`, `no_hp`, `foto`, `sampul`, `status_mhs`, `role_jobseeker`, `perguruan_tinggi`) VALUES
@@ -219,7 +223,7 @@ INSERT INTO `jobseeker` (`id_jobseeker`, `id_akun`, `nama_jobseeker`, `nim_jobse
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kabupaten`
+-- Table structure for table `kabupaten`
 --
 
 CREATE TABLE `kabupaten` (
@@ -229,7 +233,7 @@ CREATE TABLE `kabupaten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kabupaten`
+-- Dumping data for table `kabupaten`
 --
 
 INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
@@ -736,18 +740,18 @@ INSERT INTO `kabupaten` (`id`, `id_prov`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lamaran`
+-- Table structure for table `lamaran`
 --
 
 CREATE TABLE `lamaran` (
   `id_lamaran` int(8) NOT NULL,
   `pekerjaan` int(100) DEFAULT NULL,
   `id_jobseeker` int(15) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '2' COMMENT '1. untuk telah ada pengumuman, 2. untuk masih menunggu'
+  `status` tinyint(4) NOT NULL DEFAULT 2 COMMENT '1. untuk telah ada pengumuman, 2. untuk masih menunggu'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `lamaran`
+-- Dumping data for table `lamaran`
 --
 
 INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `status`) VALUES
@@ -761,7 +765,7 @@ INSERT INTO `lamaran` (`id_lamaran`, `pekerjaan`, `id_jobseeker`, `status`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta_careerday`
+-- Table structure for table `peserta_careerday`
 --
 
 CREATE TABLE `peserta_careerday` (
@@ -777,11 +781,11 @@ CREATE TABLE `peserta_careerday` (
   `tahun_lulus_terakhir` year(4) NOT NULL,
   `foto` varchar(150) NOT NULL,
   `alasan_ikut` text NOT NULL,
-  `tanggal_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `tanggal_daftar` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `peserta_careerday`
+-- Dumping data for table `peserta_careerday`
 --
 
 INSERT INTO `peserta_careerday` (`id_pendaftar`, `id_event`, `nama`, `jk`, `asal_sekolah_pt`, `tgl_lahir`, `alamat`, `nohp`, `email`, `tahun_lulus_terakhir`, `foto`, `alasan_ikut`, `tanggal_daftar`) VALUES
@@ -792,7 +796,7 @@ INSERT INTO `peserta_careerday` (`id_pendaftar`, `id_event`, `nama`, `jk`, `asal
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `provinsi`
+-- Table structure for table `provinsi`
 --
 
 CREATE TABLE `provinsi` (
@@ -801,7 +805,7 @@ CREATE TABLE `provinsi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `provinsi`
+-- Dumping data for table `provinsi`
 --
 
 INSERT INTO `provinsi` (`id`, `nama`) VALUES
@@ -843,7 +847,7 @@ INSERT INTO `provinsi` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `requirement_berkas`
+-- Table structure for table `requirement_berkas`
 --
 
 CREATE TABLE `requirement_berkas` (
@@ -852,7 +856,7 @@ CREATE TABLE `requirement_berkas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `requirement_berkas`
+-- Dumping data for table `requirement_berkas`
 --
 
 INSERT INTO `requirement_berkas` (`id_requirement`, `nama_requirement`) VALUES
@@ -864,7 +868,7 @@ INSERT INTO `requirement_berkas` (`id_requirement`, `nama_requirement`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `requirement_jurusan`
+-- Table structure for table `requirement_jurusan`
 --
 
 CREATE TABLE `requirement_jurusan` (
@@ -873,7 +877,7 @@ CREATE TABLE `requirement_jurusan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `requirement_jurusan`
+-- Dumping data for table `requirement_jurusan`
 --
 
 INSERT INTO `requirement_jurusan` (`id_requirement`, `nama_jurusan`) VALUES
@@ -886,19 +890,19 @@ INSERT INTO `requirement_jurusan` (`id_requirement`, `nama_jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_berita`
+-- Table structure for table `tbl_berita`
 --
 
 CREATE TABLE `tbl_berita` (
   `berita_id` int(11) NOT NULL,
   `berita_judul` varchar(150) DEFAULT NULL,
-  `berita_isi` text,
+  `berita_isi` text DEFAULT NULL,
   `berita_image` varchar(40) DEFAULT NULL,
-  `berita_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `berita_tanggal` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_berita`
+-- Dumping data for table `tbl_berita`
 --
 
 INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_image`, `berita_tanggal`) VALUES
@@ -908,7 +912,7 @@ INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_ima
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_req_brks`
+-- Table structure for table `tb_detail_req_brks`
 --
 
 CREATE TABLE `tb_detail_req_brks` (
@@ -918,7 +922,7 @@ CREATE TABLE `tb_detail_req_brks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_req_brks`
+-- Dumping data for table `tb_detail_req_brks`
 --
 
 INSERT INTO `tb_detail_req_brks` (`id_detail_req`, `id_requirement`, `id_joblist`) VALUES
@@ -946,7 +950,7 @@ INSERT INTO `tb_detail_req_brks` (`id_detail_req`, `id_requirement`, `id_joblist
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_req_jrsn`
+-- Table structure for table `tb_detail_req_jrsn`
 --
 
 CREATE TABLE `tb_detail_req_jrsn` (
@@ -956,7 +960,7 @@ CREATE TABLE `tb_detail_req_jrsn` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_req_jrsn`
+-- Dumping data for table `tb_detail_req_jrsn`
 --
 
 INSERT INTO `tb_detail_req_jrsn` (`id_detail_req`, `id_requirement`, `id_joblist`) VALUES
@@ -974,7 +978,7 @@ INSERT INTO `tb_detail_req_jrsn` (`id_detail_req`, `id_requirement`, `id_joblist
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -982,11 +986,11 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role_user` enum('1','2','3','') DEFAULT NULL COMMENT '1. untuk company 2. untuk jobseeker 3. untuk admin',
-  `status` int(1) DEFAULT '0' COMMENT '0. nonaktif 1. aktif'
+  `status` int(1) DEFAULT 0 COMMENT '0. nonaktif 1. aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VALUES
@@ -1005,27 +1009,29 @@ INSERT INTO `user` (`id_akun`, `username`, `password`, `role_user`, `status`) VA
 (25, 'nugraha', 'a737efa71b3616598918732733d36899fd79e65aef65fda710eb0a34a23c48348d96b6b3e23cf6cec7d3f98cca504e5ba7e43d6c25a25b3df561eb5e996bd32d', '1', 0),
 (26, 'musirawas', '40a1ea4482c936cb519387248f4628a018983e8ca5bcf4b6151226daa38bc923b8f36d3f55a2de66fe740a31c90e6791b281279ef60e9dd9cfb53fc4b3901ba8', '1', 1),
 (27, 'ringgom', 'bc049b26822f34db8c04b75885b4bfbd4cfc199b1c9554c214657f23a3c20aca93aeb594c5de52217a09bea644dc93ec1a641c5613ac31022ac3cd8e4a68640a', '2', 1),
-(28, 'cicilsewa', 'd57f3d6812f49b19833dd07721f371831a0ead4648d2a0f27237349473ec5936863794c7464a2b4344a77790ab89525e761e66e1e693b05ec3ec89cd0492b704', '1', 1);
+(28, 'cicilsewa', 'd57f3d6812f49b19833dd07721f371831a0ead4648d2a0f27237349473ec5936863794c7464a2b4344a77790ab89525e761e66e1e693b05ec3ec89cd0492b704', '1', 1),
+(29, 'firstech', 'd57f3d6812f49b19833dd07721f371831a0ead4648d2a0f27237349473ec5936863794c7464a2b4344a77790ab89525e761e66e1e693b05ec3ec89cd0492b704', '1', 1),
+(31, 'dansmulti', 'd57f3d6812f49b19833dd07721f371831a0ead4648d2a0f27237349473ec5936863794c7464a2b4344a77790ab89525e761e66e1e693b05ec3ec89cd0492b704', '1', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`),
   ADD KEY `id_akun` (`id_akun`);
 
 --
--- Indeks untuk tabel `calendar`
+-- Indexes for table `calendar`
 --
 ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `company`
+-- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`Id_perusahaan`),
@@ -1035,33 +1041,33 @@ ALTER TABLE `company`
   ADD KEY `id_akun` (`id_akun`);
 
 --
--- Indeks untuk tabel `industri`
+-- Indexes for table `industri`
 --
 ALTER TABLE `industri`
   ADD PRIMARY KEY (`id_industri`);
 
 --
--- Indeks untuk tabel `joblist`
+-- Indexes for table `joblist`
 --
 ALTER TABLE `joblist`
   ADD PRIMARY KEY (`id_joblist`),
   ADD KEY `perusahaan` (`perusahaan`);
 
 --
--- Indeks untuk tabel `jobseeker`
+-- Indexes for table `jobseeker`
 --
 ALTER TABLE `jobseeker`
   ADD PRIMARY KEY (`id_jobseeker`),
   ADD KEY `id_akun` (`id_akun`);
 
 --
--- Indeks untuk tabel `kabupaten`
+-- Indexes for table `kabupaten`
 --
 ALTER TABLE `kabupaten`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `lamaran`
+-- Indexes for table `lamaran`
 --
 ALTER TABLE `lamaran`
   ADD PRIMARY KEY (`id_lamaran`),
@@ -1069,38 +1075,38 @@ ALTER TABLE `lamaran`
   ADD KEY `id_jobseeker` (`id_jobseeker`);
 
 --
--- Indeks untuk tabel `peserta_careerday`
+-- Indexes for table `peserta_careerday`
 --
 ALTER TABLE `peserta_careerday`
   ADD PRIMARY KEY (`id_pendaftar`),
   ADD KEY `id_event` (`id_event`);
 
 --
--- Indeks untuk tabel `provinsi`
+-- Indexes for table `provinsi`
 --
 ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `requirement_berkas`
+-- Indexes for table `requirement_berkas`
 --
 ALTER TABLE `requirement_berkas`
   ADD PRIMARY KEY (`id_requirement`);
 
 --
--- Indeks untuk tabel `requirement_jurusan`
+-- Indexes for table `requirement_jurusan`
 --
 ALTER TABLE `requirement_jurusan`
   ADD PRIMARY KEY (`id_requirement`);
 
 --
--- Indeks untuk tabel `tbl_berita`
+-- Indexes for table `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
   ADD PRIMARY KEY (`berita_id`);
 
 --
--- Indeks untuk tabel `tb_detail_req_brks`
+-- Indexes for table `tb_detail_req_brks`
 --
 ALTER TABLE `tb_detail_req_brks`
   ADD PRIMARY KEY (`id_detail_req`),
@@ -1108,7 +1114,7 @@ ALTER TABLE `tb_detail_req_brks`
   ADD KEY `id_joblist` (`id_joblist`);
 
 --
--- Indeks untuk tabel `tb_detail_req_jrsn`
+-- Indexes for table `tb_detail_req_jrsn`
 --
 ALTER TABLE `tb_detail_req_jrsn`
   ADD PRIMARY KEY (`id_detail_req`),
@@ -1116,111 +1122,111 @@ ALTER TABLE `tb_detail_req_jrsn`
   ADD KEY `id_requirement` (`id_requirement`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_akun`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `calendar`
+-- AUTO_INCREMENT for table `calendar`
 --
 ALTER TABLE `calendar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
--- AUTO_INCREMENT untuk tabel `company`
+-- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_perusahaan` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `industri`
+-- AUTO_INCREMENT for table `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_industri` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `joblist`
+-- AUTO_INCREMENT for table `joblist`
 --
 ALTER TABLE `joblist`
-  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_joblist` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `jobseeker`
+-- AUTO_INCREMENT for table `jobseeker`
 --
 ALTER TABLE `jobseeker`
   MODIFY `id_jobseeker` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `lamaran`
+-- AUTO_INCREMENT for table `lamaran`
 --
 ALTER TABLE `lamaran`
   MODIFY `id_lamaran` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `peserta_careerday`
+-- AUTO_INCREMENT for table `peserta_careerday`
 --
 ALTER TABLE `peserta_careerday`
   MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `requirement_berkas`
+-- AUTO_INCREMENT for table `requirement_berkas`
 --
 ALTER TABLE `requirement_berkas`
   MODIFY `id_requirement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `requirement_jurusan`
+-- AUTO_INCREMENT for table `requirement_jurusan`
 --
 ALTER TABLE `requirement_jurusan`
   MODIFY `id_requirement` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_berita`
+-- AUTO_INCREMENT for table `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
   MODIFY `berita_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_detail_req_brks`
+-- AUTO_INCREMENT for table `tb_detail_req_brks`
 --
 ALTER TABLE `tb_detail_req_brks`
   MODIFY `id_detail_req` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_detail_req_jrsn`
+-- AUTO_INCREMENT for table `tb_detail_req_jrsn`
 --
 ALTER TABLE `tb_detail_req_jrsn`
   MODIFY `id_detail_req` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_akun` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `admin`
+-- Constraints for table `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
 
 --
--- Ketidakleluasaan untuk tabel `company`
+-- Constraints for table `company`
 --
 ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`id_industri`) REFERENCES `industri` (`id_industri`) ON UPDATE CASCADE,
@@ -1229,39 +1235,39 @@ ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_4` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
 
 --
--- Ketidakleluasaan untuk tabel `joblist`
+-- Constraints for table `joblist`
 --
 ALTER TABLE `joblist`
   ADD CONSTRAINT `joblist_ibfk_1` FOREIGN KEY (`perusahaan`) REFERENCES `company` (`Id_perusahaan`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `jobseeker`
+-- Constraints for table `jobseeker`
 --
 ALTER TABLE `jobseeker`
   ADD CONSTRAINT `jobseeker_ibfk_1` FOREIGN KEY (`id_akun`) REFERENCES `user` (`id_akun`);
 
 --
--- Ketidakleluasaan untuk tabel `lamaran`
+-- Constraints for table `lamaran`
 --
 ALTER TABLE `lamaran`
   ADD CONSTRAINT `lamaran_ibfk_4` FOREIGN KEY (`pekerjaan`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE,
   ADD CONSTRAINT `lamaran_ibfk_5` FOREIGN KEY (`id_jobseeker`) REFERENCES `jobseeker` (`id_jobseeker`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `peserta_careerday`
+-- Constraints for table `peserta_careerday`
 --
 ALTER TABLE `peserta_careerday`
   ADD CONSTRAINT `peserta_careerday_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `calendar` (`id`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_req_brks`
+-- Constraints for table `tb_detail_req_brks`
 --
 ALTER TABLE `tb_detail_req_brks`
   ADD CONSTRAINT `tb_detail_req_brks_ibfk_2` FOREIGN KEY (`id_requirement`) REFERENCES `requirement_berkas` (`id_requirement`) ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_detail_req_brks_ibfk_3` FOREIGN KEY (`id_joblist`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_req_jrsn`
+-- Constraints for table `tb_detail_req_jrsn`
 --
 ALTER TABLE `tb_detail_req_jrsn`
   ADD CONSTRAINT `tb_detail_req_jrsn_ibfk_1` FOREIGN KEY (`id_joblist`) REFERENCES `joblist` (`id_joblist`) ON UPDATE CASCADE,
